@@ -1,0 +1,107 @@
+$example-color-border: rgba(0,0,0,.1);
+$example-color-bg:     $color-temp-bg;
+$example-color-number: rgba(0,0,0,.2);
+$example-color-dimmed: rgba(0,0,0,.4);
+
+.example {
+
+  h1 {
+    font-size: $font-size-huge;
+    margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
+
+    & > small {
+      color: $example-color-dimmed;
+      font-size: $font-size-base;
+      font-weight: $font-weight-light;
+      margin-left: $spacer-size-default * .5;
+    }
+  }
+
+  h2 {
+    font-size: $font-size-large;
+    margin: 0 0 $spacer-size-default 0;
+  }
+
+  &__container {
+    max-width: 980px;
+    padding: 0 $spacer-size-default;
+    margin: 0 auto;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    flex: 1;
+  }
+
+  &__nav {
+    margin: $spacer-size-default 0 $spacer-size-default 0;
+    font-size: $font-size-small;
+  }
+
+  &__demo {
+    border: 1px solid $example-color-border;
+    padding: 16px;
+    background: $example-color-bg;
+
+    &::after {
+      display: table;
+      content: " ";
+      clear: both;
+    }
+
+    &--modal {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+  }
+
+  &__code {
+    margin: 0 0 $spacer-size-default 0;
+    padding: 8px 0 8px 48px;
+    counter-reset: code;
+    white-space: normal;
+    border: 1px solid $example-color-border;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: none;
+
+    & > code {
+      display: block;
+      margin-left: -100px;
+      padding: 0 0 0 100px;
+      width: calc(100% + 100px + 100px);
+      border-radius: 0;
+      background: 0 0;
+      line-height: 2;
+      white-space: pre;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      font-family: $font-family-monospace;
+      font-size: $font-size-tiny;
+
+      &:not(:only-child):before {
+        position: absolute;
+        margin-left: -2em;
+        color: $example-color-number;
+        counter-increment: code;
+        content: counter(code, decimal-leading-zero)
+      }
+    }
+  }
+
+  &__footer {
+    font-size: $font-size-tiny;
+    color: $example-color-dimmed;
+    padding: $spacer-size-default 0;
+  }
+
+  &__checkbox {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+}

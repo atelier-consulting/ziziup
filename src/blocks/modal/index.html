@@ -1,0 +1,133 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chativity Web Layouts v%VERSION% | Button</title>
+    <link rel="stylesheet" href="../../css/dev.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+    <div class="example__container">
+        <div class="example__nav">
+            <a href="../../index.html">&larr;&nbsp;Index</a>
+        </div>
+        <h1>Modal</h1>
+        <p>Modal is a dialog window that blocks access to underlying content.</p>
+        <h2>Default dialog</h2>
+        <p>Lot of content will cause dialog to scroll inside viewport.</p>
+        <div class="example__demo example__demo--modal">
+            <div class="modal">
+                <div class="modal__dialog">
+                    <div class="modal__header">
+                        <div class="modal__title">Dialog title</div>
+                        <button class="modal__closer">&times;</button>
+                    </div>
+                    <div class="modal__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus perferendis voluptates, corporis, ullam laborum, inventore aliquid officiis eius libero assumenda eos magnam recusandae vel earum labore ad maiores rem voluptas cupiditate consectetur?</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="button">Secondary action</button>
+                        <button class="button button--primary">Primary action</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre class="example__code">
+            <code class="html">&lt;div class=&quot;modal&quot;&gt;</code>
+            <code class="html">    &lt;div class=&quot;modal__dialog&quot;&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__header&quot;&gt;</code>
+            <code class="html">            &lt;div class=&quot;modal__title&quot;&gt;Dialog title&lt;/div&gt;</code>
+            <code class="html">            &lt;button class=&quot;modal__closer&quot;&gt;&amp;times;&lt;/button&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__content&quot;&gt;</code>
+            <code class="html">            &lt;p&gt;Lorem ipsum dolor...&lt;/p&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__footer&quot;&gt;</code>
+            <code class="html">            &lt;button class=&quot;button&quot;&gt;Secondary action&lt;/button&gt;</code>
+            <code class="html">            &lt;button class=&quot;button button--primary&quot;&gt;Primary action&lt;/button&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">    &lt;/div&gt;</code>
+            <code class="html">&lt;/div&gt;</code>
+        </pre>
+        <h2>Tall dialog</h2>
+        <p>Useful for alerts and dialogs with small amount of content.</p>
+        <div class="example__demo example__demo--modal">
+            <div class="modal">
+                <div class="modal__dialog modal__dialog--tall">
+                    <div class="modal__header">
+                        <div class="modal__title">Leaving chatroom</div>
+                    </div>
+                    <div class="modal__content">
+                        <p>Do you really want to leave chatroom?</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="button">No</button>
+                        <button class="button button--primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre class="example__code">
+            <code class="html">&lt;div class=&quot;modal&quot;&gt;</code>
+            <code class="html">    &lt;div class=&quot;modal__dialog <mark>modal__dialog--tall</mark>&quot;&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__header&quot;&gt;</code>
+            <code class="html">            &lt;div class=&quot;modal__title&quot;&gt;Leaving chatroom&lt;/div&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__content&quot;&gt;</code>
+            <code class="html">            &lt;p&gt;Do you really want to leave chatroom?&lt;/p&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__footer&quot;&gt;</code>
+            <code class="html">            &lt;button class=&quot;button&quot;&gt;No&lt;/button&gt;</code>
+            <code class="html">            &lt;button class=&quot;button button--primary&quot;&gt;Yes&lt;/button&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">    &lt;/div&gt;</code>
+            <code class="html">&lt;/div&gt;</code>
+        </pre>
+        <h2>Page-wide dialog</h2>
+        <p>Useful for huge amount of content or even layouts.</p>
+        <div class="example__demo example__demo--modal">
+            <div class="modal">
+                <div class="modal__dialog modal__dialog--wide">
+                    <div class="modal__header">
+                        <div class="modal__title">Dialog title</div>
+                        <button class="modal__closer">&times;</button>
+                    </div>
+                    <div class="modal__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolore sed dignissimos minima facilis odio alias modi praesentium, perspiciatis unde. Nam tempora molestiae voluptate soluta rerum aut. Ex neque facere, dolor deserunt, non repellendus dolorum laudantium adipisci aspernatur cupiditate ipsam quaerat quia vel repudiandae omnis quam officiis totam laboriosam id architecto. Impedit obcaecati beatae alias, suscipit ducimus esse corporis, ea quas voluptatem ab commodi distinctio, voluptatibus deleniti. Aliquam ea non, vitae quibusdam natus obcaecati labore hic reiciendis suscipit nihil nobis ad voluptate culpa ducimus quia illo, veniam facilis repellat magnam, consequatur quae? Culpa sunt rem, optio nostrum eveniet repudiandae sequi, officia eum ipsam beatae. Error ducimus voluptates ad, nam eius cumque earum tenetur nesciunt nisi, magnam voluptatum. Et atque dolorum velit porro earum pariatur ea mollitia. Eligendi, dignissimos cupiditate!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="button">Secondary action</button>
+                        <button class="button button--primary">Primary action</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre class="example__code">
+            <code class="html">&lt;div class=&quot;modal&quot;&gt;</code>
+            <code class="html">    &lt;div class=&quot;modal__dialog <mark>modal__dialog--wide</mark>&quot;&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__header&quot;&gt;</code>
+            <code class="html">            &lt;div class=&quot;modal__title&quot;&gt;Dialog title&lt;/div&gt;</code>
+            <code class="html">            &lt;button class=&quot;modal__closer&quot;&gt;&amp;times;&lt;/button&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__content&quot;&gt;</code>
+            <code class="html">            &lt;p&gt;Lorem ipsum dolor...&lt;/p&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">        &lt;div class=&quot;modal__footer&quot;&gt;</code>
+            <code class="html">            &lt;button class=&quot;button&quot;&gt;Secondary action&lt;/button&gt;</code>
+            <code class="html">            &lt;button class=&quot;button button--primary&quot;&gt;Primary action&lt;/button&gt;</code>
+            <code class="html">        &lt;/div&gt;</code>
+            <code class="html">    &lt;/div&gt;</code>
+            <code class="html">&lt;/div&gt;</code>
+        </pre>
+        <footer class="example__footer">
+            Chativity web layouts development version %VERSION%.
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
