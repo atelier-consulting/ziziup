@@ -17,6 +17,11 @@ This opens index.html in default browser and starts watcher, so all changes in
 reload. If you accidentally close browser window, you can find it at
 [http://localhost:3000](http://localhost:3000)
 
+#### Building for demo
+`npm run demo`
+
+This places completely independent demo version into `demo` folder.
+
 #### Building for production
 `npm run build`
 
