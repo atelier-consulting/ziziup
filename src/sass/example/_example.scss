@@ -22,6 +22,21 @@ $example-color-dimmed: rgba(0,0,0,.4);
     margin: 0 0 $spacer-size-default 0;
   }
 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & > li {
+      margin: 0;
+      padding: 0 0 $spacer-vertical-default;
+    }
+
+    li > ul {
+      padding-left: $spacer-width-checkbox;
+    }
+  }
+
   &__container {
     max-width: 980px;
     padding: 0 $spacer-size-default;
