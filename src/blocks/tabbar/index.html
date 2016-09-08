@@ -1,62 +1,64 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Chativity Web Layouts v%VERSION% | Tabbar</title>
-    <link rel="stylesheet" href="../../css/dev.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+  <meta charset="UTF-8">
+  <title>ZIZIUP Slicing v%VERSION% | Tabbar</title>
+  <link rel="stylesheet" href="../../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
 </head>
 <body class="example">
-    <div class="example__container">
-        <div class="example__nav">
-            <a href="../../index.html">&larr;&nbsp;Index</a>
-        </div>
-        <h1>Tabbar</h1>
-        <p>Tabbar is a set of clickable tabs that represent switching context of the app.</p>
-        <h2>Default tabbar with icons</h2>
-        <div class="example__demo">
-            <nav class="tabbar">
-                <div class="tabbar__tab">
-                    <i class="tabbar__icon tabbar__icon--chat"></i>Chat
-                </div>
-                <div class="tabbar__tab tabbar__tab--active">
-                    <i class="tabbar__icon tabbar__icon--turbopacks"></i>Turbopacks
-                </div>
-                <div class="tabbar__tab">
-                    <i class="tabbar__icon tabbar__icon--discover"></i>Discover
-                </div>
-                <div class="tabbar__tab">
-                    <i class="tabbar__icon tabbar__icon--favorites"></i>Favorites
-                </div>
-                <div class="tabbar__tab">
-                    <i class="tabbar__icon tabbar__icon--contact"></i>Contacts
-                </div>
-            </nav>
-        </div>
-        <pre class="example__code">
-            <code class="html">&lt;nav class=&quot;tabbar&quot;&gt;</code>
-            <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
-            <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--chat&quot;&gt;&lt;/i&gt;Chat</code>
-            <code class="html">    &lt;/div&gt;</code>
-            <code class="html">    &lt;div class=&quot;tabbar__tab tabbar__tab--active&quot;&gt;</code>
-            <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--turbopacks&quot;&gt;&lt;/i&gt;Turbopacks</code>
-            <code class="html">    &lt;/div&gt;</code>
-            <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
-            <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--discover&quot;&gt;&lt;/i&gt;Discover</code>
-            <code class="html">    &lt;/div&gt;</code>
-            <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
-            <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--favorites&quot;&gt;&lt;/i&gt;Favorites</code>
-            <code class="html">    &lt;/div&gt;</code>
-            <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
-            <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--contacts&quot;&gt;&lt;/i&gt;Contacts</code>
-            <code class="html">    &lt;/div&gt;</code>
-            <code class="html">&lt;/nav&gt;</code>
-        </pre>
-        <footer class="example__footer">
-            Chativity web layouts development version %VERSION%.
-        </footer>
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../../index.html">&larr;&nbsp;Index</a>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <h1>Tabbar</h1>
+    <p>Tabbar is a set of clickable tabs that represent switching context of the app.</p>
+
+    <h2>Default tabbar with icons</h2>
+    <div class="example__demo">
+      <nav class="tabbar">
+        <div class="tabbar__tab">
+          <i class="tabbar__icon tabbar__icon--chat"></i>Chat
+        </div>
+        <div class="tabbar__tab tabbar__tab--active">
+          <i class="tabbar__icon tabbar__icon--turbopacks"></i>Turbopacks
+        </div>
+        <div class="tabbar__tab">
+          <i class="tabbar__icon tabbar__icon--discover"></i>Discover
+        </div>
+        <div class="tabbar__tab">
+          <i class="tabbar__icon tabbar__icon--favorites"></i>Favorites
+        </div>
+        <div class="tabbar__tab">
+          <i class="tabbar__icon tabbar__icon--contact"></i>Contacts
+        </div>
+      </nav>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;nav class=&quot;tabbar&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--chat&quot;&gt;&lt;/i&gt;Chat</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;tabbar__tab tabbar__tab--active&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--turbopacks&quot;&gt;&lt;/i&gt;Turbopacks</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--discover&quot;&gt;&lt;/i&gt;Discover</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--favorites&quot;&gt;&lt;/i&gt;Favorites</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;tabbar__tab&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;tabbar__icon tabbar__icon--contacts&quot;&gt;&lt;/i&gt;Contacts</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">&lt;/nav&gt;</code>
+    </pre>
+    <footer class="example__footer">
+      Chativity web layouts development version %VERSION%.
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
