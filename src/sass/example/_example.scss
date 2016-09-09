@@ -25,7 +25,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
   ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: $spacer-vertical-small 0 0 0;
 
     & > li {
       margin: 0;
