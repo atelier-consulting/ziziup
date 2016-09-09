@@ -13,8 +13,9 @@ var VERSION = process.env.npm_package_version;
 var path = {
   src: {
     html: 'src/**/*.html',
-    scss: 'src/sass/dev.scss',
+    scss: 'src/sass/**/*.scss',
     scssPROD: 'src/sass/prod.scss',
+    scssDEMO: 'src/sass/demo.scss',
     img : 'src/img/*.*'
   },
   dev: {
@@ -56,18 +57,12 @@ gulp.task('build', function(){
   gulp.src(path.src.img)
     .pipe(gulp.dest(path.prod.img))
     ;
-
-  gulp.src(path.src.html)
-    .pipe(replace('%CSSPATH%', 'css/styles-v' + VERSION + '.min.css'))
-    .pipe(replace('%VERSION%', VERSION))
-    .pipe(gulp.dest(path.prod.html))
-    ;
 });
 
 gulp.task('demo', function(){
   del([path.demo.html]);
 
-  gulp.src(path.src.scss)
+  gulp.src(path.src.scssDEMO)
     .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(mini({keepSpecialComments: 0}))
     .pipe(rename('styles-v' + VERSION +'.min.css'))
