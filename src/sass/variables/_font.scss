@@ -5,14 +5,21 @@ $font-family-base:          $font-family-sans-serif !default;
 
 $font-size-root:            16px !default;
 
-$font-size-base:            1rem !default;
-$font-size-large:           1.25rem !default;
-$font-size-huge:            1.5rem !default;
-$font-size-small:           .85rem !default;
+$font-size-default:            1rem !default;
+$font-size-accent:            1.25rem !default;
+$font-size-big:             1.5rem !default;
+$font-size-large:           1.875rem !default;
+$font-size-huge:            3rem !default;
+$font-size-small:           .875rem !default;
 $font-size-tiny:            .75rem !default;
 
 $font-weight-base:          400 !default;
 $font-weight-light:         300 !default;
 $font-weight-bold:          500 !default;
 
-$line-height-base:          1.5 !default;
+$line-height-default:          1.5 !default;
+
+$letter-spacing-huge:       6px;
+$letter-spacing-large:       5.5px;
+$letter-spacing-big:       4px;
+$letter-spacing-accent:       2.5px;
