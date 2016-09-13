@@ -23,9 +23,9 @@ html {
 
 body {
   font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
   font-weight: $font-weight-base;
   color: $color-text-default;
-  background-color: $color-background-default;
+  background-color: $color-background-page;
 }

@@ -1,17 +1,41 @@
-$color-brand-primary:     #386681;
-$color-brand-highlight:   #fff;
-$color-brand-shadow:      #fff;
-$color-brand-accent:      #FF0F50;
+$color-brand-primary:        #DC4131;
 
-$color-background-default:        #fff;
+$color-background-darkest:   #272D2F;
+$color-background-darker:    #383838;
+$color-background-dark:      #4a4a4a;
+$color-background-default:   #ffffff;
+$color-background-page:      #f7f7f7;
+$color-background-light:     rgba(220,65,49,.2);
+$color-backgorund-lighter:   rgba(240,118,95,.2);
+$color-background-overlay:   rgba(255,255,255,.59);
 
-$color-text-default:         #333;
+$color-border-accent:        #f73939;
+$color-border-lighter:       #f0f0f0;
+$color-border-light:         #d2d2d2;
+$color-border-default:       #cccccc;
+$color-border-dotted1:       #e6e6e6;
+$color-border-dotted2:       #272D2F;
 
-$color-temp-bg:           rgba(255,0,255,.2);
-$color-temp-accent:       rgba(255,0,255,.5);
-$color-temp-inverse:      #fff;
+$color-shadow-accent:        rgba(220,65,48,.64);
 
-$color-link-default:      #00f;
-$color-link-hover:        #f00;
-$color-link-active:       #f00;
-$color-link-visited:      #f0f;
+$color-text-white:           #ffffff;
+$color-text-lightest:        #9b9b9b;
+$color-text-lighter:         #8e8e92;
+$color-text-light:           #666666;
+$color-text-default:         #4a4a4a;
+$color-text-dark:            #4a4a4a;
+$color-text-darker:          #1d1d26;
+
+$color-temp-bg:              rgba(255,0,255,.2);
+$color-temp-accent:          rgba(255,0,255,.5);
+$color-temp-inverse:         #ffffff;
+
+$color-link-default:         $color-brand-primary;
+$color-link-hover:           darken($color-brand-primary, 5);
+$color-link-active:          darken($color-brand-primary, 5);
+$color-link-visited:         lighten($color-brand-primary, 5);
+
+$color-gradient1-tl:         rgba(255,152,54,.64);
+$color-gradient1-br:         rgba(220,65,49,.64);
+$color-gradient2-tl:         rgba(247,73,32,.7);
+$color-gradient2-br:         rgba(254,38,15,.7);
