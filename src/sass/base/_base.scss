@@ -26,6 +26,28 @@ body {
   font-size: $font-size-default;
   line-height: $line-height-default;
   font-weight: $font-weight-base;
-  color: $color-text-default;
-  background-color: $color-background-page;
+  color: $color-text-darkest;
+  background-color: $color-background-default;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width-default + ($spacer-horizontal-page * 2);
+  padding: 0 $spacer-horizontal-page;
+
+  @media screen and (max-width: $viewport-tablet-portrait) {
+    max-width: $container-width-portrait + ($spacer-horizontal-page * 2);
+  }
+
+  @media screen and (min-width: $viewport-desktop-big) {
+    max-width: $container-width-big + ($spacer-horizontal-page * 2);
+  }
+
+  @media screen and (min-width: $viewport-desktop-large) {
+    max-width: $container-width-large + ($spacer-horizontal-page * 2);
+  }
+
+  @media screen and (min-width: $viewport-desktop-huge) {
+    max-width: $container-width-huge + ($spacer-horizontal-page * 2);
+  }
 }

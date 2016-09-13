@@ -1,24 +1,30 @@
-$icon-size-default:        24px;
+$icon-size-default:         24px;
 
-$spacer-size-default:      1rem;
-$spacer-width-checkbox:    1.35rem;
-$spacer-vertical-default:  .25rem;
-$spacer-vertical-small:    .125rem;
+$spacer-size-default:       1rem;
+$spacer-width-checkbox:     1.35rem;
+$spacer-vertical-paragraph: 1.5rem;
+$spacer-vertical-large:     .75rem;
+$spacer-vertical-big:       .5rem;
+$spacer-vertical-default:   .25rem;
+$spacer-vertical-small:     .125rem;
+$spacer-horizontal-page:    1rem;
 
-$container-width-huge:     1600px;
-$container-width-large:    1440px;
-$container-width-big:      1180px;
-$container-width-default:  980px;
-$container-width-default:  980px;
+$max-width-paragraph:       54em;
 
-$viewport-desktop-huge:    1920px;
-$viewport-desktop-large:   1600px;
-$viewport-desktop-big:     1366px;
-$viewport-desktop-default: 1024px;
+$container-width-huge:      100rem;
+$container-width-large:     90rem;
+$container-width-big:       73.75rem;
+$container-width-default:   61.25rem;
+$container-width-portrait:  46.125rem;
 
-$viewport-tablet-portrait: 768px;
-$viewport-phone-landscape: 640px;
-$viewport-phone-portrait:  320px;
+$viewport-desktop-huge:     1920px;
+$viewport-desktop-large:    1600px;
+$viewport-desktop-big:      1366px;
+$viewport-desktop-default:  1024px;
 
-$thumbnail-size-default:   200px;
-$thumbnail-size-circle:    200px;
+$viewport-tablet-portrait:  768px;
+$viewport-phone-landscape:  640px;
+$viewport-phone-portrait:   320px;
+
+$thumbnail-size-default:    200px;
+$thumbnail-size-circle:     200px;
