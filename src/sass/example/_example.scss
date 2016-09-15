@@ -19,7 +19,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   h2 {
     font-size: $font-size-large;
-    margin: 0 0 $spacer-size-default 0;
+    margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
   }
 
   ul {

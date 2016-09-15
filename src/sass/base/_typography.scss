@@ -46,17 +46,21 @@ p {
 blockquote {
   quotes: "“" "”" "‘" "’";
   width: 100%;
-  padding: 0;
+  padding: $spacer-vertical-paragraph 0 0 0;
   margin: 0;
   background: $color-background-page;
   color: $color-text-default;
   text-transform: capitalize;
   font-size: $font-size-blockquote;
 
+  & > .thumbnail--avatar {
+    margin: 0 auto;
+  }
+
   & > p {
     margin: 0;
     text-align: center;
-    padding: $spacer-size-default $spacer-horizontal-page $spacer-vertical-paragraph;
+    padding: 0 $spacer-horizontal-page $spacer-vertical-paragraph;
   }
 
   & > p::before {
@@ -77,5 +81,14 @@ blockquote {
     color: $color-text-lightest;
     line-height: 1.5rem;
     margin: 0 0 0 $spacer-horizontal-page;
+  }
+
+  & > cite {
+    display: block;
+    margin: $spacer-vertical-big 0;
+    font-style: normal;
+    font-size: $font-size-default;
+    color: $color-text-lighter;
+    text-align: center;
   }
 }
