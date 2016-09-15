@@ -1,0 +1,44 @@
+.thumbnail {
+  position: relative;
+  width: $thumbnail-size-default;
+  height: $thumbnail-size-default;
+  overflow: hidden;
+  margin: 0 0 $spacer-size-default 0;
+
+  & > img {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  &--portrait > img {
+    width: 100%;
+    height: auto;
+  }
+
+  &--circle {
+    width: $thumbnail-size-circle;
+    height: $thumbnail-size-circle;
+    border-radius: 50%;
+
+    & > img {
+      border-radius: 50%;
+    }
+  }
+
+  &--avatar {
+    width: $thumbnail-size-avatar;
+    height: $thumbnail-size-avatar;
+    border-radius: 50%;
+
+    & > img {
+      border-radius: 50%;
+    }
+  }
+}
