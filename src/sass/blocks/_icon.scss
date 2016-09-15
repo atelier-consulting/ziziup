@@ -1,0 +1,15 @@
+.icon {
+  display: inline-block;
+  width: $icon-size-default;
+  height: $icon-size-default;
+  background-size: $icon-size-default $icon-size-default;
+  background-repeat: no-repeat;
+
+  &--bag {
+    background-image: url("../img/icon-bag.png")
+  }
+
+  &--search {
+    background-image: url("../img/icon-search.png")
+  }
+}

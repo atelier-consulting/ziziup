@@ -25,11 +25,11 @@ $example-color-dimmed: rgba(0,0,0,.4);
   ul {
     list-style: none;
     margin: 0;
-    padding: $spacer-vertical-small 0 0 0;
+    padding: $spacer-size-tiny 0 0 0;
 
     & > li {
       margin: 0;
-      padding: 0 0 $spacer-vertical-default;
+      padding: 0 0 $spacer-size-small;
     }
 
     li > ul {

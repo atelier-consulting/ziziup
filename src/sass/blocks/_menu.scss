@@ -56,6 +56,21 @@
       background-repeat: no-repeat;
       text-indent: -3999px;
     }
+
+    &--settings {
+      font-size: $font-size-small;
+    }
+
+    &--auth {
+      font-size: $font-size-small;
+      color: $color-text-default;
+    }
+
+    &--actions {
+      & > .button {
+        margin: 0 0 0 $spacer-size-small;
+      }
+    }
   }
 
 }

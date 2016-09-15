@@ -1,0 +1,32 @@
+.button {
+  text-decoration: none;
+
+  &--store {
+    display: inline-block;
+    vertical-align: middle;
+    width: 135px;
+    height: 40px;
+    margin: 0 $spacer-size-small 0 0;
+    background-repeat: no-repeat;
+    background-size: 135px 40px;
+
+    &.button--app-store {
+      background-image: url("../img/app-store.svg");
+    }
+
+    &.button--play-store {
+      background-image: url("../img/play-store.png");
+    }
+
+    &.button--chrome-store {
+      background-image: url("../img/chrome-store.png");
+    }
+  }
+
+  &--icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: $icon-size-default;
+    width: $icon-size-default;
+  }
+}
