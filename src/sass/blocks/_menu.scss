@@ -57,8 +57,14 @@
       text-indent: -3999px;
     }
 
-    &--settings {
+    &--location {
       font-size: $font-size-small;
+      padding: $spacer-size-default * 1.675 0 0 0;
+    }
+
+    &--lang {
+      font-size: $font-size-small;
+      padding: $spacer-size-default * 1.675 $spacer-size-default 0 0;
     }
 
     &--auth {

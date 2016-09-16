@@ -22,7 +22,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
     margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
   }
 
-  ul {
+  &__list {
     list-style: none;
     margin: 0;
     padding: $spacer-size-tiny 0 0 0;

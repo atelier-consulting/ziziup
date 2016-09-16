@@ -4,12 +4,58 @@
   height: $icon-size-default;
   background-size: $icon-size-default $icon-size-default;
   background-repeat: no-repeat;
+  vertical-align: middle;
 
+  // Sizes
+  &--small {
+    width: $icon-size-small;
+    height: $icon-size-small;
+    background-size: $icon-size-small $icon-size-small;
+  }
+
+  // Images
   &--bag {
-    background-image: url("../img/icon-bag.png")
+    background-image: url("../img/icon-bag.png");
   }
 
   &--search {
-    background-image: url("../img/icon-search.png")
+    background-image: url("../img/icon-search.png");
+  }
+
+  &--location {
+    background-image: url("../img/icon-location.png");
+  }
+
+  &--caret-alt {
+    background-image: url("../img/icon-caret-alt.png");
+  }
+
+  // Flags
+  &--flag {
+    width: $icon-size-tiny;
+    height: $icon-size-mini;
+    background-size: $icon-size-tiny $icon-size-mini;
+    margin: 0 $spacer-size-small 0 0;
+    vertical-align: baseline;
+  }
+
+  &--flag-uk {
+    background-image: url("../img/flag-united-kingdom@2x.png");
+  }
+
+  &--flag-ue {
+    background-image: url("../img/flag-united-arab-emirates@2x.png");
+  }
+
+  &--flag-ua {
+    background-image: url("../img/flag-ukraine@2x.png");
+  }
+
+  &--flag-it {
+    background-image: url("../img/flag-italy@2x.png");
+  }
+
+  &--flag-fr {
+    background-image: url("../img/flag-france@2x.png");
   }
 }

@@ -1,0 +1,102 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  &__button {
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  &__value {
+    display: inline-block;
+    vertical-align: top;
+    height: 24px;
+  }
+
+  &__scrollpane {
+    // display: none;
+    width: 200px;
+    height: 220px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.27);
+    position: absolute;
+    top: 24px;
+    left: 0;
+    overflow: hidden;
+    background: $color-background-default;
+
+    &--lang {
+      left: -1 * $spacer-size-default;
+      width: 160px;
+      height: 160px;
+      padding: $spacer-size-big 0;
+    }
+  }
+
+  &__searchbar {
+    position: fixed;
+    height: 40px;
+    width: 200px;
+    background: $color-background-default;
+
+    & > input[type=search] {
+      box-sizing: border-box;
+      border: 0;
+      height: 32px;
+      width: 180px;
+      margin: $spacer-size-small 0 0 $spacer-size-big;
+      padding: 0 $icon-size-large 0 $icon-size-large;
+      border-radius: 16px;
+      outline: none;
+      background-color: $color-border-lightest;
+      background-image: url("../img/icon-search-alt.png");
+      background-size: $icon-size-large $icon-size-small;
+      background-repeat: no-repeat;
+      background-position: left center;
+      text-align: center;
+    }
+  }
+
+  &__options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 180px;
+    overflow: scroll;
+
+    &--search {
+      margin: 40px 0 0 0;
+    }
+  }
+
+  &__optgroup {
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0 $spacer-size-default;
+    font-size: $font-size-default;
+    font-weight: $font-weight-bold;
+    cursor: default;
+  }
+
+  &__option {
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0 $spacer-size-default;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-border-lightest;
+    }
+
+    &--selected {
+      background-color: $color-border-lightest;
+      background-image: url("../img/icon-tick.png");
+      background-size: $icon-size-default $icon-size-tiny;
+      background-repeat: no-repeat;
+      background-position: center right;
+      cursor: default;
+    }
+  }
+}
