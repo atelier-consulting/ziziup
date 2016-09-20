@@ -4,6 +4,7 @@
   height: $icon-size-default;
   background-size: $icon-size-default $icon-size-default;
   background-repeat: no-repeat;
+  background-position: center center;
   vertical-align: middle;
 
   // Sizes
@@ -11,6 +12,16 @@
     width: $icon-size-small;
     height: $icon-size-small;
     background-size: $icon-size-small $icon-size-small;
+  }
+
+  &--tiny {
+    width: $icon-size-tiny ;
+    height: $icon-size-tiny ;
+    background-size: $icon-size-tiny $icon-size-tiny ;
+  }
+
+  &--payment {
+    height: $icon-size-tiny;
   }
 
   // Images
@@ -26,8 +37,54 @@
     background-image: url("../img/icon-location.png");
   }
 
+  &--caret {
+    margin: 0 0 0 -1 * $spacer-size-small;
+    background-image: url("../img/icon-caret.png");
+  }
+
   &--caret-alt {
+    margin: 0 0 0 -1 * $spacer-size-small;
     background-image: url("../img/icon-caret-alt.png");
+  }
+
+  &--user {
+    background-image: url("../img/icon-user.png");
+  }
+
+  &--tick-alt {
+    background-image: url("../img/icon-tick-alt.png");
+  }
+
+  &--track {
+    background-image: url("../img/icon-track.png");
+  }
+
+  &--pickup {
+    background-image: url("../img/icon-pickup.png");
+  }
+
+  &--toggle {
+    margin: 0 $spacer-size-default * 2 0 0;
+    background-image: url("../img/icon-toggle.png");
+  }
+
+  // Payment
+  &--visa {
+    width: $icon-size-large;
+    background-size: $icon-size-large $icon-size-tiny;
+    background-image: url("../img/icon-visa.png");
+  }
+
+  &--mastercard {
+    width: $icon-size-large;
+    background-size: $icon-size-large $icon-size-tiny;
+    background-image: url("../img/icon-mastercard.png");
+  }
+
+  &--paypal {
+    width: $icon-size-huge;
+    background-size: $icon-size-huge $icon-size-tiny;
+    background-image: url("../img/icon-paypal.png");
   }
 
   // Flags

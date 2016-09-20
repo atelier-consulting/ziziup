@@ -1,36 +1,31 @@
 .tabbar {
-    display: flex;
-    background: $color-background-default;
-    height: 3.5 * $font-size-default;
+  width: 100%;
+  display: flex;
+  background: $color-background-default;
+  justify-content: space-between;
 
-    &__tab {
-        flex: 1;
-        text-align: center;
-        vertical-align: middle;
-        height: 3.5 * $font-size-default;
-        line-height: 3.5 * $font-size-default;
-        padding-right: .5rem;
-        cursor: pointer;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+  &__tab {
+    text-align: center;
+    text-decoration: none;
+    color: $color-text-default;
+    font-size: $font-size-small;
+    vertical-align: middle;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-        &:hover {
-            border-bottom: 3px solid $color-temp-accent;
-        }
 
-        &--active {
-            border-bottom: 3px solid $color-temp-accent;
-            cursor: default;
-        }
+    &:hover {
+      border-bottom: 3px solid $color-brand-primary;
     }
 
-    &__icon {
-        display: inline-block;
-        width: $icon-size-default;
-        height: $icon-size-default;
-        vertical-align: middle;
-        margin: 0 .5rem .25rem;
-        background: $color-temp-accent;
+    &--active {
+      border-bottom: 3px solid $color-brand-primary;
+      cursor: default;
     }
+  }
 }

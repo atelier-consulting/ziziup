@@ -104,6 +104,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
         margin-left: -2em;
         color: $example-color-number;
         counter-increment: code;
+        text-align: right;
         content: counter(code, decimal-leading-zero)
       }
     }
