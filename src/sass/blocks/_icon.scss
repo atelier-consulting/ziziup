@@ -1,0 +1,118 @@
+.icon {
+  display: inline-block;
+  width: $icon-size-default;
+  height: $icon-size-default;
+  background-size: $icon-size-default $icon-size-default;
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+
+  // Sizes
+  &--small {
+    width: $icon-size-small;
+    height: $icon-size-small;
+    background-size: $icon-size-small $icon-size-small;
+  }
+
+  &--tiny {
+    width: $icon-size-tiny ;
+    height: $icon-size-tiny ;
+    background-size: $icon-size-tiny $icon-size-tiny ;
+  }
+
+  &--payment {
+    height: $icon-size-tiny;
+  }
+
+  // Images
+  &--bag {
+    background-image: url("../img/icon-bag.png");
+  }
+
+  &--search {
+    background-image: url("../img/icon-search.png");
+  }
+
+  &--location {
+    background-image: url("../img/icon-location.png");
+  }
+
+  &--caret {
+    margin: 0 0 0 -1 * $spacer-size-small;
+    background-image: url("../img/icon-caret.png");
+  }
+
+  &--caret-alt {
+    margin: 0 0 0 -1 * $spacer-size-small;
+    background-image: url("../img/icon-caret-alt.png");
+  }
+
+  &--user {
+    background-image: url("../img/icon-user.png");
+  }
+
+  &--tick-alt {
+    background-image: url("../img/icon-tick-alt.png");
+  }
+
+  &--track {
+    background-image: url("../img/icon-track.png");
+  }
+
+  &--pickup {
+    background-image: url("../img/icon-pickup.png");
+  }
+
+  &--toggle {
+    margin: 0 $spacer-size-default * 2 0 0;
+    background-image: url("../img/icon-toggle.png");
+  }
+
+  // Payment
+  &--visa {
+    width: $icon-size-large;
+    background-size: $icon-size-large $icon-size-tiny;
+    background-image: url("../img/icon-visa.png");
+  }
+
+  &--mastercard {
+    width: $icon-size-large;
+    background-size: $icon-size-large $icon-size-tiny;
+    background-image: url("../img/icon-mastercard.png");
+  }
+
+  &--paypal {
+    width: $icon-size-huge;
+    background-size: $icon-size-huge $icon-size-tiny;
+    background-image: url("../img/icon-paypal.png");
+  }
+
+  // Flags
+  &--flag {
+    width: $icon-size-tiny;
+    height: $icon-size-mini;
+    background-size: $icon-size-tiny $icon-size-mini;
+    margin: 0 $spacer-size-small 0 0;
+    vertical-align: baseline;
+  }
+
+  &--flag-uk {
+    background-image: url("../img/flag-united-kingdom@2x.png");
+  }
+
+  &--flag-ue {
+    background-image: url("../img/flag-united-arab-emirates@2x.png");
+  }
+
+  &--flag-ua {
+    background-image: url("../img/flag-ukraine@2x.png");
+  }
+
+  &--flag-it {
+    background-image: url("../img/flag-italy@2x.png");
+  }
+
+  &--flag-fr {
+    background-image: url("../img/flag-france@2x.png");
+  }
+}

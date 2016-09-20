@@ -1,0 +1,97 @@
+.menu {
+  width: 100%;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+
+  // Layout
+  &__floor {
+
+    & > .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &--secondary {
+      background: $color-background-darker;
+
+      & > .container {
+        color: $color-text-white;
+        font-size: $font-size-tiny;
+        justify-content: flex-end;
+      }
+
+      & .menu__module {
+        height: 30px;
+        line-height: 30px;
+        padding-left: $spacer-size-default;
+        cursor: pointer;
+      }
+    }
+
+    &--primary {
+      background: $color-background-default;
+      border-bottom: 1px solid $color-background-page;
+
+      & > .container {
+        justify-content: space-between;
+      }
+
+      & .menu__module {
+        height: 80px;
+        line-height: 80px;
+
+        @media screen and (max-width: $viewport-phone-landscape) {
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+    }
+
+    &--tabs {
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
+    }
+  }
+
+  // Elements
+  &__module {
+
+    &--base {
+      @media screen and (max-width: $viewport-tablet-portrait) {
+        flex-grow: 1;
+      }
+    }
+
+
+    &--apps {
+      padding: 0 0 0 $spacer-size-default * 2;
+    }
+
+    &--settings {
+      font-size: $font-size-small;
+
+      & > .dropdown {
+        margin: 0 0 0 $spacer-size-big;
+      }
+    }
+
+    &--actions {
+      font-size: $font-size-small;
+      text-align: right;
+      padding: 0 0 0$spacer-size-default;
+
+      & > .button {
+        margin: 0 0 0 $spacer-size-small;
+      }
+
+      & > .dropdown {
+        margin-right: $spacer-size-default;
+      }
+    }
+
+  }
+
+}

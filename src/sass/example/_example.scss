@@ -22,14 +22,14 @@ $example-color-dimmed: rgba(0,0,0,.4);
     margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
   }
 
-  ul {
+  &__list {
     list-style: none;
     margin: 0;
-    padding: $spacer-vertical-small 0 0 0;
+    padding: $spacer-size-tiny 0 0 0;
 
     & > li {
       margin: 0;
-      padding: 0 0 $spacer-vertical-default;
+      padding: 0 0 $spacer-size-small;
     }
 
     li > ul {
@@ -104,6 +104,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
         margin-left: -2em;
         color: $example-color-number;
         counter-increment: code;
+        text-align: right;
         content: counter(code, decimal-leading-zero)
       }
     }

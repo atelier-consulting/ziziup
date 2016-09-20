@@ -1,0 +1,11 @@
+.divider {
+  display: inline-block;
+  vertical-align: middle;
+
+  &--vertical {
+    width: 1px;
+    height: 36px;
+    background: $color-border-lighter;
+    margin: 1.375 * $spacer-size-default 0;
+  }
+}
