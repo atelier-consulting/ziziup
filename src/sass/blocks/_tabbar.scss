@@ -2,13 +2,29 @@
   width: 100%;
   display: flex;
   background: $color-background-default;
-  justify-content: space-between;
+  border-bottom: 1px solid $color-border-lightest;
+
+  &--main {
+    justify-content: space-between;
+    border-bottom: none;
+
+    .tabbar__tab {
+      flex: initial;
+      letter-spacing: 0.0625rem;
+      color: $color-text-default;
+
+
+    }
+  }
 
   &__tab {
+    display: block;
+    flex: 1;
     text-align: center;
     text-decoration: none;
-    color: $color-text-default;
+    color: $color-text-lightest;
     font-size: $font-size-small;
+    letter-spacing: 0.1875rem;
     vertical-align: middle;
     height: 44px;
     line-height: 44px;
@@ -21,11 +37,13 @@
 
     &:hover {
       border-bottom: 3px solid $color-brand-primary;
+      color: $color-text-default;
     }
 
     &--active {
       border-bottom: 3px solid $color-brand-primary;
       cursor: default;
+      color: $color-text-default;
     }
   }
 }

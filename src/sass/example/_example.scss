@@ -1,5 +1,5 @@
 $example-color-border: rgba(0,0,0,.1);
-$example-color-bg:     $color-temp-bg;
+$example-color-bg:     white;
 $example-color-number: rgba(0,0,0,.2);
 $example-color-dimmed: rgba(0,0,0,.4);
 
@@ -58,7 +58,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   &__demo {
     border: 1px solid $example-color-border;
-    padding: 16px;
+    padding: 24px;
     background: $example-color-bg;
 
     &::after {

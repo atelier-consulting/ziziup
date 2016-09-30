@@ -86,7 +86,6 @@ body {
 }
 
 .show-on-large {
-  // display: none;
   @media screen and (max-width: $viewport-desktop-big) {
     display: none !important;
   }
