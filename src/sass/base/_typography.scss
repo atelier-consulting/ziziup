@@ -16,6 +16,17 @@ h1 {
   font-size: $font-size-huge;
   letter-spacing: $letter-spacing-huge;
   line-height: $line-height-huge;
+
+  @media screen and (max-width: $viewport-desktop-default) {
+    font-size: $font-size-huge-tablet;
+    line-height: $line-height-huge-tablet;
+  }
+
+  @media screen and (max-width: $viewport-phone-landscape) {
+    font-size: $font-size-huge-phone;
+    line-height: $line-height-huge-phone;
+    letter-spacing: $letter-spacing-huge-phone;
+  }
 }
 
 h2 {

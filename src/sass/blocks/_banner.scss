@@ -1,0 +1,73 @@
+.banner {
+  width: 100%;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+
+  margin: 0;
+  padding: 0;
+  height: 12.5rem;
+  color: $color-text-white;
+
+  background: rgba(255,255,255,0.59);
+  background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%), url("../img/banner-bg-gifts.jpg");
+  background-position: center center;
+  background-size: auto 100%;
+
+  @media screen and (max-width: $viewport-desktop-default) {
+    height: 8rem;
+  }
+
+  @media screen and (max-width: $viewport-tablet-portrait) {
+    height: 6.0625rem;
+    background-size: auto 125%;
+  }
+
+  @media screen and (max-width: $viewport-phone-landscape) {
+    height: 4.0625rem;
+  }
+
+  & > .container {
+    display: flex;
+    justify-content: space-between;
+
+      @media screen and (max-width: $viewport-tablet-portrait) {
+        flex-direction: column;
+      }
+  }
+
+  &__module {
+
+    &--image {
+      @media screen and (max-width: $viewport-desktop-default) {
+        display: none;
+      }
+    }
+
+    & > h1 {
+      color: $color-text-white;
+      margin: $spacer-size-default * 1.75 0 $spacer-size-small 0;
+      max-width: 20rem;
+
+      @media screen and (max-width: $viewport-desktop-default) {
+        max-width: none;
+      }
+
+      @media screen and (max-width: $viewport-tablet-portrait) {
+        text-align: center;
+      }
+
+      @media screen and (max-width: $viewport-phone-landscape) {
+        margin: $spacer-size-default * 1.375 0 0 0;
+      }
+    }
+
+    & > p {
+      @media screen and (max-width: $viewport-tablet-portrait) {
+        display: none;
+      }
+    }
+
+  }
+}

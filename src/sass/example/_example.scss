@@ -5,7 +5,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
 .example {
 
-  h1 {
+  &__header {
     font-size: $font-size-huge;
     margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
 
@@ -17,7 +17,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
     }
   }
 
-  h2 {
+  &__subheader {
     font-size: $font-size-large;
     margin: $spacer-size-default * 2.5 0 $spacer-size-default 0;
   }
