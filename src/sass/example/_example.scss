@@ -60,6 +60,8 @@ $example-color-dimmed: rgba(0,0,0,.4);
     border: 1px solid $example-color-border;
     padding: 24px;
     background: $example-color-bg;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
     &::after {
       display: table;
@@ -76,13 +78,17 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   &__code {
     margin: 0 0 $spacer-size-default 0;
-    padding: 8px 0 8px 48px;
+    padding: 16px 0 20px 48px;
     counter-reset: code;
     white-space: normal;
     border: 1px solid $example-color-border;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top: none;
+    border-radius: 5px;
+
+    .example__demo + & {
+      border-top: none;
+      border-top-left-radius: 0;
+      border-topright-radius: 0;
+    }
 
     & > code {
       display: block;
@@ -119,5 +125,19 @@ $example-color-dimmed: rgba(0,0,0,.4);
   &__checkbox {
     display: inline-block;
     margin-right: .25rem;
+  }
+
+  // Block styles for demo
+
+  .banner {
+    position: absolute;
+
+    &--gifts {
+      top: 275px;
+    }
+
+    &--sports {
+      top: 920px;
+    }
   }
 }

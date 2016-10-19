@@ -79,6 +79,14 @@ body {
   }
 }
 
+.show-on-portrait {
+  display: none !important;
+
+  @media screen and (max-width: $viewport-phone-landscape) {
+    display: inline-block !important;
+  }
+}
+
 .hide-on-mobile {
   @media screen and (max-width: $viewport-phone-landscape) {
     display: none !important;

@@ -8,15 +8,37 @@
     line-height: 24px;
     cursor: pointer;
 
+    &--rounded {
+      border-radius: 20px;
+
+      & > .icon {
+        line-height: 1;
+      }
+    }
+
+    &--bordered {
+      height: auto;
+      background: transparent;
+      border: 1px solid $color-border-transparent;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-default;
+    }
+
+    &--careted {
+      padding: 0 .75rem 0 1.875rem;
+    }
+
     &--large {
       height: 32px;
       line-height: 32px;
     }
+
+
   }
 
   &__value {
     display: inline-block;
-    height: 24px;
+    vertical-align: middle;
 
     &--accent {
       color: $color-brand-primary;
@@ -106,6 +128,10 @@
       background-repeat: no-repeat;
       background-position: center right;
       cursor: default;
+    }
+
+    & > .icon {
+      vertical-align: baseline;
     }
   }
 }

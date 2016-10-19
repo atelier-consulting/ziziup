@@ -47,6 +47,11 @@
     background-image: url("../img/icon-caret-alt.png");
   }
 
+  &--caret-white {
+    margin: 0 0 0 -1 * $spacer-size-small;
+    background-image: url("../img/icon-caret-white.png");
+  }
+
   &--user {
     background-image: url("../img/icon-user.png");
   }
@@ -93,7 +98,7 @@
     height: $icon-size-mini;
     background-size: $icon-size-tiny $icon-size-mini;
     margin: 0 $spacer-size-small 0 0;
-    vertical-align: baseline;
+    vertical-align: middle;
   }
 
   &--flag-uk {

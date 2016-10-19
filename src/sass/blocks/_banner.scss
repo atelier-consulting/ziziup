@@ -1,6 +1,6 @@
 .banner {
   width: 100%;
-  position: fixed;
+  position: absolute;
   z-index: 9;
   top: 0;
   left: 0;
@@ -10,10 +10,8 @@
   height: 12.5rem;
   color: $color-text-white;
 
-  background: rgba(255,255,255,0.59);
-  background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%), url("../img/banner-bg-gifts.jpg");
-  background-position: center center;
-  background-size: auto 100%;
+  background: $color-background-default;
+  background-repeat: no-repeat;
 
   @media screen and (max-width: $viewport-desktop-default) {
     height: 8rem;
@@ -36,6 +34,42 @@
         flex-direction: column;
       }
   }
+
+  &--category {
+    height: 9.375em;
+    background-position: right center;
+
+    @media screen and (max-width: $viewport-desktop-default) {
+      height: 8em;
+      background-size: auto 125%;
+    }
+
+    @media screen and (max-width: $viewport-tablet-portrait) {
+      height: 6.0625rem;
+    }
+
+    @media screen and (max-width: $viewport-phone-landscape) {
+      height: 3.4375rem;
+      background-size: auto 250%;
+    }
+
+    & > .container {
+      @media screen and (max-width: $viewport-desktop-default) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &--gifts {
+    background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%), url("../img/banner-bg-gifts.jpg");
+    background-position: center center;
+  }
+
+  &--sports {
+    background-image: linear-gradient(141deg, rgba(109,54,255,0.36) 0%, rgba(142,36,170,.7) 68%), url("../img/banner-bg-sports.jpg");
+  }
+
+
 
   &__module {
 
@@ -69,5 +103,69 @@
       }
     }
 
+    &--category {
+      line-height: 9.375rem;
+
+      @media screen and (max-width: $viewport-desktop-default) {
+        line-height: 5rem;
+      }
+
+      @media screen and (max-width: $viewport-tablet-portrait) {
+        line-height: 5.725rem;
+        text-align: center;
+      }
+
+      @media screen and (max-width: $viewport-phone-landscape) {
+        line-height: 3.25rem;
+
+        & > .dropdown--category {
+          display: none;
+        }
+      }
+
+
+      & > h1 {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 0 4rem;
+
+        @media screen and (max-width: $viewport-desktop-default) {
+          margin: 0 0 0 2rem;
+        }
+
+        @media screen and (max-width: $viewport-phone-landscape) {
+          // margin: 0 $spacer-size-default 0 0;
+          // line-height: 3.4375rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &--meta {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      text-align: left;
+
+      @media screen and (max-width: $viewport-desktop-default) {
+        flex-direction: row;
+      }
+
+      @media screen and (max-width: $viewport-phone-landscape) {
+        display: none;
+      }
+
+
+    }
+
   }
+
+  &__meta {
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-big;
+    line-height: $line-height-accent;
+    padding-right: 2.25rem;
+  }
+
 }

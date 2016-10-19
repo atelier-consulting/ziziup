@@ -5,32 +5,30 @@
   <link rel="stylesheet" href="../%CSSPATH%">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
 </head>
-<body class="example" style="margin-top: 240px;">
+<body class="example" >
   <div class="example__container">
     <div class="example__nav">
       <a href="../index.html">&larr;&nbsp;Index</a>
     </div>
     <h1 class="example__header">Banner</h1>
-    <p>Contains page title, description and controls</p>
+    <p>Contains page title, description, images and controls</p>
 
     <h2 class="example__subheader">Default banner</h2>
 
-    <!-- <div class="example__demo"> -->
-      <div class="banner">
-        <div class="container">
-          <div class="banner__module">
-            <h1>Ideas&nbsp;for a&nbsp;perfect&nbsp;gift</h1>
-            <p>The best samples from our experts</p>
-          </div>
-          <div class="banner__module banner__module--image">
-            <img src="../img/banner-image-gifts.png" srcset="../img/banner-image-gifts.png 1x, ../img/banner-image-gifts-2x.png 2x" alt="Gift boxes" />
-          </div>
+    <div class="banner banner--gifts">
+      <div class="container">
+        <div class="banner__module">
+          <h1>Ideas&nbsp;for a&nbsp;perfect&nbsp;gift</h1>
+          <p>The best samples from our experts</p>
+        </div>
+        <div class="banner__module banner__module--image">
+          <img src="../img/banner-image-gifts.png" srcset="../img/banner-image-gifts.png 1x, ../img/banner-image-gifts-2x.png 2x" alt="Gift boxes" />
         </div>
       </div>
-    <!-- </div> -->
+    </div>
 
-    <pre class="example__code">
-      <code class="html">&lt;div class=&quot;banner&quot;&gt;</code>
+    <pre class="example__code" style="margin-top: 250px;">
+      <code class="html">&lt;div class=&quot;banner banner--gifts&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;container&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;banner__module&quot;&gt;</code>
       <code class="html">      &lt;h1&gt;Ideas&amp;nbsp;for a&amp;nbsp;perfect&amp;nbsp;gift&lt;/h1&gt;</code>
@@ -38,6 +36,48 @@
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;banner__module banner__module--image&quot;&gt;</code>
       <code class="html">      &lt;img src=&quot;../img/banner-bg-gifts.png&quot; srcset=&quot;../img/banner-bg-gifts.png 1x, ../img/banner-bg-gifts-2x.png 2x&quot; alt=&quot;Gift boxes&quot; /&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Category banner</h2>
+
+    <div class="banner banner--category banner--sports">
+      <div class="container">
+        <div class="banner__module banner__module--category">
+          <div class="dropdown dropdown--category">
+            <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
+              <span class="dropdown__value">Categories</span>
+              <i class="icon icon--caret-white"></i>
+            </div>
+          </div>
+          <h1>Sports</h1>
+          <i class="icon icon--caret-white show-on-portrait"></i>
+        </div>
+        <div class="banner__module banner__module--meta">
+          <div class="banner__meta">14 stores</div>
+          <div class="banner__meta">234 orders this week</div>
+        </div>
+      </div>
+    </div>
+
+    <pre class="example__code" style="margin-top: 220px;">
+      <code class="html">&lt;div class=&quot;banner <mark>banner--category</mark> banner--sports&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;container&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;banner__module banner__module--category&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;dropdown dropdown--category&quot;&gt;</code>
+      <code class="html">        &lt;div class=&quot;dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted&quot;&gt;</code>
+      <code class="html">          &lt;span class=&quot;dropdown__value&quot;&gt;Categories&lt;/span&gt;</code>
+      <code class="html">          &lt;i class=&quot;icon icon--caret-white&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;h1&gt;Sports&lt;/h1&gt;</code>
+      <code class="html">      &lt;i class=&quot;icon icon--caret-white show-on-portrait&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;banner__module banner__module--meta&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;banner__meta&quot;&gt;14 stores&lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;banner__meta&quot;&gt;234 orders this week&lt;/div&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">  &lt;/div&gt;</code>
       <code class="html">&lt;/div&gt;</code>
