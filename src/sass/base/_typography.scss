@@ -46,6 +46,14 @@ h4 {
   letter-spacing: $letter-spacing-accent;
   line-height: $line-height-accent;
   color: $color-text-default;
+
+  & > small {
+    font-size: $font-size-small;
+    color: $color-text-lightest;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0 0 0 $spacer-size-big;
+  }
 }
 
 p {
