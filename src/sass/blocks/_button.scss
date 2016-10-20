@@ -1,11 +1,14 @@
 .button {
+  display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-default;
   font-size: $font-size-tiny;
   color: $color-text-darker;
   font-weight: $font-weight-bold;
-  padding: $spacer-size-small $spacer-size-default;
+  padding: 0 $spacer-size-default;
+  height: 26px;
+  line-height: 26px;
 
   &--bordered {
     border: 1px solid $color-border-light;

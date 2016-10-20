@@ -48,7 +48,6 @@
   }
 
   &--caret-white {
-    margin: 0 0 0 -1 * $spacer-size-small;
     background-image: url("../img/icon-caret-white.png");
   }
 
@@ -71,6 +70,10 @@
   &--toggle {
     margin: 0 $spacer-size-default * 2 0 0;
     background-image: url("../img/icon-toggle.png");
+  }
+
+  &--filters {
+    background-image: url("../img/icon-filters.png");
   }
 
   // Payment
