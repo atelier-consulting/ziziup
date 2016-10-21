@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-flow: row wrap;
 
   &__module {
+      flex: 0 0 auto;
 
     & > h4 {
       display: inline-block;
@@ -13,6 +15,17 @@
 
     & > .button:last-child {
       margin: 0 0 0 2 * $spacer-size-default;
+
+      @media screen and (max-width: $viewport-desktop-default) {
+        margin: 0 0 0 $spacer-size-large;
+      }
+    }
+
+
+    @media screen and (max-width: $viewport-tablet-portrait) {
+      flex: 0 0 100%;
+      text-align: center;
+      padding: $spacer-size-big 0;
     }
   }
 }

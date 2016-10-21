@@ -76,6 +76,10 @@
     background-image: url("../img/icon-filters.png");
   }
 
+  &--cross {
+    background-image: url("../img/icon-cross.png");
+  }
+
   // Payment
   &--visa {
     width: $icon-size-large;

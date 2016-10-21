@@ -48,4 +48,24 @@
     height: $icon-size-default;
     width: $icon-size-default;
   }
+
+  &--icon-on-mobile {
+
+    & > .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: $viewport-phone-landscape) {
+      margin: 0;
+      padding: 0;
+
+      & > span {
+        display: none;
+      }
+
+      & > .icon {
+        display: inline-block;
+      }
+    }
+  }
 }

@@ -18,9 +18,9 @@
     <div class="example__demo">
       <div class="heading">
         <div class="heading__module">
-          <h4>Stores with sales <small>(up to 60% discount)</small></h4>
+          <h4>Stores with sales<small class="hide-on-portrait"> (up to 60% discount)</small></h4>
         </div>
-        <div class="heading__module">
+        <div class="heading__module hide-on-portrait">
           <a href="#" class="button button--rounded button--bordered">See all</a>
         </div>
       </div>
@@ -41,18 +41,17 @@
       <div class="heading">
         <div class="heading__module">
           <h4>Stores list</h4>
+        </div>
+        <div class="heading__module">
           <div class="dropdown">
             <div class="dropdown__button dropdown__button--uppercase">
               <i class="icon icon--tiny icon--filters"></i>
-              <div class="dropdown__value">Filter by category</div>
+              <div class="dropdown__value">Filter </div>
+              <div class="dropdown__value hide-on-tablet">by category</div>
               <i class="icon icon--small icon--caret-alt"></i>
             </div>
           </div>
-        </div>
-        <div class="heading--module">
-          <div class="divider divider--small divider--vertical"></div>
-        </div>
-        <div class="heading__module">
+          <div class="divider divider--controls"></div>
           <div class="dropdown">
             <div class="dropdown__label">Sort by:</div>
             <div class="dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted">
@@ -60,7 +59,10 @@
               <i class="icon icon--small icon--caret-white"></i>
             </div>
           </div>
-          <a href="#" class="button button--rounded button--bordered">Clear all</a>
+          <a href="#" class="button button--rounded button--bordered button--icon-on-mobile">
+            <span>Clear all</span>
+            <i class="icon icon--small icon--cross"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -68,18 +70,17 @@
       <code class="html">&lt;div class=&quot;heading&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;heading__module&quot;&gt;</code>
       <code class="html">    &lt;h4&gt;Stores list&lt;/h4&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;heading__module&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;dropdown&quot;&gt;</code>
       <code class="html">      &lt;div class=&quot;dropdown__button dropdown__button--uppercase&quot;&gt;</code>
       <code class="html">        &lt;i class=&quot;icon icon--tiny icon--filters&quot;&gt;&lt;/i&gt;</code>
-      <code class="html">        &lt;div class=&quot;dropdown__value&quot;&gt;Filter by category&lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;dropdown__value&quot;&gt;Filter &lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;dropdown__value hide-on-tablet&quot;&gt;by category&lt;/div&gt;</code>
       <code class="html">        &lt;i class=&quot;icon icon--small icon--caret-alt&quot;&gt;&lt;/i&gt;</code>
       <code class="html">      &lt;/div&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
-      <code class="html">  &lt;/div&gt;</code>
-      <code class="html">  &lt;div class=&quot;heading--module&quot;&gt;</code>
-      <code class="html">    &lt;div class=&quot;divider divider--small divider--vertical&quot;&gt;&lt;/div&gt;</code>
-      <code class="html">  &lt;/div&gt;</code>
-      <code class="html">  &lt;div class=&quot;heading__module&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;divider divider--controls&quot;&gt;&lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;dropdown&quot;&gt;</code>
       <code class="html">      &lt;div class=&quot;dropdown__label&quot;&gt;Sort by:&lt;/div&gt;</code>
       <code class="html">      &lt;div class=&quot;dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted&quot;&gt;</code>
@@ -87,7 +88,10 @@
       <code class="html">        &lt;i class=&quot;icon icon--small icon--caret-white&quot;&gt;&lt;/i&gt;</code>
       <code class="html">      &lt;/div&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
-      <code class="html">    &lt;a href=&quot;#&quot; class=&quot;button button--rounded button--bordered&quot;&gt;Clear all&lt;/a&gt;</code>
+      <code class="html">    &lt;a href=&quot;#&quot; class=&quot;button button--rounded button--bordered button--icon-on-mobile&quot;&gt;</code>
+      <code class="html">      &lt;span&gt;Clear all&lt;/span&gt;</code>
+      <code class="html">      &lt;i class=&quot;icon icon--small icon--cross&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/a&gt;</code>
       <code class="html">  &lt;/div&gt;</code>
       <code class="html">&lt;/div&gt;</code>
     </pre>
