@@ -1,11 +1,29 @@
 .button {
+  display: inline-block;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-default;
+  font-size: $font-size-tiny;
+  color: $color-text-darker;
+  font-weight: $font-weight-bold;
+  padding: 0 $spacer-size-default;
+  height: 26px;
+  line-height: 26px;
+
+  &--bordered {
+    border: 1px solid $color-border-light;
+  }
+
+  &--rounded {
+    border-radius: 2.5rem;
+  }
 
   &--store {
     display: inline-block;
     vertical-align: middle;
     width: 135px;
     height: 40px;
+    padding: 0;
     margin: 0 $spacer-size-small 0 0;
     background-repeat: no-repeat;
     background-size: 135px 40px;
@@ -26,7 +44,28 @@
   &--icon {
     display: inline-block;
     vertical-align: middle;
+    padding: 0;
     height: $icon-size-default;
     width: $icon-size-default;
+  }
+
+  &--icon-on-mobile {
+
+    & > .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: $viewport-phone-landscape) {
+      margin: 0;
+      padding: 0;
+
+      & > span {
+        display: none;
+      }
+
+      & > .icon {
+        display: inline-block;
+      }
+    }
   }
 }

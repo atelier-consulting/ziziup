@@ -2,10 +2,23 @@
   display: inline-block;
   vertical-align: middle;
 
+
   &--vertical {
     width: 1px;
     height: 36px;
     background: $color-border-lighter;
     margin: 1.375 * $spacer-size-default 0;
+  }
+
+  &--controls {
+    width: 1px;
+    height: 1.625rem;
+    margin: 0 1.375 * $spacer-size-default;
+    background: $color-border-lighter;
+
+    @media screen and (max-width: $viewport-desktop-default) {
+      margin: 0 $spacer-size-small;
+      background: transparent;
+    }
   }
 }

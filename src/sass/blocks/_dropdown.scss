@@ -4,9 +4,22 @@
   position: relative;
 
   &__button {
-    height: 24px;
-    line-height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 26px;
+    line-height: 26px;
     cursor: pointer;
+
+    &--uppercase {
+      text-transform: uppercase;
+      font-size: $font-size-tiny;
+      letter-spacing: $letter-spacing-small;
+    }
+
+    &--inverted {
+      background: $color-background-darker;
+      color: $color-text-white;
+    }
 
     &--rounded {
       border-radius: 20px;
@@ -25,7 +38,7 @@
     }
 
     &--careted {
-      padding: 0 .75rem 0 1.875rem;
+      padding: 0 .5875rem 0 1.125rem;
     }
 
     &--large {
@@ -36,6 +49,14 @@
 
   }
 
+  &__label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 $spacer-size-default 0 0;
+    font-size: $font-size-tiny;
+    color: $color-text-lightest;
+  }
+
   &__value {
     display: inline-block;
     vertical-align: middle;
@@ -43,6 +64,8 @@
     &--accent {
       color: $color-brand-primary;
     }
+
+
   }
 
   &__scrollpane {
