@@ -1,0 +1,16 @@
+.footer {
+  background: $color-background-darker;
+  width: 100%;
+  padding: 2.8125rem 0 3rem;
+
+  & > .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  & h4 {
+    color: $color-text-white;
+    margin: 0 0 $spacer-size-default 0;
+  }
+}

@@ -1,0 +1,40 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    padding: 0 0 $spacer-size-small 0;
+  }
+
+  &--inverted {
+    & .list__link {
+      color: $color-text-white;
+      text-decoration: none;
+      font-size: $font-size-small;
+    }
+  }
+
+  &--expandable {
+    & > .list__item {
+      padding-left: $icon-size-small;
+      background-image: url("../img/icon-expand.png");
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-size: $icon-size-small;
+
+      & > .list {
+        margin: 0 0 0 1.375 * $spacer-size-default;
+        display: none;
+      }
+
+      &--expanded {
+        background-image: url("../img/icon-collapse.png");
+
+        & > .list {
+          display: block;
+        }
+      }
+    }
+  }
+}
