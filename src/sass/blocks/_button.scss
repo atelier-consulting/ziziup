@@ -2,6 +2,7 @@
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: $letter-spacing-default;
   font-size: $font-size-tiny;
   color: $color-text-darker;
@@ -16,6 +17,16 @@
 
   &--rounded {
     border-radius: 2.5rem;
+  }
+
+  &--inverted {
+    background: $color-background-default;
+    color: $color-text-lightest;
+  }
+
+  &--huge {
+    height: 2.3125rem;
+    line-height: 2.3125rem;
   }
 
   &--store {

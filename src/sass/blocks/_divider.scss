@@ -2,6 +2,9 @@
   display: inline-block;
   vertical-align: middle;
 
+  &--inverted {
+    color: $color-text-white;
+  }
 
   &--vertical {
     width: 1px;
@@ -9,6 +12,41 @@
     background: $color-border-lighter;
     margin: 1.375 * $spacer-size-default 0;
   }
+
+  &--horizontal {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    font-size: $font-size-small;
+    margin: $spacer-size-large 0 0 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 50%;
+      height: 1px;
+      vertical-align: middle;
+      background: $color-border-default;
+      background-clip: content-box;
+      border-bottom: 1px solid $color-border-default;
+    }
+
+    &::before {
+      left: -.5rem;
+      margin: 0 0 0 -50%;
+    }
+
+    &::after {
+      left: .5rem;
+      margin: 0 -50% 0 0;
+    }
+  }
+
+
 
   &--controls {
     width: 1px;

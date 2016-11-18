@@ -56,6 +56,11 @@ h4 {
   }
 }
 
+h5 {
+  font-size: $font-size-default;
+  letter-spacing: $letter-spacing-small;
+}
+
 p {
     font-family: inherit;
     margin: 0 0 $spacer-vertical-paragraph;

@@ -4,11 +4,14 @@
   list-style: none;
 
   &__item {
-    padding: 0 0 $spacer-size-small 0;
+    padding: 0 0 $spacer-size-big 0;
   }
 
   &--inverted {
+    color: $color-text-white;
+
     & .list__link {
+      display: block;
       color: $color-text-white;
       text-decoration: none;
       font-size: $font-size-small;
@@ -24,7 +27,7 @@
       background-size: $icon-size-small;
 
       & > .list {
-        margin: 0 0 0 1.375 * $spacer-size-default;
+        margin: $spacer-size-big 0 0 $spacer-size-default;
         display: none;
       }
 
