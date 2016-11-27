@@ -6,6 +6,8 @@
     padding-top: 4rem;
   }
 
+  // Menu
+
   &__menu {
     position: fixed;
     width: 100%;
@@ -88,151 +90,6 @@
     text-transform: uppercase;
     text-decoration: none;
   }
-
-  &__floor {
-    // max-width: 100vw;
-    // overflow-x: hidden;
-    //
-    // &--start {
-    //   height: 680px;
-    //   background-color: rgba(0,0,0,.05);
-    //
-    //   @media screen and (max-width: $viewport-desktop-big) {
-    //     height: 580px;
-    //   }
-    //
-    //   @media screen and (max-width: $viewport-desktop-default) {
-    //     height: 448px;
-    //   }
-    //
-    //   @media screen and (max-width: $viewport-tablet-portrait) {
-    //     height: 842px;
-    //   }
-    //
-    //   & .container {
-    //     position: relative;
-    //     background: rgba(155,0,0,.05);
-    //     height: 100%;
-    //     padding-top: 6rem;
-    //
-    //     @media screen and (max-width: $viewport-desktop-big) {
-    //       padding-top: 3rem;
-    //     }
-    //
-    //     @media screen and (max-width: $viewport-desktop-default) {
-    //       padding-top: 1.5rem;
-    //     }
-    //
-    //     // @media screen and (max-width: $viewport-tablet-portrait) {
-    //     //   padding-left: 28%;
-    //     // }
-    //
-    //     @media screen and (max-width: $viewport-phone-landscape) {
-    //       padding-left: $spacer-size-default * 2;
-    //     }
-    //   }
-    //
-    //   & h1 {
-    //     font-size: 5.625rem;
-    //     font-weight: 900;
-    //     line-height: 6.625rem;
-    //     letter-spacing: normal;
-    //
-    //     & > small {
-    //       font-size: 4rem;
-    //       font-weight: $font-weight-base;
-    //       text-transform: lowercase;
-    //       line-height: 4rem;
-    //     }
-    //
-    //     @media screen and (max-width: $viewport-desktop-default) {
-    //       font-size: 4rem;
-    //       line-height: 4.625rem;
-    //
-    //       & > small {
-    //         font-size: 2.8125rem;
-    //         line-height: 3.375rem;
-    //       }
-    //     }
-    //
-    //     @media screen and (max-width: $viewport-tablet-portrait) {
-    //       font-size: 3.375rem;
-    //       line-height: 4rem;
-    //
-    //       & > small {
-    //         font-size: 2.5rem;
-    //         line-height: 3rem;
-    //       }
-    //     }
-    //   }
-    //
-    //   & p {
-    //     max-width: 21.25rem;
-    //     line-height: 1.75rem;
-    //     margin: $spacer-size-default * 2 0;
-    //
-    //     @media screen and (max-width: $viewport-desktop-default) {
-    //       margin: $spacer-size-default 0 $spacer-size-default * 1.5 0;
-    //     }
-    //   }
-    // }
-
-    &--get {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-      background-position: center center;
-      height: 768px;
-
-      @media screen and (max-width: $viewport-desktop-default) {
-        height: 522px;
-      }
-
-      @media screen and (max-width: $viewport-tablet-portrait) {
-        height: 960px;
-      }
-
-      & > .container {
-        position: relative;
-        height: 100%;
-      }
-
-      & h2 {
-        text-transform: none;
-        font-size: 4rem;
-        color: $color-text-white;
-        line-height: 4.875rem;
-        letter-spacing: normal;
-        font-weight: $font-weight-base;
-        margin: 0 0 1.75rem 0;
-
-        @media screen and (max-width: $viewport-desktop-default) {
-          font-size: 2.8125rem;
-          line-height: 3.375rem;
-          margin: 0 0 .75rem 0;
-        }
-      }
-
-      & h3 {
-        font-size: $font-size-big;
-        color: $color-text-white;
-        text-transform: none;
-        font-weight: $font-weight-base;
-        letter-spacing: normal;
-        line-height: 2rem;
-        margin: 5rem 0 1.5rem 0;
-
-        @media screen and (max-width: $viewport-desktop-default) {
-          margin: 2rem 0 1rem 0;
-        }
-      }
-
-      & p {
-        color: $color-text-white;
-        line-height: 1.75rem;
-        max-width: 28.75rem;
-      }
-    }
-  }
-
 
   // Sections
 
@@ -325,8 +182,6 @@
 
       height: 960px;
 
-      // background: rgba(0,0,0,.05);
-
       @media screen and (min-width: $viewport-tablet-portrait) {
         height: 522px;
       }
@@ -338,8 +193,6 @@
       & > .container {
         position: relative;
         height: 100%;
-
-        // background: rgba(155,0,0,.05);
       }
 
       & h2 {
@@ -399,6 +252,27 @@
           font-size: 4rem;
           line-height: 4.875rem;
           margin: 3rem 0 1.75rem 0;
+        }
+      }
+    }
+
+    &--offer {
+
+      & > .container {
+        text-align: center;
+        line-height: 1;
+      }
+
+      & h2 {
+        text-transform: none;
+        letter-spacing: normal;
+        font-weight: $font-weight-base;
+        font-size: $font-size-blockquote;
+        text-align: center;
+        margin: 2.25rem 0 2.25rem 0;
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          margin: 3rem 0 2.75rem 0;
         }
       }
     }
@@ -575,6 +449,7 @@
     }
   }
 
+
   // "How" section contents
 
   &__switch {
@@ -620,6 +495,10 @@
       padding: 3.75rem 2rem 0;
     }
 
+    @media screen and (min-width: $viewport-desktop-large) {
+      padding: 3.75rem 9.75rem 0;
+    }
+
     &--web > .landing__step--mobile {
       display: none;
     }
@@ -659,6 +538,7 @@
 
       text-align: center;
       max-width: 18rem;
+      margin: 0 auto;
     }
 
     @media screen and (min-width: $viewport-tablet-portrait) and (max-width: #{$viewport-desktop-default - 1px}) {
@@ -680,6 +560,28 @@
         margin: 0 0 1rem 50%;
         max-width: 18rem;
       }
+    }
+  }
+
+  // "Offer" section contents
+
+  &__offer {
+    display: inline-block;
+    vertical-align: top;
+    width: 128px;
+    margin: 0 .4375rem 1.5rem;
+    line-height: 1.5rem;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      margin: 0 1rem 2.25rem;
+    }
+
+    @media screen and (min-width: $viewport-desktop-default) {
+      margin: 0 .25rem 2.25rem;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      margin: 0 1rem 2.25rem;
     }
   }
 }

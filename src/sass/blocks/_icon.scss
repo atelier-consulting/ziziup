@@ -46,6 +46,42 @@
     }
   }
 
+  &--offer {
+    display: block;
+    margin: 0 auto;
+    width: $icon-size-huge;
+    height: $icon-size-huge;
+    background-size: $icon-size-huge $icon-size-huge;
+
+    &-stores {
+      background-image: url("../img/icon-offer-stores.png");
+    }
+
+    &-pickup {
+      background-image: url("../img/icon-offer-pickup.png");
+    }
+
+    &-delivery {
+      background-image: url("../img/icon-offer-delivery.png");
+    }
+
+    &-payment {
+      background-image: url("../img/icon-offer-payment.png");
+    }
+
+    &-support {
+      background-image: url("../img/icon-offer-support.png");
+    }
+
+    &-membership {
+      background-image: url("../img/icon-offer-membership.png");
+    }
+
+    &-shipping {
+      background-image: url("../img/icon-offer-shipping.png");
+    }
+  }
+
   // Images
   &--bag {
     background-image: url("../img/icon-bag.png");
