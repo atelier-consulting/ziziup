@@ -33,6 +33,19 @@
     margin: 0 $spacer-size-small 0 0;
   }
 
+  &--device {
+    width: $icon-size-giant;
+    height: $icon-size-giant;
+    background-size: $icon-size-giant $icon-size-giant;
+    margin: 0 $spacer-size-default * 1.5 0 0;
+
+    @media screen and (max-width: $viewport-desktop-default) {
+      width: $icon-size-huge;
+      height: $icon-size-huge;
+      background-size: $icon-size-huge $icon-size-huge;
+    }
+  }
+
   // Images
   &--bag {
     background-image: url("../img/icon-bag.png");
@@ -156,5 +169,21 @@
 
   &--linkedin {
     background-image: url("../img/icon-linkedin.png");
+  }
+
+  // Devices
+
+  &--android {
+    background-image: url("../img/icon-android.png");
+  }
+
+
+  &--ios {
+    background-image: url("../img/icon-ios.png");
+  }
+
+
+  &--chrome {
+    background-image: url("../img/icon-chrome.png");
   }
 }
