@@ -47,9 +47,9 @@ body {
     max-width: $container-width-large + ($spacer-horizontal-page * 2);
   }
 
-  @media screen and (min-width: $viewport-desktop-huge) {
-    max-width: $container-width-huge + ($spacer-horizontal-page * 2);
-  }
+  // @media screen and (min-width: $viewport-desktop-huge) {
+  //   max-width: $container-width-huge + ($spacer-horizontal-page * 2);
+  // }
 }
 
 .hide-on-desktop {
