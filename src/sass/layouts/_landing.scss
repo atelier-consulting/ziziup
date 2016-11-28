@@ -2,16 +2,12 @@
 .landing {
   padding-top: 5rem;
 
-  // @media screen and (max-width: $viewport-desktop-big) {
-  //   padding-top: 4rem;
-  // }
-
   // Menu
 
   &__menu {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 21;
     top: 0;
     background: $color-background-default;
     // box-shadow: 0 2px 6px 0 #ccc;
@@ -90,6 +86,7 @@
     text-transform: uppercase;
     text-decoration: none;
   }
+
 
   // Sections
 
@@ -351,8 +348,131 @@
         }
       }
     }
+
+    &--form {
+
+      & > .container {
+        padding-top: 2rem;
+
+        position: relative;
+
+        padding-bottom: 3rem;
+
+        @media screen and (min-width: $viewport-desktop-default) {
+          padding-top: 2rem;
+          background-image: url("../img/landing-form.jpg");
+          background-size: 420px 420px;
+          background-position: bottom right;
+          background-repeat: no-repeat;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          padding-top: 3rem;
+          padding-bottom: 6rem;
+          background-size: 500px 500px;
+        }
+      }
+
+      & h2 {
+        text-transform: none;
+        font-weight: $font-weight-base;
+        letter-spacing: normal;
+        margin: 0 0 1rem;
+
+        font-size: 2.5rem;
+        line-height: 3rem;
+
+        @media screen and (min-width: $viewport-phone-landscape) {
+          font-size: 2.8125rem;
+          line-height: 3.375rem;
+        }
+      }
+
+      & h3 {
+        text-transform: none;
+        font-weight: $font-weight-base;
+        letter-spacing: normal;
+
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+      }
+
+      & form {
+        // width: 100%;
+        margin: $spacer-size-default * 2 0 0;
+        max-width: 45rem;
+
+        @media screen and (min-width: $viewport-desktop-default) {
+          max-width: 34rem;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          max-width: 40rem;
+        }
+      }
+
+      & .landing__badge {
+        display: none;
+
+        @media screen and (min-width: $viewport-desktop-default) {
+          display: block;
+          top: 60px;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          max-width: 40rem;
+        }
+      }
+
+      & h4 {
+        letter-spacing: $letter-spacing-default !important;
+
+        & > small {
+          margin: 0;
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    &--footer {
+      background: #000000;
+      color: $color-text-white;
+
+      & > .container {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        padding-top: 2.5rem;
+        padding-bottom: 1rem;
+
+        @media screen and (min-width: $viewport-tablet-portrait) {
+          flex-direction: row;
+        }
+      }
+
+      & h6 {
+        color: $color-text-white;
+        letter-spacing: normal;
+        font-size: 2.8125rem;
+        font-weight: $font-weight-black;
+        line-height: 3.375rem;
+        padding: 0 2rem 1.5rem 0;
+        flex-grow: 1;
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          font-size: 4rem;
+        }
+      }
+
+      & h5 {
+        color: $color-text-white;
+        margin: 0 0 $spacer-size-small 0;
+      }
+    }
   }
 
+
+  // Universal elements
 
   &__button {
     display: block;
@@ -376,6 +496,69 @@
       box-shadow: none;
       background: transparent;
       color: $color-text-lightest;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    background-image: url("../img/landing-badge.png");
+    background-repeat: no-repeat;
+
+    width: 156px;
+    min-height: 32px;
+    background-size: 156px 32px;
+    padding: .375rem 0 0 1.75rem;
+    left: 142px;
+    top: 404px;
+
+    & > h4 {
+      font-weight: $font-weight-base;
+      color: $color-text-lightest;
+
+      letter-spacing: $letter-spacing-default;
+      font-size: $font-size-tiny;
+    }
+
+    & > p {
+      max-width: none;
+      color: $color-text-lightest;
+      text-transform: uppercase;
+
+      margin: .5rem 0 0 0;
+      font-size: $font-size-mini;
+      letter-spacing: $letter-spacing-small;
+      line-height: .875rem;
+    }
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      left: auto;
+      right: 30px;
+      top: 36px;
+    }
+
+    @media screen and (min-width: $viewport-desktop-default) {
+      width: 252px;
+      min-height: 52px;
+      background-size: 252px 52px;
+      padding: .9375rem 0 0 2.5rem;
+      top: 62px;
+      right: 14px;
+
+      & > h4 {
+        font-size: $font-size-accent;
+        letter-spacing: $letter-spacing-big;
+      }
+
+      & > p {
+        margin: 1.5rem 0 0 0;
+        font-size: $font-size-small;
+        letter-spacing: $letter-spacing-accent;
+        line-height: 1.25rem;
+      }
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      top: 102px;
     }
   }
 
@@ -410,69 +593,6 @@
     @media screen and (min-width: $viewport-desktop-large) {
       left: 270px;
     }
-  }
-
-  &__badge {
-    position: absolute;
-    background-image: url("../img/landing-badge.png");
-    background-repeat: no-repeat;
-
-    width: 156px;
-    background-size: 156px 32px;
-    padding: .375rem 0 0 1.75rem;
-    left: 142px;
-    top: 404px;
-
-    & > h4 {
-      font-weight: $font-weight-base;
-      color: $color-text-lightest;
-
-      letter-spacing: $letter-spacing-default;
-      font-size: $font-size-tiny;
-    }
-
-    & > p {
-      max-width: none;
-      color: $color-text-lightest;
-      text-transform: uppercase;
-
-      margin: .5rem 0 0 0;
-      font-size: $font-size-mini;
-      letter-spacing: $letter-spacing-small;
-      line-height: .875rem;
-    }
-
-    @media screen and (min-width: $viewport-tablet-portrait) {
-      left: auto;
-      right: 30px;
-      top: 36px;
-    }
-
-    @media screen and (min-width: $viewport-desktop-default) {
-      width: 252px;
-      background-size: 252px 52px;
-      padding: .9375rem 0 0 2.5rem;
-      top: 62px;
-      right: 14px;
-
-      & > h4 {
-        font-size: $font-size-accent;
-        letter-spacing: $letter-spacing-big;
-      }
-
-      & > p {
-        margin: 1.5rem 0 0 0;
-        font-size: $font-size-small;
-        letter-spacing: $letter-spacing-accent;
-        line-height: 1.25rem;
-      }
-    }
-
-    @media screen and (min-width: $viewport-desktop-big) {
-      top: 102px;
-    }
-
-
   }
 
   &__trail {
@@ -638,6 +758,7 @@
     }
   }
 
+
   // "Offer" section contents
 
   &__offer {
@@ -659,6 +780,7 @@
       margin: 0 1rem 2.25rem;
     }
   }
+
 
   // "Membership" section contents
 
@@ -759,5 +881,19 @@
     @media screen and (min-width: $viewport-desktop-big) {
       padding: 5.5rem 0 0 64.5%;
     }
+  }
+
+  // "Footer" section contents
+
+  &__contacts {
+    padding: 0 2rem 1.5rem 0;
+    font-size: $font-size-small;
+    min-width: 200px;
+    line-height: 1.5625rem;
+  }
+
+  &__social {
+    padding: 0 2rem 1.5rem 0;
+    min-width: 260px;
   }
 }
