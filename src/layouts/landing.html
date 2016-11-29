@@ -73,8 +73,8 @@
     <div class="container">
       <h2>How it works</h2>
       <div class="landing__switch">
-        <a class="landing__button" href="javascript:;">Web</a>
-        <a class="landing__button landing__button--off" href="javascript:;">Mobile</a>
+        <a class="landing__button landing__button--web" href="javascript:;">Web</a>
+        <a class="landing__button landing__button--mobile landing__button--off" href="javascript:;">Mobile</a>
       </div>
       <div class="landing__steps landing__steps--web">
         <div class="landing__step landing__step--web">
@@ -231,5 +231,37 @@
       </div>
     </div>
   </footer>
+  <script type="text/javascript">
+    (function(){
+
+      // Web/mobile toggle
+      var $buttons = document.querySelectorAll('.landing__switch > .landing__button');
+      var $steps = document.querySelector('.landing__steps');
+
+      $buttons.forEach(function($button){
+        $button.addEventListener('click', function(e) {
+          var $target = e.target;
+
+          if($target.classList.contains('landing__button--off')) {
+            if($target.classList.contains('landing__button--web')) {
+              document.querySelector('.landing__button--mobile').classList.add('landing__button--off');
+              $target.classList.remove('landing__button--off');
+
+              $steps.classList.remove('landing__steps--mobile');
+              $steps.classList.add('landing__steps--web');
+            }
+
+            if($target.classList.contains('landing__button--mobile')) {
+              document.querySelector('.landing__button--web').classList.add('landing__button--off');
+              $target.classList.remove('landing__button--off');
+
+              $steps.classList.remove('landing__steps--web');
+              $steps.classList.add('landing__steps--mobile');
+            }
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

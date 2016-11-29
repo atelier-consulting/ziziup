@@ -476,6 +476,7 @@
 
   &__button {
     display: block;
+    cursor: pointer;
     width: 16.75rem;
     height: 2.5rem;
     background-image: -webkit-linear-gradient(72deg, rgba(247,73,32,0.70) 6%, rgba(254,38,15,0.70) 97%);
@@ -669,6 +670,10 @@
 
       &--off {
         width: 45%;
+      }
+
+      &--mobile {
+        left: 1px;
       }
     }
   }
