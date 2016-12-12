@@ -15,13 +15,71 @@
   }
 
   &--tiny {
-    width: $icon-size-tiny ;
-    height: $icon-size-tiny ;
-    background-size: $icon-size-tiny $icon-size-tiny ;
+    width: $icon-size-tiny;
+    height: $icon-size-tiny;
+    background-size: $icon-size-tiny $icon-size-tiny;
   }
 
   &--payment {
     height: $icon-size-tiny;
+  }
+
+  &--social {
+    width: $icon-size-large;
+    height: $icon-size-large;
+    background-size: $icon-size-large $icon-size-large;
+    border-radius: $icon-size-large / 2;
+    border: 1px solid $color-border-icon;
+    margin: 0 $spacer-size-small 0 0;
+  }
+
+  &--device {
+    width: $icon-size-giant;
+    height: $icon-size-giant;
+    background-size: $icon-size-giant $icon-size-giant;
+    margin: 0 $spacer-size-default * 1.5 0 0;
+
+    @media screen and (max-width: $viewport-desktop-default) {
+      width: $icon-size-huge;
+      height: $icon-size-huge;
+      background-size: $icon-size-huge $icon-size-huge;
+    }
+  }
+
+  &--offer {
+    display: block;
+    margin: 0 auto;
+    width: $icon-size-huge;
+    height: $icon-size-huge;
+    background-size: $icon-size-huge $icon-size-huge;
+
+    &-stores {
+      background-image: url("../img/icon-offer-stores.png");
+    }
+
+    &-pickup {
+      background-image: url("../img/icon-offer-pickup.png");
+    }
+
+    &-delivery {
+      background-image: url("../img/icon-offer-delivery.png");
+    }
+
+    &-payment {
+      background-image: url("../img/icon-offer-payment.png");
+    }
+
+    &-support {
+      background-image: url("../img/icon-offer-support.png");
+    }
+
+    &-membership {
+      background-image: url("../img/icon-offer-membership.png");
+    }
+
+    &-shipping {
+      background-image: url("../img/icon-offer-shipping.png");
+    }
   }
 
   // Images
@@ -126,5 +184,42 @@
 
   &--flag-fr {
     background-image: url("../img/flag-france@2x.png");
+  }
+
+  // Social
+  &--facebook {
+    background-image: url("../img/icon-facebook.png");
+  }
+
+  &--twitter {
+    background-image: url("../img/icon-twitter.png");
+  }
+
+  &--gplus {
+    background-image: url("../img/icon-gplus.png");
+  }
+
+  &--instagram {
+    background-image: url("../img/icon-instagram.png");
+  }
+
+  &--linkedin {
+    background-image: url("../img/icon-linkedin.png");
+  }
+
+  // Devices
+
+  &--android {
+    background-image: url("../img/icon-android.png");
+  }
+
+
+  &--ios {
+    background-image: url("../img/icon-ios.png");
+  }
+
+
+  &--chrome {
+    background-image: url("../img/icon-chrome.png");
   }
 }
