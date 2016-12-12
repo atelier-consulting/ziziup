@@ -284,7 +284,7 @@
       background-size: auto 640px;
       background-position: -400px 70px;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @media screen and (min-width: $viewport-phone-landscape) {
         height: 655px;
         background-position: -200px 24px;
         background-size: auto 600px;
@@ -813,7 +813,7 @@
       top: 893px;
     }
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @media screen and (min-width: $viewport-phone-landscape) {
       &--elite {
         top: 65px;
       }
@@ -875,7 +875,7 @@
   &__membership {
     padding: 3rem 0 0 0;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @media screen and (min-width: $viewport-phone-landscape) {
       padding: 4rem 0 0 46%;
     }
 
