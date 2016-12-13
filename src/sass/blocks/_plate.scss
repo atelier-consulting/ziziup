@@ -1,27 +1,113 @@
+$plate-height-small: 9rem;
+$plate-height-default: 10rem;
+
+$plate-gutter-small: .5rem;
+$plate-gutter-default: 1.25rem;
 .plates {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // align-items: stretch;
   position: relative;
-  left: -.25rem;
-  width: calc(100% + .5rem);
+  left: -1 * ($plate-gutter-small / 2);
+  width: calc(100% + #{$plate-gutter-small});
+
+  @media screen and (min-width: $viewport-desktop-big) {
+    width: calc(100% + #{$plate-gutter-default});
+  }
+
+  &:after {
+    display: table;
+    content: " ";
+    clear: both;
+  }
 }
 
 .plate {
   position: relative;
-  margin: .25rem;
+  margin: $plate-gutter-small / 2;
   text-decoration: none;
 
+  // Variations
   &--store {
+    display: block;
+    float: left;
     background: #FFFFFF;
-    height: 9rem;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
-    flex-basis: calc(50% - 8px);
+
+    width: calc(50% - #{$plate-gutter-small});
+    height: $plate-height-small;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      width: calc(25% - #{$plate-gutter-small});
+      height: $plate-height-default;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      margin: $plate-gutter-default / 2;
+      width: calc(25% - #{$plate-gutter-default});
+      height: $plate-height-default;
+    }
   }
 
+  &--special {
+    width: calc(100% - 8px);
+    float: left;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-background-darkest;
+    padding: 1.5rem 0;
+    justify-content: space-between;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      // height: $plate-height-default
+      flex-direction: row;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      width: calc(100% - #{$plate-gutter-default});
+      margin: $plate-gutter-default / 2;
+    }
+  }
+
+  &--men-accessoires {
+    background-image: url("../img/comp-men-accessoires.jpg");
+    background-size: 100% auto;
+    background-position: center center;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      padding-left: 8rem;
+      padding-right: 8rem;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      width: calc(50% - #{$plate-gutter-default});
+      float: right;
+      height: $plate-height-default;
+
+      padding: 3rem;
+    }
+  }
+
+  &--shelves {
+    background-image: url("../img/comp-shelves.jpg");
+    background-size: 1180px auto;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+  }
+
+  // Content
   &__logo {
     height: 5.5rem;
     padding: 2.25rem 0 0;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      height: 6rem;
+      padding: 2.75rem 0 0;
+    }
 
     & > img {
       display: block;
@@ -63,13 +149,52 @@
   &__like {
     display: block;
     position: absolute;
-    // top: 1rem;
-    // left: .5rem;
     top: .375rem;
     left: .625rem;
     width: 2rem;
     height: 2rem;
     border-radius: 1rem;
     background: $color-background-like;
+  }
+
+  &__module {
+    text-align: center;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      text-align: left;
+    }
+
+    & > h4 {
+      letter-spacing: $letter-spacing-big;
+      color: $color-text-white;
+      margin-bottom: $spacer-size-tiny;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        margin-top: $spacer-size-big;
+
+        // margin-bottom: $spacer-size-default;
+      }
+
+      @media screen and (min-width: $viewport-desktop-big) {
+        font-size: $font-size-huge-tablet;
+      }
+    }
+
+    & > p {
+      margin-bottom: 0;
+      color: $color-text-white;
+
+      @media screen and (min-width: $viewport-desktop-big) {
+        margin-top: $spacer-size-default;
+      }
+    }
+
+    & > .button {
+      margin-top: $spacer-size-default;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        margin-top: 0;
+      }
+    }
   }
 }

@@ -479,11 +479,11 @@
     cursor: pointer;
     width: 16.75rem;
     height: 2.5rem;
-    background-image: -webkit-linear-gradient(72deg, rgba(247,73,32,0.70) 6%, rgba(254,38,15,0.70) 97%);
-    background-image: -o-linear-gradient(72deg, rgba(247,73,32,0.70) 6%, rgba(254,38,15,0.70) 97%);
-    background-image: linear-gradient(162deg, rgba(247,73,32,0.70) 6%, rgba(254,38,15,0.70) 97%);
-    border: 1px solid #F73939;
-    box-shadow: 0 10px 25px 0 rgba(220,65,48,0.44);
+    background-image: -webkit-linear-gradient(72deg, rgba(247,73,32,0.70) 6%, $color-gradient2-br 97%);
+    background-image: -o-linear-gradient(72deg, rgba(247,73,32,0.70) 6%, $color-gradient2-br 97%);
+    background-image: linear-gradient(162deg, rgba(247,73,32,0.70) 6%, $color-gradient2-br 97%);
+    border: 1px solid $color-border-accent;
+    box-shadow: 0 10px 25px 0 $color-shadow-accent;
     border-radius: 1.25rem;
     text-transform: uppercase;
     text-align: center;
