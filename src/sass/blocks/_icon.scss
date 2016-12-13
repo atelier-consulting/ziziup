@@ -8,6 +8,11 @@
   vertical-align: middle;
 
   // Sizes
+  &--huge {
+    width: $icon-size-huge;
+    height: $icon-size-huge;
+    background-size: $icon-size-huge $icon-size-huge;
+  }
   &--small {
     width: $icon-size-small;
     height: $icon-size-small;
@@ -136,6 +141,14 @@
 
   &--cross {
     background-image: url("../img/icon-cross.png");
+  }
+
+  &--sale {
+    background-image: url("../img/icon-sale.png");
+  }
+
+  &--heart {
+    background-image: url("../img/icon-heart.png");
   }
 
   // Payment
