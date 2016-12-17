@@ -1,3 +1,5 @@
+$plate-height-mini: 5.75rem;
+$plate-height-tiny: 6.25rem;
 $plate-height-small: 9rem;
 $plate-height-default: 10rem;
 $plate-height-big: 12.5rem;
@@ -29,11 +31,14 @@ $plate-gutter-default: 1.25rem;
   margin: $plate-gutter-small / 2;
   text-decoration: none;
 
+  //
+  // Colorful category dashes
+  //
   &__dash {
     background-color: $color-background-default;
 
     width: 1.5rem;
-    height: 1px;
+    height: 3px;
     margin: $spacer-size-default auto;
 
     @media screen and (min-width: $viewport-tablet-portrait) {
@@ -45,8 +50,14 @@ $plate-gutter-default: 1.25rem;
     @media screen and (min-width: $viewport-desktop-big) {
       margin: 1.5rem auto;
     }
-  }
 
+    // Colors
+    @each $name, $config in $config-categories {
+      [class*="--#{$name}"] > & {
+        background-color: get($config, color, primary);
+      }
+    }
+  }
 
   //
   // Store plates
@@ -289,6 +300,14 @@ $plate-gutter-default: 1.25rem;
       }
     }
 
+    & > .plate__dash {
+      height: 1px;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        height: 4px;
+      }
+    }
+
     & > .plate__sale {
       width: 4.5rem;
       height: 4.5rem;
@@ -322,20 +341,71 @@ $plate-gutter-default: 1.25rem;
 
       & > h3 {
         color: $color-text-white;
+
+        @media screen and (min-width: $viewport-tablet-portrait) {
+          letter-spacing: $letter-spacing-large;
+        }
       }
 
       & > span {
         color: $color-text-white;
       }
 
-      // Variations
-      &.popular--womens-fashion {
-        background-image: url("../img/popular-womens-fashion.jpg");
+      & > .plate__dash {
+        background-color: $color-background-default;
       }
 
-      &.popular--mens-fashion {
-        background-image: url("../img/popular-mens-fashion.jpg");
+      // Variations
+      @each $name, $config in $config-categories {
+        &.popular--#{$name} {
+          background-image:
+            linear-gradient(141deg,
+              adjust-color(get($config, color, secondary), $alpha: -0.36) 0%,
+              adjust-color(get($config, color, primary), $alpha: -0.36) 68%
+            ),
+            linear-gradient(0deg,
+              rgba(255,255,255,0.15) 0%,
+              rgba(255,255,255,.15) 100%
+            ),
+            url("../img/category-#{$name}.jpg")
+          ;
+
+          background-size: get($config, size, popular-color, phone);
+          background-position: get($config, position, popular-color, phone);
+
+          @media screen and (min-width: $viewport-tablet-portrait) {
+            background-size: get($config, size, popular-color, tablet);
+            background-position: get($config, position, popular-color, tablet);
+          }
+
+          @media screen and (min-width: $viewport-desktop-default) {
+            background-size: get($config, size, popular-color, default);
+            background-position: get($config, position, popular-color, default);
+          }
+
+          @media screen and (min-width: $viewport-desktop-big) {
+            background-size: get($config, size, popular-color, big);
+            background-position: get($config, position, popular-color, big);
+          }
+
+
+        }
       }
+
+      // &.popular--womens-fashion {
+        // background-image: url("../img/popular-womens-fashion.jpg");
+
+        // background-image:
+          // rgba(255,255,255,.1),
+          // linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%),
+          // linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%),
+          // linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,.5) 100%),
+          // url("../img/category-womans-fashion.jpg");
+      // }
+
+      // &.popular--mens-fashion {
+        // background-image: url("../img/popular-mens-fashion.jpg");
+      // }
 
     }
 
@@ -390,10 +460,6 @@ $plate-gutter-default: 1.25rem;
         @media screen and (min-width: $viewport-desktop-big) {
           background-position: right -85px top -150px;
         }
-
-        & > .plate__dash {
-          background-color: $color-category-electronics;
-        }
       }
 
       &.popular--shoes {
@@ -409,10 +475,6 @@ $plate-gutter-default: 1.25rem;
 
         @media screen and (min-width: $viewport-desktop-big) {
           background-position: right -85px top -150px;
-        }
-
-        & > .plate__dash {
-          background-color: $color-category-shoes;
         }
       }
 
@@ -430,10 +492,6 @@ $plate-gutter-default: 1.25rem;
         @media screen and (min-width: $viewport-desktop-big) {
           background-position: right -85px top -150px;
         }
-
-        & > .plate__dash {
-          background-color: $color-category-jewelry-watches;
-        }
       }
     }
   }
@@ -441,4 +499,75 @@ $plate-gutter-default: 1.25rem;
   //
   // Category plates
   //
+
+  $padding-category-right: 3.5rem;
+
+  &.category {
+    margin: $plate-gutter-small / 2;
+    width: calc(50% - #{$plate-gutter-small});
+    height: $plate-height-mini;
+    background: $color-background-default;
+    box-shadow: 0px 2px 4px 0px $color-shadow-default;
+    text-align: center;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      height: $plate-height-tiny;
+      width: calc(33.33% - #{$plate-gutter-small});
+      padding: 0 $padding-category-right 0 0;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      margin: $plate-gutter-default / 2;
+      width: calc(50% - #{$plate-gutter-default});
+    }
+
+    & > h4 {
+      position: relative;
+      text-transform: capitalize;
+      letter-spacing: normal;
+      font-size: $font-size-oversize;
+      font-weight: $font-weight-base;
+      padding: $spacer-size-default $spacer-size-default $spacer-size-tiny;
+      background: #fff;
+      z-index: 3;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        padding-top: 1.125rem;
+      }
+    }
+
+    & > span {
+      display: block;
+      position: absolute;
+      top: 2.5625rem;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: $font-size-tiny;
+      color: $color-text-lightest;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-default;
+      z-index: 2;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        padding-right: $padding-category-right;
+        top: 2.875rem;
+      }
+    }
+
+    & > .plate__dash {
+      position: absolute;
+      bottom: $spacer-size-large;
+      left: calc(50% - .5rem);
+      width: 1rem;
+      margin: $spacer-size-big auto;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        width: 2rem;
+
+        // Center minus half of width minus half of right padding
+        left: calc(50% - 1rem - 1.75rem);
+      }
+    }
+  }
 }

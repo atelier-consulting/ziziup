@@ -1,0 +1,142 @@
+// Categories configuration
+
+@function get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+$config-categories: (
+  // sports: (
+  //   color: (
+  //     primary:   rgb(142,36,170),
+  //     secondary: rgb(109,54,255)
+  //   )
+  //   // color-primary:   rgb(142,36,170),
+  //   // color-secondary: rgb(109,54,255)
+  // ),
+  mens-fashion: (
+    color: (
+      primary:   rgb(248,182,28),
+      secondary: rgb(255,128,0),
+    ),
+    size: (
+      popular-color: (
+        phone: auto 290px,
+        tablet: auto 650px,
+        default: auto 650px,
+        big: auto 650px
+      )
+    ),
+    position: (
+      popular-color: (
+        phone: top -74px center,
+        tablet: top -220px center,
+        default: top -220px center,
+        big: top -220px center
+      )
+    )
+  ),
+  womens-fashion: (
+    color: (
+      primary:   rgb(220,65,49),
+      secondary: rgb(255,152,54),
+    ),
+    size: (
+      popular-color: (
+        phone: auto 340px,
+        tablet: auto 750px,
+        default: auto 750px,
+        big: auto 750px
+      )
+    ),
+    position: (
+      popular-color: (
+        phone: top -62px center,
+        tablet: top -220px center,
+        default: top -220px center,
+        big: top -220px center
+      )
+    )
+  ),
+
+  // electronics: (
+  //   color: (
+  //     primary:   rgb(244,17,59),
+  //     secondary: rgb(243,48,110)
+  //   )
+  // ),
+  // jewelry-watches: (
+  //   color: (
+  //     primary:   rgb(69,100,173),
+  //     secondary: rgb(101,99,164)
+  //   )
+  // ),
+  // car-parts: (
+  //   color: (
+  //     primary:   rgb(66,147,33),
+  //     secondary: rgb(180,236,81)
+  //   )
+  // ),
+  // luxury: (
+  //   color: (
+  //     primary:   rgb(233,30,99),
+  //     secondary: rgb(231,18,26)
+  //   )
+  // ),
+  // beauty-health: (
+  //   color: (
+  //     primary:   rgb(185,69,204),
+  //     secondary: rgb(221,123,238)
+  //   )
+  // ),
+  // books: (
+  //   color: (
+  //     primary:   rgb(5,117,29),
+  //     secondary: rgb(26,158,37)
+  //   )
+  // ),
+  // merchandise: (
+  //   color: (
+  //     primary:   rgb(247,107,28),
+  //     secondary: rgb(250,133,97)
+  //   )
+  // ),
+  // bags: (
+  //   color: (
+  //     primary:   rgb(22,202,133),
+  //     secondary: rgb(62,227,143)
+  //   )
+  // ),
+  // clothes: (
+  //   color: (
+  //     primary:   rgb(218,0,20),
+  //     secondary: rgb(229,18,160)
+  //   )
+  // ),
+  // kids-fashion: (
+  //   color: (
+  //     primary:   rgb(126,211,33),
+  //     secondary: rgb(126,211,33)
+  //   )
+  // ),
+  // tech: (
+  //   color: (
+  //     primary:   rgb(21,105,243),
+  //     secondary: rgb(74,144,226)
+  //   )
+  // ),
+  // toys: (
+  //   color: (
+  //     primary:   rgb(216,53,289),
+  //     secondary: rgb(200,52,216)
+  //   )
+  // ),
+  // shoes: (
+  //   color: (
+  //     primary:   rgb(48,44,180),
+  //     secondary: rgb(34,28,228)
+  //   )
+  // )
+);
