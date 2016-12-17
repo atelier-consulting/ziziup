@@ -1,13 +1,12 @@
 $plate-height-small: 9rem;
 $plate-height-default: 10rem;
+$plate-height-big: 12.5rem;
+$plate-height-large: 13.75rem;
 
 $plate-gutter-small: .5rem;
 $plate-gutter-default: 1.25rem;
+
 .plates {
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // align-items: stretch;
   position: relative;
   left: -1 * ($plate-gutter-small / 2);
   width: calc(100% + #{$plate-gutter-small});
@@ -24,15 +23,36 @@ $plate-gutter-default: 1.25rem;
 }
 
 .plate {
+  display: block;
+  float: left;
   position: relative;
   margin: $plate-gutter-small / 2;
   text-decoration: none;
 
-  // Variations
-  &--store {
-    display: block;
-    float: left;
-    background: #FFFFFF;
+  &__dash {
+    background-color: $color-background-default;
+
+    width: 1.5rem;
+    height: 1px;
+    margin: $spacer-size-default auto;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      width: 3rem;
+      height: 4px;
+      margin: 1.25rem auto;
+    }
+
+    @media screen and (min-width: $viewport-desktop-big) {
+      margin: 1.5rem auto;
+    }
+  }
+
+
+  //
+  // Store plates
+  //
+  &.store {
+    background: $color-background-default;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
 
     width: calc(50% - #{$plate-gutter-small});
@@ -43,63 +63,14 @@ $plate-gutter-default: 1.25rem;
       height: $plate-height-default;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @media screen and (min-width: $viewport-desktop-default) {
       margin: $plate-gutter-default / 2;
       width: calc(25% - #{$plate-gutter-default});
       height: $plate-height-default;
     }
   }
 
-  &--special {
-    width: calc(100% - 8px);
-    float: left;
-    display: flex;
-    flex-direction: column;
-    background-color: $color-background-darkest;
-    padding: 1.5rem 0;
-    justify-content: space-between;
-
-    @media screen and (min-width: $viewport-tablet-portrait) {
-      // height: $plate-height-default
-      flex-direction: row;
-    }
-
-    @media screen and (min-width: $viewport-desktop-big) {
-      width: calc(100% - #{$plate-gutter-default});
-      margin: $plate-gutter-default / 2;
-    }
-  }
-
-  &--men-accessoires {
-    background-image: url("../img/comp-men-accessoires.jpg");
-    background-size: 100% auto;
-    background-position: center center;
-
-    @media screen and (min-width: $viewport-tablet-portrait) {
-      padding-left: 8rem;
-      padding-right: 8rem;
-    }
-
-    @media screen and (min-width: $viewport-desktop-big) {
-      width: calc(50% - #{$plate-gutter-default});
-      float: right;
-      height: $plate-height-default;
-
-      padding: 3rem;
-    }
-  }
-
-  &--shelves {
-    background-image: url("../img/comp-shelves.jpg");
-    background-size: 1180px auto;
-
-    @media screen and (min-width: $viewport-tablet-portrait) {
-      padding-left: 2.25rem;
-      padding-right: 2.25rem;
-    }
-  }
-
-  // Content
+  // Store plates content
   &__logo {
     height: 5.5rem;
     padding: 2.25rem 0 0;
@@ -109,11 +80,20 @@ $plate-gutter-default: 1.25rem;
       padding: 2.75rem 0 0;
     }
 
+    @media screen and (min-width: $viewport-desktop-big) {
+      height: 6.5rem;
+      padding: 2.25rem 0 0;
+    }
+
     & > img {
       display: block;
       margin: 0 auto;
       max-width: 74.5%;
       max-height: 2.25rem;
+
+      @media screen and (min-width: $viewport-desktop-big) {
+        max-height: 3.25rem;
+      }
     }
   }
 
@@ -121,9 +101,11 @@ $plate-gutter-default: 1.25rem;
     margin: 0;
     padding: 0 $spacer-size-default;
     text-align: center;
+    line-height: 0;
   }
 
   &__title {
+    line-height: $line-height-default;
     display: inline-block;
     text-transform: uppercase;
     color: $color-text-lightest;
@@ -131,7 +113,9 @@ $plate-gutter-default: 1.25rem;
     font-size: $font-size-tiny;
 
     &:not(:last-child):after {
-      content: "\00a0\00b7\00a0";
+      display: inline-block;
+      content: "\00a0\00b7";
+      margin-right: .1rem;
     }
   }
 
@@ -157,6 +141,58 @@ $plate-gutter-default: 1.25rem;
     background: $color-background-like;
   }
 
+  //
+  // Special plates
+  //
+  &.special {
+    width: calc(100% - 8px);
+    float: left;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-background-darkest;
+    padding: 1.5rem 0;
+    justify-content: space-between;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      flex-direction: row;
+    }
+
+    @media screen and (min-width: $viewport-desktop-default) {
+      width: calc(100% - #{$plate-gutter-default});
+      margin: $plate-gutter-default / 2;
+    }
+
+    // Special plate variations
+    &--men-accessoires {
+      background-image: url("../img/comp-men-accessoires.jpg");
+      background-size: 100% auto;
+      background-position: center center;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        padding-left: 8rem;
+        padding-right: 8rem;
+      }
+
+      @media screen and (min-width: $viewport-desktop-big) {
+        width: calc(50% - #{$plate-gutter-default});
+        float: right;
+        height: $plate-height-default;
+        padding: 3rem;
+      }
+    }
+
+    &--shelves {
+      background-image: url("../img/comp-shelves.jpg");
+      background-size: 1180px auto;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
+      }
+    }
+  }
+
+  // Special plate content
   &__module {
     text-align: center;
 
@@ -171,8 +207,6 @@ $plate-gutter-default: 1.25rem;
 
       @media screen and (min-width: $viewport-tablet-portrait) {
         margin-top: $spacer-size-big;
-
-        // margin-bottom: $spacer-size-default;
       }
 
       @media screen and (min-width: $viewport-desktop-big) {
@@ -197,4 +231,214 @@ $plate-gutter-default: 1.25rem;
       }
     }
   }
+
+  //
+  // Popular plates
+  //
+  &.popular {
+    margin: $plate-gutter-small / 2;
+    width: calc(50% - #{$plate-gutter-small});
+    height: $plate-height-big;
+
+    @media screen and (min-width: $viewport-tablet-portrait) {
+      height: $plate-height-large;
+    }
+
+    @media screen and (min-width: $viewport-desktop-default) {
+      margin: $plate-gutter-default / 2;
+      width: calc(50% - #{$plate-gutter-default});
+    }
+
+    &--quarter {
+      width: calc(25% - #{$plate-gutter-small});
+
+      @media screen and (min-width: $viewport-desktop-default) {
+        width: calc(25% - #{$plate-gutter-default});
+
+        & > span + span {
+          display: none;
+        }
+      }
+    }
+
+    // Popular plate content
+    & > h3 {
+      font-size: $font-size-accent;
+      line-height: $line-height-accent;
+      text-align: center;
+      padding: 5rem 0 0 0;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        font-size: $font-size-large;
+        line-height: $line-height-large;
+        padding: 2.25rem 3rem 0;
+      }
+
+      @media screen and (min-width: $viewport-desktop-default) {
+        padding: 3.75rem 0 0 0;
+      }
+    }
+
+    & > span {
+      font-size: $font-size-small;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-accent;
+
+      & + span {
+        margin-left: $spacer-size-default;
+      }
+    }
+
+    & > .plate__sale {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 2.25rem;
+      top: 25%;
+      right: 15%;
+    }
+
+    // Color popular plates
+    &--color {
+      background-repeat: no-repeat;
+      text-align: center;
+
+      background-size: auto 100%;
+      background-position: center center;
+
+      @media screen and (min-width: $viewport-tablet-portrait) {
+        background-size: 136% auto;
+        background-position: 0 -4.375rem;
+      }
+
+      @media screen and (min-width: $viewport-desktop-default) {
+        background-size: 112.5% auto;
+        background-position: 0 -5.625rem;
+      }
+
+      @media screen and (min-width: $viewport-desktop-big) {
+        background-size: 100% auto;
+        background-position: 0 -4.25rem;
+      }
+
+      & > h3 {
+        color: $color-text-white;
+      }
+
+      & > span {
+        color: $color-text-white;
+      }
+
+      // Variations
+      &.popular--womens-fashion {
+        background-image: url("../img/popular-womens-fashion.jpg");
+      }
+
+      &.popular--mens-fashion {
+        background-image: url("../img/popular-mens-fashion.jpg");
+      }
+
+    }
+
+    // White popular plates
+    &--white {
+      background-color: $color-background-default;
+      background-repeat: no-repeat;
+      box-shadow: 0px 2px 4px 0px $color-shadow-default;
+      text-align: center;
+      display: none; // Don't show on phone and tablet
+      padding-right: 15%;
+
+      &.popular--quarter {
+        padding-right: 4.25%;
+
+        & > h3 {
+          letter-spacing: $letter-spacing-accent;
+        }
+      }
+
+      & > h3 {
+        padding: 3rem 0 0 0;
+        font-size: $font-size-accent;
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          font-size: $font-size-big;
+        }
+      }
+
+      & > span {
+        color: $color-text-lightest;
+        display: block;
+        line-height: $line-height-huge-phone;
+      }
+
+      @media screen and (min-width: $viewport-desktop-default) {
+        display: block;
+      }
+
+      // Variations
+      &.popular--electronics {
+        background-image: url("../img/category-electronics.jpg");
+
+        background-size: auto 175%;
+        background-position: right -125px top -150px;
+
+        &.popular--quarter {
+          background-size: auto 100%;
+          background-position: right -85px top -10px;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          background-position: right -85px top -150px;
+        }
+
+        & > .plate__dash {
+          background-color: $color-category-electronics;
+        }
+      }
+
+      &.popular--shoes {
+        background-image: url("../img/category-shoes.jpg");
+
+        background-size: auto 125%;
+        background-position: right -60px top -25px;
+
+        &.popular--quarter {
+          background-size: auto 100%;
+          background-position: right -100px top 4px;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          background-position: right -85px top -150px;
+        }
+
+        & > .plate__dash {
+          background-color: $color-category-shoes;
+        }
+      }
+
+      &.popular--jewelry-watches {
+        background-image: url("../img/category-jewelry-watches.jpg");
+
+        background-size: auto 150%;
+        background-position: right -100px top -55px;
+
+        &.popular--quarter {
+          background-size: auto 150%;
+          background-position: right -195px top -55px;
+        }
+
+        @media screen and (min-width: $viewport-desktop-big) {
+          background-position: right -85px top -150px;
+        }
+
+        & > .plate__dash {
+          background-color: $color-category-jewelry-watches;
+        }
+      }
+    }
+  }
+
+  //
+  // Category plates
+  //
 }

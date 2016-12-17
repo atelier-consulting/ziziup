@@ -8,11 +8,18 @@
   vertical-align: middle;
 
   // Sizes
+  &--giant {
+    width: $icon-size-giant;
+    height: $icon-size-giant;
+    background-size: $icon-size-giant $icon-size-giant;
+  }
+
   &--huge {
     width: $icon-size-huge;
     height: $icon-size-huge;
     background-size: $icon-size-huge $icon-size-huge;
   }
+
   &--small {
     width: $icon-size-small;
     height: $icon-size-small;
@@ -145,6 +152,10 @@
 
   &--sale {
     background-image: url("../img/icon-sale.png");
+  }
+
+  &--sales {
+    background-image: url("../img/icon-sales.png");
   }
 
   &--heart {

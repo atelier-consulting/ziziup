@@ -53,7 +53,7 @@ body {
 }
 
 .hide-on-desktop {
-  @media screen and (max-width: $viewport-desktop-big) {
+  @media screen and (min-width: $viewport-desktop-default) {
     display: none !important;
   }
 }
