@@ -1,21 +1,33 @@
-// Categories configuration
-
-@function get($map, $keys...) {
-  @each $key in $keys {
-    $map: map-get($map, $key);
-  }
-  @return $map;
-}
-
 $config-categories: (
-  // sports: (
-  //   color: (
-  //     primary:   rgb(142,36,170),
-  //     secondary: rgb(109,54,255)
-  //   )
-  //   // color-primary:   rgb(142,36,170),
-  //   // color-secondary: rgb(109,54,255)
-  // ),
+  sports: (
+    color: (
+      primary:   rgb(142,36,170),
+      secondary: rgb(109,54,255)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 345px,
+        phablet: auto 360px,
+        tablet:  auto 500px,
+        desktop: auto 560px,
+        big:     auto 650px,
+        large:   auto 650px,
+        huge:    auto 650px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -70px center,
+        phablet: top -80px center,
+        tablet:  top -130px center,
+        desktop: top -150px center,
+        big:     top -220px center,
+        large:   top -220px center,
+        huge:    top -220px center,
+      ),
+    ),
+  ),
+
   mens-fashion: (
     color: (
       primary:   rgb(248,182,28),
@@ -23,21 +35,28 @@ $config-categories: (
     ),
     size: (
       popular-color: (
-        phone: auto 290px,
-        tablet: auto 650px,
-        default: auto 650px,
-        big: auto 650px
-      )
+        phone:   auto 290px,
+        phablet: auto 290px,
+        tablet:  auto 650px,
+        desktop: auto 650px,
+        big:     auto 650px,
+        large:   auto 650px,
+        huge:    auto 650px,
+      ),
     ),
     position: (
       popular-color: (
-        phone: top -74px center,
-        tablet: top -220px center,
-        default: top -220px center,
-        big: top -220px center
-      )
-    )
+        phone:   top -74px center,
+        phablet: top -74px center,
+        tablet:  top -220px center,
+        desktop: top -220px center,
+        big:     top -220px center,
+        large:   top -220px center,
+        huge:    top -220px center,
+      ),
+    ),
   ),
+
   womens-fashion: (
     color: (
       primary:   rgb(220,65,49),
@@ -45,98 +64,400 @@ $config-categories: (
     ),
     size: (
       popular-color: (
-        phone: auto 340px,
-        tablet: auto 750px,
-        default: auto 750px,
-        big: auto 750px
-      )
+        phone:   auto 340px,
+        phablet: auto 340px,
+        tablet:  auto 750px,
+        desktop: auto 750px,
+        big:     auto 750px,
+        large:   auto 750px,
+        huge:    auto 750px,
+      ),
     ),
     position: (
       popular-color: (
-        phone: top -62px center,
-        tablet: top -220px center,
-        default: top -220px center,
-        big: top -220px center
-      )
-    )
+        phone:   top -62px center,
+        phablet: top -62px center,
+        tablet:  top -220px center,
+        desktop: top -220px center,
+        big:     top -270px center,
+        large:   top -270px center,
+        huge:    top -270px center,
+      ),
+    ),
   ),
 
-  // electronics: (
-  //   color: (
-  //     primary:   rgb(244,17,59),
-  //     secondary: rgb(243,48,110)
-  //   )
-  // ),
-  // jewelry-watches: (
-  //   color: (
-  //     primary:   rgb(69,100,173),
-  //     secondary: rgb(101,99,164)
-  //   )
-  // ),
-  // car-parts: (
-  //   color: (
-  //     primary:   rgb(66,147,33),
-  //     secondary: rgb(180,236,81)
-  //   )
-  // ),
-  // luxury: (
-  //   color: (
-  //     primary:   rgb(233,30,99),
-  //     secondary: rgb(231,18,26)
-  //   )
-  // ),
-  // beauty-health: (
-  //   color: (
-  //     primary:   rgb(185,69,204),
-  //     secondary: rgb(221,123,238)
-  //   )
-  // ),
-  // books: (
-  //   color: (
-  //     primary:   rgb(5,117,29),
-  //     secondary: rgb(26,158,37)
-  //   )
-  // ),
-  // merchandise: (
-  //   color: (
-  //     primary:   rgb(247,107,28),
-  //     secondary: rgb(250,133,97)
-  //   )
-  // ),
-  // bags: (
-  //   color: (
-  //     primary:   rgb(22,202,133),
-  //     secondary: rgb(62,227,143)
-  //   )
-  // ),
-  // clothes: (
-  //   color: (
-  //     primary:   rgb(218,0,20),
-  //     secondary: rgb(229,18,160)
-  //   )
-  // ),
-  // kids-fashion: (
-  //   color: (
-  //     primary:   rgb(126,211,33),
-  //     secondary: rgb(126,211,33)
-  //   )
-  // ),
-  // tech: (
-  //   color: (
-  //     primary:   rgb(21,105,243),
-  //     secondary: rgb(74,144,226)
-  //   )
-  // ),
-  // toys: (
-  //   color: (
-  //     primary:   rgb(216,53,289),
-  //     secondary: rgb(200,52,216)
-  //   )
-  // ),
-  // shoes: (
-  //   color: (
-  //     primary:   rgb(48,44,180),
-  //     secondary: rgb(34,28,228)
-  //   )
-  // )
+  electronics: (
+    color: (
+      primary:   rgb(244,17,59),
+      secondary: rgb(243,48,110)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 280px,
+        phablet: auto 420px,
+        tablet:  auto 510px,
+        desktop: auto 560px,
+        big:     auto 680px,
+        large:   auto 680px,
+        huge:    auto 680px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -70px center,
+        phablet: top -160px center,
+        tablet:  top -220px center,
+        desktop: top -250px center,
+        big:     top -320px center,
+        large:   top -320px center,
+        huge:    top -320px center,
+      ),
+    ),
+  ),
+
+  jewelry-watches: (
+    color: (
+      primary:   rgb(69,100,173),
+      secondary: rgb(101,99,164)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 280px,
+        phablet: auto 340px,
+        tablet:  auto 510px,
+        desktop: auto 580px,
+        big:     auto 680px,
+        large:   auto 680px,
+        huge:    auto 680px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -52px center,
+        phablet: top -80px center,
+        tablet:  top -170px center,
+        desktop: top -220px center,
+        big:     top -280px center,
+        large:   top -280px center,
+        huge:    top -280px center,
+      ),
+    ),
+  ),
+
+  cars-parts: (
+    color: (
+      primary:   rgb(66,147,33),
+      secondary: rgb(180,236,81)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 280px,
+        tablet:  auto 400px,
+        desktop: auto 540px,
+        big:     auto 580px,
+        large:   auto 580px,
+        huge:    auto 580px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -40px center,
+        tablet:  top -80px center,
+        desktop: top -140px center,
+        big:     top -150px center,
+        large:   top -150px center,
+        huge:    top -150px center,
+      ),
+    ),
+  ),
+
+  luxury: (
+    color: (
+      primary:   rgb(233,30,99),
+      secondary: rgb(231,18,26)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 580px,
+        large:   auto 580px,
+        huge:    auto 580px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -80px center,
+        desktop: top -100px center,
+        big:     top -160px center,
+        large:   top -160px center,
+        huge:    top -160px center,
+      ),
+    ),
+  ),
+
+  beauty-health: (
+    color: (
+      primary:   rgb(185,69,204),
+      secondary: rgb(221,123,238)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 500px,
+        large:   auto 500px,
+        huge:    auto 500px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -60px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+        large:   top -90px center,
+        huge:    top -90px center,
+      ),
+    ),
+  ),
+
+  books: (
+    color: (
+      primary:   rgb(5,117,29),
+      secondary: rgb(26,158,37)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 500px,
+        large:   auto 500px,
+        huge:    auto 500px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -60px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+        large:   top -90px center,
+        huge:    top -90px center,
+      ),
+    ),
+  ),
+
+  merchandise: (
+    color: (
+      primary:   rgb(247,107,28),
+      secondary: rgb(250,133,97)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 200px,
+        phablet: auto 360px,
+        tablet:  auto 440px,
+        desktop: auto 580px,
+        big:     auto 580px,
+        large:   auto 580px,
+        huge:    auto 580px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top center,
+        phablet: top center,
+        tablet:  top -30px center,
+        desktop: top -40px center,
+        big:     top -40px center,
+        large:   top -40px center,
+        huge:    top -40px center,
+      ),
+    ),
+  ),
+
+  bags: (
+    color: (
+      primary:   rgb(22,202,133),
+      secondary: rgb(62,227,143)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 255px,
+        phablet: auto 340px,
+        tablet:  auto 400px,
+        desktop: auto 460px,
+        big:     auto 520px,
+        large:   auto 520px,
+        huge:    auto 520px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -65px center,
+        tablet:  top -80px center,
+        desktop: top -140px center,
+        big:     top -180px center,
+        large:   top -180px center,
+        huge:    top -180px center,
+      ),
+    ),
+  ),
+
+  clothes: (
+    color: (
+      primary:   rgb(218,0,20),
+      secondary: rgb(229,18,160)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 250px,
+        tablet:  auto 360px,
+        desktop: auto 410px,
+        big:     auto 420px,
+        large:   auto 420px,
+        huge:    auto 420px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -35px center,
+        tablet:  top -65px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+        large:   top -90px center,
+        huge:    top -90px center,
+      ),
+    ),
+  ),
+
+  kids-fashion: (
+    color: (
+      primary:   rgb(126,211,33),
+      secondary: rgb(126,211,33)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 220px,
+        tablet:  auto 400px,
+        desktop: auto 540px,
+        big:     auto 580px,
+        large:   auto 580px,
+        huge:    auto 580px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -20px center,
+        tablet:  top -40px center,
+        desktop: top -90px center,
+        big:     top -150px center,
+        large:   top -150px center,
+        huge:    top -150px center,
+      ),
+    ),
+  ),
+
+  tech: (
+    color: (
+      primary:   rgb(21,105,243),
+      secondary: rgb(74,144,226)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 280px,
+        tablet:  auto 360px,
+        desktop: auto 420px,
+        big:     auto 470px,
+        large:   auto 520px,
+        huge:    auto 520px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -2px center,
+        phablet: top -70px center,
+        tablet:  top -75px center,
+        desktop: top -120px center,
+        big:     top -150px center,
+        large:   top -180px center,
+        huge:    top -180px center,
+      ),
+    ),
+  ),
+  toys: (
+    color: (
+      primary:   rgb(216,53,289),
+      secondary: rgb(200,52,216)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 260px,
+        phablet: auto 320px,
+        tablet:  auto 500px,
+        desktop: auto 540px,
+        big:     auto 540px,
+        large:   auto 540px,
+        huge:    auto 540px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -30px center,
+        phablet: top -50px center,
+        tablet:  top -75px center,
+        desktop: top -90px center,
+        big:     top -90px center,
+        large:   top -90px center,
+        huge:    top -90px center,
+      ),
+    ),
+  ),
+  shoes: (
+    color: (
+      primary:   rgb(48,44,180),
+      secondary: rgb(34,28,228)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 320px,
+        phablet: auto 280px,
+        tablet:  auto 440px,
+        desktop: auto 540px,
+        big:     auto 520px,
+        large:   auto 520px,
+        huge:    auto 520px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -25px center,
+        phablet: top -40px center,
+        tablet:  top -80px center,
+        desktop: top -120px center,
+        big:     top -120px center,
+        large:   top -120px center,
+        huge:    top -120px center,
+      ),
+    ),
+  )
 );

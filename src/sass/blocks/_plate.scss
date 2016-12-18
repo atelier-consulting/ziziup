@@ -324,36 +324,68 @@ $plate-gutter-default: 1.25rem;
       background-size: auto 100%;
       background-position: center center;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
-        background-size: 136% auto;
-        background-position: 0 -4.375rem;
-      }
-
-      @media screen and (min-width: $viewport-desktop-default) {
-        background-size: 112.5% auto;
-        background-position: 0 -5.625rem;
-      }
-
-      @media screen and (min-width: $viewport-desktop-big) {
-        background-size: 100% auto;
-        background-position: 0 -4.25rem;
-      }
-
       & > h3 {
         color: $color-text-white;
+        letter-spacing: normal;
+        font-weight: $font-weight-base;
+        font-size: $font-size-oversize;
+        letter-spacing: $letter-spacing-small + 0.5px;
 
-        @media screen and (min-width: $viewport-tablet-portrait) {
+        @include from(phablet) {
+          font-weight: $font-weight-bold;
+          letter-spacing: $letter-spacing-big;
+        };
+
+        @include from(tablet) {
           letter-spacing: $letter-spacing-large;
+          font-size: $font-size-large;
         }
       }
 
       & > span {
         color: $color-text-white;
+
+        & + span {
+          display: none;
+
+          @include from(tablet) {
+            display: inline;
+          };
+        }
       }
 
       & > .plate__dash {
         background-color: $color-background-default;
       }
+
+      @include between(tablet, desktop) {
+        & > h3 {
+          position: absolute;
+          bottom: 7rem;
+          width: 100%;
+        }
+
+        & > span {
+          position: absolute;
+          bottom: 2.8rem;
+          left: 1.5rem;
+
+          & + span {
+            left: auto;
+            right: 1.5rem;
+          }
+        }
+
+        & > .plate__dash {
+          position: absolute;
+          bottom: 4.25rem;
+          left: calc(50% - 1.5rem);
+        }
+      };
+
+      @include from(tablet) {
+        box-shadow: 0px 2px 4px 0px $color-shadow-default;
+      };
 
       // Variations
       @each $name, $config in $config-categories {
@@ -367,46 +399,22 @@ $plate-gutter-default: 1.25rem;
               rgba(255,255,255,0.15) 0%,
               rgba(255,255,255,.15) 100%
             ),
-            url("../img/category-#{$name}.jpg")
+            url("../img/category-#{$name}.jpg"),
+            linear-gradient(0deg, white 0%, white 100%),
           ;
 
-          background-size: get($config, size, popular-color, phone);
+
+          background-size:     get($config, size,     popular-color, phone);
           background-position: get($config, position, popular-color, phone);
 
-          @media screen and (min-width: $viewport-tablet-portrait) {
-            background-size: get($config, size, popular-color, tablet);
-            background-position: get($config, position, popular-color, tablet);
+          @each $viewport, $size in $viewports {
+            @include from($viewport) {
+              background-size:     get($config, size,     popular-color, $viewport);
+              background-position: get($config, position, popular-color, $viewport);
+            }
           }
-
-          @media screen and (min-width: $viewport-desktop-default) {
-            background-size: get($config, size, popular-color, default);
-            background-position: get($config, position, popular-color, default);
-          }
-
-          @media screen and (min-width: $viewport-desktop-big) {
-            background-size: get($config, size, popular-color, big);
-            background-position: get($config, position, popular-color, big);
-          }
-
-
         }
       }
-
-      // &.popular--womens-fashion {
-        // background-image: url("../img/popular-womens-fashion.jpg");
-
-        // background-image:
-          // rgba(255,255,255,.1),
-          // linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%),
-          // linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%),
-          // linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,.5) 100%),
-          // url("../img/category-womans-fashion.jpg");
-      // }
-
-      // &.popular--mens-fashion {
-        // background-image: url("../img/popular-mens-fashion.jpg");
-      // }
-
     }
 
     // White popular plates
