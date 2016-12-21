@@ -17,7 +17,7 @@
       flex-direction: column;
       justify-content: space-between;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         flex-direction: row;
       }
     }
@@ -40,7 +40,7 @@
     top: 0;
     right: 28px;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       display: none;
     }
 
@@ -57,11 +57,11 @@
 
     display: none;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       display: block;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       height: 4rem;
       line-height: 4rem;
       padding: 0 3.75rem 0 0;
@@ -99,15 +99,15 @@
 
       // background: rgba(0,0,0,.05);
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         height: 448px;
       }
 
-      @media screen and (min-width: $viewport-desktop-default) {
+      @include from(desktop) {
         height: 580px;
       }
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         height: 680px;
       }
 
@@ -119,11 +119,11 @@
 
         // background: rgba(155,0,0,.05);
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           padding-top: 3rem;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           padding-top: 6rem;
         }
       }
@@ -141,7 +141,7 @@
           line-height: 3rem;
         }
 
-        @media screen and (min-width: $viewport-tablet-portrait) {
+        @include from(tablet) {
           font-size: 4rem;
           line-height: 4.625rem;
 
@@ -151,7 +151,7 @@
           }
         }
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           font-size: 5.625rem;
           line-height: 6.625rem;
 
@@ -167,7 +167,7 @@
         line-height: 1.75rem;
         margin: 1rem 0 1.5rem 0;
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           margin: 2rem 0;
         }
       }
@@ -179,11 +179,11 @@
 
       height: 960px;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         height: 522px;
       }
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         height: 768px;
       }
 
@@ -202,7 +202,7 @@
         line-height: 3.375rem;
         margin: 0 0 .75rem 0;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           font-size: 4rem;
           line-height: 4.875rem;
           margin: 0 0 1.75rem 0;
@@ -219,7 +219,7 @@
 
         margin: 2rem 0 1rem 0;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           margin: 5rem 0 1.5rem 0;
         }
       }
@@ -245,7 +245,7 @@
         line-height: 3.375rem;
         margin: 1.75rem 0;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           font-size: 4rem;
           line-height: 4.875rem;
           margin: 3rem 0 1.75rem 0;
@@ -268,7 +268,7 @@
         text-align: center;
         margin: 2.25rem 0 2.25rem 0;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           margin: 3rem 0 2.75rem 0;
         }
       }
@@ -284,13 +284,13 @@
       background-size: auto 640px;
       background-position: -400px 70px;
 
-      @media screen and (min-width: $viewport-phone-landscape) {
+      @include from(phablet) {
         height: 655px;
         background-position: -200px 24px;
         background-size: auto 600px;
       }
 
-      @media screen and (min-width: $viewport-desktop-default) {
+      @include from(desktop) {
         height: 655px;
         background-position: -200px 24px;
         background-size: auto 600px;
@@ -339,7 +339,7 @@
         max-width: 18rem;
       }
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         & h2,
         // & h3,
         & ul,
@@ -358,7 +358,7 @@
 
         padding-bottom: 3rem;
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           padding-top: 2rem;
           background-image: url("../img/landing-form.jpg");
           background-size: 420px 420px;
@@ -366,7 +366,7 @@
           background-repeat: no-repeat;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           padding-top: 3rem;
           padding-bottom: 6rem;
           background-size: 500px 500px;
@@ -382,7 +382,7 @@
         font-size: 2.5rem;
         line-height: 3rem;
 
-        @media screen and (min-width: $viewport-phone-landscape) {
+        @include from(phablet) {
           font-size: 2.8125rem;
           line-height: 3.375rem;
         }
@@ -402,11 +402,11 @@
         margin: $spacer-size-default * 2 0 0;
         max-width: 45rem;
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           max-width: 34rem;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           max-width: 40rem;
         }
       }
@@ -414,12 +414,12 @@
       & .landing__badge {
         display: none;
 
-        @media screen and (min-width: $viewport-desktop-default) {
+        @include from(desktop) {
           display: block;
           top: 60px;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           max-width: 40rem;
         }
       }
@@ -445,7 +445,7 @@
         padding-top: 2.5rem;
         padding-bottom: 1rem;
 
-        @media screen and (min-width: $viewport-tablet-portrait) {
+        @include from(tablet) {
           flex-direction: row;
         }
       }
@@ -459,7 +459,7 @@
         padding: 0 2rem 1.5rem 0;
         flex-grow: 1;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           font-size: 4rem;
         }
       }
@@ -531,13 +531,13 @@
       line-height: .875rem;
     }
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       left: auto;
       right: 30px;
       top: 36px;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       width: 252px;
       min-height: 52px;
       background-size: 252px 52px;
@@ -558,7 +558,7 @@
       }
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       top: 102px;
     }
   }
@@ -575,23 +575,23 @@
     height: 378px;
     left: -360px;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       height: 362px;
       left: auto;
       right: -196px;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       height: 462px;
       left: 100px;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       height: 578px;
       left: 0;
     }
 
-    @media screen and (min-width: $viewport-desktop-large) {
+    @include from(large) {
       left: 270px;
     }
   }
@@ -605,7 +605,7 @@
 
     display: none;
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       display: block;
     }
   }
@@ -620,12 +620,12 @@
     right: 1rem;
     height: 374px;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       top: 5.25rem;
       right: 60%;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       top: 9rem;
       right: 54%;
       height: 580px;
@@ -636,11 +636,11 @@
   &__get {
     padding: 27rem 0 0;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       padding: 3.125rem 0 0 47%;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       padding: 6.5rem 0 0 54%;
     }
   }
@@ -658,7 +658,7 @@
 
     width: 100%;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       width: 22.125rem;
     }
 
@@ -685,17 +685,17 @@
     justify-content: flex-start;
     padding: 1rem 0 0 0;
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       flex-direction: row;
       justify-content: space-between;
       padding: 2rem 0 0 0;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       padding: 3.75rem 2rem 0;
     }
 
-    @media screen and (min-width: $viewport-desktop-large) {
+    @include from(large) {
       padding: 3.75rem 9.75rem 0;
     }
 
@@ -773,15 +773,15 @@
     margin: 0 .4375rem 1.5rem;
     line-height: 1.5rem;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       margin: 0 1rem 2.25rem;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       margin: 0 .25rem 2.25rem;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       margin: 0 1rem 2.25rem;
     }
   }
@@ -813,7 +813,7 @@
       top: 893px;
     }
 
-    @media screen and (min-width: $viewport-phone-landscape) {
+    @include from(phablet) {
       &--elite {
         top: 65px;
       }
@@ -827,7 +827,7 @@
       }
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       &--elite {
         top: 100px;
         left: 160px;
@@ -849,7 +849,7 @@
       }
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       &--elite {
         top: 70px;
         left: 180px;
@@ -875,15 +875,15 @@
   &__membership {
     padding: 3rem 0 0 0;
 
-    @media screen and (min-width: $viewport-phone-landscape) {
+    @include from(phablet) {
       padding: 4rem 0 0 46%;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       padding: 4rem 0 0 64.5%;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       padding: 5.5rem 0 0 64.5%;
     }
   }

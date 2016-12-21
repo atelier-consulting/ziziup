@@ -13,7 +13,7 @@ $plate-gutter-default: 1.25rem;
   left: -1 * ($plate-gutter-small / 2);
   width: calc(100% + #{$plate-gutter-small});
 
-  @media screen and (min-width: $viewport-desktop-big) {
+  @include from(big) {
     width: calc(100% + #{$plate-gutter-default});
   }
 
@@ -41,13 +41,13 @@ $plate-gutter-default: 1.25rem;
     height: 3px;
     margin: $spacer-size-default auto;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       width: 3rem;
       height: 4px;
       margin: 1.25rem auto;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       margin: 1.5rem auto;
     }
 
@@ -69,12 +69,12 @@ $plate-gutter-default: 1.25rem;
     width: calc(50% - #{$plate-gutter-small});
     height: $plate-height-small;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       width: calc(25% - #{$plate-gutter-small});
       height: $plate-height-default;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       margin: $plate-gutter-default / 2;
       width: calc(25% - #{$plate-gutter-default});
       height: $plate-height-default;
@@ -86,12 +86,12 @@ $plate-gutter-default: 1.25rem;
     height: 5.5rem;
     padding: 2.25rem 0 0;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       height: 6rem;
       padding: 2.75rem 0 0;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(big) {
       height: 6.5rem;
       padding: 2.25rem 0 0;
     }
@@ -102,7 +102,7 @@ $plate-gutter-default: 1.25rem;
       max-width: 74.5%;
       max-height: 2.25rem;
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         max-height: 3.25rem;
       }
     }
@@ -164,11 +164,11 @@ $plate-gutter-default: 1.25rem;
     padding: 1.5rem 0;
     justify-content: space-between;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       flex-direction: row;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       width: calc(100% - #{$plate-gutter-default});
       margin: $plate-gutter-default / 2;
     }
@@ -179,12 +179,12 @@ $plate-gutter-default: 1.25rem;
       background-size: 100% auto;
       background-position: center center;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         padding-left: 8rem;
         padding-right: 8rem;
       }
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         width: calc(50% - #{$plate-gutter-default});
         float: right;
         height: $plate-height-default;
@@ -196,7 +196,7 @@ $plate-gutter-default: 1.25rem;
       background-image: url("../img/comp-shelves.jpg");
       background-size: 1180px auto;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         padding-left: 2.25rem;
         padding-right: 2.25rem;
       }
@@ -207,7 +207,7 @@ $plate-gutter-default: 1.25rem;
   &__module {
     text-align: center;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       text-align: left;
     }
 
@@ -216,11 +216,11 @@ $plate-gutter-default: 1.25rem;
       color: $color-text-white;
       margin-bottom: $spacer-size-tiny;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         margin-top: $spacer-size-big;
       }
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         font-size: $font-size-huge-tablet;
       }
     }
@@ -229,7 +229,7 @@ $plate-gutter-default: 1.25rem;
       margin-bottom: 0;
       color: $color-text-white;
 
-      @media screen and (min-width: $viewport-desktop-big) {
+      @include from(big) {
         margin-top: $spacer-size-default;
       }
     }
@@ -237,7 +237,7 @@ $plate-gutter-default: 1.25rem;
     & > .button {
       margin-top: $spacer-size-default;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         margin-top: 0;
       }
     }
@@ -251,11 +251,11 @@ $plate-gutter-default: 1.25rem;
     width: calc(50% - #{$plate-gutter-small});
     height: $plate-height-big;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(tablet) {
       height: $plate-height-large;
     }
 
-    @media screen and (min-width: $viewport-desktop-default) {
+    @include from(desktop) {
       margin: $plate-gutter-default / 2;
       width: calc(50% - #{$plate-gutter-default});
     }
@@ -263,7 +263,7 @@ $plate-gutter-default: 1.25rem;
     &--quarter {
       width: calc(25% - #{$plate-gutter-small});
 
-      @media screen and (min-width: $viewport-desktop-default) {
+      @include from(desktop) {
         width: calc(25% - #{$plate-gutter-default});
 
         & > span + span {
@@ -279,13 +279,13 @@ $plate-gutter-default: 1.25rem;
       text-align: center;
       padding: 5rem 0 0 0;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         font-size: $font-size-large;
         line-height: $line-height-large;
         padding: 2.25rem 3rem 0;
       }
 
-      @media screen and (min-width: $viewport-desktop-default) {
+      @include from(desktop) {
         padding: 3.75rem 0 0 0;
       }
     }
@@ -303,7 +303,7 @@ $plate-gutter-default: 1.25rem;
     & > .plate__dash {
       height: 1px;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         height: 4px;
       }
     }
@@ -407,9 +407,9 @@ $plate-gutter-default: 1.25rem;
           background-size:     get($config, size,     popular-color, phone);
           background-position: get($config, position, popular-color, phone);
 
-          @each $viewport, $size in $viewports {
+          @each $viewport, $size in get($config, size, popular-color) {
             @include from($viewport) {
-              background-size:     get($config, size,     popular-color, $viewport);
+              background-size:     $size;
               background-position: get($config, position, popular-color, $viewport);
             }
           }
@@ -438,7 +438,7 @@ $plate-gutter-default: 1.25rem;
         padding: 3rem 0 0 0;
         font-size: $font-size-accent;
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           font-size: $font-size-big;
         }
       }
@@ -449,7 +449,7 @@ $plate-gutter-default: 1.25rem;
         line-height: $line-height-huge-phone;
       }
 
-      @media screen and (min-width: $viewport-desktop-default) {
+      @include from(desktop) {
         display: block;
       }
 
@@ -465,7 +465,7 @@ $plate-gutter-default: 1.25rem;
           background-position: right -85px top -10px;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           background-position: right -85px top -150px;
         }
       }
@@ -481,7 +481,7 @@ $plate-gutter-default: 1.25rem;
           background-position: right -100px top 4px;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           background-position: right -85px top -150px;
         }
       }
@@ -497,7 +497,7 @@ $plate-gutter-default: 1.25rem;
           background-position: right -195px top -55px;
         }
 
-        @media screen and (min-width: $viewport-desktop-big) {
+        @include from(big) {
           background-position: right -85px top -150px;
         }
       }
@@ -508,25 +508,30 @@ $plate-gutter-default: 1.25rem;
   // Category plates
   //
 
-  $padding-category-right: 3.5rem;
+  $padding-category-right: 4.5rem;
 
   &.category {
     margin: $plate-gutter-small / 2;
     width: calc(50% - #{$plate-gutter-small});
     height: $plate-height-mini;
-    background: $color-background-default;
+    background-color: $color-background-default;
+    background-repeat: no-repeat;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
     text-align: center;
 
-    @media screen and (min-width: $viewport-tablet-portrait) {
+    @include from(phablet) {
       height: $plate-height-tiny;
       width: calc(33.33% - #{$plate-gutter-small});
       padding: 0 $padding-category-right 0 0;
     }
 
-    @media screen and (min-width: $viewport-desktop-big) {
+    @include from(desktop) {
+      width: calc(25% - #{$plate-gutter-small});
+    }
+
+    @include from(big) {
       margin: $plate-gutter-default / 2;
-      width: calc(50% - #{$plate-gutter-default});
+      width: calc(25% - #{$plate-gutter-default});
     }
 
     & > h4 {
@@ -539,7 +544,7 @@ $plate-gutter-default: 1.25rem;
       background: #fff;
       z-index: 3;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(tablet) {
         padding-top: 1.125rem;
       }
     }
@@ -557,7 +562,7 @@ $plate-gutter-default: 1.25rem;
       letter-spacing: $letter-spacing-default;
       z-index: 2;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(phablet) {
         padding-right: $padding-category-right;
         top: 2.875rem;
       }
@@ -570,12 +575,30 @@ $plate-gutter-default: 1.25rem;
       width: 1rem;
       margin: $spacer-size-big auto;
 
-      @media screen and (min-width: $viewport-tablet-portrait) {
+      @include from(phablet) {
         width: 2rem;
 
         // Center minus half of width minus half of right padding
-        left: calc(50% - 1rem - 1.75rem);
+        left: calc(50% - 1rem - #{$padding-category-right / 2});
       }
     }
+
+    // Variations
+
+    // @each $name, $config in $config-categories {
+    //   &.category--#{$name} {
+    //     background-image: url("../img/category-#{$name}.jpg");
+    //
+    //     background-size:     get($config, size,     category, phone);
+    //     background-position: get($config, position, category, phone);
+    //
+    //     @each $viewport, $size in $viewports {
+    //       @include from($viewport) {
+    //         background-size:     get($config, size,     category, $viewport);
+    //         background-position: get($config, position, category, $viewport);
+    //       }
+    //     }
+    //   }
+    // }
   }
 }

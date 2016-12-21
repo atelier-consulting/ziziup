@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: $viewport-phone-landscape) {
+    @include from(phablet) {
       flex-direction: row;
     }
   }
