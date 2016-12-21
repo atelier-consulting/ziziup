@@ -515,6 +515,7 @@ $plate-gutter-default: 1.25rem;
     width: calc(50% - #{$plate-gutter-small});
     height: $plate-height-mini;
     background-color: $color-background-default;
+    background-image: none;
     background-repeat: no-repeat;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
     text-align: center;
@@ -526,12 +527,12 @@ $plate-gutter-default: 1.25rem;
     }
 
     @include from(desktop) {
-      width: calc(25% - #{$plate-gutter-small});
+      width: calc(25% - #{$plate-gutter-default});
+      margin: $plate-gutter-default / 2;
     }
 
-    @include from(big) {
-      margin: $plate-gutter-default / 2;
-      width: calc(25% - #{$plate-gutter-default});
+    @include from(huge) {
+      width: calc(16.66% - #{$plate-gutter-default});
     }
 
     & > h4 {
@@ -540,7 +541,7 @@ $plate-gutter-default: 1.25rem;
       letter-spacing: normal;
       font-size: $font-size-oversize;
       font-weight: $font-weight-base;
-      padding: $spacer-size-default $spacer-size-default $spacer-size-tiny;
+      padding: $spacer-size-default $spacer-size-big $spacer-size-tiny;
       background: #fff;
       z-index: 3;
 
@@ -585,20 +586,16 @@ $plate-gutter-default: 1.25rem;
 
     // Variations
 
-    // @each $name, $config in $config-categories {
-    //   &.category--#{$name} {
-    //     background-image: url("../img/category-#{$name}.jpg");
-    //
-    //     background-size:     get($config, size,     category, phone);
-    //     background-position: get($config, position, category, phone);
-    //
-    //     @each $viewport, $size in $viewports {
-    //       @include from($viewport) {
-    //         background-size:     get($config, size,     category, $viewport);
-    //         background-position: get($config, position, category, $viewport);
-    //       }
-    //     }
-    //   }
-    // }
+    @each $name, $config in $config-categories {
+      &.category--#{$name} {
+        @each $viewport, $size in get($config, size, category) {
+          @include from($viewport) {
+            background-image: url("../img/category-#{$name}.jpg");
+            background-size:     $size;
+            background-position: get($config, position, category, $viewport);
+          }
+        }
+      }
+    }
   }
 }
