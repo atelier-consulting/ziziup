@@ -1,0 +1,20 @@
+// Deep map get
+@function get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// Responsive
+@mixin from($viewport) {
+  @media screen and (min-width: get($viewports, $viewport)) {
+    @content;
+  }
+}
+
+@mixin between($from, $to) {
+  @media screen and (min-width: get($viewports, $from)) and (max-width: #{get($viewports, $to)-1}) {
+    @content;
+  }
+}

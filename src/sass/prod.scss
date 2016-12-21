@@ -3,7 +3,9 @@
 @import 'variables/color';
 @import 'variables/font';
 @import 'variables/metrics';
+@import 'variables/categories';
 
+@import 'base/functions';
 @import 'base/base';
 @import 'base/typography';
 
@@ -19,5 +21,6 @@
 @import 'blocks/divider';
 @import 'blocks/list';
 @import 'blocks/form';
+@import 'blocks/plate';
 
 @import 'layouts/landing';

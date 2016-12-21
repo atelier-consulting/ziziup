@@ -35,25 +35,29 @@ body {
   max-width: $container-width-default + ($spacer-horizontal-page * 2);
   padding: 0 $spacer-horizontal-page;
 
-  @media screen and (max-width: $viewport-tablet-portrait) {
+  @include from(tablet) {
     max-width: $container-width-portrait + ($spacer-horizontal-page * 2);
   }
 
-  @media screen and (min-width: $viewport-desktop-big) {
+  @include from(desktop) {
+    max-width: $container-width-default + ($spacer-horizontal-page * 2);
+  }
+
+  @include from(big) {
     max-width: $container-width-big + ($spacer-horizontal-page * 2);
   }
 
-  @media screen and (min-width: $viewport-desktop-large) {
+  @include from(large) {
     max-width: $container-width-large + ($spacer-horizontal-page * 2);
   }
 
-  // @media screen and (min-width: $viewport-desktop-huge) {
-  //   max-width: $container-width-huge + ($spacer-horizontal-page * 2);
-  // }
+  @include from(huge) {
+    max-width: $container-width-huge + ($spacer-horizontal-page * 2);
+  }
 }
 
 .hide-on-desktop {
-  @media screen and (max-width: $viewport-desktop-big) {
+  @include from(desktop) {
     display: none !important;
   }
 }

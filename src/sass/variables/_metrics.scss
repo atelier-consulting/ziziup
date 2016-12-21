@@ -35,3 +35,13 @@ $icon-size-default:         32px;
 $icon-size-small:           24px;
 $icon-size-tiny:            16px;
 $icon-size-mini:            12px;
+
+$viewports: (
+  phone:     320px,  // Portrait phone
+  phablet:   640px,  // Phablet, landscape phone
+  tablet:    768px,  // Portrait tablet
+  desktop:   1024px, // Minimal desktop screen, landscape tablet
+  big:       1366px, // Generic laptop screen
+  large:     1600px, // Large desktop monitor
+  huge:      1920px, // Huge desktop monitor
+)

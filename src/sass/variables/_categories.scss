@@ -1,0 +1,691 @@
+$config-categories: (
+  sports: (
+    color: (
+      primary:   rgb(142,36,170),
+      secondary: rgb(109,54,255)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 345px,
+        phablet: auto 360px,
+        tablet:  auto 500px,
+        desktop: auto 560px,
+        big:     auto 650px,
+      ),
+      popular-white-half: (
+        desktop: auto 530px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 260px,
+      ),
+      category: (
+        phablet: auto 220px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -70px center,
+        phablet: top -80px center,
+        tablet:  top -130px center,
+        desktop: top -150px center,
+        big:     top -220px center,
+      ),
+      popular-white-half: (
+        desktop: top -150px right -330px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -170px,
+      ),
+      category: (
+        phablet: top -55px right -141px,
+      ),
+    ),
+  ),
+
+  mens-fashion: (
+    color: (
+      primary:   rgb(248,182,28),
+      secondary: rgb(255,128,0),
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 290px,
+        phablet: auto 290px,
+        tablet:  auto 650px,
+        desktop: auto 650px,
+        big:     auto 650px,
+      ),
+      popular-white-half: (
+        desktop: auto 460px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 250px,
+      ),
+      category: (
+        phablet: auto 210px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -74px center,
+        phablet: top -74px center,
+        tablet:  top -220px center,
+        desktop: top -220px center,
+        big:     top -220px center,
+      ),
+      popular-white-half: (
+        desktop: top -85px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top -30px right -130px,
+      ),
+      category: (
+        phablet: top -40px right -100px,
+      ),
+    ),
+  ),
+
+  womens-fashion: (
+    color: (
+      primary:   rgb(220,65,49),
+      secondary: rgb(255,152,54),
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 340px,
+        phablet: auto 340px,
+        tablet:  auto 750px,
+        desktop: auto 750px,
+        big:     auto 750px,
+      ),
+      popular-white-half: (
+        desktop: auto 580px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 300px,
+      ),
+      category: (
+        phablet: auto 260px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -62px center,
+        phablet: top -62px center,
+        tablet:  top -220px center,
+        desktop: top -220px center,
+        big:     top -270px center,
+      ),
+      popular-white-half: (
+        desktop: top -108px right -245px,
+      ),
+      popular-white-quarter: (
+        desktop: top -55px right -160px,
+      ),
+      category: (
+        phablet: top -48px right -112px,
+      ),
+    ),
+  ),
+
+  electronics: (
+    color: (
+      primary:   rgb(244,17,59),
+      secondary: rgb(243,48,110)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 280px,
+        phablet: auto 420px,
+        tablet:  auto 510px,
+        desktop: auto 560px,
+        big:     auto 680px,
+      ),
+      popular-white-half: (
+        desktop: auto 320px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
+      category: (
+        phablet: auto 170px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -70px center,
+        phablet: top -160px center,
+        tablet:  top -220px center,
+        desktop: top -250px center,
+        big:     top -320px center,
+      ),
+      popular-white-half: (
+        desktop: top -110px right -95px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -120px,
+      ),
+      category: (
+        phablet: top -52px right -58px,
+      ),
+    ),
+  ),
+
+  jewelry-watches: (
+    color: (
+      primary:   rgb(69,100,173),
+      secondary: rgb(101,99,164)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 280px,
+        phablet: auto 340px,
+        tablet:  auto 510px,
+        desktop: auto 580px,
+        big:     auto 680px,
+      ),
+      popular-white-half: (
+        desktop: auto 440px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 310px,
+      ),
+      category: (
+        phablet: auto 210px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -52px center,
+        phablet: top -80px center,
+        tablet:  top -170px center,
+        desktop: top -220px center,
+        big:     top -280px center,
+      ),
+      popular-white-half: (
+        desktop: top -130px right -225px,
+      ),
+      popular-white-quarter: (
+        desktop: top -60px right -190px,
+      ),
+      category: (
+        phablet: top -65px right -110px,
+      ),
+    ),
+  ),
+
+  cars-parts: (
+    color: (
+      primary:   rgb(66,147,33),
+      secondary: rgb(180,236,81)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 280px,
+        tablet:  auto 400px,
+        desktop: auto 540px,
+        big:     auto 580px,
+      ),
+      popular-white-half: (
+        desktop: auto 420px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
+      category: (
+        phablet: auto 160px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -40px center,
+        tablet:  top -80px center,
+        desktop: top -140px center,
+        big:     top -150px center,
+      ),
+      popular-white-half: (
+        desktop: top -100px right -210px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -180px,
+      ),
+      category: (
+        phablet: top -30px right -75px,
+      ),
+    ),
+  ),
+
+  luxury: (
+    color: (
+      primary:   rgb(233,30,99),
+      secondary: rgb(231,18,26)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 580px,
+      ),
+      popular-white-half: (
+        desktop: auto 430px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
+      category: (
+        phablet: auto 170px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -80px center,
+        desktop: top -100px center,
+        big:     top -160px center,
+      ),
+      popular-white-half: (
+        desktop: top -80px right -180px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -150px,
+      ),
+      category: (
+        phablet: top -24px right -75px,
+      ),
+    ),
+  ),
+
+  beauty-health: (
+    color: (
+      primary:   rgb(185,69,204),
+      secondary: rgb(221,123,238)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 500px,
+      ),
+      popular-white-half: (
+        desktop: auto 370px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
+      category: (
+        phablet: auto 140px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -60px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -60px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -160px,
+      ),
+      category: (
+        phablet: top -10px right -58px,
+      ),
+    ),
+  ),
+
+  books: (
+    color: (
+      primary:   rgb(5,117,29),
+      secondary: rgb(26,158,37)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 310px,
+        tablet:  auto 390px,
+        desktop: auto 480px,
+        big:     auto 500px,
+      ),
+      popular-white-half: (
+        desktop: auto 420px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
+      category: (
+        phablet: auto 190px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -50px center,
+        tablet:  top -60px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -100px right -240px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -170px,
+      ),
+      category: (
+        phablet: top -50px right -115px,
+      ),
+    ),
+  ),
+
+  merchandise: (
+    color: (
+      primary:   rgb(247,107,28),
+      secondary: rgb(250,133,97)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 200px,
+        phablet: auto 360px,
+        tablet:  auto 440px,
+        desktop: auto 580px,
+        big:     auto 580px,
+      ),
+      popular-white-half: (
+        desktop: auto 360px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 180px,
+      ),
+      category: (
+        phablet: auto 150px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top center,
+        phablet: top center,
+        tablet:  top -30px center,
+        desktop: top -40px center,
+        big:     top -40px center,
+      ),
+      popular-white-half: (
+        desktop: top 15px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top 20px right -120px,
+      ),
+      category: (
+        phablet: top -15px right -80px,
+      ),
+    ),
+  ),
+
+  bags: (
+    color: (
+      primary:   rgb(22,202,133),
+      secondary: rgb(62,227,143)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 255px,
+        phablet: auto 340px,
+        tablet:  auto 400px,
+        desktop: auto 460px,
+        big:     auto 520px,
+      ),
+      popular-white-half: (
+        desktop: auto 440px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 210px,
+      ),
+      category: (
+        phablet: auto 150px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -65px center,
+        tablet:  top -80px center,
+        desktop: top -140px center,
+        big:     top -180px center,
+      ),
+      popular-white-half: (
+        desktop: top -50px right -260px,
+      ),
+      popular-white-quarter: (
+        desktop: top 10px right -130px,
+      ),
+      category: (
+        phablet: top -15px right -76px,
+      ),
+    ),
+  ),
+
+  clothes: (
+    color: (
+      primary:   rgb(218,0,20),
+      secondary: rgb(229,18,160)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 250px,
+        tablet:  auto 360px,
+        desktop: auto 410px,
+        big:     auto 420px,
+      ),
+      popular-white-half: (
+        desktop: auto 340px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
+      category: (
+        phablet: auto 220px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -5px center,
+        phablet: top -35px center,
+        tablet:  top -65px center,
+        desktop: top -80px center,
+        big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -50px right -150px,
+      ),
+      popular-white-quarter: (
+        desktop: top right -135px,
+      ),
+      category: (
+        phablet: top -35px right -85px,
+      ),
+    ),
+  ),
+
+  kids-fashion: (
+    color: (
+      primary:   rgb(126,211,33),
+      secondary: rgb(126,211,33)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 240px,
+        phablet: auto 220px,
+        tablet:  auto 400px,
+        desktop: auto 540px,
+        big:     auto 580px,
+      ),
+      popular-white-half: (
+        desktop: auto 340px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 250px,
+      ),
+      category: (
+        phablet: auto 125px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -20px center,
+        phablet: top -20px center,
+        tablet:  top -40px center,
+        desktop: top -90px center,
+        big:     top -150px center,
+      ),
+      popular-white-half: (
+        desktop: top -30px right -150px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -150px,
+      ),
+      category: (
+        phablet: top -5px right -30px,
+      ),
+    ),
+  ),
+
+  tech: (
+    color: (
+      primary:   rgb(21,105,243),
+      secondary: rgb(74,144,226)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 220px,
+        phablet: auto 280px,
+        tablet:  auto 360px,
+        desktop: auto 420px,
+        big:     auto 470px,
+        large:   auto 520px,
+      ),
+      popular-white-half: (
+        desktop: auto 240px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
+      category: (
+        phablet: auto 110px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -2px center,
+        phablet: top -70px center,
+        tablet:  top -75px center,
+        desktop: top -120px center,
+        big:     top -150px center,
+        large:   top -180px center,
+      ),
+      popular-white-half: (
+        desktop: top -10px right -50px,
+      ),
+      popular-white-quarter: (
+        desktop: top -6px right -170px,
+      ),
+      category: (
+        phablet: top -3px right -38px,
+      ),
+    ),
+  ),
+
+  toys: (
+    color: (
+      primary:   rgb(216,53,289),
+      secondary: rgb(200,52,216)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 260px,
+        phablet: auto 320px,
+        tablet:  auto 500px,
+        desktop: auto 540px,
+        big:     auto 540px,
+      ),
+      category: (
+        phablet: auto 160px,
+      ),
+      popular-white-half: (
+        desktop: auto 380px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 340px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -30px center,
+        phablet: top -50px center,
+        tablet:  top -75px center,
+        desktop: top -90px center,
+        big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -20px right -180px,
+      ),
+      popular-white-quarter: (
+        desktop: top -15px right -220px,
+      ),
+      category: (
+        phablet: top -5px right -72px,
+      ),
+    ),
+  ),
+
+  shoes: (
+    color: (
+      primary:   rgb(48,44,180),
+      secondary: rgb(34,28,228)
+    ),
+    size: (
+      popular-color: (
+        phone:   auto 320px,
+        phablet: auto 280px,
+        tablet:  auto 440px,
+        desktop: auto 540px,
+        big:     auto 520px,
+      ),
+      popular-white-half: (
+        desktop: auto 330px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 265px,
+      ),
+      category: (
+        phablet: auto 140px,
+      ),
+    ),
+    position: (
+      popular-color: (
+        phone:   top -25px center,
+        phablet: top -40px center,
+        tablet:  top -80px center,
+        desktop: top -120px center,
+        big:     top -120px center,
+      ),
+      popular-white-half: (
+        desktop: top -60px right -100px,
+      ),
+      popular-white-quarter: (
+        desktop: top -15px right -155px,
+      ),
+      category: (
+        phablet: top -20px right -48px,
+      ),
+    ),
+  ),
+);
