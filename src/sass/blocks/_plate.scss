@@ -22,6 +22,17 @@ $plate-gutter-default: 1.25rem;
     content: " ";
     clear: both;
   }
+
+  & > .button {
+    display: none;
+    float: left;
+    margin: ($plate-height-tiny - 2.375rem + $plate-gutter-default)/2 $plate-gutter-default/2;
+    width: calc(25% - #{$plate-gutter-default});
+
+    @include between(big, huge) {
+      display: block;
+    }
+  }
 }
 
 .plate {
@@ -260,6 +271,10 @@ $plate-gutter-default: 1.25rem;
       width: calc(50% - #{$plate-gutter-default});
     }
 
+    @include from(huge) {
+      width: calc(33.33% - #{$plate-gutter-default});
+    }
+
     &--quarter {
       width: calc(25% - #{$plate-gutter-small});
 
@@ -270,6 +285,7 @@ $plate-gutter-default: 1.25rem;
           display: none;
         }
       }
+
     }
 
     // Popular plate content
@@ -312,8 +328,8 @@ $plate-gutter-default: 1.25rem;
       width: 4.5rem;
       height: 4.5rem;
       border-radius: 2.25rem;
-      top: 25%;
-      right: 15%;
+      top: 4.25rem;
+      right: 5.5rem;
     }
 
     // Color popular plates
@@ -424,22 +440,17 @@ $plate-gutter-default: 1.25rem;
       box-shadow: 0px 2px 4px 0px $color-shadow-default;
       text-align: center;
       display: none; // Don't show on phone and tablet
-      padding-right: 15%;
+      padding-right: 10rem;
 
-      &.popular--quarter {
-        padding-right: 4.25%;
-
-        & > h3 {
-          letter-spacing: $letter-spacing-accent;
-        }
-      }
-
+      // Content
       & > h3 {
-        padding: 3rem 0 0 0;
+        padding: 3rem $spacer-size-big 0;
         font-size: $font-size-accent;
+        letter-spacing: $letter-spacing-default;
 
         @include from(big) {
           font-size: $font-size-big;
+          letter-spacing: $letter-spacing-big;
         }
       }
 
@@ -454,51 +465,39 @@ $plate-gutter-default: 1.25rem;
       }
 
       // Variations
-      &.popular--electronics {
-        background-image: url("../img/category-electronics.jpg");
-
-        background-size: auto 175%;
-        background-position: right -125px top -150px;
-
-        &.popular--quarter {
-          background-size: auto 100%;
-          background-position: right -85px top -10px;
-        }
-
-        @include from(big) {
-          background-position: right -85px top -150px;
+      @each $name, $config in $config-categories {
+        &.popular--#{$name} {
+          @each $viewport, $size in get($config, size, popular-white-half) {
+            @include from($viewport) {
+              background-image:    url("../img/category-#{$name}.jpg");
+              background-size:     $size;
+              background-position: get($config, position, popular-white-half, $viewport);
+            }
+          }
         }
       }
 
-      &.popular--shoes {
-        background-image: url("../img/category-shoes.jpg");
+      &.popular--quarter {
+        padding-right: 3.375rem;
 
-        background-size: auto 125%;
-        background-position: right -60px top -25px;
-
-        &.popular--quarter {
-          background-size: auto 100%;
-          background-position: right -100px top 4px;
+        & > h3 {
+          letter-spacing: $letter-spacing-default;
         }
 
-        @include from(big) {
-          background-position: right -85px top -150px;
-        }
-      }
-
-      &.popular--jewelry-watches {
-        background-image: url("../img/category-jewelry-watches.jpg");
-
-        background-size: auto 150%;
-        background-position: right -100px top -55px;
-
-        &.popular--quarter {
-          background-size: auto 150%;
-          background-position: right -195px top -55px;
+        @include from(huge) {
+          display: none;
         }
 
-        @include from(big) {
-          background-position: right -85px top -150px;
+        @each $name, $config in $config-categories {
+          &.popular--#{$name} {
+            @each $viewport, $size in get($config, size, popular-white-quarter) {
+              @include from($viewport) {
+                // background-image:    url("../img/category-#{$name}.jpg");
+                background-size:     $size;
+                background-position: get($config, position, popular-white-quarter, $viewport);
+              }
+            }
+          }
         }
       }
     }
@@ -581,6 +580,37 @@ $plate-gutter-default: 1.25rem;
 
         // Center minus half of width minus half of right padding
         left: calc(50% - 1rem - #{$padding-category-right / 2});
+      }
+    }
+
+    & > .plate__sale {
+      display: none;
+      top: 1.5rem;
+      right: 1rem;
+
+      @include from(phablet) {
+        display: block;
+      }
+    }
+
+    // Sizes
+    @include between(big, huge) {
+      &--sixth {
+        width: calc(16.66% - #{$plate-gutter-default});
+        background: $color-background-default !important;
+        padding: 0;
+
+        & > span {
+          padding: 0;
+        }
+
+        & > .plate__dash {
+          left: calc(50% - 1rem);
+        }
+      }
+
+      &--third {
+        width: calc(33.33% - #{$plate-gutter-default});
       }
     }
 

@@ -12,6 +12,12 @@ $config-categories: (
         desktop: auto 560px,
         big:     auto 650px,
       ),
+      popular-white-half: (
+        desktop: auto 530px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 260px,
+      ),
       category: (
         phablet: auto 220px,
       ),
@@ -23,6 +29,12 @@ $config-categories: (
         tablet:  top -130px center,
         desktop: top -150px center,
         big:     top -220px center,
+      ),
+      popular-white-half: (
+        desktop: top -150px right -330px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -170px,
       ),
       category: (
         phablet: top -55px right -141px,
@@ -43,6 +55,12 @@ $config-categories: (
         desktop: auto 650px,
         big:     auto 650px,
       ),
+      popular-white-half: (
+        desktop: auto 460px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 250px,
+      ),
       category: (
         phablet: auto 210px,
       ),
@@ -54,6 +72,12 @@ $config-categories: (
         tablet:  top -220px center,
         desktop: top -220px center,
         big:     top -220px center,
+      ),
+      popular-white-half: (
+        desktop: top -85px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top -30px right -130px,
       ),
       category: (
         phablet: top -40px right -100px,
@@ -74,6 +98,12 @@ $config-categories: (
         desktop: auto 750px,
         big:     auto 750px,
       ),
+      popular-white-half: (
+        desktop: auto 580px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 300px,
+      ),
       category: (
         phablet: auto 260px,
       ),
@@ -86,8 +116,14 @@ $config-categories: (
         desktop: top -220px center,
         big:     top -270px center,
       ),
+      popular-white-half: (
+        desktop: top -108px right -245px,
+      ),
+      popular-white-quarter: (
+        desktop: top -55px right -160px,
+      ),
       category: (
-        phablet: top -43px right -112px,
+        phablet: top -48px right -112px,
       ),
     ),
   ),
@@ -105,6 +141,12 @@ $config-categories: (
         desktop: auto 560px,
         big:     auto 680px,
       ),
+      popular-white-half: (
+        desktop: auto 320px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
       category: (
         phablet: auto 170px,
       ),
@@ -116,6 +158,12 @@ $config-categories: (
         tablet:  top -220px center,
         desktop: top -250px center,
         big:     top -320px center,
+      ),
+      popular-white-half: (
+        desktop: top -110px right -95px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -120px,
       ),
       category: (
         phablet: top -52px right -58px,
@@ -136,6 +184,12 @@ $config-categories: (
         desktop: auto 580px,
         big:     auto 680px,
       ),
+      popular-white-half: (
+        desktop: auto 440px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 310px,
+      ),
       category: (
         phablet: auto 210px,
       ),
@@ -147,6 +201,12 @@ $config-categories: (
         tablet:  top -170px center,
         desktop: top -220px center,
         big:     top -280px center,
+      ),
+      popular-white-half: (
+        desktop: top -130px right -225px,
+      ),
+      popular-white-quarter: (
+        desktop: top -60px right -190px,
       ),
       category: (
         phablet: top -65px right -110px,
@@ -167,6 +227,12 @@ $config-categories: (
         desktop: auto 540px,
         big:     auto 580px,
       ),
+      popular-white-half: (
+        desktop: auto 420px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
       category: (
         phablet: auto 160px,
       ),
@@ -178,6 +244,12 @@ $config-categories: (
         tablet:  top -80px center,
         desktop: top -140px center,
         big:     top -150px center,
+      ),
+      popular-white-half: (
+        desktop: top -100px right -210px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -180px,
       ),
       category: (
         phablet: top -30px right -75px,
@@ -198,6 +270,12 @@ $config-categories: (
         desktop: auto 480px,
         big:     auto 580px,
       ),
+      popular-white-half: (
+        desktop: auto 430px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
       category: (
         phablet: auto 170px,
       ),
@@ -209,6 +287,12 @@ $config-categories: (
         tablet:  top -80px center,
         desktop: top -100px center,
         big:     top -160px center,
+      ),
+      popular-white-half: (
+        desktop: top -80px right -180px,
+      ),
+      popular-white-quarter: (
+        desktop: top -20px right -150px,
       ),
       category: (
         phablet: top -24px right -75px,
@@ -229,6 +313,12 @@ $config-categories: (
         desktop: auto 480px,
         big:     auto 500px,
       ),
+      popular-white-half: (
+        desktop: auto 370px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
       category: (
         phablet: auto 140px,
       ),
@@ -240,6 +330,12 @@ $config-categories: (
         tablet:  top -60px center,
         desktop: top -80px center,
         big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -60px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -160px,
       ),
       category: (
         phablet: top -10px right -58px,
@@ -260,6 +356,12 @@ $config-categories: (
         desktop: auto 480px,
         big:     auto 500px,
       ),
+      popular-white-half: (
+        desktop: auto 420px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
       category: (
         phablet: auto 190px,
       ),
@@ -271,6 +373,12 @@ $config-categories: (
         tablet:  top -60px center,
         desktop: top -80px center,
         big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -100px right -240px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -170px,
       ),
       category: (
         phablet: top -50px right -115px,
@@ -291,6 +399,12 @@ $config-categories: (
         desktop: auto 580px,
         big:     auto 580px,
       ),
+      popular-white-half: (
+        desktop: auto 360px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 180px,
+      ),
       category: (
         phablet: auto 150px,
       ),
@@ -302,6 +416,12 @@ $config-categories: (
         tablet:  top -30px center,
         desktop: top -40px center,
         big:     top -40px center,
+      ),
+      popular-white-half: (
+        desktop: top 15px right -200px,
+      ),
+      popular-white-quarter: (
+        desktop: top 20px right -120px,
       ),
       category: (
         phablet: top -15px right -80px,
@@ -322,6 +442,12 @@ $config-categories: (
         desktop: auto 460px,
         big:     auto 520px,
       ),
+      popular-white-half: (
+        desktop: auto 440px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 210px,
+      ),
       category: (
         phablet: auto 150px,
       ),
@@ -333,6 +459,12 @@ $config-categories: (
         tablet:  top -80px center,
         desktop: top -140px center,
         big:     top -180px center,
+      ),
+      popular-white-half: (
+        desktop: top -50px right -260px,
+      ),
+      popular-white-quarter: (
+        desktop: top 10px right -130px,
       ),
       category: (
         phablet: top -15px right -76px,
@@ -353,6 +485,12 @@ $config-categories: (
         desktop: auto 410px,
         big:     auto 420px,
       ),
+      popular-white-half: (
+        desktop: auto 340px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 280px,
+      ),
       category: (
         phablet: auto 220px,
       ),
@@ -364,6 +502,12 @@ $config-categories: (
         tablet:  top -65px center,
         desktop: top -80px center,
         big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -50px right -150px,
+      ),
+      popular-white-quarter: (
+        desktop: top right -135px,
       ),
       category: (
         phablet: top -35px right -85px,
@@ -384,6 +528,12 @@ $config-categories: (
         desktop: auto 540px,
         big:     auto 580px,
       ),
+      popular-white-half: (
+        desktop: auto 340px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 250px,
+      ),
       category: (
         phablet: auto 125px,
       ),
@@ -395,6 +545,12 @@ $config-categories: (
         tablet:  top -40px center,
         desktop: top -90px center,
         big:     top -150px center,
+      ),
+      popular-white-half: (
+        desktop: top -30px right -150px,
+      ),
+      popular-white-quarter: (
+        desktop: top -10px right -150px,
       ),
       category: (
         phablet: top -5px right -30px,
@@ -416,6 +572,12 @@ $config-categories: (
         big:     auto 470px,
         large:   auto 520px,
       ),
+      popular-white-half: (
+        desktop: auto 240px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 240px,
+      ),
       category: (
         phablet: auto 110px,
       ),
@@ -428,6 +590,12 @@ $config-categories: (
         desktop: top -120px center,
         big:     top -150px center,
         large:   top -180px center,
+      ),
+      popular-white-half: (
+        desktop: top -10px right -50px,
+      ),
+      popular-white-quarter: (
+        desktop: top -6px right -170px,
       ),
       category: (
         phablet: top -3px right -38px,
@@ -451,6 +619,12 @@ $config-categories: (
       category: (
         phablet: auto 160px,
       ),
+      popular-white-half: (
+        desktop: auto 380px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 340px,
+      ),
     ),
     position: (
       popular-color: (
@@ -459,6 +633,12 @@ $config-categories: (
         tablet:  top -75px center,
         desktop: top -90px center,
         big:     top -90px center,
+      ),
+      popular-white-half: (
+        desktop: top -20px right -180px,
+      ),
+      popular-white-quarter: (
+        desktop: top -15px right -220px,
       ),
       category: (
         phablet: top -5px right -72px,
@@ -479,6 +659,12 @@ $config-categories: (
         desktop: auto 540px,
         big:     auto 520px,
       ),
+      popular-white-half: (
+        desktop: auto 330px,
+      ),
+      popular-white-quarter: (
+        desktop: auto 265px,
+      ),
       category: (
         phablet: auto 140px,
       ),
@@ -491,9 +677,15 @@ $config-categories: (
         desktop: top -120px center,
         big:     top -120px center,
       ),
+      popular-white-half: (
+        desktop: top -60px right -100px,
+      ),
+      popular-white-quarter: (
+        desktop: top -15px right -155px,
+      ),
       category: (
         phablet: top -20px right -48px,
       ),
     ),
-  )
+  ),
 );
