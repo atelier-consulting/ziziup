@@ -2,6 +2,7 @@ $plate-height-mini: 5.75rem;
 $plate-height-tiny: 6.25rem;
 $plate-height-small: 9rem;
 $plate-height-default: 10rem;
+$plate-height-sale: 10.625rem;
 $plate-height-big: 12.5rem;
 $plate-height-large: 13.75rem;
 
@@ -624,6 +625,159 @@ $plate-gutter-default: 1.25rem;
             background-size:     $size;
             background-position: get($config, position, category, $viewport);
           }
+        }
+      }
+    }
+  }
+
+
+  //
+  // Sale plates
+  //
+  &.sale {
+    height: $plate-height-sale;
+    box-shadow: 0px 2px 4px 0px $color-shadow-default;
+    background: $color-background-default;
+
+    margin: $plate-gutter-small / 2;
+    width: calc(100% - #{$plate-gutter-small});
+
+    @include from(phablet) {
+      width: calc(50% - #{$plate-gutter-small});
+    }
+
+    @include from(tablet) {
+      width: calc(33.33% - #{$plate-gutter-small});
+    }
+
+    @include from(desktop) {
+      margin: $plate-gutter-default/ 2;
+      width: calc(33.33% - #{$plate-gutter-default});
+    }
+
+    @include from(big) {
+      width: calc(25% - #{$plate-gutter-default});
+    }
+
+    // Content
+    .sale {
+      &__header {
+        height: 3.75rem;
+        // border-bottom: 1px solid $color-border-lighter;
+        box-shadow: inset 0 -1px 0 0 $color-border-lighter;
+        display: flex;
+        position: relative;
+      }
+
+      &__discount {
+        width: 3.75rem;
+        min-width: 3.75rem;
+        line-height: 3.75rem;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-big;
+        text-align: center;
+        background: $color-brand-primary;
+        color: $color-text-white;
+        padding: 0 .375rem 0 0;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          // background: maroon;
+          top: 0;
+          left: 3.375rem;
+          border-width: 30px 6px 30px 0;
+          border-color: transparent $color-background-default transparent transparent;
+          -webkit-transform:rotate(360deg);
+        }
+
+        & > sup {
+          position: relative;
+          top: -9px;
+          left: 2px;
+          font-size: $font-size-tiny;
+        }
+      }
+
+      &__category {
+        flex-grow: 1;
+        line-height: 3.75rem;
+        font-weight: $font-weight-base;
+        font-size: $font-size-small;
+        letter-spacing: $letter-spacing-default;
+        color: $color-text-darkest;
+        padding: 0 0 0 $spacer-size-big;
+      }
+
+      &__expires {
+        text-align: center;
+        font-size: $font-size-tiny;
+        padding: $spacer-size-large $spacer-size-default;
+
+        & > small {
+          display: block;
+          color: $color-text-lightest;
+          line-height: .75rem;
+        }
+      }
+
+      &__brand {
+        height: 3.75rem;
+        padding: .75rem 0;
+
+        & > img {
+          display: block;
+          max-height: 2.5rem;
+          width: auto;
+          margin: 0 auto;
+        }
+      }
+
+      &__footer {
+        position: relative;
+        // z-index: 2;
+        height: 3.125rem;
+        line-height: 3.125rem;
+        font-size: $font-size-accent;
+        text-align: center;
+        background-color: $color-background-page;
+
+        & > .icon {
+          position: absolute;
+          left: 1rem;
+          top: 1rem;
+          cursor: pointer;
+        }
+      }
+
+      &__info {
+        position: absolute;
+        display: none;
+        width: calc(100% - 16px);
+        left: 8px;
+        // width: 100%;
+        // left: 0;
+        top: 3.125rem;
+        z-index: 1;
+        background: $color-background-default;
+        box-shadow: 0px 2px 4px 0px $color-shadow-default, inset 0 4px 4px -2px $color-shadow-default;
+        text-align: left;
+        font-size: $font-size-tiny;
+        line-height: 1.25rem;
+        padding: 1.25rem 1.5rem $spacer-size-small;
+        cursor: pointer;
+
+        &--open {
+          display: block;
+        }
+
+        & > .icon {
+          display: block;
+          margin: 0 auto;
         }
       }
     }

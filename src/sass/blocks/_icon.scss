@@ -26,6 +26,12 @@
     background-size: $icon-size-small $icon-size-small;
   }
 
+  &--smaller {
+    width: $icon-size-smaller;
+    height: $icon-size-smaller;
+    background-size: $icon-size-smaller $icon-size-smaller;
+  }
+
   &--tiny {
     width: $icon-size-tiny;
     height: $icon-size-tiny;
@@ -92,6 +98,12 @@
     &-shipping {
       background-image: url("../img/icon-offer-shipping.png");
     }
+  }
+
+
+  // Transformations
+  &--rotated {
+    transform: rotate(180deg);
   }
 
   // Images
@@ -161,6 +173,11 @@
   &--heart {
     background-image: url("../img/icon-heart.png");
   }
+
+  &--info {
+    background-image: url("../img/icon-info.png");
+  }
+
 
   // Payment
   &--visa {
