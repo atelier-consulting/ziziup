@@ -60,14 +60,23 @@
   &__module {
 
     &--base {
-      @media screen and (max-width: $viewport-tablet-portrait) {
+      // @media screen and (max-width: $viewport-tablet-portrait) {
         flex-grow: 1;
+      // }
+
+      & > .icon {
+        margin: 0 $spacer-size-default 0 0;
+
+        @include from(desktop) {
+          margin-right: $spacer-size-default * 2;
+        }
       }
     }
 
 
     &--apps {
       padding: 0 0 0 $spacer-size-default * 2;
+      flex-grow: 2;
     }
 
     &--settings {
@@ -88,7 +97,9 @@
       }
 
       & > .dropdown {
-        margin-right: $spacer-size-default;
+        @include from(phablet) {
+          margin-right: $spacer-size-default;
+        }
       }
     }
 

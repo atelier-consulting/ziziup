@@ -56,8 +56,34 @@ body {
   }
 }
 
+//
+// Conditional visibility
+//
+
+@each $name, $size in $viewports {
+  .hide__until--#{$name} {
+    @include until($name) {
+      display: none !important;
+    }
+  }
+
+  .hide__upto--#{$name} {
+    @include upto($name) {
+      display: none !important;
+    }
+  }
+
+  .hide__from--#{$name} {
+    @include from($name) {
+      display: none !important;
+    }
+  }
+}
+
+//
+
 .hide-on-desktop {
-  @include from(desktop) {
+  @media screen and (max-width: $viewport-desktop-big) {
     display: none !important;
   }
 }
@@ -115,4 +141,13 @@ body {
   // height: 80px;
   background-repeat: no-repeat;
   text-indent: -3999px;
+
+  @include until(phablet) {
+    background-size: 130px 36px;
+  }
+
+  @include until(tablet) {
+    position: relative;
+    left: 1rem;
+  }
 }

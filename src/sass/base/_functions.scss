@@ -13,8 +13,20 @@
   }
 }
 
-@mixin between($from, $to) {
-  @media screen and (min-width: get($viewports, $from)) and (max-width: #{get($viewports, $to)-1}) {
+@mixin between($from, $until) {
+  @media screen and (min-width: get($viewports, $from)) and (max-width: #{get($viewports, $until)-1}) {
+    @content;
+  }
+}
+
+@mixin until($viewport) {
+  @media screen and (max-width: #{get($viewports, $viewport)-1}) {
+    @content;
+  }
+}
+
+@mixin upto($viewport) {
+  @media screen and (max-width: get($viewports, $viewport)) {
     @content;
   }
 }
