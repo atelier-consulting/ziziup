@@ -234,7 +234,7 @@ $plate-gutter-default: 1.25rem;
       }
 
       @include from(big) {
-        font-size: $font-size-huge-tablet;
+        font-size: $font-size-larger;
       }
     }
 

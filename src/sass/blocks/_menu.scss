@@ -60,9 +60,7 @@
   &__module {
 
     &--base {
-      // @media screen and (max-width: $viewport-tablet-portrait) {
-        flex-grow: 1;
-      // }
+      flex-grow: 1;
 
       & > .icon {
         margin: 0 $spacer-size-default 0 0;

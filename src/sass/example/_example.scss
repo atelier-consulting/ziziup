@@ -145,9 +145,10 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   .banner {
     position: absolute;
+    left: 0;
 
     &--gifts {
-      top: 275px;
+      top: 280px;
     }
 
     &--sports {
