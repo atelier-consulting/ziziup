@@ -140,25 +140,4 @@ $example-color-dimmed: rgba(0,0,0,.4);
     display: inline-block;
     margin-right: .25rem;
   }
-
-  // Block styles for demo
-
-  .banner {
-    position: absolute;
-    left: 0;
-
-    &--gifts {
-      top: 280px;
-    }
-
-    &--sports {
-      top: 920px;
-    }
-  }
-
-  .footer {
-    position: absolute;
-    top: 280px;
-    left: 0;
-  }
 }

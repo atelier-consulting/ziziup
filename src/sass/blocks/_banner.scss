@@ -19,57 +19,37 @@
     background-position: center center;
   }
 
-  // @media screen and (max-width: $viewport-desktop-default) {
-  //   height: 8rem;
-  // }
-  //
-  // @media screen and (max-width: $viewport-tablet-portrait) {
-  //   height: 6rem;
-  //   background-size: auto 125%;
-  // }
-  //
-  // @media screen and (max-width: $viewport-phone-landscape) {
-  //   height: 4rem;
-  // }
+  &__overlay {
+    width: 100%;
+    height: 100%;
+  }
 
-  & > .container {
+  & .container {
     display: flex;
+    height: 100%;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 
-      // @media screen and (max-width: $viewport-tablet-portrait) {
-      //   flex-direction: column;
-      // }
+    @include from(desktop) {
+      flex-direction: row;
+    }
   }
 
   &--category {
-    height: 9.375em;
-    background-position: right center;
+    height: 3.5rem;
 
-    @media screen and (max-width: $viewport-desktop-default) {
-      height: 8em;
-      background-size: auto 125%;
+    @include from(tablet) {
+      height: 8rem;
     }
 
-    @media screen and (max-width: $viewport-tablet-portrait) {
-      height: 6.0625rem;
-    }
-
-    @media screen and (max-width: $viewport-phone-landscape) {
-      height: 3.4375rem;
-      background-size: auto 250%;
-    }
-
-    & > .container {
-      @media screen and (max-width: $viewport-desktop-default) {
-        flex-direction: column;
-      }
+    @include from(big) {
+      height: 9.25rem;
     }
   }
 
 
   // Custom banners
-
   &--gifts {
     background-image:
       linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%),
@@ -79,19 +59,41 @@
   }
 
   // Category banners
-  &--sports {
-    background-image: linear-gradient(141deg, rgba(109,54,255,0.36) 0%, rgba(142,36,170,.7) 68%), url("../img/banner-bg-sports.jpg");
+  @each $name, $config in $config-categories {
+    &--#{$name} {
+      & > .banner__overlay {
+        background-image:
+          linear-gradient(141deg,
+            adjust-color(get($config, color, secondary), $alpha: -0.36) 0%,
+            adjust-color(get($config, color, primary), $alpha: -0.36) 68%
+          ),
+          linear-gradient(0deg,
+            rgba(255,255,255,0.15) 0%,
+            rgba(255,255,255,.15) 100%
+          )
+        ;
+      }
+
+      background-image: url("../img/category-#{$name}.jpg");
+
+      background-size:     get($config, size,     banner, phone);
+      background-position: get($config, position, banner, phone);
+
+      @each $viewport, $size in get($config, size, banner) {
+        @include from($viewport) {
+          background-size:     $size;
+          background-position: get($config, position, banner, $viewport);
+        }
+      }
+    }
   }
 
-
-
   &__module {
+    align-self: center;
 
-    // &--image {
-    //   @media screen and (max-width: $viewport-desktop-default) {
-    //     display: none;
-    //   }
-    // }
+    @include from(tablet) {
+      align-self: flex-start;
+    }
 
     & > h1 {
       color: $color-text-white;
@@ -110,6 +112,7 @@
         text-align: left;
         font-size: $font-size-larger;
         margin-top: 2rem;
+        letter-spacing: $letter-spacing-huge;
       }
 
       @include from(big) {
@@ -122,43 +125,45 @@
 
     & > p {
       line-height: 2.25rem;
-      // @include until(phone)
     }
 
     &--category {
-      line-height: 9.375rem;
+      display: flex;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
 
-      @media screen and (max-width: $viewport-desktop-default) {
-        line-height: 5rem;
+      height: 100%;
+
+      @include from(tablet) {
+        align-self: flex-start;
+        height: auto;
+        margin-top: 1.75rem;
       }
 
-      @media screen and (max-width: $viewport-tablet-portrait) {
-        line-height: 5.725rem;
-        text-align: center;
+      @include from(desktop) {
+        align-self: center;
+        margin-top: 0;
+      };
+
+      & > h1,
+      & > .icon {
+        display: block;
+        margin: 0;
+        max-width: none;
       }
 
-      @media screen and (max-width: $viewport-phone-landscape) {
-        line-height: 3.25rem;
+      & > .dropdown {
+        display: block;
+        min-width: 184px;
+        margin: 0 2rem 0 0;
 
-        & > .dropdown--category {
-          display: none;
+        @include from(big) {
+          margin-right: 4rem;
         }
-      }
 
-
-      & > h1 {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0 0 0 4rem;
-
-        @media screen and (max-width: $viewport-desktop-default) {
-          margin: 0 0 0 2rem;
-        }
-
-        @media screen and (max-width: $viewport-phone-landscape) {
-          // margin: 0 $spacer-size-default 0 0;
-          // line-height: 3.4375rem;
-          cursor: pointer;
+        .banner--merchandise & {
+          margin-right: 1.5rem !important;
         }
       }
     }
@@ -166,20 +171,17 @@
     &--meta {
       display: flex;
       align-self: center;
-      flex-direction: column;
-      text-align: left;
+      padding: 0 0 1.75rem 0;
 
-      @media screen and (max-width: $viewport-desktop-default) {
-        flex-direction: row;
+      @include from(desktop) {
+        flex-direction: column;
+        padding: 0 2rem 0 0;
       }
 
-      @media screen and (max-width: $viewport-phone-landscape) {
-        display: none;
+      .banner--merchandise & {
+        padding: 0 !important;
       }
-
-
     }
-
   }
 
   &__meta {
@@ -187,7 +189,10 @@
     text-transform: uppercase;
     letter-spacing: $letter-spacing-big;
     line-height: $line-height-accent;
-    padding-right: 2.25rem;
+
+    &:not(:last-child) {
+      padding-right: 2.25rem;
+    }
   }
 
 }
