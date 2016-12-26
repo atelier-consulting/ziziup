@@ -98,7 +98,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
     border: 1px solid $example-color-border;
     border-radius: 5px;
 
-    .example__demo + & {
+    .example__demo:not(.example__demo--full-width) + & {
       border-top: none;
       border-top-left-radius: 0;
       border-topright-radius: 0;

@@ -14,7 +14,168 @@
     </div>
 
     <h1 class="example__header">Plate</h1>
-    <p>Various types of categories organised in plates</p>
+    <p>Various types of categories organised in plates. <mark>Scroll down the code to see demo.</mark></p>
+
+    <pre class="example__code">
+			<code class="html">&lt;div class=&quot;container&quot;&gt;</code>
+			<code class="html">  &lt;div class=&quot;<mark>plates</mark>&quot;&gt;</code>
+			<code class="html">    &lt;!-- Popular categories --&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;<mark>plate popular popular--color popular--womens-fashion</mark>&quot;&gt;</code>
+			<code class="html">      &lt;h3&gt;Women&amp;rsquo;s fashion&lt;/h3&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">      &lt;span&gt;14 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;span&gt;234 orders this week&lt;/span&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate popular <mark>popular--white</mark> popular--electronics&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__sale&quot;&gt;</code>
+			<code class="html">        &lt;i class=&quot;icon icon--giant icon--sales&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;h3&gt;Electronics&lt;/h3&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">      &lt;span&gt;14 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;span&gt;234 orders this week&lt;/span&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate popular popular--white popular--shoes <mark>popular--quarter</mark>&quot;&gt;</code>
+			<code class="html">      &lt;h3&gt;Shoes&lt;/h3&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">      &lt;span&gt;12 stores&lt;/span&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Regular categories --&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate <mark>category category--mens-fashion</mark>&quot;&gt;</code>
+			<code class="html">      &lt;h4&gt;Men&amp;rsquo;s fashion&lt;/h4&gt;</code>
+			<code class="html">      &lt;span&gt;14 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate category category--cars-parts <mark>category--sixth</mark>&quot;&gt;</code>
+			<code class="html">      &lt;h4&gt;Cars &amp;amp;&amp;nbsp;parts&lt;/h4&gt;</code>
+			<code class="html">      &lt;span&gt;18 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate category category--luxury <mark>category--third</mark>&quot;&gt;</code>
+			<code class="html">      &lt;h4&gt;Luxury&lt;/h4&gt;</code>
+			<code class="html">      &lt;span&gt;20 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Sales overlay --&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;plate category category--bags&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;<mark>plate__sale</mark>&quot;&gt;</code>
+			<code class="html">        &lt;i class=&quot;icon icon--huge icon--sales&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;h4&gt;Bags&lt;/h4&gt;</code>
+			<code class="html">      &lt;span&gt;12 stores&lt;/span&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__dash&quot;&gt;&lt;/div&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Button appears on laptop screens --&gt;</code>
+			<code class="html">    &lt;a href=&quot;#&quot; class=&quot;<mark>button</mark> button--rounded button--accent&quot;&gt;Search by brand&lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Special plates --&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate <mark>special special--shelves</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__module&quot;&gt;</code>
+			<code class="html">        &lt;h4&gt;We deal with 132&amp;nbsp;brands&lt;/h4&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__module&quot;&gt;</code>
+			<code class="html">        &lt;a href=&quot;#&quot; class=&quot;button button--rounded button--accent&quot;&gt;Search by brand&lt;/a&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate special <mark>special--men-accessoires</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__module&quot;&gt;</code>
+			<code class="html">        &lt;h4&gt;Summer sales&lt;/h4&gt;</code>
+			<code class="html">        &lt;p&gt;Men accessoires 2016&lt;/p&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__module&quot;&gt;</code>
+			<code class="html">        &lt;a href=&quot;#&quot; class=&quot;button button--rounded button--accent&quot;&gt;Discover&lt;/a&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">    &lt;!-- Stores --&gt;</code>
+			<code class="html">    &lt;a class=&quot;plate <mark>store</mark>&quot; href=&quot;#&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__logo&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/logo-american-eagle.png&quot; alt=&quot;American Eagle&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;ul class=&quot;plate__titles&quot;&gt;</code>
+			<code class="html">        &lt;li class=&quot;plate__title&quot;&gt;Clothes&lt;/li&gt;</code>
+			<code class="html">        &lt;li class=&quot;plate__title&quot;&gt;Accessories&lt;/li&gt;</code>
+			<code class="html">      &lt;/ul&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Stores with overlays --&gt;</code>
+			<code class="html">    &lt;a class=&quot;plate store&quot; href=&quot;#&quot;&gt;</code>
+			<code class="html">      &lt;span class=&quot;<mark>plate__like</mark>&quot;&gt;</code>
+			<code class="html">        &lt;i class=&quot;icon icon--heart&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">      &lt;/span&gt;</code>
+			<code class="html">      &lt;div class=&quot;<mark>plate__sale</mark>&quot;&gt;</code>
+			<code class="html">        &lt;i class=&quot;icon icon--huge icon--sale&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;plate__logo&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/logo-asos.png&quot; alt=&quot;ASOS&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;ul class=&quot;plate__titles&quot;&gt;</code>
+			<code class="html">        &lt;li class=&quot;plate__title&quot;&gt;Multistore&lt;/li&gt;</code>
+			<code class="html">      &lt;/ul&gt;</code>
+			<code class="html">    &lt;/a&gt;</code>
+			<code class="html">    &lt;!-- Sale plates --&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate <mark>sale</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;sale__header&quot;&gt;</code>
+			<code class="html">        &lt;div class=&quot;sale__discount&quot;&gt;60&lt;sup&gt;%&lt;/sup&gt;&lt;/div&gt;</code>
+			<code class="html">        &lt;h4 class=&quot;sale__category&quot;&gt;Accessoires&lt;/h4&gt;</code>
+			<code class="html">        &lt;div class=&quot;sale__expires&quot;&gt;</code>
+			<code class="html">          &lt;small&gt;Expires&lt;/small&gt;</code>
+			<code class="html">          20.08</code>
+			<code class="html">        &lt;/div&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;sale__brand&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/logo-hugo-boss.png&quot; alt=&quot;Hugo Boss&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;sale__footer&quot;&gt;</code>
+			<code class="html">        &lt;i class=&quot;icon icon--smaller icon--info&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">        PR-1238980-Q</code>
+			<code class="html">        &lt;div class=&quot;sale__info&quot;&gt;</code>
+			<code class="html">          Discount is only available for items purchased from Amazon with Special Offers enabled. Total summ should be not less  than $1000.</code>
+			<code class="html">          &lt;i class=&quot;icon icon--small icon--rotated icon--caret&quot;&gt;&lt;/i&gt;</code>
+			<code class="html">        &lt;/div&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">    &lt;!-- Curation plates --&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate <mark>curation</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;curation__image&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/comp-look-3.jpg&quot; alt=&quot;Roland Omene expert look&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;curation__footer&quot;&gt;</code>
+			<code class="html">        &lt;h5 class=&quot;curation__title&quot;&gt;Roland Omene expert look&lt;/h5&gt;</code>
+			<code class="html">        &lt;div class=&quot;curation__price&quot;&gt;</code>
+			<code class="html">          &lt;small&gt;total cost:&lt;/small&gt;</code>
+			<code class="html">          $2300</code>
+			<code class="html">        &lt;/div&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate curation <mark>curation--half</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;curation__image&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/comp-look-1.jpg&quot; alt=&quot;Roland Omene expert look&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;curation__footer&quot;&gt;</code>
+			<code class="html">        &lt;h5 class=&quot;curation__title&quot;&gt;Roland Omene expert look&lt;/h5&gt;</code>
+			<code class="html">        &lt;div class=&quot;curation__price&quot;&gt;</code>
+			<code class="html">          &lt;small&gt;total cost:&lt;/small&gt;</code>
+			<code class="html">          $2300</code>
+			<code class="html">        &lt;/div&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">    &lt;!-- Product plates --&gt;</code>
+			<code class="html">    &lt;div class=&quot;plate <mark>product</mark>&quot;&gt;</code>
+			<code class="html">      &lt;div class=&quot;product__image product__image--gray&quot;&gt;</code>
+			<code class="html">        &lt;img src=&quot;../img/product-1.jpg&quot; alt=&quot;Product 1&quot;&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">      &lt;div class=&quot;product__footer&quot;&gt;</code>
+			<code class="html">        &lt;div class=&quot;product__brand&quot;&gt;</code>
+			<code class="html">          &lt;img src=&quot;../img/logo-apple.png&quot; alt=&quot;Apple&quot;&gt;</code>
+			<code class="html">        &lt;/div&gt;</code>
+			<code class="html">        &lt;h5 class=&quot;product__title&quot;&gt;Apple Watch Sport&lt;/h5&gt;</code>
+			<code class="html">        &lt;p class=&quot;product__description&quot;&gt;</code>
+			<code class="html">          38mm Silver Aluminum Case  with Yellow Sport Band</code>
+			<code class="html">        &lt;/p&gt;</code>
+			<code class="html">        &lt;div class=&quot;product__price&quot;&gt;$1200&lt;/div&gt;</code>
+			<code class="html">      &lt;/div&gt;</code>
+			<code class="html">    &lt;/div&gt;</code>
+			<code class="html">  &lt;/div&gt;</code>
+			<code class="html">&lt;/div&gt;</code>
+    </pre>
 
     <div class="example__demo example__demo--full-width">
       <div class="container">
