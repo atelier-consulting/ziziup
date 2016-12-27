@@ -10,7 +10,7 @@
     width: 1px;
     height: 36px;
     background: $color-border-lighter;
-    margin: 1.375 * $spacer-size-default 0;
+    margin: 1.375rem 1.5rem 1.375rem 2.25rem;
   }
 
   &--horizontal {
@@ -51,12 +51,20 @@
   &--controls {
     width: 1px;
     height: 1.625rem;
-    margin: 0 1.375 * $spacer-size-default;
-    background: $color-border-lighter;
 
-    @media screen and (max-width: $viewport-desktop-default) {
-      margin: 0 $spacer-size-small;
-      background: transparent;
+    background: transparent;
+    margin: 0 $spacer-size-small 0 $spacer-size-small;
+
+    @include from(tablet) {
+      background: $color-border-lighter;
+    }
+
+    @include from(desktop) {
+      margin: 0 1.5rem;
+    }
+
+    @include from(big) {
+      margin: 0 2.5rem;
     }
   }
 }

@@ -56,50 +56,27 @@ body {
   }
 }
 
-.hide-on-desktop {
-  @include from(desktop) {
-    display: none !important;
+//
+// Conditional visibility
+//
+
+@each $name, $size in $viewports {
+  .hide__until--#{$name} {
+    @include until($name) {
+      display: none !important;
+    }
   }
-}
 
-.hide-on-tablet {
-  @media screen and (max-width: $viewport-desktop-default) {
-    display: none !important;
+  .hide__upto--#{$name} {
+    @include upto($name) {
+      display: none !important;
+    }
   }
-}
 
-.show-on-tablet {
-  display: none !important;
-
-  @media screen and (max-width: $viewport-desktop-default) {
-    display: inline-block !important;
-  }
-}
-
-
-.hide-on-portrait {
-  @media screen and (max-width: $viewport-tablet-portrait) {
-    display: none !important;
-  }
-}
-
-.show-on-portrait {
-  display: none !important;
-
-  @media screen and (max-width: $viewport-phone-landscape) {
-    display: inline-block !important;
-  }
-}
-
-.hide-on-mobile {
-  @media screen and (max-width: $viewport-phone-landscape) {
-    display: none !important;
-  }
-}
-
-.show-on-large {
-  @media screen and (max-width: $viewport-desktop-big) {
-    display: none !important;
+  .hide__from--#{$name} {
+    @include from($name) {
+      display: none !important;
+    }
   }
 }
 
@@ -112,7 +89,15 @@ body {
   background-size: 134px 38px;
   min-width: 134px;
   width: calc(100% - 80px);
-  // height: 80px;
   background-repeat: no-repeat;
   text-indent: -3999px;
+
+  @include until(phablet) {
+    background-size: 130px 36px;
+  }
+
+  @include until(tablet) {
+    position: relative;
+    left: 1rem;
+  }
 }

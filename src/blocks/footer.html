@@ -17,13 +17,18 @@
     <p>Footer contains navigation, social links and contact info.</p>
 
     <h2 class="example__subheader">Default footer</h2>
-    <!-- <div class="example__demo"> -->
+    <div class="example__demo example__demo--full-width">
       <div class="footer">
         <div class="container">
 
+          <div class="footer__module footer__module--cards hide__until--huge">
+            <img src="../img/landing-card-platinum.png" alt="Platinum ZIZIUP Card">
+            <img src="../img/landing-card-gold.png" alt="Gold ZIZIUP Card">
+          </div>
+
           <div class="footer__module">
             <h5>Buy Ziziup Card</h5>
-            <ul class="list list--expandable list--inverted hide-on-mobile">
+            <ul class="list list--expandable list--inverted hide__until--phablet">
               <li class="list__item list__item--expanded">
                 <a href="javascript:;" class="list__link">Cameroon</a>
                 <ul class="list">
@@ -54,8 +59,8 @@
           </div>
 
           <div class="footer__module">
-            <h5>Pick up location</h5>
-            <ul class="list list--expandable list--inverted hide-on-mobile">
+            <h5><span class="hide__until--tablet">Pick up </span>location</h5>
+            <ul class="list list--expandable list--inverted hide__until--phablet">
               <li class="list__item">
                 <a href="javascript:;" class="list__link">Cameroon</a>
               </li>
@@ -74,8 +79,8 @@
             </ul>
           </div>
 
-          <div class="footer__module hide-on-portrait">
-            <h5>Ziziup Menu</h5>
+          <div class="footer__module hide__until--desktop">
+            <h5>Ziziup menu</h5>
             <ul class="list list--inverted">
               <li class="list__item">
                 <a href="javascript:;" class="list__link">About</a>
@@ -103,7 +108,7 @@
 
           <div class="footer__module">
             <h5>Social</h5>
-            <div>
+            <div class="footer__social">
               <i class="icon icon--social icon--facebook"></i>
               <i class="icon icon--social icon--twitter"></i>
               <i class="icon icon--social icon--gplus"></i>
@@ -128,13 +133,20 @@
 
         </div>
       </div>
-    <!-- </div> -->
-    <pre class="example__code" style="margin-top: 420px;">
+
+    </div>
+    <pre class="example__code" style="margin-top: 480px">
       <code class="html">&lt;div class=&quot;footer&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;container&quot;&gt;</code>
+      <code class="html"> </code>
+      <code class="html">    &lt;div class=&quot;footer__module footer__module--cards hide__until--huge&quot;&gt;</code>
+      <code class="html">      &lt;img src=&quot;../img/landing-card-platinum.png&quot; alt=&quot;Platinum ZIZIUP Card&quot;&gt;</code>
+      <code class="html">      &lt;img src=&quot;../img/landing-card-gold.png&quot; alt=&quot;Gold ZIZIUP Card&quot;&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html"> </code>
       <code class="html">    &lt;div class=&quot;footer__module&quot;&gt;</code>
       <code class="html">      &lt;h5&gt;Buy Ziziup Card&lt;/h5&gt;</code>
-      <code class="html">      &lt;ul class=&quot;list list--expandable list--inverted hide-on-mobile&quot;&gt;</code>
+      <code class="html">      &lt;ul class=&quot;list list--expandable list--inverted hide__until--phablet&quot;&gt;</code>
       <code class="html">        &lt;li class=&quot;list__item list__item--expanded&quot;&gt;</code>
       <code class="html">          &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Cameroon&lt;/a&gt;</code>
       <code class="html">          &lt;ul class=&quot;list&quot;&gt;</code>
@@ -163,9 +175,10 @@
       <code class="html">        &lt;/li&gt;</code>
       <code class="html">      &lt;/ul&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
+      <code class="html"> </code>
       <code class="html">    &lt;div class=&quot;footer__module&quot;&gt;</code>
-      <code class="html">      &lt;h5&gt;Pick up location&lt;/h5&gt;</code>
-      <code class="html">      &lt;ul class=&quot;list list--expandable list--inverted hide-on-mobile&quot;&gt;</code>
+      <code class="html">      &lt;h5&gt;&lt;span class=&quot;hide__until--tablet&quot;&gt;Pick up &lt;/span&gt;location&lt;/h5&gt;</code>
+      <code class="html">      &lt;ul class=&quot;list list--expandable list--inverted hide__until--phablet&quot;&gt;</code>
       <code class="html">        &lt;li class=&quot;list__item&quot;&gt;</code>
       <code class="html">          &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Cameroon&lt;/a&gt;</code>
       <code class="html">        &lt;/li&gt;</code>
@@ -183,8 +196,9 @@
       <code class="html">        &lt;/li&gt;</code>
       <code class="html">      &lt;/ul&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
-      <code class="html">    &lt;div class=&quot;footer__module hide-on-portrait&quot;&gt;</code>
-      <code class="html">      &lt;h5&gt;Ziziup Menu&lt;/h5&gt;</code>
+      <code class="html"> </code>
+      <code class="html">    &lt;div class=&quot;footer__module hide__until--desktop&quot;&gt;</code>
+      <code class="html">      &lt;h5&gt;Ziziup menu&lt;/h5&gt;</code>
       <code class="html">      &lt;ul class=&quot;list list--inverted&quot;&gt;</code>
       <code class="html">        &lt;li class=&quot;list__item&quot;&gt;</code>
       <code class="html">          &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;About&lt;/a&gt;</code>
@@ -209,9 +223,10 @@
       <code class="html">        &lt;/li&gt;</code>
       <code class="html">      &lt;/ul&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
+      <code class="html"> </code>
       <code class="html">    &lt;div class=&quot;footer__module&quot;&gt;</code>
       <code class="html">      &lt;h5&gt;Social&lt;/h5&gt;</code>
-      <code class="html">      &lt;div&gt;</code>
+      <code class="html">      &lt;div class=&quot;footer__social&quot;&gt;</code>
       <code class="html">        &lt;i class=&quot;icon icon--social icon--facebook&quot;&gt;&lt;/i&gt;</code>
       <code class="html">        &lt;i class=&quot;icon icon--social icon--twitter&quot;&gt;&lt;/i&gt;</code>
       <code class="html">        &lt;i class=&quot;icon icon--social icon--gplus&quot;&gt;&lt;/i&gt;</code>
@@ -229,9 +244,11 @@
       <code class="html">        &lt;li class=&quot;list__item&quot;&gt;Fax:&amp;nbsp;&amp;nbsp;415-515-6171&lt;/li&gt;</code>
       <code class="html">      &lt;/ul&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
+      <code class="html"> </code>
       <code class="html">    &lt;div class=&quot;footer__copyright&quot;&gt;</code>
       <code class="html">      &amp;copy;&amp;nbsp;2016&amp;nbsp;ZIZIUP</code>
       <code class="html">    &lt;/div&gt;</code>
+      <code class="html"> </code>
       <code class="html">  &lt;/div&gt;</code>
       <code class="html">&lt;/div&gt;</code>
     </pre>

@@ -5,35 +5,50 @@
 
   & > .container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     position: relative;
 
-    @media screen and (max-width: $viewport-phone-landscape) {
-      flex-direction: column;
-      text-align: center;
+    text-align: center;
+    flex-direction: column;
+
+    @include from(phablet) {
+      flex-direction: row;
+      text-align: left;
     }
 
   }
 
   &__module {
     font-size: $font-size-small;
+
+    &--cards {
+      position: relative;
+      width: 20rem;
+
+      & > img {
+        display: block;
+        width: 14rem;
+
+        &:last-child {
+          position: absolute;
+          top: 0;
+          left: 9rem;
+        }
+      }
+    }
+
   }
 
   & h5 {
     color: $color-text-white;
-    margin: 0 0 $spacer-size-big 0;
-
-    @media screen and (max-width: $viewport-phone-landscape) {
-      margin: 0 0 $spacer-size-default 0;
-    }
+    margin: 0 0 $spacer-size-default 0;
   }
 
   &__buttons {
     margin: $spacer-size-big 0 $spacer-size-default 0;
 
     & > .button {
-      width: 9.5rem;
+      width: 8.5rem;
 
       &:first-child {
         margin-right: $spacer-size-small;
@@ -45,16 +60,19 @@
     }
   }
 
+  &__social {
+    margin-top: -1 * $spacer-size-large;
+  }
+
   &__copyright {
     color: $color-text-lightest;
     font-size: $font-size-tiny;
-    position: absolute;
-    bottom: 1.875rem;
-    right: 1.25rem;
+    margin: $spacer-size-default 0 0 0;
 
-    @media screen and (max-width: $viewport-phone-landscape) {
-      position: static;
-      margin: $spacer-size-default 0 0 0;
+    @include from(phablet) {
+      position: absolute;
+      bottom: 2.625rem;
+      right: 1.25rem;
     }
   }
 }

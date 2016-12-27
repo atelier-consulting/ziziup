@@ -4,28 +4,64 @@
   justify-content: space-between;
   flex-flow: row wrap;
 
-  &__module {
-      flex: 0 0 auto;
+  &__title {
+    width: 100%;
+    margin: 0 0 $spacer-size-large 0;
 
-    & > h4 {
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0 2 * $spacer-size-default 0 0;
+    @include from(phablet) {
+      width: auto;
+      margin: 0 2rem 0 0;
     }
 
-    & > .button:last-child {
-      margin: 0 0 0 2 * $spacer-size-default;
+    @include from(big) {
+      margin: 0 4rem 0 0;
+    }
 
-      @media screen and (max-width: $viewport-desktop-default) {
-        margin: 0 0 0 $spacer-size-large;
+    & > h3 {
+      color: $color-text-default;
+      font-size: $font-size-oversize;
+      letter-spacing: $letter-spacing-default;
+      text-align: center;
+
+      & > small {
+        letter-spacing: normal;
+        font-size: $font-size-small;
+        color: $color-text-lightest;
+        text-transform: none;
       }
     }
+  }
 
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
 
-    @media screen and (max-width: $viewport-tablet-portrait) {
-      flex: 0 0 100%;
-      text-align: center;
-      padding: $spacer-size-big 0;
+    @include from(desktop) {
+      flex-grow: 0;
+    }
+
+    & > .dropdown {
+      display: block;
+
+      @include until(phablet) {
+        &:first-child {
+          order: 2;
+        }
+        &:last-child {
+          order: 1;
+        }
+      }
     }
   }
+
+  &__last {
+    flex-grow: 1;
+    text-align: right;
+
+    @include from(phablet) {
+      flex-grow: 2;
+    }
+  }
+
 }

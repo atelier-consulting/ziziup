@@ -5,6 +5,11 @@ $config-categories: (
       secondary: rgb(109,54,255)
     ),
     size: (
+      banner: (
+        phone:   auto 200px,
+        tablet:  auto 380px,
+        big:     auto 480px,
+      ),
       popular-color: (
         phone:   auto 345px,
         phablet: auto 360px,
@@ -23,6 +28,11 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -65px right,
+        tablet:  top -120px right -45px,
+        big:     top -140px right -25px,
+      ),
       popular-color: (
         phone:   top -70px center,
         phablet: top -80px center,
@@ -48,6 +58,12 @@ $config-categories: (
       secondary: rgb(255,128,0),
     ),
     size: (
+      banner: (
+        phone:   auto 220px,
+        tablet:  auto 410px,
+        desktop: auto 450px,
+        big:     auto 560px,
+      ),
       popular-color: (
         phone:   auto 290px,
         phablet: auto 290px,
@@ -66,6 +82,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -76px right -20px,
+        tablet:  top -142px right -45px,
+        desktop: top -150px right -40px,
+        big:     top -192px right 12px,
+      ),
       popular-color: (
         phone:   top -74px center,
         phablet: top -74px center,
@@ -91,6 +113,12 @@ $config-categories: (
       secondary: rgb(255,152,54),
     ),
     size: (
+      banner: (
+        phone:   auto 280px,
+        tablet:  auto 740px,
+        desktop: auto 605px,
+        big:     auto 780px,
+      ),
       popular-color: (
         phone:   auto 340px,
         phablet: auto 340px,
@@ -109,6 +137,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -95px right -30px,
+        tablet:  top -232px right -180px,
+        desktop: top -192px right -80px,
+        big:     top -250px right -90px,
+      ),
       popular-color: (
         phone:   top -62px center,
         phablet: top -62px center,
@@ -134,6 +168,12 @@ $config-categories: (
       secondary: rgb(243,48,110)
     ),
     size: (
+      banner: (
+        phone:   auto 200px,
+        tablet:  auto 280px,
+        desktop: auto 240px,
+        big:     auto 310px,
+      ),
       popular-color: (
         phone:   auto 280px,
         phablet: auto 420px,
@@ -152,6 +192,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -115px right -80px,
+        tablet:  top -110px right -80px,
+        desktop: top -80px right 70px,
+        big:     top -115px right 120px,
+      ),
       popular-color: (
         phone:   top -70px center,
         phablet: top -160px center,
@@ -177,6 +223,12 @@ $config-categories: (
       secondary: rgb(101,99,164)
     ),
     size: (
+      banner: (
+        phone:   auto 120px,
+        tablet:  auto 280px,
+        desktop: auto 280px,
+        big:     auto 360px,
+      ),
       popular-color: (
         phone:   auto 280px,
         phablet: auto 340px,
@@ -195,6 +247,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -40px right -20px,
+        tablet:  top -100px right -70px,
+        desktop: top -80px right 50px,
+        big:     top -130px right 100px,
+      ),
       popular-color: (
         phone:   top -52px center,
         phablet: top -80px center,
@@ -220,6 +278,12 @@ $config-categories: (
       secondary: rgb(180,236,81)
     ),
     size: (
+      banner: (
+        phone:   auto 120px,
+        tablet:  auto 280px,
+        desktop: auto 280px,
+        big:     auto 360px,
+      ),
       popular-color: (
         phone:   auto 220px,
         phablet: auto 280px,
@@ -238,6 +302,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -40px right -20px,
+        tablet:  top -80px right -70px,
+        desktop: top -80px right 50px,
+        big:     top -110px right 100px,
+      ),
       popular-color: (
         phone:   top -5px center,
         phablet: top -40px center,
@@ -263,6 +333,12 @@ $config-categories: (
       secondary: rgb(231,18,26)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 280px,
+        desktop: auto 280px,
+        big:     auto 340px,
+      ),
       popular-color: (
         phone:   auto 240px,
         phablet: auto 310px,
@@ -281,6 +357,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -22px right -10px,
+        tablet:  top -60px right -40px,
+        desktop: top -60px right 50px,
+        big:     top -80px right 120px,
+      ),
       popular-color: (
         phone:   top -20px center,
         phablet: top -50px center,
@@ -306,6 +388,12 @@ $config-categories: (
       secondary: rgb(221,123,238)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 300px,
+        big:     auto 350px,
+      ),
       popular-color: (
         phone:   auto 240px,
         phablet: auto 310px,
@@ -324,6 +412,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -25px right -20px,
+        tablet:  top -60px right -70px,
+        desktop: top -75px right 40px,
+        big:     top -85px right 110px,
+      ),
       popular-color: (
         phone:   top -20px center,
         phablet: top -50px center,
@@ -349,6 +443,12 @@ $config-categories: (
       secondary: rgb(26,158,37)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 360px,
+        big:     auto 400px,
+      ),
       popular-color: (
         phone:   auto 240px,
         phablet: auto 310px,
@@ -367,6 +467,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -25px right -20px,
+        tablet:  top -60px right -70px,
+        desktop: top -105px right -10px,
+        big:     top -125px right 60px,
+      ),
       popular-color: (
         phone:   top -20px center,
         phablet: top -50px center,
@@ -392,6 +498,12 @@ $config-categories: (
       secondary: rgb(250,133,97)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 360px,
+        big:     auto 380px,
+      ),
       popular-color: (
         phone:   auto 200px,
         phablet: auto 360px,
@@ -410,6 +522,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -8px right -20px,
+        tablet:  top -20px right -70px,
+        desktop: top -30px right -40px,
+        big:     top -35px right 60px,
+      ),
       popular-color: (
         phone:   top center,
         phablet: top center,
@@ -435,6 +553,12 @@ $config-categories: (
       secondary: rgb(62,227,143)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 360px,
+        big:     auto 380px,
+      ),
       popular-color: (
         phone:   auto 255px,
         phablet: auto 340px,
@@ -453,6 +577,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -8px right -20px,
+        tablet:  top -20px right -70px,
+        desktop: top -30px right 10px,
+        big:     top -70px right 100px,
+      ),
       popular-color: (
         phone:   top -5px center,
         phablet: top -65px center,
@@ -478,6 +608,12 @@ $config-categories: (
       secondary: rgb(229,18,160)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 300px,
+        big:     auto 380px,
+      ),
       popular-color: (
         phone:   auto 220px,
         phablet: auto 250px,
@@ -496,6 +632,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -18px right -10px,
+        tablet:  top -40px right -50px,
+        desktop: top -50px right 20px,
+        big:     top -70px right 100px,
+      ),
       popular-color: (
         phone:   top -5px center,
         phablet: top -35px center,
@@ -521,6 +663,12 @@ $config-categories: (
       secondary: rgb(126,211,33)
     ),
     size: (
+      banner: (
+        phone:   auto 110px,
+        tablet:  auto 250px,
+        desktop: auto 300px,
+        big:     auto 380px,
+      ),
       popular-color: (
         phone:   auto 240px,
         phablet: auto 220px,
@@ -539,6 +687,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -18px right -24px,
+        tablet:  top -30px right -50px,
+        desktop: top -50px right 20px,
+        big:     top -70px right 100px,
+      ),
       popular-color: (
         phone:   top -20px center,
         phablet: top -20px center,
@@ -564,6 +718,12 @@ $config-categories: (
       secondary: rgb(74,144,226)
     ),
     size: (
+      banner: (
+        phone:   auto 70px,
+        tablet:  auto 160px,
+        desktop: auto 260px,
+        big:     auto 280px,
+      ),
       popular-color: (
         phone:   auto 220px,
         phablet: auto 280px,
@@ -583,6 +743,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -5px right -4px,
+        tablet:  top -10px right -10px,
+        desktop: top -90px right 40px,
+        big:     top -80px right 150px,
+      ),
       popular-color: (
         phone:   top -2px center,
         phablet: top -70px center,
@@ -609,6 +775,12 @@ $config-categories: (
       secondary: rgb(200,52,216)
     ),
     size: (
+      banner: (
+        phone:   auto 120px,
+        tablet:  auto 260px,
+        desktop: auto 260px,
+        big:     auto 320px,
+      ),
       popular-color: (
         phone:   auto 260px,
         phablet: auto 320px,
@@ -627,6 +799,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -15px right -40px,
+        tablet:  top -20px right -60px,
+        desktop: top -30px right 30px,
+        big:     top -40px right 100px,
+      ),
       popular-color: (
         phone:   top -30px center,
         phablet: top -50px center,
@@ -652,6 +830,12 @@ $config-categories: (
       secondary: rgb(34,28,228)
     ),
     size: (
+      banner: (
+        phone:   auto 120px,
+        tablet:  auto 260px,
+        desktop: auto 290px,
+        big:     auto 320px,
+      ),
       popular-color: (
         phone:   auto 320px,
         phablet: auto 280px,
@@ -670,6 +854,12 @@ $config-categories: (
       ),
     ),
     position: (
+      banner: (
+        phone:   top -30px right -40px,
+        tablet:  top -53px right -30px,
+        desktop: top -60px right 30px,
+        big:     top -40px right 100px,
+      ),
       popular-color: (
         phone:   top -25px center,
         phablet: top -40px center,
