@@ -67,13 +67,17 @@ $example-color-dimmed: rgba(0,0,0,.4);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
+    &--page {
+      background-color: $color-background-page;
+    }
+
     &--full-width {
       position: absolute;
       left: 0;
       width: 100%;
       border: 0;
       border-radius: 0;
-      background: transparent;
+      background: $color-background-page;
       padding: 0;
     }
 

@@ -20,6 +20,12 @@
     background-size: $icon-size-huge $icon-size-huge;
   }
 
+  &--large {
+    width: $icon-size-large;
+    height: $icon-size-large;
+    background-size: $icon-size-large $icon-size-large;
+  }
+
   &--small {
     width: $icon-size-small;
     height: $icon-size-small;
@@ -132,6 +138,10 @@
   &--caret-white {
     background-image: url("../img/icon-caret-white.png");
   }
+  
+  &--caret-full {
+    background-image: url("../img/icon-caret-full.png");
+  }
 
   &--user {
     background-image: url("../img/icon-user.png");
@@ -175,6 +185,14 @@
 
   &--info {
     background-image: url("../img/icon-info.png");
+  }
+
+  &--plus {
+    background-image: url("../img/icon-plus.png");
+  }
+
+  &--minus {
+    background-image: url("../img/icon-minus.png");
   }
 
 

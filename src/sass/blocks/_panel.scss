@@ -1,0 +1,166 @@
+// Panel
+.panel {
+  background: $color-background-default;
+  box-shadow: 0 2px 4px $color-shadow-default;
+  margin: .625rem 0;
+
+  @include from(tablet) {
+    margin: .625rem;
+  }
+
+  &__summary {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: $spacer-size-big $spacer-size-large;
+    justify-content: space-between;
+
+    // TODO: change to actual breakpoint
+    @include from(tablet) {
+      justify-content: flex-start;
+    }
+  }
+
+  // Summary content {
+  &__toggle {
+    position: absolute;
+    top: $spacer-size-big;
+    right: $spacer-size-large;
+    height: 2rem;
+    padding: .5rem 0 0 0;
+    color: $color-text-lightest;
+    font-size: $font-size-tiny;
+    vertical-align: bottom;
+
+    & > .icon {
+      vertical-align: middle;
+      margin: 0 0 0 $spacer-size-big;
+    }
+  }
+
+  &__title {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+    
+    flex-basis: 100%;
+
+    // TODO: change to actual breakpoint
+    @include from(tablet) {
+      flex-basis: auto;
+      margin: 0 $spacer-size-default 0 0;
+    }
+  }
+
+  &__value {
+    height: 2rem;
+    line-height: 2rem;
+    color: $color-text-default;
+  }
+
+  &__amount {
+    height: 2rem;
+    line-height: 2rem;
+    font-weight: $font-weight-bold;
+
+    // TODO: change to actual breakpoint
+    @include from(tablet) {
+      margin: 0 0 0 $spacer-size-default;
+    }
+  }
+  // Summary content }
+
+  &__field {
+    display: flex;
+    flex-direction: row;
+    min-height: 4.25rem;
+    border-top: 1px solid $color-border-lightest;
+  }
+  
+  // Field content {
+  &__image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 7rem;
+    min-width: 7rem;
+    height: 7rem;
+
+    & > img {
+      display: block;
+      max-width: 85%;
+      height: auto;
+      max-height: 85%;
+      margin: 0 auto;
+    }
+  }
+
+  &__product {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 $spacer-size-big;
+  }
+
+  // Product content {
+  &__name {
+    line-height: $line-height-tiny;
+    // overflow: ellipsis;
+  }
+
+  &__description {
+    margin: $spacer-size-small 0 0 0;
+    font-size: $font-size-tiny;
+    line-height: 1.15;
+    color: $color-text-lightest;
+  }
+
+  &__price {
+    margin: $spacer-size-big 0 0 0;
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+  }
+  // Product content }
+
+  &__counter {
+    margin: 0 $spacer-size-large 0 0;
+    width: 3rem;
+    min-width: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Counter content {
+  &__increment {
+    display: block;
+    flex-grow: 1;
+
+    & > .icon {
+      display: block;
+      margin: $spacer-size-small auto 0;
+    }
+  }
+
+  &__decrement {
+    display: block;
+    flex-grow: 1;
+
+    & > .icon {
+      display: block;
+      margin: 0 auto $spacer-size-small;
+    }
+  }
+
+  &__quantity {
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 1.125rem;
+  }
+  // Counter content }
+  // Field content }
+}
+
