@@ -2,10 +2,10 @@
 .panel {
   background: $color-background-default;
   box-shadow: 0 2px 4px $color-shadow-default;
-  margin: .625rem 0;
+  margin: 0 0 .625rem 0;
 
-  @include from(tablet) {
-    margin: .625rem;
+  @include from(phablet) {
+    margin: 0 1.25rem 1.25rem;
   }
 
   &__summary {
@@ -16,21 +16,28 @@
     justify-content: space-between;
 
     // TODO: change to actual breakpoint
-    @include from(tablet) {
+    @include from(phablet) {
       justify-content: flex-start;
+      padding: $spacer-size-default 1.5rem;
     }
   }
 
   // Summary content {
   &__toggle {
     position: absolute;
-    top: $spacer-size-big;
-    right: $spacer-size-large;
     height: 2rem;
     padding: .5rem 0 0 0;
     color: $color-text-lightest;
     font-size: $font-size-tiny;
     vertical-align: bottom;
+
+    top: $spacer-size-big;
+    right: $spacer-size-large;
+
+    @include from(phablet) {
+      top: $spacer-size-default;
+      right: 1.25rem;
+    }
 
     & > .icon {
       vertical-align: middle;
@@ -47,16 +54,26 @@
     flex-basis: 100%;
 
     // TODO: change to actual breakpoint
-    @include from(tablet) {
+    @include from(phablet) {
       flex-basis: auto;
+      min-width: 5rem;
       margin: 0 $spacer-size-default 0 0;
     }
   }
 
-  &__value {
+  &__subtitle {
     height: 2rem;
     line-height: 2rem;
     color: $color-text-default;
+  }
+
+  &__value {
+    color: $color-text-default;
+    line-height: $line-height-small;
+
+    @include from(phablet) {
+      padding: .4375rem 0 $spacer-size-big;
+    }
   }
 
   &__amount {
@@ -65,20 +82,47 @@
     font-weight: $font-weight-bold;
 
     // TODO: change to actual breakpoint
-    @include from(tablet) {
+    @include from(phablet) {
       margin: 0 0 0 $spacer-size-default;
     }
   }
   // Summary content }
 
-  &__field {
+  &__actions {
+    height: 4.25rem;
+    display: flex;
+    flex-direction: row;
+
+    & > a {
+      display: block;
+      flex-grow: 1;
+      font-size: $font-size-oversize;
+      text-decoration: none;
+      background-color: $color-background-light;
+      color: $color-brand-primary;
+      text-align: center;
+      line-height: 4.125rem;
+
+      &:not(:first-child) {
+        border-left: 2px solid $color-background-default;
+      }
+
+      & > .icon {
+        position: relative;
+        top: -3px;
+        margin: 0 $spacer-size-big;
+      }
+    }
+  }
+
+  &__product {
     display: flex;
     flex-direction: row;
     min-height: 4.25rem;
     border-top: 1px solid $color-border-lightest;
   }
   
-  // Field content {
+  // Product content {
   &__image {
     display: flex;
     flex-direction: column;
@@ -96,7 +140,7 @@
     }
   }
 
-  &__product {
+  &__info {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -104,32 +148,37 @@
     padding: 0 $spacer-size-big;
   }
 
-  // Product content {
+  // Info content {
   &__name {
     line-height: $line-height-tiny;
-    // overflow: ellipsis;
   }
 
   &__description {
     margin: $spacer-size-small 0 0 0;
     font-size: $font-size-tiny;
-    line-height: 1.15;
+    line-height: $line-height-nano;
     color: $color-text-lightest;
   }
 
   &__price {
-    margin: $spacer-size-big 0 0 0;
+    margin: 0.375rem 0 0 0;
     font-size: $font-size-oversize;
     font-weight: $font-weight-bold;
   }
-  // Product content }
+  // Info content }
 
   &__counter {
     margin: 0 $spacer-size-large 0 0;
-    width: 3rem;
-    min-width: 3rem;
     display: flex;
     flex-direction: column;
+
+    width: 3rem;
+    min-width: 3rem;
+
+    @include from(phablet) {
+      width: 3.75rem;
+      min-width: 3.75rem;
+    }
   }
 
   // Counter content {
@@ -161,6 +210,68 @@
     border-radius: 1.125rem;
   }
   // Counter content }
-  // Field content }
+
+  &__deleter {
+    display: flex;
+    width: 3.75rem;
+    max-width: 3.75rem;
+    margin: 0 0 0 1.125rem;
+    background-color: $color-background-light;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .icon {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  // Product content }
+
+  &__choice {
+    display: flex;
+    flex-direction: row;
+
+    min-height: 4.25rem;
+    border-top: 1px solid $color-border-lightest;
+  }
+
+  // Choice content {
+  &__option {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacer-size-big $spacer-size-large;
+
+    @include from(phablet) {
+      padding: $spacer-size-default $spacer-size-large $spacer-size-default 2.5rem;
+    }
+
+    & > p {
+      margin: 0;
+      color: $color-text-default;
+      line-height: $line-height-small;
+    }
+  }
+
+  &__operator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: $font-size-tiny;
+    color: $color-brand-primary;
+
+    & > div {
+      padding: 0 2rem;
+    }
+  }
+
+  &__radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+  }
+  // Choice content }
 }
 

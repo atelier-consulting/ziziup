@@ -16,8 +16,9 @@
     <h1 class="example__header">Panel</h1>
     <p>Panel contains expandable content</p>
 
-    <div class="example__demo example__demo--full-width">
+    <div class="example__demo example__demo--full-width" style="padding-top: 1.5rem">
 
+      <!--Products-->
       <div class="panel">
         <div class="panel__summary">
           <div class="panel__toggle">
@@ -25,17 +26,17 @@
             <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
           </div>
           <div class="panel__title">Cart summary:</div>
-          <div class="panel__value">3 items, totally:</div>
+          <div class="panel__subtitle">3 items, totally:</div>
           <div class="panel__amount">$1315</div>
         </div>
         <div class="panel__expander">
-          <div class="panel__field">
+          <div class="panel__product">
             <div class="panel__image">
               <img src="../img/product-3.jpg" alt="">
             </div>
-            <div class="panel__product">
-              <div class="panel__name">Men&rsquo;s asd asda das Tee Brush Print</div>
-              <div class="panel__description">Size: S &nbsp; Color: Black asdk asdasdasd asd asd asd </div>
+            <div class="panel__info">
+              <div class="panel__name">Men&rsquo;s Tee Brush Print</div>
+              <div class="panel__description">Size: S &nbsp; Color: Black</div>
               <div class="panel__price">$15.75</div>
             </div>
             <div class="panel__counter">
@@ -47,12 +48,73 @@
                 <i class="icon icon--minus"></i>
               </a>
             </div>
+            <div class="panel__deleter hide__until--phablet">
+              <i class="icon icon--times"></i>
+            </div>
+          </div>
+
+          <div class="panel__actions hide__from--phablet">
+            <a href="javascript:;">
+              <i class="icon icon--smaller icon--pencil"></i>
+              Edit Cart
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!--Choices-->
+      <div class="panel">
+
+        <div class="panel__summary">
+          <div class="panel__toggle">
+            Close
+            <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
+          </div>
+          <div class="panel__title">Ship to:</div>
+          <div class="panel__value">
+            Roland Omene<br />
+            1313 Rockdale Springs Fort Worth TX, 16132 USA
+          </div>
+        </div>
+
+        <div class="panel__expander">
+          <div class="panel__choice">
+            <div class="panel__option">
+              <p>
+                Roland Omene<br />
+                1313 Rockdale Springs Fort Worth<br />
+                TX, 16132<br />
+                USA
+              </p>
+            </div>
+            <a href="javascript:;" class="panel__operator">
+              <div>Edit</div>
+            </a>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-on"></i>
+            </div>
+          </div>
+
+          <div class="panel__choice">
+            <div class="panel__option">
+              <p>
+                James Hatfield<br />
+                2507 Nookey Waley Sacramento<br />
+                CA, 23456<br />
+                USA
+              </p>
+            </div>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-off"></i>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
 
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </body>
