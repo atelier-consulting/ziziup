@@ -50,7 +50,7 @@
     line-height: 2rem;
     font-size: $font-size-oversize;
     font-weight: $font-weight-bold;
-    
+
     flex-basis: 100%;
 
     // TODO: change to actual breakpoint
@@ -122,7 +122,6 @@
     }
   }
   // Actions content }
-  
 
   &__product {
     display: flex;
@@ -130,7 +129,7 @@
     min-height: 4.25rem;
     border-top: 1px solid $color-border-lightest;
   }
-  
+
   // Product content {
   &__image {
     display: flex;
@@ -150,7 +149,6 @@
 
     &--payment {
       height: auto;
-      min-height: 5.125rem;
 
       & > img {
         max-width: 5.1875rem;
@@ -261,14 +259,9 @@
     justify-content: center;
     padding: $spacer-size-big $spacer-size-large;
 
-    @include from(phablet) {
-      &:first-child {
-        padding: $spacer-size-default $spacer-size-large $spacer-size-default 2.5rem;
-      }
-    }
-
     & > h4 {
       font-size: $font-size-oversize;
+      color: $color-text-darkest;
       letter-spacing: normal;
       text-transform: none;
       margin: $spacer-size-tiny 0;
@@ -278,6 +271,16 @@
       margin: 0;
       color: $color-text-default;
       line-height: $line-height-small;
+    }
+
+    @include from(phablet) {
+      padding: $spacer-size-default;
+
+      &:first-child {
+        & > p {
+          padding-left: 1.5rem;
+        }
+      }
     }
   }
 
@@ -305,5 +308,42 @@
     }
   }
   // Choice content }
-}
 
+  &__input {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 $spacer-size-default 0;
+
+    @include from(phablet) {
+      padding: 0 0 0 0;
+    }
+
+    & > input {
+      display: block;
+      border: 0;
+      border-radius: 1.5625rem;
+      height: 3.125rem;
+      background-color: $color-background-page;
+      width: calc(100% - 5.375rem);
+      padding: 0 1rem;
+      outline: none;
+    }
+
+    & > button {
+      display: block;
+      height: 3.125rem;
+      border-radius: 1.5625rem;
+      width: 8.5rem;
+      border: 0;
+      background-color: $color-background-darker;
+      margin-left: -3.125rem;
+      padding: 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: $color-text-white;
+      letter-spacing: $letter-spacing-big;
+      box-shadow: 0 2px 4px 0 $color-shadow-default;
+    }
+  }
+}
