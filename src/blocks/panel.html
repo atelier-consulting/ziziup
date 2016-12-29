@@ -54,7 +54,7 @@
           </div>
 
           <div class="panel__actions hide__from--phablet">
-            <a href="javascript:;">
+            <a class="panel__action" href="javascript:;">
               <i class="icon icon--smaller icon--pencil"></i>
               Edit Cart
             </a>
@@ -63,9 +63,8 @@
         </div>
       </div>
 
-      <!--Choices-->
+      <!--Shipping-->
       <div class="panel">
-
         <div class="panel__summary">
           <div class="panel__toggle">
             Close
@@ -77,7 +76,6 @@
             1313 Rockdale Springs Fort Worth TX, 16132 USA
           </div>
         </div>
-
         <div class="panel__expander">
           <div class="panel__choice">
             <div class="panel__option">
@@ -88,14 +86,13 @@
                 USA
               </p>
             </div>
-            <a href="javascript:;" class="panel__operator">
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
               <div>Edit</div>
             </a>
             <div class="panel__radio">
               <i class="icon icon--small icon--radio-on"></i>
             </div>
           </div>
-
           <div class="panel__choice">
             <div class="panel__option">
               <p>
@@ -105,9 +102,119 @@
                 USA
               </p>
             </div>
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
+              <div>Edit</div>
+            </a>
             <div class="panel__radio">
               <i class="icon icon--small icon--radio-off"></i>
             </div>
+          </div>
+          <div class="panel__actions">
+            <a class="panel__action panel__action--primary hide__until--phablet" href="javascript:;">
+              <i class="icon icon--smaller icon--pencil"></i>
+              Add shipping address
+            </a>
+            <a class="panel__action panel__action--primary hide__from--phablet" href="javascript:;">
+              <i class="icon icon--smaller icon--pencil"></i>
+              Edit shipping address
+            </a>
+            <a class="panel__action hide__until--phablet" href="javascript:;">Cancel</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Payment-->
+      <div class="panel">
+        <div class="panel__summary">
+          <div class="panel__toggle">
+            Close
+            <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
+          </div>
+          <div class="panel__title">Payment</div>
+          <div class="panel__value">
+            Z Elite Card, Available Credit: $2000
+          </div>
+        </div>
+        <div class="panel__expander">
+          <div class="panel__choice">
+            <div class="panel__image panel__image--payment">
+              <img src="../img/payment-zcard.png" alt="Z-Card">
+            </div>
+            <div class="panel__option">
+              <h4>ZIZIUP Elite Card</h4>
+              <p>
+                Available Credit: $2000
+              </p>
+            </div>
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
+              <div>Load</div>
+            </a>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-on"></i>
+            </div>
+          </div>
+
+          <div class="panel__choice">
+            <div class="panel__image panel__image--payment">
+              <img src="../img/payment-visa.png" alt="Visa">
+            </div>
+            <div class="panel__option">
+              <h4>VISA&nbsp;&nbsp;&hellip;1720</h4>
+              <p>
+                Roland Omene. Card&nbsp;Expired
+              </p>
+            </div>
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
+              <div>Edit</div>
+            </a>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-off"></i>
+            </div>
+          </div>
+
+          <div class="panel__choice">
+            <div class="panel__image panel__image--payment">
+              <img src="../img/payment-mastercard.png" alt="MasterCard">
+            </div>
+            <div class="panel__option">
+              <h4>Master Card&nbsp;&nbsp;&hellip;1720</h4>
+              <p>
+                Roland Omene. Expires 12.2022
+              </p>
+            </div>
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
+              <div>Edit</div>
+            </a>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-off"></i>
+            </div>
+          </div>
+
+          <div class="panel__choice">
+            <div class="panel__image panel__image--payment">
+              <img src="../img/payment-paypal.png" alt="PayPal">
+            </div>
+            <div class="panel__option">
+              <h4>PayPal account</h4>
+              <p>
+                lextimo@gmail.com&nbsp; Card&nbsp;x1614,&nbsp;$50
+              </p>
+            </div>
+            <a class="panel__operator hide__until--phablet" href="javascript:;">
+              <div>Edit</div>
+            </a>
+            <div class="panel__radio">
+              <i class="icon icon--small icon--radio-off"></i>
+            </div>
+          </div>
+
+          <div class="panel__actions hide__until--phablet">
+            <a class="panel__action panel__action--primary" href="javascript:;">
+              <i class="icon icon--smaller icon--pencil"></i>
+              Add payment method
+            </a>
+            <a class="panel__action" href="javascript:;">Cancel</a>
           </div>
         </div>
       </div>

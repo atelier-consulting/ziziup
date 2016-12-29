@@ -18,7 +18,7 @@
     // TODO: change to actual breakpoint
     @include from(phablet) {
       justify-content: flex-start;
-      padding: $spacer-size-default 1.5rem;
+      padding: $spacer-size-default 1rem;
     }
   }
 
@@ -92,28 +92,37 @@
     height: 4.25rem;
     display: flex;
     flex-direction: row;
+  }
 
-    & > a {
-      display: block;
-      flex-grow: 1;
-      font-size: $font-size-oversize;
-      text-decoration: none;
-      background-color: $color-background-light;
-      color: $color-brand-primary;
-      text-align: center;
-      line-height: 4.125rem;
+  // Actions content {
+  &__action {
+    display: block;
+    flex-grow: 1;
+    flex-basis: 33%;
+    font-size: $font-size-oversize;
+    text-decoration: none;
+    text-transform: capitalize;
+    background-color: $color-background-light;
+    color: $color-brand-primary;
+    text-align: center;
+    line-height: 4.125rem;
 
-      &:not(:first-child) {
-        border-left: 2px solid $color-background-default;
-      }
+    &:not(:first-child) {
+      border-left: 2px solid $color-background-default;
+    }
 
-      & > .icon {
-        position: relative;
-        top: -3px;
-        margin: 0 $spacer-size-big;
-      }
+    &--primary {
+      flex-basis: 60%;
+    }
+
+    & > .icon {
+      position: relative;
+      top: -3px;
+      margin: 0 $spacer-size-big;
     }
   }
+  // Actions content }
+  
 
   &__product {
     display: flex;
@@ -133,10 +142,19 @@
 
     & > img {
       display: block;
-      max-width: 85%;
+      max-width: 80%;
       height: auto;
-      max-height: 85%;
+      max-height: 80%;
       margin: 0 auto;
+    }
+
+    &--payment {
+      height: auto;
+      min-height: 5.125rem;
+
+      & > img {
+        max-width: 5.1875rem;
+      }
     }
   }
 
@@ -145,7 +163,7 @@
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    padding: 0 $spacer-size-big;
+    padding: 0 $spacer-size-large;
   }
 
   // Info content {
@@ -244,7 +262,16 @@
     padding: $spacer-size-big $spacer-size-large;
 
     @include from(phablet) {
-      padding: $spacer-size-default $spacer-size-large $spacer-size-default 2.5rem;
+      &:first-child {
+        padding: $spacer-size-default $spacer-size-large $spacer-size-default 2.5rem;
+      }
+    }
+
+    & > h4 {
+      font-size: $font-size-oversize;
+      letter-spacing: normal;
+      text-transform: none;
+      margin: $spacer-size-tiny 0;
     }
 
     & > p {
@@ -270,7 +297,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 1.5rem;
+
+    padding: 0 .625rem;
+
+    @include from(phablet) {
+      padding: 0 1.5rem;
+    }
   }
   // Choice content }
 }
