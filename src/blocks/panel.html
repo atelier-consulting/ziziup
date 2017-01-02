@@ -16,7 +16,7 @@
     <h1 class="example__header">Panel</h1>
     <p>Panel contains expandable content</p>
 
-    <div class="example__demo example__demo--full-width" style="padding-top: 1.5rem">
+    <div class="example__demo example__demo--checkout">
 
       <!--Products-->
       <div class="panel">
@@ -153,6 +153,112 @@
             <div class="panel__radio">
               <i class="icon icon--small icon--radio-on"></i>
             </div>
+            <div class="panel__operation">
+              <h5>Load your ZIZIUP Card with</h5>
+              <div class="tabbar">
+                <div class="tabbar__tab tabbar__tab--active"><span class="hide__until--phablet">Bank </span>deposit</div>
+                <div class="tabbar__tab"><span class="hide__until--phablet">Credit </span>card</div>
+                <div class="tabbar__tab">PayPal<span class="hide__until--phablet"> account</span></div>
+              </div>
+              <div class="panel__tab panel__tab--active">
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label for="checkout-zcard-deposit-country" class="form__label">Country</label>
+                    <select id="checkout-zcard-deposit-country" name="country" class="form__select">
+                      <option value="ua">Ukraine</option>
+                    </select>
+                  </div>
+                  <div class="form__cell">
+                    <label for="checkout-zcard-deposit-city" class="form__label">City</label>
+                    <select id="checkout-zcard-deposit-city" name="country" class="form__select">
+                      <option value="city-1">Kyiv</option>
+                    </select>
+                  </div>
+                </div>
+                <ol class="list list--decorated">
+                  <li class="list__item">
+                    <strong>Choose banking Partner</strong>
+                    <a href="#">See list</a>
+                    <p>Go to local UBA bank and deposit either CFA or USD into our account.</p>
+                  </li>
+                  <li class="list__item">
+                    <strong>Completing Deposit</strong>
+                    <ul class="list list--dotted">
+                      <li class="list__item">
+                        Company name: ZIZIUP Limited.
+                      </li>
+                      <li class="list__item">
+                        Account numbers
+                        <ul class="list list--dashed">
+                          <li class="list__item">UBA USD: 12345678</li>
+                          <li class="list__item">UBA CFA: 12345678</li>
+                        </ul>
+                      </li>
+                      <li class="list__item">
+                        Write your web card account number infront of your name. See example image below.
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list__item">
+                    <strong>Account Credited</strong>
+                    <p>We will credit your account within 24 hours from the moment money was deposited.</p>
+                    <img src="../img/comp-payment-sample.png" alt="Payment Sample">
+                    <a href="#">Download Sample</a><br />
+                    <a href="#">Download Instructions</a>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="panel__tab">
+                <div class="panel__layout">
+                  <div class="panel__aside">
+                    <ul class="list list--iconized">
+                      <li class="list__item">
+                        <i class="icon icon--smaller icon--radio-off"></i>
+                        <strong>Visa&nbsp;&hellip;1720</strong>
+                      </li>
+                      <li class="list__item">
+                        <i class="icon icon--smaller icon--radio-on"></i>
+                        <strong>MasterCard&nbsp;&hellip;1720</strong>
+                      </li>
+                      <li class="list__item">
+                        <i class="icon icon--smaller icon--plus-alt"></i>
+                        <a href="javascript:;">Add Card</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="panel__input panel__input--accent">
+                    <label>Enter amount in USD</label>
+                    <input type="text" />
+                    <button class="accent">Add credit</button>
+                    <small>Your card will be credited in 24 hours</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel__tab">
+                <div class="panel__layout">
+                  <div class="panel__aside">
+                    <strong>PayPal account</strong>
+                    <p>
+                      lextimo@gmail.com<br />
+                      Card x1614, $50
+                    </p>
+                    <a href="javascript:;">
+                      <i class="icon icon--tiny icon--pencil"></i>&nbsp;
+                      Edit
+                    </a>
+                  </div>
+                  <div class="panel__input panel__input--accent">
+                    <label>Enter amount in USD</label>
+                    <input type="text" />
+                    <button class="accent">Add credit</button>
+                    <small>Your card will be credited in 24 hours</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <div class="panel__choice">
@@ -251,7 +357,7 @@
             </div>
             <div class="panel__radio"><i class="icon icon--small icon--radio-off"></i></div>
           </div>
-          
+
           <div class="panel__choice">
             <div class="panel__option">
               <h4>$1</h4>

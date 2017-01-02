@@ -56,7 +56,7 @@
     // TODO: change to actual breakpoint
     @include from(phablet) {
       flex-basis: auto;
-      min-width: 5rem;
+      min-width: 6rem;
       margin: 0 $spacer-size-default 0 0;
     }
   }
@@ -107,8 +107,8 @@
     text-align: center;
     line-height: 4.125rem;
 
-    &:not(:first-child) {
-      border-left: 2px solid $color-background-default;
+    &:not(:last-child) {
+      border-right: 2px solid $color-background-default;
     }
 
     &--primary {
@@ -162,6 +162,10 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 $spacer-size-large;
+
+    @include from(phablet) {
+      padding: 0 $spacer-size-default;
+    }
   }
 
   // Info content {
@@ -246,6 +250,7 @@
   &__choice {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     min-height: 4.25rem;
     border-top: 1px solid $color-border-lightest;
@@ -258,6 +263,10 @@
     flex-direction: column;
     justify-content: center;
     padding: $spacer-size-big $spacer-size-large;
+
+    .panel__image + & {
+      max-width: calc(100% - 9.75rem);
+    }
 
     & > h4 {
       font-size: $font-size-oversize;
@@ -307,16 +316,77 @@
       padding: 0 1.5rem;
     }
   }
+
+  &__operation {
+    width: 100%;
+
+    & > h5 {
+      letter-spacing: normal;
+      text-transform: none;
+      text-align: center;
+      font-weight: $font-weight-base;
+      color: $color-text-lightest;
+      margin: 1rem 0 0 0;
+    }
+  }
+
+  &__layout {
+    display: flex;
+    padding: 0 0 $spacer-size-big;
+    flex-direction: column;
+
+    @include from(phablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__aside {
+    min-width: 40%;
+    padding: 0 0 $spacer-size-big 0;
+
+    & > p {
+      margin: $spacer-size-big 0;
+    }
+
+    & > a {
+      text-decoration: none;
+      color: $color-brand-primary;
+    }
+  }
+
+  &__tab {
+    display: none;
+    padding: $spacer-size-default $spacer-size-large;
+
+    @include from(phablet) {
+      padding: $spacer-size-default;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
   // Choice content }
 
   &__input {
     flex-grow: 1;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     padding: 0 0 $spacer-size-default 0;
 
     @include from(phablet) {
       padding: 0 0 0 0;
+    }
+
+    & > label {
+      font-weight: $font-weight-bold;
+      font-size: $font-size-oversize;
+      letter-spacing: normal;
+      text-transform: none;
+      display: block;
+      margin: 0 0 $spacer-size-big;
+      width: 100%;
     }
 
     & > input {
@@ -325,25 +395,50 @@
       border-radius: 1.5625rem;
       height: 3.125rem;
       background-color: $color-background-page;
-      width: calc(100% - 5.375rem);
       padding: 0 1rem;
       outline: none;
+
+      width: calc(100% - 5.375rem);
     }
 
     & > button {
       display: block;
       height: 3.125rem;
       border-radius: 1.5625rem;
-      width: 8.5rem;
-      border: 0;
-      background-color: $color-background-darker;
+      outline: none;
       margin-left: -3.125rem;
       padding: 0;
       text-align: center;
       text-transform: uppercase;
       color: $color-text-white;
       letter-spacing: $letter-spacing-big;
+
+      width: 8.5rem;
+      border: 0;
       box-shadow: 0 2px 4px 0 $color-shadow-default;
+      background-color: $color-background-darker;
+    }
+
+    & > small {
+      display: block;
+      width: 100%;
+      color: $color-text-lightest;
+      font-size: $font-size-default;
+      margin: $spacer-size-big 0 0 0;
+    }
+
+    &--accent {
+      & > input {
+        width: calc(100% - 8.375rem);
+      }
+
+      & > button {
+        width: 11.5rem;
+        border: 1px solid $color-border-accent;
+        background-color: transparent;
+        background-image: linear-gradient(162deg, $color-gradient2-tl 6%, $color-gradient2-br 97%);
+        box-shadow: 0 10px 25px 0 $color-shadow-accent;
+      }
     }
   }
 }

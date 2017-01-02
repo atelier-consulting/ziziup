@@ -67,8 +67,12 @@ $example-color-dimmed: rgba(0,0,0,.4);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
-    &--page {
+    &--checkout {
+      padding: 1.5rem 0 0 0;
+      max-width: 42.625rem;
+      margin: 0 auto;
       background-color: $color-background-page;
+      //background: $color-background-page;
     }
 
     &--full-width {
