@@ -160,7 +160,9 @@
                 <div class="tabbar__tab"><span class="hide__until--phablet">Credit </span>card</div>
                 <div class="tabbar__tab">PayPal<span class="hide__until--phablet"> account</span></div>
               </div>
-              <div class="panel__tab panel__tab--active">
+
+              <!--Bank deposit-->
+              <div class="panel__tab">
                 <div class="form__row">
                   <div class="form__cell">
                     <label for="checkout-zcard-deposit-country" class="form__label">Country</label>
@@ -209,7 +211,8 @@
                 </ol>
               </div>
 
-              <div class="panel__tab">
+              <!--Credit Card-->
+              <div class="panel__tab panel__tab--active">
                 <div class="panel__layout">
                   <div class="panel__aside">
                     <ul class="list list--iconized">
@@ -234,8 +237,53 @@
                     <small>Your card will be credited in 24 hours</small>
                   </div>
                 </div>
+                <div class="panel__operation">
+                  <h5>Add Card</h5>
+                  <div class="form__row">
+                    <div class="form__cell form__cell--card-number">
+                      <label class="form__label">
+                        Card number <small>16 digits</small>
+                      </label>
+                      <input type="text" class="form__input" size="4" maxlength="4" />
+                      <input type="text" class="form__input" size="4" maxlength="4" />
+                      <input type="text" class="form__input" size="4" maxlength="4" />
+                      <input type="text" class="form__input" size="4" maxlength="4" />
+                    </div>
+                    <div class="form__cell form__cell--card-expires">
+                      <label class="form__label">Expires</label>
+                      <select class="form__select">
+                        <option value="-1">MM</option>
+                      </select>
+                      <select class="form__select">
+                        <option value="-1">YY</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__cell">
+                      <label class="form__label">Name on card</label>
+                      <input class="form__input" type="text" />
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__cell form__cell--card-cvv">
+                      <label class="form__label">CVV</label>
+                      <input class="form__input" type="text" />
+                      <img src="../img/icon-cvv.png" alt="CVV" />
+
+                      <div class="form__label form__label--checkbox">
+                        <i class="icon icon--tiny icon--checkbox-on"></i>
+                        Remember card
+                      </div>
+                    </div>
+                    <div class="form__cell form__cell--card-submit">
+                      <button class="button button--submit">Add card</button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
+              <!--PayPal account-->
               <div class="panel__tab">
                 <div class="panel__layout">
                   <div class="panel__aside">

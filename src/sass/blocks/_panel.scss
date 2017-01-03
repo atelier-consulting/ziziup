@@ -326,7 +326,7 @@
       text-align: center;
       font-weight: $font-weight-base;
       color: $color-text-lightest;
-      margin: 1rem 0 0 0;
+      margin: $spacer-size-default 0 $spacer-size-big;
     }
   }
 
@@ -356,10 +356,10 @@
 
   &__tab {
     display: none;
-    padding: $spacer-size-default $spacer-size-large;
+    padding: 1.5rem $spacer-size-large;
 
     @include from(phablet) {
-      padding: $spacer-size-default;
+      padding: 1.5rem $spacer-size-default;
     }
 
     &--active {

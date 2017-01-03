@@ -44,6 +44,12 @@
     background-size: $icon-size-tiny $icon-size-tiny;
   }
 
+  &--mini {
+    width: $icon-size-mini;
+    height: $icon-size-mini;
+    background-size: $icon-size-mini $icon-size-mini;
+  }
+
   &--payment {
     height: $icon-size-tiny;
   }
@@ -209,6 +215,14 @@
 
   &--radio-off {
     background-image: url("../img/icon-radio-off.png");
+  }
+
+  &--checkbox-on {
+    background-image: url("../img/icon-checkbox-on.png");
+  }
+
+  &--checkbox-off {
+    background-image: url("../img/icon-checkbox-off.png");
   }
   
   &--pencil {
