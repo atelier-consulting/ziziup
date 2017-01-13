@@ -73,6 +73,12 @@ $example-color-dimmed: rgba(0,0,0,.4);
       margin: 0 auto;
       background-color: $color-background-page;
       //background: $color-background-page;
+
+      @include until(phablet) {
+        position: absolute;
+        border: 0;
+        left: 0;
+      }
     }
 
     &--full-width {
