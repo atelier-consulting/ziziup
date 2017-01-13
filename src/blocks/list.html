@@ -1,0 +1,194 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIZIUP Slicing v%VERSION% | List</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../index.html">&larr;&nbsp;Index</a>
+    </div>
+
+    <h1 class="example__header">List</h1>
+
+    <h2 class="example__subheader">Default list</h2>
+    <div class="example__demo">
+      <ul class="list">
+        <li class="list__item">Item 1</li>
+        <li class="list__item">Item 2</li>
+        <li class="list__item">Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.</li>
+        <li class="list__item">Item 4</li>
+      </ul>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;ul class=&quot;<mark>list</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 1&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 2&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 4&lt;/li&gt;</code>
+      <code class="html">&lt;/ul&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Dotted list</h2>
+    <div class="example__demo">
+      <ul class="list list--dotted">
+        <li class="list__item">Item 1</li>
+        <li class="list__item">Item 2</li>
+        <li class="list__item">Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.</li>
+        <li class="list__item">Item 4</li>
+      </ul>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;ul class=&quot;list <mark>list--dotted</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 1&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 2&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 4&lt;/li&gt;</code>
+      <code class="html">&lt;/ul&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Dashed list</h2>
+    <div class="example__demo">
+      <ul class="list list--dashed">
+        <li class="list__item">Item 1</li>
+        <li class="list__item">Item 2</li>
+        <li class="list__item">Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.</li>
+        <li class="list__item">Item 4</li>
+      </ul>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;ul class=&quot;list <mark>list--dashed</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 1&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 2&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 4&lt;/li&gt;</code>
+      <code class="html">&lt;/ul&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Decorated numbered list</h2>
+    <div class="example__demo">
+      <ol class="list list--decorated">
+        <li class="list__item">Item 1</li>
+        <li class="list__item">Item 2</li>
+        <li class="list__item">Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.</li>
+        <li class="list__item">Item 4</li>
+      </ol>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;<mark>ol</mark> class=&quot;list <mark>list--decorated</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 1&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 2&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Longer Item 3, just to see how wrapped lines behave. Adipisicing voluptatem facere repellat mollitia similique ullam, nihil! Quibusdam voluptatem fuga sit totam iste incidunt molestias expedita? Exercitationem repellendus soluta ipsa rerum iure.&lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;Item 4&lt;/li&gt;</code>
+      <code class="html">&lt;/<mark>ol</mark>&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Iconized list</h2>
+    <div class="example__demo">
+      <ul class="list list--iconized">
+        <li class="list__item">
+          <i class="icon icon--smaller icon--radio-off"></i>
+          <strong>Visa&nbsp;&hellip;1720</strong>
+        </li>
+        <li class="list__item">
+          <i class="icon icon--smaller icon--radio-on"></i>
+          <strong>MasterCard&nbsp;&hellip;1720</strong>
+        </li>
+        <li class="list__item">
+          <i class="icon icon--smaller icon--plus-alt"></i>
+          <a href="javascript:;">Add Card</a>
+        </li>
+      </ul>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;ul class=&quot;list <mark>list--iconized</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--smaller icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;strong&gt;Visa&amp;nbsp;&amp;hellip;1720&lt;/strong&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--smaller icon--radio-on&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;strong&gt;MasterCard&amp;nbsp;&amp;hellip;1720&lt;/strong&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--smaller icon--plus-alt&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot;&gt;Add Card&lt;/a&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">&lt;/ul&gt;</code>
+    </pre>
+
+    <h2 class="example__subheader">Expandable inverted list</h2>
+    <div class="example__demo" style="background: #383838">
+      <ul class="list list--expandable list--inverted">
+        <li class="list__item list__item--expanded">
+          <a href="javascript:;" class="list__link">Cameroon</a>
+          <ul class="list">
+            <li class="list__item">
+              <a href="javascript:;" class="list__link">Yaounde</a>
+            </li>
+            <li class="list__item">
+              <a href="javascript:;" class="list__link">Bamenda</a>
+            </li>
+            <li class="list__item">
+              <a href="javascript:;" class="list__link">Douala</a>
+            </li>
+          </ul>
+        </li>
+        <li class="list__item">
+          <a href="javascript:;" class="list__link">Nigeria</a>
+        </li>
+        <li class="list__item">
+          <a href="javascript:;" class="list__link">USA</a>
+        </li>
+        <li class="list__item">
+          <a href="javascript:;" class="list__link">Ghana</a>
+        </li>
+        <li class="list__item">
+          <a href="javascript:;" class="list__link">South Africa</a>
+        </li>
+      </ul>
+    </div>
+    <pre class="example__code">
+      <code class="html">&lt;ul class=&quot;list <mark>list--expandable</mark> <mark>list--inverted</mark>&quot;&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item <mark>list__item--expanded</mark>&quot;&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Cameroon&lt;/a&gt;</code>
+      <code class="html">    &lt;ul class=&quot;list&quot;&gt;</code>
+      <code class="html">      &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">        &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Yaounde&lt;/a&gt;</code>
+      <code class="html">      &lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">        &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Bamenda&lt;/a&gt;</code>
+      <code class="html">      &lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">        &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Douala&lt;/a&gt;</code>
+      <code class="html">      &lt;/li&gt;</code>
+      <code class="html">    &lt;/ul&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Nigeria&lt;/a&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;USA&lt;/a&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;Ghana&lt;/a&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">  &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">    &lt;a href=&quot;javascript:;&quot; class=&quot;list__link&quot;&gt;South Africa&lt;/a&gt;</code>
+      <code class="html">  &lt;/li&gt;</code>
+      <code class="html">&lt;/ul&gt;</code>
+    </pre>
+
+    <footer class="example__footer">
+      ZIZIUP Slicing development version %VERSION%
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
