@@ -1,6 +1,6 @@
 {
   "name": "ziziup-slicing",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "HTML and CSS for ZIZIUP",
   "main": "src/index.html",
   "scripts": {
