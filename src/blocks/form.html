@@ -1,0 +1,100 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIZIUP Slicing v%VERSION% | Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../index.html">&larr;&nbsp;Index</a>
+    </div>
+
+    <h1 class="example__header">Form</h1>
+
+    <div class="example__demo">
+      <form class="form">
+        <div class="form__row">
+          <div class="form__cell">
+            <label for="landing-input-name" class="form__label">How we can call you</label>
+            <input type="text" id="landing-input-name" class="form__input" placeholder="Tell us your name" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__cell">
+            <label for="landing-input-email" class="form__label">E-mail</label>
+            <input type="email" id="landing-input-email" class="form__input" placeholder="yourname@domain.com" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__cell">
+            <label for="landing-select-country" class="form__label">Country</label>
+            <select id="landing-select-country" class="form__select">
+              <option value="ua">Ukraine</option>
+            </select>
+          </div>
+          <div class="form__cell form__cell--phone">
+            <label for="landing-input-phone" class="form__label">Phone</label>
+            <select id="landing-select-code" class="form__select">
+              <option value="+9999">+9999</option>
+            </select>
+            <input type="text" id="landing-input-phone" class="form__input" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__footer">
+            <input type="submit" value="Send my request" class="landing__button">
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <pre class="example__code">
+      <code class="html">&lt;form class=&quot;<mark>form</mark>&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>form__row</mark>&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>form__cell</mark>&quot;&gt;</code>
+      <code class="html">      &lt;label for=&quot;landing-input-name&quot; class=&quot;<mark>form__label</mark>&quot;&gt;How we can call you&lt;/label&gt;</code>
+      <code class="html">      &lt;input type=&quot;text&quot; id=&quot;landing-input-name&quot; class=&quot;<mark>form__input</mark>&quot; placeholder=&quot;Tell us your name&quot; /&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;form__cell&quot;&gt;</code>
+      <code class="html">      &lt;label for=&quot;landing-input-email&quot; class=&quot;form__label&quot;&gt;E-mail&lt;/label&gt;</code>
+      <code class="html">      &lt;input type=&quot;email&quot; id=&quot;landing-input-email&quot; class=&quot;form__input&quot; placeholder=&quot;yourname@domain.com&quot; /&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;form__cell&quot;&gt;</code>
+      <code class="html">      &lt;label for=&quot;landing-select-country&quot; class=&quot;form__label&quot;&gt;Country&lt;/label&gt;</code>
+      <code class="html">      &lt;select id=&quot;landing-select-country&quot; class=&quot;<mark>form__select</mark>&quot;&gt;</code>
+      <code class="html">        &lt;option value=&quot;ua&quot;&gt;Ukraine&lt;/option&gt;</code>
+      <code class="html">      &lt;/select&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;form__cell <mark>form__cell--phone</mark>&quot;&gt;</code>
+      <code class="html">      &lt;label for=&quot;landing-input-phone&quot; class=&quot;form__label&quot;&gt;Phone&lt;/label&gt;</code>
+      <code class="html">      &lt;select id=&quot;landing-select-code&quot; class=&quot;form__select&quot;&gt;</code>
+      <code class="html">        &lt;option value=&quot;+9999&quot;&gt;+9999&lt;/option&gt;</code>
+      <code class="html">      &lt;/select&gt;</code>
+      <code class="html">      &lt;input type=&quot;text&quot; id=&quot;landing-input-phone&quot; class=&quot;form__input&quot; /&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>form__footer</mark>&quot;&gt;</code>
+      <code class="html">      &lt;input type=&quot;submit&quot; value=&quot;Send my request&quot; class=&quot;landing__button&quot;&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/form&gt;</code>
+    </pre>
+
+    <footer class="example__footer">
+      ZIZIUP Slicing development version %VERSION%
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
