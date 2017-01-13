@@ -20,6 +20,12 @@
     background-size: $icon-size-huge $icon-size-huge;
   }
 
+  &--large {
+    width: $icon-size-large;
+    height: $icon-size-large;
+    background-size: $icon-size-large $icon-size-large;
+  }
+
   &--small {
     width: $icon-size-small;
     height: $icon-size-small;
@@ -36,6 +42,12 @@
     width: $icon-size-tiny;
     height: $icon-size-tiny;
     background-size: $icon-size-tiny $icon-size-tiny;
+  }
+
+  &--mini {
+    width: $icon-size-mini;
+    height: $icon-size-mini;
+    background-size: $icon-size-mini $icon-size-mini;
   }
 
   &--payment {
@@ -133,6 +145,10 @@
     background-image: url("../img/icon-caret-white.png");
   }
 
+  &--caret-full {
+    background-image: url("../img/icon-caret-full.png");
+  }
+
   &--user {
     background-image: url("../img/icon-user.png");
   }
@@ -177,6 +193,41 @@
     background-image: url("../img/icon-info.png");
   }
 
+  &--plus {
+    background-image: url("../img/icon-plus.png");
+  }
+
+  &--plus-alt {
+    background-image: url("../img/icon-plus-alt.png");
+  }
+
+  &--minus {
+    background-image: url("../img/icon-minus.png");
+  }
+
+  &--times {
+    background-image: url("../img/icon-times.png");
+  }
+
+  &--radio-on {
+    background-image: url("../img/icon-radio-on.png");
+  }
+
+  &--radio-off {
+    background-image: url("../img/icon-radio-off.png");
+  }
+
+  &--checkbox-on {
+    background-image: url("../img/icon-checkbox-on.png");
+  }
+
+  &--checkbox-off {
+    background-image: url("../img/icon-checkbox-off.png");
+  }
+
+  &--pencil {
+    background-image: url("../img/icon-pencil.png");
+  }
 
   // Payment
   &--visa {

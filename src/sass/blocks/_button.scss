@@ -43,7 +43,16 @@
     color: $color-text-lightest;
   }
 
-
+  &--submit {
+    height: 3.125rem;
+    border: 1px solid $color-border-icon;
+    background: $color-background-default;
+    border-radius: 1.5625rem;
+    color: $color-text-default;
+    letter-spacing: $letter-spacing-accent;
+    line-height: 3.125rem;
+    padding: 0 2rem;
+  }
 
   &--store {
     display: inline-block;

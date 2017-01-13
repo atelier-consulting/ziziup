@@ -1,0 +1,444 @@
+// Panel
+.panel {
+  background: $color-background-default;
+  box-shadow: 0 2px 4px $color-shadow-default;
+  margin: 0 0 .625rem 0;
+
+  @include from(phablet) {
+    margin: 0 1.25rem 1.25rem;
+  }
+
+  &__summary {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: $spacer-size-big $spacer-size-large;
+    justify-content: space-between;
+
+    // TODO: change to actual breakpoint
+    @include from(phablet) {
+      justify-content: flex-start;
+      padding: $spacer-size-default 1rem;
+    }
+  }
+
+  // Summary content {
+  &__toggle {
+    position: absolute;
+    height: 2rem;
+    padding: .5rem 0 0 0;
+    color: $color-text-lightest;
+    font-size: $font-size-tiny;
+    vertical-align: bottom;
+
+    top: $spacer-size-big;
+    right: $spacer-size-large;
+
+    @include from(phablet) {
+      top: $spacer-size-default;
+      right: 1.25rem;
+    }
+
+    & > .icon {
+      vertical-align: middle;
+      margin: 0 0 0 $spacer-size-big;
+    }
+  }
+
+  &__title {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+
+    flex-basis: 100%;
+
+    // TODO: change to actual breakpoint
+    @include from(phablet) {
+      flex-basis: auto;
+      min-width: 6rem;
+      margin: 0 $spacer-size-default 0 0;
+    }
+  }
+
+  &__subtitle {
+    height: 2rem;
+    line-height: 2rem;
+    color: $color-text-default;
+  }
+
+  &__value {
+    color: $color-text-default;
+    line-height: $line-height-small;
+
+    @include from(phablet) {
+      padding: .4375rem 0 $spacer-size-big;
+    }
+  }
+
+  &__amount {
+    height: 2rem;
+    line-height: 2rem;
+    font-weight: $font-weight-bold;
+
+    // TODO: change to actual breakpoint
+    @include from(phablet) {
+      margin: 0 0 0 $spacer-size-default;
+    }
+  }
+  // Summary content }
+
+  &__actions {
+    height: 4.25rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  // Actions content {
+  &__action {
+    display: block;
+    flex-grow: 1;
+    flex-basis: 33%;
+    font-size: $font-size-oversize;
+    text-decoration: none;
+    text-transform: capitalize;
+    background-color: $color-background-light;
+    color: $color-brand-primary;
+    text-align: center;
+    line-height: 4.125rem;
+
+    &:not(:last-child) {
+      border-right: 2px solid $color-background-default;
+    }
+
+    &--primary {
+      flex-basis: 60%;
+    }
+
+    & > .icon {
+      position: relative;
+      top: -3px;
+      margin: 0 $spacer-size-big;
+    }
+  }
+  // Actions content }
+
+  &__product {
+    display: flex;
+    flex-direction: row;
+    min-height: 4.25rem;
+    border-top: 1px solid $color-border-lightest;
+  }
+
+  // Product content {
+  &__image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 7rem;
+    min-width: 7rem;
+    height: 7rem;
+
+    & > img {
+      display: block;
+      max-width: 80%;
+      height: auto;
+      max-height: 80%;
+      margin: 0 auto;
+    }
+
+    &--payment {
+      height: auto;
+
+      & > img {
+        max-width: 5.1875rem;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 $spacer-size-large;
+
+    @include from(phablet) {
+      padding: 0 $spacer-size-default;
+    }
+  }
+
+  // Info content {
+  &__name {
+    line-height: $line-height-tiny;
+  }
+
+  &__description {
+    margin: $spacer-size-small 0 0 0;
+    font-size: $font-size-tiny;
+    line-height: $line-height-nano;
+    color: $color-text-lightest;
+  }
+
+  &__price {
+    margin: 0.375rem 0 0 0;
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+  }
+  // Info content }
+
+  &__counter {
+    margin: 0 $spacer-size-large 0 0;
+    display: flex;
+    flex-direction: column;
+
+    width: 3rem;
+    min-width: 3rem;
+
+    @include from(phablet) {
+      width: 3.75rem;
+      min-width: 3.75rem;
+    }
+  }
+
+  // Counter content {
+  &__increment {
+    display: block;
+    flex-grow: 1;
+
+    & > .icon {
+      display: block;
+      margin: $spacer-size-small auto 0;
+    }
+  }
+
+  &__decrement {
+    display: block;
+    flex-grow: 1;
+
+    & > .icon {
+      display: block;
+      margin: 0 auto $spacer-size-small;
+    }
+  }
+
+  &__quantity {
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 1.125rem;
+  }
+  // Counter content }
+
+  &__deleter {
+    display: flex;
+    width: 3.75rem;
+    max-width: 3.75rem;
+    margin: 0 0 0 1.125rem;
+    background-color: $color-background-light;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .icon {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  // Product content }
+
+  &__choice {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    min-height: 4.25rem;
+    border-top: 1px solid $color-border-lightest;
+  }
+
+  // Choice content {
+  &__option {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacer-size-big $spacer-size-large;
+
+    .panel__image + & {
+      max-width: calc(100% - 9.75rem);
+    }
+
+    & > h4 {
+      font-size: $font-size-oversize;
+      color: $color-text-darkest;
+      letter-spacing: normal;
+      text-transform: none;
+      margin: $spacer-size-tiny 0;
+    }
+
+    & > p {
+      margin: 0;
+      color: $color-text-default;
+      line-height: $line-height-small;
+    }
+
+    @include from(phablet) {
+      padding: $spacer-size-default;
+
+      &:first-child {
+        & > p {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__operator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: $font-size-tiny;
+    color: $color-brand-primary;
+
+    & > div {
+      padding: 0 2rem;
+    }
+  }
+
+  &__radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 .625rem;
+
+    @include from(phablet) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__operation {
+    width: 100%;
+
+    & > h5 {
+      letter-spacing: normal;
+      text-transform: none;
+      text-align: center;
+      font-weight: $font-weight-base;
+      color: $color-text-lightest;
+      margin: $spacer-size-default 0 $spacer-size-big;
+    }
+  }
+
+  &__layout {
+    display: flex;
+    padding: 0 0 $spacer-size-big;
+    flex-direction: column;
+
+    @include from(phablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__aside {
+    min-width: 40%;
+    padding: 0 0 $spacer-size-big 0;
+
+    & > p {
+      margin: $spacer-size-big 0;
+    }
+
+    & > a {
+      text-decoration: none;
+      color: $color-brand-primary;
+    }
+  }
+
+  &__tab {
+    display: none;
+    padding: 1.5rem $spacer-size-large;
+
+    @include from(phablet) {
+      padding: 1.5rem $spacer-size-default;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+  // Choice content }
+
+  &__input {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 0 $spacer-size-default 0;
+
+    @include from(phablet) {
+      padding: 0 0 0 0;
+    }
+
+    & > label {
+      font-weight: $font-weight-bold;
+      font-size: $font-size-oversize;
+      letter-spacing: normal;
+      text-transform: none;
+      display: block;
+      margin: 0 0 $spacer-size-big;
+      width: 100%;
+    }
+
+    & > input {
+      display: block;
+      border: 0;
+      border-radius: 1.5625rem;
+      height: 3.125rem;
+      background-color: $color-background-page;
+      padding: 0 1rem;
+      outline: none;
+
+      width: calc(100% - 5.375rem);
+    }
+
+    & > button {
+      display: block;
+      height: 3.125rem;
+      border-radius: 1.5625rem;
+      outline: none;
+      margin-left: -3.125rem;
+      padding: 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: $color-text-white;
+      letter-spacing: $letter-spacing-big;
+
+      width: 8.5rem;
+      border: 0;
+      box-shadow: 0 2px 4px 0 $color-shadow-default;
+      background-color: $color-background-darker;
+    }
+
+    & > small {
+      display: block;
+      width: 100%;
+      color: $color-text-lightest;
+      font-size: $font-size-default;
+      margin: $spacer-size-big 0 0 0;
+    }
+
+    &--accent {
+      & > input {
+        width: calc(100% - 8.375rem);
+      }
+
+      & > button {
+        width: 11.5rem;
+        border: 1px solid $color-border-accent;
+        background-color: transparent;
+        background-image: linear-gradient(162deg, $color-gradient2-tl 6%, $color-gradient2-br 97%);
+        box-shadow: 0 10px 25px 0 $color-shadow-accent;
+      }
+    }
+  }
+}

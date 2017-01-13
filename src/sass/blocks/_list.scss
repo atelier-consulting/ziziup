@@ -40,4 +40,130 @@
       }
     }
   }
+
+  &--decorated {
+    counter-reset: counter-decorated;
+
+    & > .list__item {
+      display: block;
+      position: relative;
+      padding: $spacer-size-big 0 $spacer-size-big 2rem;
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: $spacer-size-small + $spacer-size-big;
+        left: 0;
+        width: 1.125rem;
+        height: 1.125rem;
+        line-height: 1rem;
+        font-size: $font-size-tiny;
+        text-align: center;
+        border: 1px solid $color-border-accent;
+        border-radius: 0.5625rem;
+        background-image: linear-gradient(162deg, $color-gradient2-tl 6%,
+          $color-gradient2-br 97%);
+        color: $color-text-white;
+        box-shadow: 0 5px 13px 0 $color-shadow-accent;
+        content: counter(counter-decorated);
+        counter-increment: counter-decorated;
+      }
+
+      &:after {
+        display: table;
+        content: "";
+        clear: both;
+      }
+
+      & > strong {
+        font-size: $font-size-oversize;
+        margin: 0 $spacer-size-big 0 0;
+      }
+
+      & > a {
+        font-size: $font-size-small;
+        color: $color-brand-primary;
+        text-decoration: none;
+      }
+
+      & > p {
+        margin: 0;
+      }
+
+      & > img {
+        max-width: 45%;
+        position: relative;
+        display: block;
+        float: left;
+        left: -2 * $spacer-size-default;
+        margin: $spacer-size-big 0;
+
+        & + a {
+          display: inline-block;
+          margin: $spacer-size-default 0 $spacer-size-big;
+        }
+      }
+    }
+  }
+
+  &--dotted {
+    & > .list__item {
+      display: block;
+      position: relative;
+      padding: 0 0 0 $spacer-size-default;
+
+      &:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "\2022";
+        color: $color-brand-primary;
+      }
+    }
+  }
+
+  &--dashed {
+    & > .list__item {
+      display: block;
+      position: relative;
+      padding: 0 0 0 1.25rem;
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "\2014";
+        font-weight: $font-weight-bold;
+        color: $color-brand-primary;
+      }
+    }
+  }
+
+  &--iconized {
+    & > .list__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 0 $spacer-size-default 0;
+
+      & > .icon {
+        display: block;
+        margin: 0 $spacer-size-big 0 0;
+      }
+
+      & > strong {
+        display: block;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-oversize;
+      }
+
+      & > a {
+        display: block;
+        color: $color-brand-primary;
+        text-decoration: none;
+      }
+    }
+  }
 }
