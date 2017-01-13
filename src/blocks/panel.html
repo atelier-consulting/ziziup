@@ -444,6 +444,432 @@
       </div>
 
     </div>
+    <pre class="example__code">
+      <code class="html">&lt;!--Products--&gt;</code>
+      <code class="html">&lt;div class=&quot;<mark>panel</mark>&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>panel__summary</mark>&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__toggle</mark>&quot;&gt;</code>
+      <code class="html">      Close</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__title</mark>&quot;&gt;Cart summary:&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__subtitle</mark>&quot;&gt;3 items, totally:&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__amount</mark>&quot;&gt;$1315&lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>panel__expander</mark>&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__product</mark>&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__image</mark>&quot;&gt;</code>
+      <code class="html">        &lt;img src=&quot;../img/product-3.jpg&quot; alt=&quot;&quot;&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__info</mark>&quot;&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>panel__name</mark>&quot;&gt;Men&amp;rsquo;s Tee Brush Print&lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>panel__description</mark>&quot;&gt;Size: S &amp;nbsp; Color: Black&lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>panel__price</mark>&quot;&gt;$15.75&lt;/div&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__counter</mark>&quot;&gt;</code>
+      <code class="html">        &lt;a class=&quot;<mark>panel__increment</mark>&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">          &lt;i class=&quot;icon icon--plus&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        &lt;/a&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>panel__quantity</mark>&quot;&gt;1&lt;/div&gt;</code>
+      <code class="html">        &lt;a class=&quot;<mark>panel__decrement</mark>&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">          &lt;i class=&quot;icon icon--minus&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        &lt;/a&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__deleter</mark> hide__until--phablet&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--times&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__actions</mark> hide__from--phablet&quot;&gt;</code>
+      <code class="html">      &lt;a class=&quot;<mark>panel__action</mark>&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--smaller icon--pencil&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        Edit Cart</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">&lt;!--Shipping--&gt;</code>
+      <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
+      <code class="html">      Close</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Ship to:&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
+      <code class="html">      Roland Omene&lt;br /&gt;</code>
+      <code class="html">      1313 Rockdale Springs Fort Worth TX, 16132 USA</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>panel__expander</mark>&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>panel__choice</mark>&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__option</mark>&quot;&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          Roland Omene&lt;br /&gt;</code>
+      <code class="html">          1313 Rockdale Springs Fort Worth&lt;br /&gt;</code>
+      <code class="html">          TX, 16132&lt;br /&gt;</code>
+      <code class="html">          USA</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;<mark>panel__operator</mark> hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Edit&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-on&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          James Hatfield&lt;br /&gt;</code>
+      <code class="html">          2507 Nookey Waley Sacramento&lt;br /&gt;</code>
+      <code class="html">          CA, 23456&lt;br /&gt;</code>
+      <code class="html">          USA</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__operator hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Edit&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__radio</mark>&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__actions&quot;&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action panel__action--primary hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--smaller icon--pencil&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        Add shipping address</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action panel__action--primary hide__from--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--smaller icon--pencil&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        Edit shipping address</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;Cancel&lt;/a&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+<code class="html"></code>
+<code class="html"></code>
+      <code class="html">&lt;!--Payment--&gt;</code>
+      <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
+      <code class="html">      Close</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Payment&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
+      <code class="html">      Z Elite Card, Available Credit: $2000</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__expander&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__image panel__image--payment&quot;&gt;</code>
+      <code class="html">        &lt;img src=&quot;../img/payment-zcard.png&quot; alt=&quot;Z-Card&quot;&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;ZIZIUP Elite Card&lt;/h4&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          Available Credit: $2000</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__operator hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Load&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-on&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;<mark>panel__operation</mark>&quot;&gt;</code>
+      <code class="html">        &lt;h5&gt;Load your ZIZIUP Card with&lt;/h5&gt;</code>
+      <code class="html">        &lt;div class=&quot;tabbar&quot;&gt;</code>
+      <code class="html">          &lt;div class=&quot;tabbar__tab tabbar__tab--active&quot;&gt;&lt;span class=&quot;hide__until--phablet&quot;&gt;Bank &lt;/span&gt;deposit&lt;/div&gt;</code>
+      <code class="html">          &lt;div class=&quot;tabbar__tab&quot;&gt;&lt;span class=&quot;hide__until--phablet&quot;&gt;Credit &lt;/span&gt;card&lt;/div&gt;</code>
+      <code class="html">          &lt;div class=&quot;tabbar__tab&quot;&gt;PayPal&lt;span class=&quot;hide__until--phablet&quot;&gt; account&lt;/span&gt;&lt;/div&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">        &lt;!--Bank deposit--&gt;</code>
+      <code class="html">        &lt;div class=&quot;panel__tab&quot;&gt;</code>
+      <code class="html">          &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">            &lt;div class=&quot;form__cell&quot;&gt;</code>
+      <code class="html">              &lt;label for=&quot;checkout-zcard-deposit-country&quot; class=&quot;form__label&quot;&gt;Country&lt;/label&gt;</code>
+      <code class="html">              &lt;select id=&quot;checkout-zcard-deposit-country&quot; name=&quot;country&quot; class=&quot;form__select&quot;&gt;</code>
+      <code class="html">                &lt;option value=&quot;ua&quot;&gt;Ukraine&lt;/option&gt;</code>
+      <code class="html">              &lt;/select&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">            &lt;div class=&quot;form__cell&quot;&gt;</code>
+      <code class="html">              &lt;label for=&quot;checkout-zcard-deposit-city&quot; class=&quot;form__label&quot;&gt;City&lt;/label&gt;</code>
+      <code class="html">              &lt;select id=&quot;checkout-zcard-deposit-city&quot; name=&quot;country&quot; class=&quot;form__select&quot;&gt;</code>
+      <code class="html">                &lt;option value=&quot;city-1&quot;&gt;Kyiv&lt;/option&gt;</code>
+      <code class="html">              &lt;/select&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">          &lt;/div&gt;</code>
+      <code class="html">          &lt;ol class=&quot;list list--decorated&quot;&gt;</code>
+      <code class="html">            &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">              &lt;strong&gt;Choose banking Partner&lt;/strong&gt;</code>
+      <code class="html">              &lt;a href=&quot;#&quot;&gt;See list&lt;/a&gt;</code>
+      <code class="html">              &lt;p&gt;Go to local UBA bank and deposit either CFA or USD into our account.&lt;/p&gt;</code>
+      <code class="html">            &lt;/li&gt;</code>
+      <code class="html">            &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">              &lt;strong&gt;Completing Deposit&lt;/strong&gt;</code>
+      <code class="html">              &lt;ul class=&quot;list list--dotted&quot;&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  Company name: ZIZIUP Limited.</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  Account numbers</code>
+      <code class="html">                  &lt;ul class=&quot;list list--dashed&quot;&gt;</code>
+      <code class="html">                    &lt;li class=&quot;list__item&quot;&gt;UBA USD: 12345678&lt;/li&gt;</code>
+      <code class="html">                    &lt;li class=&quot;list__item&quot;&gt;UBA CFA: 12345678&lt;/li&gt;</code>
+      <code class="html">                  &lt;/ul&gt;</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  Write your web card account number infront of your name. See example image below.</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">              &lt;/ul&gt;</code>
+      <code class="html">            &lt;/li&gt;</code>
+      <code class="html">            &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">              &lt;strong&gt;Account Credited&lt;/strong&gt;</code>
+      <code class="html">              &lt;p&gt;We will credit your account within 24 hours from the moment money was deposited.&lt;/p&gt;</code>
+      <code class="html">              &lt;img src=&quot;../img/comp-payment-sample.png&quot; alt=&quot;Payment Sample&quot;&gt;</code>
+      <code class="html">              &lt;a href=&quot;#&quot;&gt;Download Sample&lt;/a&gt;&lt;br /&gt;</code>
+      <code class="html">              &lt;a href=&quot;#&quot;&gt;Download Instructions&lt;/a&gt;</code>
+      <code class="html">            &lt;/li&gt;</code>
+      <code class="html">          &lt;/ol&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">        &lt;!--Credit Card--&gt;</code>
+      <code class="html">        &lt;div class=&quot;panel__tab panel__tab--active&quot;&gt;</code>
+      <code class="html">          &lt;div class=&quot;panel__layout&quot;&gt;</code>
+      <code class="html">            &lt;div class=&quot;panel__aside&quot;&gt;</code>
+      <code class="html">              &lt;ul class=&quot;list list--iconized&quot;&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  &lt;i class=&quot;icon icon--smaller icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">                  &lt;strong&gt;Visa&amp;nbsp;&amp;hellip;1720&lt;/strong&gt;</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  &lt;i class=&quot;icon icon--smaller icon--radio-on&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">                  &lt;strong&gt;MasterCard&amp;nbsp;&amp;hellip;1720&lt;/strong&gt;</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">                &lt;li class=&quot;list__item&quot;&gt;</code>
+      <code class="html">                  &lt;i class=&quot;icon icon--smaller icon--plus-alt&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">                  &lt;a href=&quot;javascript:;&quot;&gt;Add Card&lt;/a&gt;</code>
+      <code class="html">                &lt;/li&gt;</code>
+      <code class="html">              &lt;/ul&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">            &lt;div class=&quot;panel__input panel__input--accent&quot;&gt;</code>
+      <code class="html">              &lt;label&gt;Enter amount in USD&lt;/label&gt;</code>
+      <code class="html">              &lt;input type=&quot;text&quot; /&gt;</code>
+      <code class="html">              &lt;button class=&quot;accent&quot;&gt;Add credit&lt;/button&gt;</code>
+      <code class="html">              &lt;small&gt;Your card will be credited in 24 hours&lt;/small&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">          &lt;/div&gt;</code>
+      <code class="html">          &lt;div class=&quot;panel__operation&quot;&gt;</code>
+      <code class="html">            &lt;h5&gt;Add Card&lt;/h5&gt;</code>
+      <code class="html">            &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">              &lt;div class=&quot;form__cell form__cell--card-number&quot;&gt;</code>
+      <code class="html">                &lt;label class=&quot;form__label&quot;&gt;</code>
+      <code class="html">                  Card number &lt;small&gt;16 digits&lt;/small&gt;</code>
+      <code class="html">                &lt;/label&gt;</code>
+      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">              &lt;/div&gt;</code>
+      <code class="html">              &lt;div class=&quot;form__cell form__cell--card-expires&quot;&gt;</code>
+      <code class="html">                &lt;label class=&quot;form__label&quot;&gt;Expires&lt;/label&gt;</code>
+      <code class="html">                &lt;select class=&quot;form__select&quot;&gt;</code>
+      <code class="html">                  &lt;option value=&quot;-1&quot;&gt;MM&lt;/option&gt;</code>
+      <code class="html">                &lt;/select&gt;</code>
+      <code class="html">                &lt;select class=&quot;form__select&quot;&gt;</code>
+      <code class="html">                  &lt;option value=&quot;-1&quot;&gt;YY&lt;/option&gt;</code>
+      <code class="html">                &lt;/select&gt;</code>
+      <code class="html">              &lt;/div&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">            &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">              &lt;div class=&quot;form__cell&quot;&gt;</code>
+      <code class="html">                &lt;label class=&quot;form__label&quot;&gt;Name on card&lt;/label&gt;</code>
+      <code class="html">                &lt;input class=&quot;form__input&quot; type=&quot;text&quot; /&gt;</code>
+      <code class="html">              &lt;/div&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">            &lt;div class=&quot;form__row&quot;&gt;</code>
+      <code class="html">              &lt;div class=&quot;form__cell form__cell--card-cvv&quot;&gt;</code>
+      <code class="html">                &lt;label class=&quot;form__label&quot;&gt;CVV&lt;/label&gt;</code>
+      <code class="html">                &lt;input class=&quot;form__input&quot; type=&quot;text&quot; /&gt;</code>
+      <code class="html">                &lt;img src=&quot;../img/icon-cvv.png&quot; alt=&quot;CVV&quot; /&gt;</code>
+<code class="html"></code>
+      <code class="html">                &lt;div class=&quot;form__label form__label--checkbox&quot;&gt;</code>
+      <code class="html">                  &lt;i class=&quot;icon icon--tiny icon--checkbox-on&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">                  Remember card</code>
+      <code class="html">                &lt;/div&gt;</code>
+      <code class="html">              &lt;/div&gt;</code>
+      <code class="html">              &lt;div class=&quot;form__cell form__cell--card-submit&quot;&gt;</code>
+      <code class="html">                &lt;button class=&quot;button button--submit&quot;&gt;Add card&lt;/button&gt;</code>
+      <code class="html">              &lt;/div&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">          &lt;/div&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">        &lt;!--PayPal account--&gt;</code>
+      <code class="html">        &lt;div class=&quot;panel__tab&quot;&gt;</code>
+      <code class="html">          &lt;div class=&quot;panel__layout&quot;&gt;</code>
+      <code class="html">            &lt;div class=&quot;panel__aside&quot;&gt;</code>
+      <code class="html">              &lt;strong&gt;PayPal account&lt;/strong&gt;</code>
+      <code class="html">              &lt;p&gt;</code>
+      <code class="html">                lextimo@gmail.com&lt;br /&gt;</code>
+      <code class="html">                Card x1614, $50</code>
+      <code class="html">              &lt;/p&gt;</code>
+      <code class="html">              &lt;a href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">                &lt;i class=&quot;icon icon--tiny icon--pencil&quot;&gt;&lt;/i&gt;&amp;nbsp;</code>
+      <code class="html">                Edit</code>
+      <code class="html">              &lt;/a&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">            &lt;div class=&quot;panel__input panel__input--accent&quot;&gt;</code>
+      <code class="html">              &lt;label&gt;Enter amount in USD&lt;/label&gt;</code>
+      <code class="html">              &lt;input type=&quot;text&quot; /&gt;</code>
+      <code class="html">              &lt;button class=&quot;accent&quot;&gt;Add credit&lt;/button&gt;</code>
+      <code class="html">              &lt;small&gt;Your card will be credited in 24 hours&lt;/small&gt;</code>
+      <code class="html">            &lt;/div&gt;</code>
+      <code class="html">          &lt;/div&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__image panel__image--payment&quot;&gt;</code>
+      <code class="html">        &lt;img src=&quot;../img/payment-visa.png&quot; alt=&quot;Visa&quot;&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;VISA&amp;nbsp;&amp;nbsp;&amp;hellip;1720&lt;/h4&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          Roland Omene. Card&amp;nbsp;Expired</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__operator hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Edit&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__image panel__image--payment&quot;&gt;</code>
+      <code class="html">        &lt;img src=&quot;../img/payment-mastercard.png&quot; alt=&quot;MasterCard&quot;&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;Master Card&amp;nbsp;&amp;nbsp;&amp;hellip;1720&lt;/h4&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          Roland Omene. Expires 12.2022</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__operator hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Edit&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__image panel__image--payment&quot;&gt;</code>
+      <code class="html">        &lt;img src=&quot;../img/payment-paypal.png&quot; alt=&quot;PayPal&quot;&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;PayPal account&lt;/h4&gt;</code>
+      <code class="html">        &lt;p&gt;</code>
+      <code class="html">          lextimo@gmail.com&amp;nbsp; Card&amp;nbsp;x1614,&amp;nbsp;$50</code>
+      <code class="html">        &lt;/p&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__operator hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;div&gt;Edit&lt;/div&gt;</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__actions&quot;&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action panel__action--primary hide__from--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--smaller icon--pencil&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        Edit payment method</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action panel__action--primary hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;</code>
+      <code class="html">        &lt;i class=&quot;icon icon--smaller icon--pencil&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">        Add payment method</code>
+      <code class="html">      &lt;/a&gt;</code>
+      <code class="html">      &lt;a class=&quot;panel__action hide__until--phablet&quot; href=&quot;javascript:;&quot;&gt;Cancel&lt;/a&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Coupons&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__input&quot;&gt;</code>
+      <code class="html">      &lt;input type=&quot;text&quot; /&gt;</code>
+      <code class="html">      &lt;button&gt;Apply&lt;/button&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
+      <code class="html">      Close</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Donation&lt;/div&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
+      <code class="html">      Salvation Army. Helping feed the poor: $2</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;panel__expander&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;None&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;$1&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;$2&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-on&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;$3&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;$4&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+<code class="html"></code>
+      <code class="html">    &lt;div class=&quot;panel__choice&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__option&quot;&gt;</code>
+      <code class="html">        &lt;h4&gt;$5&lt;/h4&gt;</code>
+      <code class="html">      &lt;/div&gt;</code>
+      <code class="html">      &lt;div class=&quot;panel__radio&quot;&gt;&lt;i class=&quot;icon icon--small icon--radio-off&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+    </pre>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>

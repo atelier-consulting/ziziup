@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIZIUP Slicing v%VERSION% | Dropdown</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../index.html">&larr;&nbsp;Index</a>
+    </div>
+
+    <h1 class="example__header">Dropdown</h1>
+
+    <div class="example__demo" style="height: 290px;">
+      <div class="dropdown dropdown--open">
+        <div class="dropdown__button">
+          <i class="icon icon--small icon--location"></i>
+          <span class="dropdown__value">Yaounde</span> <span class="dropdown__value hide__until--big">, Cameroon</span>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__scrollpane dropdown__scrollpane--search">
+          <div class="dropdown__searchbar">
+            <input type="search" placeholder="Search location"/>
+          </div>
+          <ul class="dropdown__options dropdown__options--search">
+            <li class="dropdown__optgroup">Cameroon</li>
+            <li class="dropdown__option">Bali</li>
+            <li class="dropdown__option dropdown__option--selected">Bamenda</li>
+            <li class="dropdown__option">Bamingie</li>
+            <li class="dropdown__option">Bandjoun</li>
+            <li class="dropdown__option">Bandgem</li>
+            <li class="dropdown__option">Bali</li>
+            <li class="dropdown__option">Bamenda</li>
+            <li class="dropdown__option">Bamingie</li>
+            <li class="dropdown__option">Bandjoun</li>
+            <li class="dropdown__option">Bandgem</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <pre class="example__code">
+      <code class="html">&lt;div class=&quot;<mark>dropdown</mark> dropdown--open&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>dropdown__button</mark>&quot;&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--small icon--location&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">    &lt;span class=&quot;<mark>dropdown__value</mark>&quot;&gt;Yaounde&lt;/span&gt; &lt;span class=&quot;dropdown__value hide__until--big&quot;&gt;, Cameroon&lt;/span&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--small icon--caret-alt&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;<mark>dropdown__scrollpane</mark>&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>dropdown__searchbar</mark>&quot;&gt;</code>
+      <code class="html">      &lt;input type=&quot;search&quot; placeholder=&quot;Search location&quot;/&gt;</code>
+      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;ul class=&quot;<mark>dropdown__options</mark>&quot;&gt;</code>
+      <code class="html">      &lt;li class=&quot;<mark>dropdown__optgroup</mark>&quot;&gt;Cameroon&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;<mark>dropdown__option</mark>&quot;&gt;Bali&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option <mark>dropdown__option--selected</mark>&quot;&gt;Bamenda&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamingie&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandjoun&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandgem&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bali&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamenda&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamingie&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandjoun&lt;/li&gt;</code>
+      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandgem&lt;/li&gt;</code>
+      <code class="html">    &lt;/ul&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+    </pre>
+
+    <footer class="example__footer">
+      ZIZIUP Slicing development version %VERSION%
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

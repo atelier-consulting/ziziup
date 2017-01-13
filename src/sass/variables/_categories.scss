@@ -827,7 +827,9 @@ $config-categories: (
   shoes: (
     color: (
       primary:   rgb(48,44,180),
-      secondary: rgb(34,28,228)
+      secondary: rgb(34,28,228),
+      //primary:   rgb(216,53,289),
+      //secondary: rgb(200,52,216)
     ),
     size: (
       banner: (
@@ -842,6 +844,7 @@ $config-categories: (
         tablet:  auto 440px,
         desktop: auto 540px,
         big:     auto 520px,
+        //big:     auto 590px,
       ),
       popular-white-half: (
         desktop: auto 330px,
@@ -869,6 +872,7 @@ $config-categories: (
       ),
       popular-white-half: (
         desktop: top -60px right -100px,
+        //desktop: top -60px right -40px,
       ),
       popular-white-quarter: (
         desktop: top -15px right -155px,
