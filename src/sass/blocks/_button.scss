@@ -16,6 +16,11 @@
     line-height: 2.3125rem;
   }
 
+  &--large {
+    height: 2.5rem;
+    line-height: 2.3125rem;
+  }
+
   &--bordered {
     border: 1px solid $color-border-light;
   }
