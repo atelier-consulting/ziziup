@@ -101,3 +101,15 @@ body {
     left: 1rem;
   }
 }
+
+.content {
+  margin-top: 3.125rem;
+
+  @include from(tablet) {
+    margin-top: 6.875rem;
+  }
+
+  @include from(big) {
+    margin-top: 9.625rem;
+  }
+}
