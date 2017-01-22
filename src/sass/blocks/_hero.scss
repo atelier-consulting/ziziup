@@ -101,6 +101,57 @@
     }
   }
 
+  &__subheader {
+    text-align: center;
+    padding: 0 0 2rem 0;
+
+    & > .dropdown {
+      margin: 0 $spacer-size-default;
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 $spacer-size-default 0;
+    max-width: 25rem;
+    margin: 0 auto;
+
+    @include from(phablet) {
+      padding: 0 0 0 0;
+    }
+
+    & > input {
+      display: block;
+      border: 0;
+      border-radius: 1.5625rem;
+      height: 3.125rem;
+      background-color: $color-background-page;
+      padding: 0 1rem;
+      outline: none;
+
+      width: calc(100% - 5.375rem);
+    }
+
+    & > button {
+      display: block;
+      height: 3.125rem;
+      border-radius: 1.5625rem;
+      outline: none;
+      margin-left: -3.125rem;
+      padding: 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: $color-text-white;
+      letter-spacing: $letter-spacing-big;
+
+      width: 8.5rem;
+      border: 0;
+      box-shadow: 0 2px 4px 0 $color-shadow-default;
+      background-color: $color-background-darker;
+    }
+  }
+
   &--thankyou {
 
     background-image: url("../img/comp-thankyou-bg.jpg");
@@ -160,6 +211,66 @@
           @include from(big) {
             max-width: 32rem;
           }
+        }
+      }
+    }
+  }
+
+  &--affiliate {
+    height: 30rem;
+    background-image: url("../img/banner-bg-affiliate.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 560px;
+    background-position: left -170px top -40px;
+
+    @include from(phablet) {
+      height: 25rem;
+      background-size: 100% auto;
+      background-position: center center;
+    }
+
+    @include from(desktop) {
+      height: 21.25rem;
+      background-size: 1380px auto;
+      background-position: center top -200px;
+    }
+
+    @include from(big) {
+      background-size: 1600px auto;
+      background-position: center top -230px;
+    }
+
+    @include from(large) {
+      background-size: 1920px auto;
+      background-position: center top -260px;
+    }
+
+    @include from(huge) {
+      background-size: 100% auto;
+      background-position: center top -280px;
+    }
+
+    & .hero__module {
+      max-width: none;
+      padding: 2.5rem 0 0 0;
+
+      & > h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+
+        line-height: 2.75rem;
+
+        @include from(tablet) {
+          line-height: 3.125rem;
+        }
+      }
+
+      & > p {
+        text-align: center;
+        margin: 0 auto 2rem;
+
+        @include between(tablet, desktop) {
+          max-width: 38rem;
         }
       }
     }

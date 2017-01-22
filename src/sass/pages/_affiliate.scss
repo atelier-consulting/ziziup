@@ -1,0 +1,59 @@
+.affiliate {
+
+  &__features {
+    padding: 1rem 0 2rem 0;
+
+    & > .container {
+
+      &:after {
+        display: table;
+        content: " ";
+        clear: both;
+      }
+
+      & > h2 {
+        text-transform: none;
+        font-weight: $font-weight-base;
+        letter-spacing: normal;
+        text-align: center;
+        padding: 2rem 0;
+        margin: 0;
+
+        font-size: 2.25rem;
+      }
+    }
+  }
+
+  &__feature {
+    display: block;
+    float: left;
+    margin: 0 0 1rem 0;
+    height: 18rem;
+
+    width: 100%;
+
+    @include from(phablet) {
+      width: 50%;
+    }
+
+    @include from(desktop) {
+      width: 25%;
+    }
+
+    & > h3 {
+      text-align: center;
+      font-weight: $font-weight-base;
+      font-size: 1.75rem;
+      line-height: 2.125rem;
+      text-transform: none;
+      letter-spacing: normal;
+      padding-bottom: $spacer-size-large;
+    }
+
+    & > p {
+      color: $color-text-default;
+      text-align: center;
+      line-height: 1.75rem;
+    }
+  }
+}

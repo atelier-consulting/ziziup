@@ -76,6 +76,30 @@
     }
   }
 
+  &--feature {
+    display: block;
+    margin: 0 auto;
+    width: $icon-size-feature;
+    height: $icon-size-feature;
+    background-size: $icon-size-feature $icon-size-feature;
+
+    &-anyone {
+      background-image: url("../img/icon-feature-anyone.png");
+    }
+    
+    &-integration {
+      background-image: url("../img/icon-feature-integration.png");
+    }
+
+    &-comission {
+      background-image: url("../img/icon-feature-comission.png");
+    }
+
+    &-global {
+      background-image: url("../img/icon-feature-global.png");
+    }
+  }
+
   &--offer {
     display: block;
     margin: 0 auto;
