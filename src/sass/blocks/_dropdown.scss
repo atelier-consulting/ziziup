@@ -53,8 +53,14 @@
     display: inline-block;
     vertical-align: middle;
     margin: 0 $spacer-size-default 0 0;
+
     font-size: $font-size-tiny;
     color: $color-text-lightest;
+
+    &--large {
+      font-size: $font-size-default;
+      color: $color-text-white;
+    }
   }
 
   &__value {
