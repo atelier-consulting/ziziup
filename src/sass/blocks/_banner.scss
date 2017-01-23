@@ -58,6 +58,7 @@
     ;
   }
 
+
   // Category banners
   @each $name, $config in $config-categories {
     &--#{$name} {
@@ -89,10 +90,10 @@
   }
 
   &__module {
-    align-self: center;
+    //align-self: center;
 
     @include from(tablet) {
-      align-self: flex-start;
+      //align-self: flex-start;
     }
 
     & > h1 {
@@ -102,7 +103,7 @@
       text-align: center;
       font-size: $font-size-oversize;
       line-height: 1;
-      margin-top: 1.375rem;
+      //margin-top: 1.375rem;
 
       @include from(phablet) {
         letter-spacing: $letter-spacing-big;
@@ -195,4 +196,18 @@
     }
   }
 
+  &--affiliate {
+    background-image: url("../img/banner-bg-affiliate.jpg");
+    background-size: 640px auto;
+    background-position: top -90px center;
+
+    @include from(phablet) {
+      background-size: 1024px auto;
+      background-position: top -140px center;
+    }
+
+    & > .banner__overlay {
+      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
+    }
+  }
 }
