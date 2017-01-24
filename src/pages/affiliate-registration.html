@@ -162,6 +162,7 @@
   </menu>
 
   <main class="content">
+
     <div class="banner banner--affiliate">
       <div class="banner__overlay">
         <div class="container">
@@ -180,6 +181,84 @@
         </div>
       </div>
     </div>
+
+    <div class="container affiliate__layout">
+      <section>
+        <h4><span class="hide__until--phablet">Affiliate</span> registration</h4>
+        <form class="form">
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-name" class="form__label">Full Name</label>
+              <input type="text" class="form__input" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell form__cell--phone">
+              <label for="affiliate-input-phone" class="form__label">Phone</label>
+              <select id="affiliate-select-code" class="form__select">
+                <option value="+9999">+9999</option>
+              </select>
+              <input id="affiliate-input-phone" class="form__input" type="text" />
+            </div>
+
+            <div class="form__cell">
+              <label for="affiliate-input-email" class="form__label">E-mail</label>
+              <input id="affiliate-input-email" class="form__input" placeholder="yourname@domain.com" type="email" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-website" class="form__label">Website</label>
+              <input id="affiliate-input-website" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-username" class="form__label">Affiliate username</label>
+              <input id="affiliate-input-username" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-password" class="form__label">Password</label>
+              <input id="affiliate-input-password" class="form__input" type="password" />
+            </div>
+
+            <div class="form__cell">
+              <label for="affiliate-select-language" class="form__label">Language</label>
+              <select id="affiliate-select-language" class="form__select">
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-select-question" class="form__label">Security question</label>
+              <select id="affiliate-select-question" class="form__select">
+                <option value="-1"></option>
+                <option value="1">What is your mother maiden name?</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-answer" class="form__label">Security answer</label>
+              <input id="affiliate-input-answer" class="form__input" type="text" />
+            </div>
+          </div>
+
+        </form>
+      </section>
+      <!--<aside></aside>-->
+    </div>
+
   </main>
 
   <footer class="footer">

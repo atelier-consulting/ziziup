@@ -56,4 +56,19 @@
       line-height: 1.75rem;
     }
   }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 1.5rem;
+
+    & h4 {
+      padding: $spacer-size-big 0 0 0;
+    }
+
+    & .form {
+      padding-top: 2rem;
+    }
+  }
 }
