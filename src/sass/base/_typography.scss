@@ -47,13 +47,18 @@ h4 {
 
 h5 {
   font-size: $font-size-default;
-  letter-spacing: $letter-spacing-small;
+  color: $color-text-default;
+  letter-spacing: $letter-spacing-accent;
 }
 
 p {
     font-family: inherit;
     margin: 0 0 $spacer-vertical-paragraph;
     max-width: $max-width-paragraph;
+}
+
+small {
+  font-size: $font-size-small;
 }
 
 blockquote {

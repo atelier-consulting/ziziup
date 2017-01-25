@@ -129,7 +129,7 @@
     <div class="menu__floor menu__floor--tabs hide__until--big">
       <div class="container">
         <nav class="tabbar tabbar--main">
-          <a href="#" class="tabbar__tab tabbar__tab--active">
+          <a href="#" class="tabbar__tab">
             Main
           </a>
           <a href="#" class="tabbar__tab">
@@ -162,23 +162,138 @@
   </menu>
 
   <main class="content">
-    <section class="hero">
-      <div class="hero__overlay">
+
+    <div class="banner banner--affiliate">
+      <div class="banner__overlay">
         <div class="container">
-          <div class="hero__module">
-            <h2>Sorry&hellip;</h2>
-            <p>
-              Unfortunately, we didn&rsquo;t found what you&rsquo;ve searched.
-              But we have a lot of interesting. Please try again
-            </p>
-            <a class="button button--large button--rounded" href="#">To main page</a>
+          <div class="banner__module">
+            <h1>Affiliate program</h1>
           </div>
-          <div class="hero__module hero__module--image">
-            <img src="../img/comp-404.png" alt="404">
+          <div class="banner__module hide__until--desktop">
+            <div class="dropdown">
+              <div class="dropdown__label dropdown__label--large">Yaounde, Cameroon</div>
+              <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
+                <span class="dropdown__value">Change location</span>
+                <i class="icon icon--caret-white"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="container affiliate__layout">
+      <section>
+        <h4><span class="hide__until--phablet">Affiliate</span> registration</h4>
+        <form class="form">
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-name" class="form__label">Full Name</label>
+              <input type="text" class="form__input" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell form__cell--phone">
+              <label for="affiliate-input-phone" class="form__label">Phone</label>
+              <select id="affiliate-select-code" class="form__select">
+                <option value="+9999">+9999</option>
+              </select>
+              <input id="affiliate-input-phone" class="form__input" type="text" />
+            </div>
+
+            <div class="form__cell">
+              <label for="affiliate-input-email" class="form__label">E-mail</label>
+              <input id="affiliate-input-email" class="form__input" placeholder="yourname@domain.com" type="email" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-website" class="form__label">Website</label>
+              <input id="affiliate-input-website" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-username" class="form__label">Affiliate username</label>
+              <input id="affiliate-input-username" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-password" class="form__label">Password</label>
+              <input id="affiliate-input-password" class="form__input" type="password" />
+            </div>
+
+            <div class="form__cell">
+              <label for="affiliate-select-language" class="form__label">Language</label>
+              <select id="affiliate-select-language" class="form__select">
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-select-question" class="form__label">Security question</label>
+              <select id="affiliate-select-question" class="form__select">
+                <option value="-1"></option>
+                <option value="1">What is your mother maiden name?</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="affiliate-input-answer" class="form__label">Security answer</label>
+              <input id="affiliate-input-answer" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <small>
+                We guarantee confidentiality of&nbsp;your personal information
+              </small>
+              <!--test1-->
+            </div>
+            <div class="form__cell form__cell--submit">
+              <button class="button button--rounded button--accent">Sign up<span class="hide__until--phablet"> to affiliate program</span></button>
+            </div>
+          </div>
+
+        </form>
+      </section>
+      <aside>
+        <div class="affiliate__sidebar">
+          <h5>For any questions</h5>
+          <div class="affiliate__subheader">Monday&mdash;Friday, 8:00&mdash;21:00</div>
+          <ul class="list list--iconized">
+            <li class="list__item">
+              <i class="icon icon--smaller icon--phone"></i>
+              +237 098 765 432
+            </li>
+            <li class="list__item">
+              <i class="icon icon--smaller icon--mail"></i>
+              info@ziziup.com
+            </li>
+            <li class="list__item">
+              <i class="icon icon--smaller icon--viber"></i>
+              (099) 234 56 76
+            </li>
+            <li class="list__item">
+              <i class="icon icon--smaller icon--skype"></i>
+              ziziup
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
   </main>
 
   <footer class="footer">
