@@ -59,16 +59,37 @@
 
   &__layout {
     display: flex;
-    flex-direction: column;
-
     padding-top: 1.5rem;
 
+    flex-direction: column;
+
+    @include from(desktop) {
+      flex-direction: row;
+    }
+
+
     & h4 {
-      padding: $spacer-size-big 0 0 0;
+      padding: $spacer-size-default 0 0 0;
     }
 
     & .form {
       padding-top: 2rem;
     }
+  }
+
+  &__sidebar {
+    background-color: $color-background-page;
+    padding: $spacer-size-default;
+
+    @include from(desktop) {
+      width: 18.75rem;
+      margin: 0 0 0 4rem;
+    }
+  }
+
+  &__subheader {
+    font-size: $font-size-small;
+    color: $color-text-lightest;
+    margin: 0 0 $spacer-size-default;
   }
 }
