@@ -67,6 +67,10 @@
       flex-direction: row;
     }
 
+    & > section {
+      flex-grow: 1;
+    }
+
 
     & h4 {
       padding: $spacer-size-default 0 0 0;
