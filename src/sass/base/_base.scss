@@ -27,7 +27,7 @@ body {
   line-height: $line-height-default;
   font-weight: $font-weight-base;
   color: $color-text-darkest;
-  background-color: $color-background-default;
+  background-color: $color-background-page;
 }
 
 .container {
@@ -53,6 +53,11 @@ body {
 
   @include from(huge) {
     max-width: $container-width-huge + ($spacer-horizontal-page * 2);
+  }
+
+  &--page {
+    padding-top: $spacer-size-default;
+    padding-bottom: $spacer-size-default;
   }
 }
 

@@ -162,74 +162,30 @@
   </menu>
 
   <main class="content">
-    <section class="hero hero--affiliate">
-      <div class="hero__overlay">
+    <div class="banner banner--partners">
+      <div class="banner__overlay">
         <div class="container">
-          <div class="hero__module">
-            <div class="hero__subheader">
-              Yaounde, Cameroon
-              <div class="dropdown dropdown--category">
-                <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
-                  <span class="dropdown__value">Change location</span>
-                  <i class="icon icon--caret-white"></i>
-                </div>
-              </div>
-            </div>
-            <h2>Join Ziziup Affiliate Program</h2>
-            <p>
-              Earn up to 30% commissions from your referals orders with ZIZIUP affiliate program. We want you to earn more!
-            </p>
-            <div class="hero__input">
-              <input type="text" placeholder="Enter your email address" />
-              <button>Join</button>
-            </div>
+          <div class="banner__module">
+            <h1><span class="hide__until--big">Our </span>Partners</h1>
           </div>
         </div>
       </div>
-    </section>
-    <section class="affiliate__features">
-      <div class="container">
-        <h2>Why to join?</h2>
+    </div>
+    <section class="container container--page">
+      <dl class="spoiler">
+        <dt>Who is national operator?</dt>
+        <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+      </dl>
 
-        <div class="affiliate__feature">
-          <i class="icon icon--feature icon--feature-anyone"></i>
-          <h3>Anyone could<br />become affiliate</h3>
-          <p>
-            Are you a blogger?<br />
-            Are you active in social network?<br />
-            Are you web-enterpreneur?
-          </p>
-        </div>
+      <dl class="spoiler spoiler--open">
+        <dt>What are the requirements?</dt>
+        <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+      </dl>
 
-        <div class="affiliate__feature">
-          <i class="icon icon--feature icon--feature-integration"></i>
-          <h3>Quick and Easy<br />Integration</h3>
-          <p>
-            It takes you only<br />
-            5 clicks to start selling
-          </p>
-        </div>
-
-        <div class="affiliate__feature">
-          <i class="icon icon--feature icon--feature-comission"></i>
-          <h3>Progressive<br />Comission Plan</h3>
-          <p>
-            You can earn up to 30%<br />
-            comissions from your referrals<br />
-            orders
-          </p>
-        </div>
-
-        <div class="affiliate__feature">
-          <i class="icon icon--feature icon--feature-global"></i>
-          <h3>We pay Globally<br />and Quickly</h3>
-          <p>
-            We support various payment<br />
-            methods: PayPal, Skrill, SWIFT,<br />
-            Payoneer, Webmoney
-          </p>
-        </div>
-      </div>
+      <dl class="spoiler">
+        <dt>Additional requirements?</dt>
+        <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+      </dl>
     </section>
   </main>
 
@@ -349,5 +305,25 @@
     </div>
   </footer>
 
+  <script>
+    var $spoilers = document.querySelectorAll('.spoiler');
+    for (var i = 0; i < $spoilers.length; i++) {
+      $spoilers[i].addEventListener('click', function(event) {
+        var $target = event.target.classList.contains('spoiler')
+          ? event.target
+          : event.target.closest('.spoiler')
+        ;
+
+        if ($target.classList.contains('spoiler--open')) {
+          $target.classList.remove('spoiler--open');
+        } else {
+          for(var j = 0; j < $spoilers.length; j++) {
+            $spoilers[j].classList.remove('spoiler--open')
+          }
+          $target.classList.add('spoiler--open');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
