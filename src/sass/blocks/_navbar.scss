@@ -1,0 +1,41 @@
+.navbar {
+  height: 4rem;
+  background-color: $color-background-default;
+  box-shadow: 0 2px 4px 0 $color-shadow-default;
+
+  & > .container {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+  }
+
+  &__label {
+    display: block;
+    height: 100%;
+    line-height: 4rem;
+    margin: 0 3rem 0 0;
+    color: $color-text-lightest;
+    font-size: $font-size-tiny;
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    line-height: 4rem;
+    font-size: $font-size-small;
+    letter-spacing: $letter-spacing-default;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    margin: 0 3rem 0 0;
+    color: $color-text-default;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &--active {
+      font-weight: $font-weight-bold;
+    }
+  }
+}

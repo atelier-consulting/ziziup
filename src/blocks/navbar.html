@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIZIUP Slicing v%VERSION% | Navbar</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../index.html">&larr;&nbsp;Index</a>
+    </div>
+
+    <h1 class="example__header">Navbar</h1>
+    <p>Navbar is panel that holds section subnavigation.</p>
+
+    <h2 class="example__subheader">Default navbar</h2>
+    <div class="example__demo example__demo--full-width">
+      <div class="dropdown dropdown--centered hide__from--tablet">
+        <div class="dropdown__label">Partners:</div>
+        <div class="dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted">
+          <div class="dropdown__value">National operators</div>
+          <i class="icon icon--small icon--caret-white"></i>
+        </div>
+      </div>
+
+      <nav class="navbar hide__until--tablet">
+        <div class="container">
+          <div class="navbar__label">Partners:</div>
+          <a class="navbar__link" href="#">National operators</a>
+          <a class="navbar__link navbar__link--active" href="#">Retail partners</a>
+        </div>
+      </nav>
+    </div>
+    <pre class="example__code" style="margin-top: 6rem;">
+      <code class="html">&lt;div class=&quot;dropdown <mark>dropdown--centered</mark> hide__from--tablet&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;dropdown__label&quot;&gt;Partners:&lt;/div&gt;</code>
+      <code class="html">  &lt;div class=&quot;dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;dropdown__value&quot;&gt;National operators&lt;/div&gt;</code>
+      <code class="html">    &lt;i class=&quot;icon icon--small icon--caret-white&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+      <code class="html">&lt;nav class=&quot;<mark>navbar</mark> hide__until--tablet&quot;&gt;</code>
+      <code class="html">  &lt;div class=&quot;container&quot;&gt;</code>
+      <code class="html">    &lt;div class=&quot;<mark>navbar__label</mark>&quot;&gt;Partners:&lt;/div&gt;</code>
+      <code class="html">    &lt;a class=&quot;<mark>navbar__link</mark>&quot; href=&quot;#&quot;&gt;National operators&lt;/a&gt;</code>
+      <code class="html">    &lt;a class=&quot;navbar__link <mark>navbar__link--active</mark>&quot; href=&quot;#&quot;&gt;Retail partners&lt;/a&gt;</code>
+      <code class="html">  &lt;/div&gt;</code>
+      <code class="html">&lt;/nav&gt;</code>
+    </pre>
+
+    <footer class="example__footer">
+      ZIZIUP Slicing development version %VERSION%
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
