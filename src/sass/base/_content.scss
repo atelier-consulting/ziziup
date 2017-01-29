@@ -1,0 +1,31 @@
+.content {
+  margin-top: 3.125rem;
+
+  @include from(tablet) {
+    margin-top: 6.875rem;
+  }
+
+  @include from(big) {
+    margin-top: 9.625rem;
+  }
+
+  &__layout {
+    &--inline {
+      padding: $spacer-size-default 0;
+
+      & > * {
+        display: inline-block;
+        margin: $spacer-size-small $spacer-size-default $spacer-size-small 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &--centered {
+      text-align: center;
+    }
+
+  }
+}
