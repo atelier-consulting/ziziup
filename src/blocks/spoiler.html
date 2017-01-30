@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZIZIUP Slicing v%VERSION% | Spoiler</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+</head>
+<body class="example">
+  <div class="example__container">
+    <div class="example__nav">
+      <a href="../index.html">&larr;&nbsp;Index</a>
+    </div>
+
+    <h1 class="example__header">Spoiler</h1>
+    <p>Spoiler hides its content under expandable part.</p>
+
+    <div class="example__demo example__demo--full-width">
+      <div class="container">
+        <dl class="spoiler">
+          <dt>Who is national operator?</dt>
+          <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+        </dl>
+        <dl class="spoiler spoiler--open">
+          <dt>What are the requirements?</dt>
+          <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+        </dl>
+        <dl class="spoiler">
+          <dt>Additional requirements?</dt>
+          <dd>That’s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can’t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <pre class="example__code" style="margin-top: 36rem">
+      <code class="html">&lt;div class=&quot;container&quot;&gt;</code>
+      <code class="html">  &lt;dl class=&quot;<mark>spoiler</mark>&quot;&gt;</code>
+      <code class="html">    &lt;<mark>dt</mark>&gt;Who is national operator?&lt;/dt&gt;</code>
+      <code class="html">    &lt;<mark>dd</mark>&gt;That&CloseCurlyQuote;s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can&CloseCurlyQuote;t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.&lt;/dd&gt;</code>
+      <code class="html">  &lt;/dl&gt;</code>
+      <code class="html">  &lt;dl class=&quot;spoiler <mark>spoiler--open</mark>&quot;&gt;</code>
+      <code class="html">    &lt;dt&gt;What are the requirements?&lt;/dt&gt;</code>
+      <code class="html">    &lt;dd&gt;That&CloseCurlyQuote;s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can&CloseCurlyQuote;t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.&lt;/dd&gt;</code>
+      <code class="html">  &lt;/dl&gt;</code>
+      <code class="html">  &lt;dl class=&quot;spoiler&quot;&gt;</code>
+      <code class="html">    &lt;dt&gt;Additional requirements?&lt;/dt&gt;</code>
+      <code class="html">    &lt;dd&gt;That&CloseCurlyQuote;s really it. We recommend Apache or Nginx as the most robust and featureful server for running WordPress, but any server that supports PHP and MySQL will do. That said, we can&CloseCurlyQuote;t test every possible environment and each of the hosts on our hosting page supports the above and more with no problems.&lt;/dd&gt;</code>
+      <code class="html">  &lt;/dl&gt;</code>
+      <code class="html">&lt;/div&gt;</code>
+    </pre>
+
+    <footer class="example__footer">
+      ZIZIUP Slicing development version %VERSION%
+    </footer>
+  </div>
+
+  <script>
+    var $spoilers = document.querySelectorAll('.spoiler');
+    for (var i = 0; i < $spoilers.length; i++) {
+      $spoilers[i].addEventListener('click', function(event) {
+        var $target = event.target.classList.contains('spoiler')
+          ? event.target
+          : event.target.closest('.spoiler')
+        ;
+
+        if ($target.classList.contains('spoiler--open')) {
+          $target.classList.remove('spoiler--open');
+        } else {
+          for(var j = 0; j < $spoilers.length; j++) {
+            $spoilers[j].classList.remove('spoiler--open')
+          }
+          $target.classList.add('spoiler--open');
+        }
+      });
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
