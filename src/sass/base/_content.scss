@@ -13,22 +13,6 @@
   // for general usage
   &__layout {
 
-    &--basic {
-      display: flex;
-      padding-top: 1.5 * $spacer-size-default;
-
-      flex-direction: column;
-
-      @include from(desktop) {
-        flex-direction: row;
-      }
-
-      & > *:first-child {
-        flex-grow: 1;
-      }
-
-    }
-
     &--inline {
       padding-top: $spacer-size-default;
       padding-bottom: $spacer-size-default;
@@ -56,6 +40,41 @@
 
   }
 
+  &__columns {
+    display: flex;
+    flex-direction: row;
+
+    @each $name, $size in $viewports {
+      &--from-#{$name} {
+        flex-direction: column;
+
+        @include from($name) {
+          flex-direction: row;
+        }
+      }
+
+      &--between {
+        &-#{$name} {
+          @each $name2, $size2 in $viewports {
+            @if $size < $size2 {
+              &-#{$name2} {
+                flex-direction: column;
+
+                @include between($name, $name2) {
+                  flex-direction: row;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & > * {
+      flex-grow: 1;
+    }
+  }
+
   &__title {
     @include until(phablet) {
       font-size: $font-size-default;
@@ -63,7 +82,7 @@
 
     padding: $spacer-size-default 0 2 * $spacer-size-default;
 
-    &--centered {
+    &--middle {
       padding: 2 * $spacer-size-default 0;
 
       text-transform: none;
@@ -73,6 +92,16 @@
       margin: 0;
 
       font-size: 2.25rem;
+    }
+
+    &--center {
+      padding-bottom: $spacer-size-default;
+
+      text-align: center;
+
+      @include from(desktop) {
+        text-align: left;
+      }
     }
   }
 
@@ -113,21 +142,43 @@
     background-color: $color-background-page;
     padding: $spacer-size-default;
     margin-bottom: $spacer-size-default;
-    display: flex;
-    flex-direction: column;
 
     & > * {
       flex-grow: 1;
     }
 
-    @include from(phablet) {
-      flex-direction: row;
-    }
 
     @include from(desktop) {
-      flex-direction: column;
       width: 18.75rem;
       margin-left: 4rem;
+
+    }
+
+    &--narrow {
+      @include from(tablet) {
+        width: 15rem;
+        margin-left: $spacer-size-large;
+      }
+    }
+
+  }
+
+  &__sheet {
+    background: $color-background-default;
+    box-shadow: 0 2px 4px 0 $color-shadow-default;
+    margin-bottom: $spacer-size-default;
+
+    position: relative;
+    left: -1rem;
+    top: -1.5rem;
+    width: calc(100% + 2rem);
+    padding: 0 $spacer-size-default 2 * $spacer-size-default;
+    //padding: $spacer-size-big 2 * $spacer-size-default;
+
+    @include from(tablet) {
+      position: initial;
+      width: 100%;
+      padding: $spacer-size-big 2 * $spacer-size-default 2 * $spacer-size-default;
     }
   }
 
@@ -135,5 +186,36 @@
     font-size: $font-size-small;
     color: $color-text-lightest;
     margin: 0 0 $spacer-size-default;
+  }
+
+  &__copy {
+    color: $color-text-default;
+
+    &--primary {
+      font-size: $font-size-oversize;
+
+      padding-right: 1rem;
+
+      @include from(big) {
+        padding-right: 2.5rem;
+      }
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__referral-code {
+    margin: $spacer-size-big auto $spacer-size-default;
+    width: 100%;
+    max-width: 30rem;
+    height: 3rem;
+    line-height: 2.875rem;
+    text-transform: uppercase;
+    color: $color-text-darkest;
+    letter-spacing: $letter-spacing-huge;
+    border: 1px dashed $color-border-icon;
+    border-radius: 1.5rem;
   }
 }
