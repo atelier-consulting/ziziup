@@ -35,6 +35,22 @@
       }
     }
 
+    &--fullname {
+
+      & > select,
+      & > input {
+        display: inline-block;
+      }
+
+      & > select {
+        width: 50px;
+      }
+
+      & > input {
+        width: calc(100% - 54px);
+      }
+    }
+
     &--card-number {
       & > input {
         display: inline-block;
@@ -83,14 +99,32 @@
     }
 
     &--submit {
-      @include from(phablet) {
-        min-width: 24rem;
-        width: 24rem;
-        flex-grow: 0;
-      }
+      text-align: right;
 
       & > .button {
-        width: 100%;
+        position: relative;
+        top: -2px;
+
+        @include until(phablet) {
+          width: 100%;
+        }
+      }
+
+      &-wide {
+        @include from(phablet) {
+          min-width: 24rem;
+          width: 24rem;
+          flex-grow: 0;
+        }
+      }
+    }
+
+    &--radio {
+      @include from(phablet) {
+        & > .form__label {
+          display: inline-block;
+          margin-right: $spacer-size-default;
+        }
       }
     }
   }
@@ -150,6 +184,62 @@
 
     &:focus {
       border-bottom-color: $color-brand-primary;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 120px;
+    padding: $spacer-size-small $spacer-size-big;
+    border: 0;
+    border: 1px solid $color-border-default;
+    outline: none;
+    resize: none;
+
+    &:focus {
+      border-color: $color-brand-primary;
+    }
+  }
+
+  &__radio {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+
+    margin-right: $spacer-size-default;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+
+    & > input[type="radio"] {
+      display: inline-block;
+      visibility: hidden;
+      vertical-align: middle;
+      width: $icon-size-smaller;
+      height: $icon-size-smaller;
+      margin-right: $spacer-size-small;
+      outline: none;
+
+      &:before {
+        visibility: visible;
+        display: inline-block;
+        width: $icon-size-smaller;
+        height: $icon-size-smaller - 1;
+        content: "";
+        background-size: $icon-size-smaller $icon-size-smaller;
+        background-repeat: no-repeat;
+        background-position: left center;
+
+        background-image: url("../img/icon-radio-off.png");
+      }
+
+      &:checked {
+        &:before {
+          background-image: url("../img/icon-radio-on.png");
+        }
+      }
     }
   }
 

@@ -12,8 +12,6 @@
       flex: initial;
       letter-spacing: 0.0625rem;
       color: $color-text-default;
-
-
     }
   }
 
@@ -33,7 +31,6 @@
     text-transform: uppercase;
     overflow: hidden;
     text-overflow: ellipsis;
-
 
     &:hover {
       border-bottom: 3px solid $color-brand-primary;

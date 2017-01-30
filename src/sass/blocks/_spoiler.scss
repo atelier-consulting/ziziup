@@ -1,0 +1,41 @@
+.spoiler {
+  background: $color-background-default;
+  box-shadow: 0 2px 4px $color-shadow-default;
+  margin: 0 auto 0.3125rem;
+  max-width: $container-width-default;
+  background-repeat: no-repeat;
+  background-size: $icon-size-small $icon-size-small;
+
+  padding: 1.5rem 1rem 1.5rem 3rem;
+  background-position: .75rem 1.5rem;
+  background-image: url("../img/icon-plus-alt.png");
+
+  @include from(phablet) {
+    padding: 1.5rem 1.5rem 1.5rem 5rem;
+    background-position: 1.5rem 1.5rem;
+  }
+
+  & > dt {
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-accent;
+    cursor: pointer;
+  }
+
+  & > dd {
+    color: $color-text-default;
+    padding: $spacer-size-large 0 0 0;
+    margin: 0;
+    line-height: 1.625rem;
+
+    display: none;
+  }
+
+  &--open {
+    background-image: url("../img/icon-minus-alt.png");
+
+    & > dd {
+      display: block;
+    }
+  }
+}

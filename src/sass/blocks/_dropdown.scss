@@ -163,4 +163,10 @@
       vertical-align: baseline;
     }
   }
+
+  &--centered {
+    display: block;
+    margin: $spacer-size-large auto 0;
+    text-align: center;
+  }
 }

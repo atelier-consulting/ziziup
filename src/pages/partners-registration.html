@@ -141,7 +141,7 @@
           <a href="#" class="tabbar__tab">
             ZIZIUP Card
           </a>
-          <a href="#" class="tabbar__tab tabbar__tab--active">
+          <a href="#" class="tabbar__tab">
             Partners
           </a>
           <a href="#" class="tabbar__tab">
@@ -162,74 +162,130 @@
   </menu>
 
   <main class="content">
-    <section class="hero hero--affiliate">
-      <div class="hero__overlay">
+
+    <div class="banner banner--partners">
+      <div class="banner__overlay">
         <div class="container">
-          <div class="hero__module">
-            <div class="hero__subheader">
-              Yaounde, Cameroon
-              <div class="dropdown dropdown--category">
-                <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
-                  <span class="dropdown__value">Change location</span>
-                  <i class="icon icon--caret-white"></i>
-                </div>
+          <div class="banner__module">
+            <h1>Become a partner</h1>
+          </div>
+          <div class="banner__module hide__until--desktop">
+            <div class="dropdown">
+              <div class="dropdown__label dropdown__label--large">Yaounde, Cameroon</div>
+              <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
+                <span class="dropdown__value">Change location</span>
+                <i class="icon icon--caret-white"></i>
               </div>
-            </div>
-            <h2>Join Ziziup Affiliate Program</h2>
-            <p>
-              Earn up to 30% commissions from your referals orders with ZIZIUP affiliate program. We want you to earn more!
-            </p>
-            <div class="hero__input">
-              <input type="text" placeholder="Enter your email address" />
-              <button>Join</button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="container content__layout--features">
-      <h2 class="content__title--centered">Why to join?</h2>
+    <div class="container content__layout--basic">
+      <section>
+        <h4 class="content__title">Please fill<span class="hide__until--phablet"> brief</span> form below</h4>
+        <form class="form">
 
-      <div class="content__feature">
-        <i class="icon icon--feature icon--feature-anyone"></i>
-        <h3>Anyone could<br />become affiliate</h3>
-        <p>
-          Are you a blogger?<br />
-          Are you active in social network?<br />
-          Are you web-enterpreneur?
-        </p>
-      </div>
+          <div class="form__row">
+            <div class="form__cell form__cell--fullname">
+              <label for="partner-input-fullname" class="form__label">Full Name</label>
+              <select class="form__select">
+                <option value="mr">Mr</option>
+                <option value="ms">Ms</option>
+                <option value="mrs">Mrs</option>
+              </select>
+              <input type="text" id="partner-input-fullname" class="form__input">
+            </div>
+          </div>
 
-      <div class="content__feature">
-        <i class="icon icon--feature icon--feature-integration"></i>
-        <h3>Quick and Easy<br />Integration</h3>
-        <p>
-          It takes you only<br />
-          5 clicks to start selling
-        </p>
-      </div>
+          <div class="form__row">
+            <div class="form__cell form__cell--phone">
+              <label for="partners-input-phone" class="form__label">Phone</label>
+              <select id="partners-select-code" class="form__select">
+                <option value="+9999">+9999</option>
+              </select>
+              <input id="partners-input-phone" class="form__input" type="text" />
+            </div>
 
-      <div class="content__feature">
-        <i class="icon icon--feature icon--feature-comission"></i>
-        <h3>Progressive<br />Comission Plan</h3>
-        <p>
-          You can earn up to 30%<br />
-          comissions from your referrals<br />
-          orders
-        </p>
-      </div>
+            <div class="form__cell">
+              <label for="partners-input-email" class="form__label">E-mail</label>
+              <input id="partners-input-email" class="form__input" placeholder="yourname@domain.com" type="email" />
+            </div>
+          </div>
 
-      <div class="content__feature">
-        <i class="icon icon--feature icon--feature-global"></i>
-        <h3>We pay Globally<br />and Quickly</h3>
-        <p>
-          We support various payment<br />
-          methods: PayPal, Skrill, SWIFT,<br />
-          Payoneer, Webmoney
-        </p>
-      </div>
-    </section>
+          <div class="form__row">
+            <div class="form__cell">
+              <label for="partners-input-website" class="form__label">Website (optional)</label>
+              <input id="partners-input-website" class="form__input" type="text" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <label class="form__label" for="partners-textarea-message">Message (optional)</label>
+              <textarea id="partners-textarea-message" class="form__textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell form__cell--radio">
+              <label class="form__label" for="partners-radio-type-operator">You want to be</label>
+              <label class="form__radio" for="partners-radio-type-operator">
+                <input type="radio" id="partners-radio-type-operator" name="partners-radio-type" checked="checked" />
+                National Operator
+              </label>
+              <label class="form__radio" for="partners-radio-type-partner">
+                <input type="radio" id="partners-radio-type-partner" name="partners-radio-type" />
+                Retail Partner
+              </label>
+            </div>
+            <div class="form__cell form__cell--submit">
+              <button class="button button--rounded button--accent">Sign up</button>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__cell">
+              <small>
+                We guarantee confidentiality of&nbsp;your personal information
+              </small>
+            </div>
+          </div>
+
+        </form>
+      </section>
+
+      <aside>
+        <div class="content__sidebar">
+          <div>
+            <h5>For any questions</h5>
+            <div class="content__subheader">Monday&mdash;Friday, 8:00&mdash;21:00</div>
+          </div>
+          <ul class="list list--iconized">
+            <li class="list__item">
+              <i class="icon icon--smaller icon--phone"></i>
+              +237 098 765 432
+            </li>
+            <li class="list__item">
+              <i class="icon icon--smaller icon--mail"></i>
+              info@ziziup.com
+            </li>
+          </ul>
+          <ul class="list list--iconized">
+            <li class="list__item">
+              <i class="icon icon--smaller icon--viber"></i>
+              (099) 234 56 76
+            </li>
+            <li class="list__item">
+              <i class="icon icon--smaller icon--skype"></i>
+              ziziup
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
   </main>
 
   <footer class="footer">

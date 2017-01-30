@@ -8,6 +8,7 @@
 @import 'base/functions';
 @import 'base/base';
 @import 'base/typography';
+@import 'base/content';
 
 @import 'blocks/thumbnail';
 @import 'blocks/menu';
@@ -24,6 +25,7 @@
 @import 'blocks/plate';
 @import 'blocks/panel';
 @import 'blocks/hero';
+@import 'blocks/spoiler';
+@import 'blocks/navbar';
 
 @import 'pages/landing';
-@import 'pages/affiliate';

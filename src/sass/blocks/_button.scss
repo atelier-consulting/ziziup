@@ -25,6 +25,10 @@
     border: 1px solid $color-border-light;
   }
 
+  &--full {
+    width: 100%;
+  }
+
   &--rounded {
     border-radius: 2.5rem;
   }

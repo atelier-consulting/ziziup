@@ -1,7 +1,8 @@
 $example-color-border: rgba(0,0,0,.1);
 $example-color-bg:     white;
-$example-color-number: rgba(0,0,0,.2);
+$example-color-number: rgba(0,0,0,.15);
 $example-color-dimmed: rgba(0,0,0,.4);
+$example-color-code: #fdf6e3;
 
 .example {
 
@@ -106,16 +107,17 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   &__code {
     margin: 0 0 $spacer-size-default 0;
-    padding: 16px 0 20px 48px;
+    padding: 16px 0 20px 36px;
     counter-reset: code;
     white-space: normal;
     border: 1px solid $example-color-border;
     border-radius: 5px;
+    background-color: $example-color-code;
 
     .example__demo:not(.example__demo--full-width) + & {
       border-top: none;
       border-top-left-radius: 0;
-      border-topright-radius: 0;
+      border-top-right-radius: 0;
     }
 
     & > code {
@@ -135,7 +137,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
       &:not(:only-child):before {
         position: absolute;
-        margin-left: -2em;
+        margin-left: -2.25em;
         color: $example-color-number;
         counter-increment: code;
         text-align: right;
@@ -152,6 +154,7 @@ $example-color-dimmed: rgba(0,0,0,.4);
 
   &__checkbox {
     display: inline-block;
-    margin-right: .25rem;
+    vertical-align: middle;
+    margin-right: .15rem;
   }
 }

@@ -27,7 +27,12 @@ body {
   line-height: $line-height-default;
   font-weight: $font-weight-base;
   color: $color-text-darkest;
-  background-color: $color-background-default;
+
+  background-color: $color-background-page;
+
+  &.white {
+    background-color: $color-background-default;
+  }
 }
 
 .container {
@@ -53,6 +58,15 @@ body {
 
   @include from(huge) {
     max-width: $container-width-huge + ($spacer-horizontal-page * 2);
+  }
+
+  &--page {
+    padding-top: $spacer-size-default;
+    padding-bottom: $spacer-size-default;
+  }
+
+  &--narrow {
+    max-width: $container-width-default + ($spacer-horizontal-page * 2);
   }
 }
 
@@ -80,6 +94,30 @@ body {
   }
 }
 
+//
+// Conditional centering
+//
+
+@each $name, $size in $viewports {
+  .center__until--#{$name} {
+    @include until($name) {
+      text-align: center;
+    }
+  }
+
+  .center__upto--#{$name} {
+    @include upto($name) {
+      text-align: center;
+    }
+  }
+
+  .center__from--#{$name} {
+    @include from($name) {
+      text-align: center;
+    }
+  }
+}
+
 .logo {
   display: inline-block;
   vertical-align: middle;
@@ -102,14 +140,3 @@ body {
   }
 }
 
-.content {
-  margin-top: 3.125rem;
-
-  @include from(tablet) {
-    margin-top: 6.875rem;
-  }
-
-  @include from(big) {
-    margin-top: 9.625rem;
-  }
-}
