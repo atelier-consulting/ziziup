@@ -9,9 +9,29 @@
     margin-top: 9.625rem;
   }
 
+  // Content layout variations
+  // for general usage
   &__layout {
+
+    &--basic {
+      display: flex;
+      padding-top: 1.5 * $spacer-size-default;
+
+      flex-direction: column;
+
+      @include from(desktop) {
+        flex-direction: row;
+      }
+
+      & > *:first-child {
+        flex-grow: 1;
+      }
+
+    }
+
     &--inline {
-      padding: $spacer-size-default 0;
+      padding-top: $spacer-size-default;
+      padding-bottom: $spacer-size-default;
 
       & > * {
         display: inline-block;
@@ -27,5 +47,93 @@
       text-align: center;
     }
 
+    &--features {
+      padding-top: $spacer-size-default;
+      padding-bottom: 2 * $spacer-size-default;
+
+      @extend %clearfix;
+    }
+
+  }
+
+  &__title {
+    @include until(phablet) {
+      font-size: $font-size-default;
+    }
+
+    padding: $spacer-size-default 0 2 * $spacer-size-default;
+
+    &--centered {
+      padding: 2 * $spacer-size-default 0;
+
+      text-transform: none;
+      font-weight: $font-weight-base;
+      letter-spacing: normal;
+      text-align: center;
+      margin: 0;
+
+      font-size: 2.25rem;
+    }
+  }
+
+  &__feature {
+    display: block;
+    float: left;
+    margin: 0 0 1rem 0;
+    height: 18rem;
+
+    width: 100%;
+
+    @include from(phablet) {
+      width: 50%;
+    }
+
+    @include from(desktop) {
+      width: 25%;
+    }
+
+    & > h3 {
+      text-align: center;
+      font-weight: $font-weight-base;
+      font-size: 1.75rem;
+      line-height: 2.125rem;
+      text-transform: none;
+      letter-spacing: normal;
+      padding-bottom: $spacer-size-large;
+    }
+
+    & > p {
+      color: $color-text-default;
+      text-align: center;
+      line-height: 1.75rem;
+    }
+  }
+
+  &__sidebar {
+    background-color: $color-background-page;
+    padding: $spacer-size-default;
+    margin-bottom: $spacer-size-default;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex-grow: 1;
+    }
+
+    @include from(phablet) {
+      flex-direction: row;
+    }
+
+    @include from(desktop) {
+      flex-direction: column;
+      width: 18.75rem;
+      margin-left: 4rem;
+    }
+  }
+
+  &__subheader {
+    font-size: $font-size-small;
+    color: $color-text-lightest;
+    margin: 0 0 $spacer-size-default;
   }
 }
