@@ -63,6 +63,17 @@
     margin: 0 $spacer-size-small 0 0;
   }
 
+  &--share {
+    width: $icon-size-massive;
+    height: $icon-size-massive;
+    background-size: $icon-size-huge $icon-size-huge;
+    border-radius: $icon-size-massive / 2;
+    background-color: $color-brand-primary;
+    @include from(desktop) {
+      margin: 0 .5rem;
+    }
+  }
+
   &--device {
     width: $icon-size-giant;
     height: $icon-size-giant;
@@ -310,8 +321,16 @@
     background-image: url("../img/icon-facebook.png");
   }
 
+  &--facebook-alt {
+    background-image: url("../img/icon-facebook-alt.png");
+  }
+
   &--twitter {
     background-image: url("../img/icon-twitter.png");
+  }
+
+  &--twitter-alt {
+    background-image: url("../img/icon-twitter-alt.png");
   }
 
   &--gplus {
@@ -324,6 +343,14 @@
 
   &--linkedin {
     background-image: url("../img/icon-linkedin.png");
+  }
+
+  &--message-alt {
+    background-image: url("../img/icon-message-alt.png");
+  }
+
+  &--mail-alt {
+    background-image: url("../img/icon-mail-alt.png");
   }
 
   // Devices
