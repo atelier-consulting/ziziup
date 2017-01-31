@@ -73,6 +73,12 @@
     & > * {
       flex-grow: 1;
     }
+
+    &--sidebar {
+      & > *:last-child {
+        flex-grow: 0;
+      }
+    }
   }
 
   &__title {
