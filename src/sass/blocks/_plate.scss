@@ -3,6 +3,7 @@ $plate-height-tiny: 6.25rem;
 $plate-height-small: 9rem;
 $plate-height-default: 10rem;
 $plate-height-sale: 10.625rem;
+$plate-height-press: 11.5rem;
 $plate-height-big: 12.5rem;
 $plate-height-large: 13.75rem;
 
@@ -15,7 +16,8 @@ $plate-gutter-default: 1.25rem;
   width: calc(100% + #{$plate-gutter-small});
   padding: 0 0 $spacer-size-default 0;
 
-  @include from(big) {
+  @include from(desktop) {
+    left: -1 * ($plate-gutter-default / 2);
     width: calc(100% + #{$plate-gutter-default});
   }
 
@@ -688,7 +690,6 @@ $plate-gutter-default: 1.25rem;
           width: 0;
           height: 0;
           border-style: solid;
-          // background: maroon;
           top: 0;
           left: 3.375rem;
           border-width: 30px 6px 30px 0;
@@ -740,7 +741,6 @@ $plate-gutter-default: 1.25rem;
 
       &__footer {
         position: relative;
-        // z-index: 2;
         height: 3.125rem;
         line-height: 3.125rem;
         font-size: $font-size-accent;
@@ -760,8 +760,6 @@ $plate-gutter-default: 1.25rem;
         display: none;
         width: calc(100% - 16px);
         left: 8px;
-        // width: 100%;
-        // left: 0;
         top: 3.125rem;
         z-index: 1;
         background: $color-background-default;
@@ -780,6 +778,77 @@ $plate-gutter-default: 1.25rem;
           display: block;
           margin: 0 auto;
         }
+      }
+    }
+  }
+
+  //
+  // Press
+  //
+  &.press {
+    height: $plate-height-sale;
+    box-shadow: 0px 2px 4px 0px $color-shadow-default;
+    background: $color-background-default;
+
+    border-top: .25rem solid transparent;
+    margin: $plate-gutter-small / 2;
+    width: calc(100% - #{$plate-gutter-small});
+
+    @include from(phablet) {
+      width: calc(50% - #{$plate-gutter-small});
+    }
+
+    @include from(desktop) {
+      margin: $plate-gutter-default/ 2;
+      width: calc(33.33% - #{$plate-gutter-default});
+    }
+
+    @include from(big) {
+      width: calc(25% - #{$plate-gutter-default});
+    }
+
+    &--green {
+      border-top-color: #B8E986;
+    }
+
+    &--orange {
+      border-top-color: #F5A623;
+    }
+
+    &--blue {
+      border-top-color: #4A90E2;
+    }
+
+    .press {
+
+      &__meta {
+        text-align: center;
+        color: $color-text-lightest;
+        letter-spacing: $letter-spacing-default;
+        font-size: $font-size-tiny;
+        padding: 1.5rem 0 .5rem;
+      }
+
+      &__brand {
+        height: 2rem;
+
+        & > img {
+          display: block;
+          margin: 0 auto;
+          height: 100%;
+          max-width: 80%;
+        }
+      }
+
+      &__title {
+        text-transform: none;
+        letter-spacing: normal;
+        font-size: $font-size-default;
+        font-weight: $font-weight-base;
+        text-align: center;
+        line-height: $line-height-accent;
+        color: $color-text-default;
+        padding: .5rem 2rem;
       }
     }
   }
