@@ -37,6 +37,11 @@ $plate-gutter-default: 1.25rem;
       display: block;
     }
   }
+
+  &--sidebar {
+    left: -1 * ($plate-gutter-default / 2);
+    width: calc(100% + #{$plate-gutter-default});
+ }
 }
 
 .plate {
@@ -810,6 +815,14 @@ $plate-gutter-default: 1.25rem;
     &--full {
       margin: $plate-gutter-default / 2;
       width: calc(100% - #{$plate-gutter-default});
+
+      @include from(phablet) {
+        width: calc(50% - #{$plate-gutter-default});
+      }
+
+      @include from(desktop) {
+        width: calc(100% - #{$plate-gutter-default});
+      }
     }
 
     &--green {

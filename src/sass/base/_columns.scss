@@ -28,6 +28,14 @@
     }
   }
 
+  @each $name, $size in $viewports {
+    &__reverse-until--#{$name} {
+      @include until($name) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
   & > * {
     flex-grow: 1;
   }
@@ -35,6 +43,15 @@
   &--sidebar {
     & > *:last-child {
       flex-grow: 0;
+    }
+  }
+}
+
+.column {
+  &--aside {
+    @include from(desktop) {
+      min-width: 17.5rem;
+      max-width: 17.5rem;
     }
   }
 }
