@@ -21,6 +21,10 @@
       color: $color-text-white;
     }
 
+    &--gray {
+      background: $color-background-page;
+    }
+
     &--rounded {
       border-radius: 20px;
 

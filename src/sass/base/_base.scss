@@ -60,7 +60,7 @@ body {
     max-width: $container-width-huge + ($spacer-horizontal-page * 2);
   }
 
-  &--page {
+  &--padded {
     padding-top: $spacer-size-default;
     padding-bottom: $spacer-size-default;
   }
