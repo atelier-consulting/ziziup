@@ -50,6 +50,12 @@
     background-size: $icon-size-mini $icon-size-mini;
   }
 
+  &--nano {
+    width: $icon-size-nano;
+    height: $icon-size-nano;
+    background-size: $icon-size-nano $icon-size-nano;
+  }
+
   &--payment {
     height: $icon-size-tiny;
   }
@@ -210,6 +216,10 @@
 
   &--cross {
     background-image: url("../img/icon-cross.png");
+  }
+
+  &--lt {
+    background-image: url("../img/icon-lt.png");
   }
 
   &--sale {

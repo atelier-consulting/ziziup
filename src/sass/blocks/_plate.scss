@@ -807,6 +807,11 @@ $plate-gutter-default: 1.25rem;
       width: calc(25% - #{$plate-gutter-default});
     }
 
+    &--full {
+      margin: $plate-gutter-default / 2;
+      width: calc(100% - #{$plate-gutter-default});
+    }
+
     &--green {
       border-top-color: #B8E986;
     }

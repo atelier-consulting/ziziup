@@ -40,47 +40,6 @@
 
   }
 
-  &__columns {
-    display: flex;
-    flex-direction: row;
-
-    @each $name, $size in $viewports {
-      &--from-#{$name} {
-        flex-direction: column;
-
-        @include from($name) {
-          flex-direction: row;
-        }
-      }
-
-      &--between {
-        &-#{$name} {
-          @each $name2, $size2 in $viewports {
-            @if $size < $size2 {
-              &-#{$name2} {
-                flex-direction: column;
-
-                @include between($name, $name2) {
-                  flex-direction: row;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    & > * {
-      flex-grow: 1;
-    }
-
-    &--sidebar {
-      & > *:last-child {
-        flex-grow: 0;
-      }
-    }
-  }
-
   &__title {
     @include until(phablet) {
       font-size: $font-size-default;
@@ -197,6 +156,10 @@
   &__copy {
     color: $color-text-default;
 
+    &--padded {
+      padding-right: 2rem;
+    }
+
     &--primary {
       font-size: $font-size-oversize;
 
@@ -223,5 +186,26 @@
     letter-spacing: $letter-spacing-huge;
     border: 1px dashed $color-border-icon;
     border-radius: 1.5rem;
+  }
+
+  &__breadcrumb {
+    font-size: $font-size-small;
+    color: $color-text-default;
+    text-decoration: none;
+  }
+
+  &__meta {
+    width: 17.5rem;
+    margin: 0 0 3rem 0;
+    font-size: $font-size-tiny;
+    letter-spacing: $letter-spacing-default;
+    color: $color-text-lightest;
+    line-height: $line-height-big;
+    padding: .5rem 0 .25rem 2rem;
+    border-left: 1px solid $color-border-lighter;
+
+    & > img {
+      max-width: 80%;
+    }
   }
 }
