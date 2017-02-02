@@ -112,7 +112,6 @@
       flex-grow: 1;
     }
 
-
     @include from(desktop) {
       width: 18.75rem;
       margin-left: 4rem;
@@ -126,6 +125,13 @@
       }
     }
 
+    &--narrow-left {
+      @include from(desktop) {
+        width: 15rem;
+        margin-right: 2 * $spacer-size-default;
+        margin-left: 0;
+      }
+    }
   }
 
   &__sheet {

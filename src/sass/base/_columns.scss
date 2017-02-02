@@ -11,6 +11,22 @@
       }
     }
 
+    &__reverse-from--#{$name} {
+      flex-direction: column;
+
+      @include from($name) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__reverse-until--#{$name} {
+      flex-direction: column;
+
+      @include until($name) {
+        flex-direction: row-reverse;
+      }
+    }
+
     &__between {
       &--#{$name} {
         @each $name2, $size2 in $viewports {
@@ -24,14 +40,6 @@
             }
           }
         }
-      }
-    }
-  }
-
-  @each $name, $size in $viewports {
-    &__reverse-until--#{$name} {
-      @include until($name) {
-        flex-direction: column-reverse;
       }
     }
   }
@@ -52,6 +60,16 @@
     @include from(desktop) {
       min-width: 17.5rem;
       max-width: 17.5rem;
+    }
+  }
+}
+
+.rows {
+  @each $name, $size in $viewports {
+    &__reverse-until--#{$name} {
+      @include until($name) {
+        flex-direction: column-reverse;
+      }
     }
   }
 }
