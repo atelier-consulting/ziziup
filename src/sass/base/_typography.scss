@@ -69,7 +69,24 @@ blockquote {
   background: $color-background-page;
   color: $color-text-default;
   text-transform: capitalize;
-  font-size: $font-size-blockquote;
+
+  font-size: $font-size-default;
+
+  @include from(phablet) {
+    font-size: $font-size-oversize;
+  }
+
+  @include from(tablet) {
+    font-size: $font-size-accent;
+  }
+
+  @include from(desktop) {
+    font-size: $font-size-large;
+  }
+
+  @include from(big) {
+    font-size: $font-size-blockquote;
+  }
 
   & > .thumbnail--avatar {
     margin: 0 auto;
@@ -85,20 +102,56 @@ blockquote {
     display: inline-block;
     vertical-align: bottom;
     content: open-quote;
-    font-size: $font-size-quote;
     color: $color-text-lightest;
     line-height: 1.5rem;
-    margin: 0 $spacer-horizontal-page 0 0;
+
+    margin: 0 $spacer-size-small 0 0;
+    font-size: $font-size-accent;
+
+    @include from(phablet) {
+      font-size: $font-size-big;
+    }
+
+    @include from(tablet) {
+      font-size: $font-size-larger;
+    }
+
+    @include from(desktop) {
+      font-size: $font-size-blockquote * 2;
+    }
+
+    @include from(big) {
+      margin: 0 $spacer-horizontal-page 0 0;
+      font-size: $font-size-quote;
+    }
   }
 
   & > p::after {
     display: inline-block;
     vertical-align: bottom;
     content: close-quote;
-    font-size: $font-size-quote;
     color: $color-text-lightest;
     line-height: 1.5rem;
-    margin: 0 0 0 $spacer-horizontal-page;
+
+    margin: 0 0 0 $spacer-size-small;
+    font-size: $font-size-accent;
+
+    @include from(phablet) {
+      font-size: $font-size-big;
+    }
+
+    @include from(tablet) {
+      font-size: $font-size-larger;
+    }
+
+    @include from(desktop) {
+      font-size: $font-size-blockquote * 2;
+    }
+
+    @include from(big) {
+      margin: 0 0 0 $spacer-horizontal-page;
+      font-size: $font-size-quote;
+    }
   }
 
   & > cite {

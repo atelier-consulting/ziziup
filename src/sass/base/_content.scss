@@ -68,6 +68,10 @@
         text-align: left;
       }
     }
+
+    &--small {
+      padding-bottom: $spacer-size-default;
+    }
   }
 
   &__feature {
@@ -166,10 +170,6 @@
       @include from(desktop) {
         padding-right: 2rem;
       }
-
-      //@include from(big) {
-        //padding-right: 3rem;
-      //}
     }
 
     &--primary {
@@ -224,6 +224,40 @@
 
     & > img {
       max-width: 80%;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__person {
+    &:after {
+      display: table;
+      content: " ";
+      clear: both;
+    }
+
+    & > img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+
+      @include from(desktop) {
+        width: 22.5%;
+        margin-right: 2.5%;
+        float: left;
+      }
+    }
+
+    & > p {
+      @include from(desktop) {
+        margin-left: 25%;
+      }
     }
   }
 }
