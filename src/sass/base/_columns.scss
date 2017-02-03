@@ -80,7 +80,7 @@
         @include from($name) {
           &:first-child {
             flex-basis: 61.8%;
-            padding-right: $spacer-size-default;
+            padding-right: 2 * $spacer-size-default;
           }
 
           &:last-child {
