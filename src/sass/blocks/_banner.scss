@@ -19,6 +19,7 @@
   &__overlay {
     width: 100%;
     height: 100%;
+    background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
   }
 
   & .container {
@@ -234,10 +235,6 @@
       background-size: 100% auto;
       background-position: top -300px center;
     }
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--partners {
@@ -268,70 +265,42 @@
     @include from(huge) {
       background-position: top -320px center;
     }
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--refer {
     background-image: url("../img/banner-bg-refer.jpg");
     background-size: 100% auto;
     background-position: top center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--press {
     background-image: url("../img/banner-bg-press.jpg");
     background-size: 100% auto;
     background-position: center center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--contact {
     background-image: url("../img/banner-bg-contact.jpg");
     background-size: 100% auto;
     background-position: center center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--team {
     background-image: url("../img/banner-bg-team.jpg");
     background-size: 100% auto;
     background-position: center center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--about {
     background-image: url("../img/banner-bg-about.jpg");
     background-size: 100% auto;
     background-position: center center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 
   &--faq {
     background-image: url("../img/banner-bg-faq.jpg");
     background-size: 100% auto;
     background-position: center center;
-
-    & > .banner__overlay {
-      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
-    }
   }
 }
 
