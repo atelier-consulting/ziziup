@@ -18,6 +18,10 @@
     }
   }
 
+  &--padded {
+    margin-bottom: 2 * $spacer-size-default;
+  }
+
   &--expandable {
     & > .list__item {
       padding-left: $icon-size-small;
