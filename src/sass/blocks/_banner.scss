@@ -323,6 +323,16 @@
       background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
     }
   }
+
+  &--faq {
+    background-image: url("../img/banner-bg-faq.jpg");
+    background-size: 100% auto;
+    background-position: center center;
+
+    & > .banner__overlay {
+      background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
+    }
+  }
 }
 
 .teaser {
