@@ -261,4 +261,18 @@
       }
     }
   }
+
+  &__link {
+    text-decoration: underline;
+    color: $color-brand-primary;
+
+    &--inverted {
+      color: $color-text-white;
+    }
+
+    &--block {
+      display: block;
+      padding: $spacer-size-large 0;
+    }
+  }
 }

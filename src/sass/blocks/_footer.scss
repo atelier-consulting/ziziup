@@ -2,7 +2,10 @@
   background: $color-background-darker;
   width: 100%;
   padding: 2.8125rem 0 3rem;
-  margin-top: $spacer-size-default;
+
+  &--padded {
+    margin-top: 2 * $spacer-size-default;
+  }
 
   & > .container {
     display: flex;
