@@ -11,6 +11,9 @@
 @import 'base/content';
 @import 'base/columns';
 
+@import 'vendor/slick';
+@import 'vendor/slick-theme';
+
 @import 'blocks/thumbnail';
 @import 'blocks/menu';
 @import 'blocks/tabbar';
@@ -28,5 +31,6 @@
 @import 'blocks/hero';
 @import 'blocks/spoiler';
 @import 'blocks/navbar';
+@import 'blocks/carousel';
 
 @import 'pages/landing';
