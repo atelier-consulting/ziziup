@@ -1,0 +1,28 @@
+.ribbon {
+  width: 100%;
+  height: 3.75rem;
+
+  &__item {
+    height: 3.75rem;
+    padding-top: 5%;
+    padding: 5% 1rem 0;
+
+    &--bbc {
+      width: 10rem;
+    }
+
+    &--forbes {
+      width: 9rem;
+    }
+
+    &--nytimes {
+      width: 16.5rem;
+    }
+
+    & > img {
+      max-height: 80%;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+}

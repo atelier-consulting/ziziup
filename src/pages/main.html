@@ -270,9 +270,87 @@
 
       </div>
     </div>
+
+    <div class="heading container container--padded">
+      <div class="heading__title">
+        <h3>We in media</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="ribbon">
+        <div>
+          <div class="ribbon__item ribbon__item--nytimes">
+            <img src="../img/logo-nytimes.png" alt="New York Times" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--bbc">
+            <img src="../img/logo-bbc.png" alt="BBC" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--forbes">
+            <img src="../img/logo-forbes.png" alt="Forbes" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--nytimes">
+            <img src="../img/logo-nytimes.png" alt="New York Times" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--bbc">
+            <img src="../img/logo-bbc.png" alt="BBC" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--forbes">
+            <img src="../img/logo-forbes.png" alt="Forbes" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--bbc">
+            <img src="../img/logo-bbc.png" alt="BBC" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--forbes">
+            <img src="../img/logo-forbes.png" alt="Forbes" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--nytimes">
+            <img src="../img/logo-nytimes.png" alt="New York Times" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--bbc">
+            <img src="../img/logo-bbc.png" alt="BBC" />
+          </div>
+        </div>
+
+        <div>
+          <div class="ribbon__item ribbon__item--forbes">
+            <img src="../img/logo-forbes.png" alt="Forbes" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
-  <footer class="footer">
+  <footer class="footer footer--padded">
     <div class="container">
 
       <div class="footer__module footer__module--cards hide__until--huge">
@@ -455,6 +533,15 @@
 
     $('.reviews__list').on('afterChange', function(event, slick, currentSlide) {
       updateReviewsLegend(currentSlide, slick.options.slidesToShow, slick.slideCount);
+    });
+
+    $('.ribbon').slick({
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      slidesToShow: 4,
+      variableWidth: true,
+      speed: 650
     });
 
   });
