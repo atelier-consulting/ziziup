@@ -190,10 +190,51 @@
           <div class="reviews__controls">
             <button class="reviews__button reviews__button--prev">&lt;</button>
             <button class="reviews__button reviews__button--next">&gt;</button>
+            <div class="reviews__legend">1..2 of 3</div>
           </div>
         </div>
 
         <div class="reviews__list">
+
+          <div>
+            <div class="reviews__item">
+              <div class="thumbnail thumbnail--avatar">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/emirik/128.jpg" />
+              </div>
+              <div class="reviews__name">Jessica Carter</div>
+              <p class="reviews__review">Sensible Beauty Tips For Enhancing Your Appearance</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="reviews__item">
+              <div class="thumbnail thumbnail--avatar">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/emirik/128.jpg" />
+              </div>
+              <div class="reviews__name">Jessica Carter</div>
+              <p class="reviews__review">Sensible Beauty Tips For Enhancing Your Appearance</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="reviews__item">
+              <div class="thumbnail thumbnail--avatar">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/emirik/128.jpg" />
+              </div>
+              <div class="reviews__name">Jessica Carter</div>
+              <p class="reviews__review">Sensible Beauty Tips For Enhancing Your Appearance</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="reviews__item">
+              <div class="thumbnail thumbnail--avatar">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/emirik/128.jpg" />
+              </div>
+              <div class="reviews__name">Jessica Carter</div>
+              <p class="reviews__review">Sensible Beauty Tips For Enhancing Your Appearance</p>
+            </div>
+          </div>
 
           <div>
             <div class="reviews__item">
@@ -351,18 +392,57 @@
 <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script>
+  function updateReviewsLegend(current, showed, total) {
+    $('.reviews__legend').html((current + 1) + '..' + (current + showed) + '&nbsp;of&nbsp' + total);
+
+    console.log(current, showed, total);
+    current === 0
+      ? $('.reviews__button--prev').prop('disabled', true)
+      : $('.reviews__button--prev').prop('disabled', false)
+    ;
+
+    current + showed === total
+      ? $('.reviews__button--next').prop('disabled', true)
+      : $('.reviews__button--next').prop('disabled', false)
+    ;
+  }
+
   $(document).ready(function(){
     $('.carousel').slick({
       arrows: false,
       dots: true,
       autoplay: true
     });
+
+    $('.reviews__list').on('init', function(event, slick) {
+      updateReviewsLegend(0, slick.options.slidesToShow, slick.slideCount);
+      console.log('__');
+    });
+
     $('.reviews__list').slick({
       arrows: false,
       dots: false,
       autoplay: false,
       slidesToShow: 2,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      infinite: false,
+      mobileFirst: true,
+      responsive: [{
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 3
+        }
+      },{
+        breakpoint: 1365,
+        settings: {
+          slidesToShow: 4
+        }
+      },{
+        breakpoint: 1599,
+        settings: {
+          slidesToShow: 5
+        }
+      }]
     });
 
     $('.reviews__button--next').on('click', function() {
@@ -372,6 +452,11 @@
     $('.reviews__button--prev').on('click', function() {
       $('.reviews__list').slick('slickPrev');
     });
+
+    $('.reviews__list').on('afterChange', function(event, slick, currentSlide) {
+      updateReviewsLegend(currentSlide, slick.options.slidesToShow, slick.slideCount);
+    });
+
   });
 </script>
 </html>

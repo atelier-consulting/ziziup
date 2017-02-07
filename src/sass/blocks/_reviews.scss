@@ -1,5 +1,11 @@
 .reviews {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include from(phablet) {
+    flex-direction: row;
+  }
 
   &__heading {
     display: flex;
@@ -10,6 +16,12 @@
     background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
 
     height: 12rem;
+
+    @include from(phablet) {
+      width: 17.5rem;
+      min-width: 17.5rem;
+      height: calc(13rem - 4px);
+    }
   }
 
   &__title {
@@ -50,23 +62,41 @@
       border-bottom-right-radius: 1.25rem;
       border-left-width: 0;
     }
+
+    &:disabled {
+      opacity: .3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__legend {
+    float: right;
+    padding: 0 $spacer-size-big 0 0;
+    font-size: $font-size-small;
+    color: $color-text-white;
+    height: 2.5rem;
+    line-height: 2.5rem;
   }
 
   &__list {
     height: 13rem;
     width: 100%;
+
+    @include from(phablet) {
+      width: calc(100% - 17.5rem);
+    }
   }
 
   &__item {
     display: flex;
-    height: calc(100% - 4px);
+    height: calc(100% - 5px);
     flex-direction: column;
     justify-content: center;
     text-align: center;
     box-shadow: 0 2px 4px 0 $color-shadow-default;
 
-    width: calc(100% - 2px);
-    margin: 0 1px;
+    width: calc(100% - 6px);
+    margin: 0 3px;
 
     & > .thumbnail {
       margin: 0 auto;
@@ -84,5 +114,9 @@
     margin: 0;
     font-weight: $font-weight-bold;
     color: $color-text-default;
+
+    @include from(desktop) {
+      padding: $spacer-size-big $spacer-size-default;
+    }
   }
 }
