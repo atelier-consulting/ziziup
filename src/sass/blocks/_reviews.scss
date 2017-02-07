@@ -21,6 +21,7 @@
       width: 17.5rem;
       min-width: 17.5rem;
       height: calc(13rem - 4px);
+      margin-right: 2px;
     }
   }
 
@@ -93,10 +94,11 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-color: $color-background-default;
     box-shadow: 0 2px 4px 0 $color-shadow-default;
 
-    width: calc(100% - 6px);
-    margin: 0 3px;
+    width: calc(100% - 4px);
+    margin: 0 2px;
 
     & > .thumbnail {
       margin: 0 auto;
