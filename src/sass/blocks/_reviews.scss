@@ -1,0 +1,52 @@
+.reviews {
+  width: 100%;
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
+
+    height: 12rem;
+  }
+
+  &__title {
+    color: $color-text-white;
+  }
+
+  &__copy {
+    color: $color-text-white;
+    font-size: $font-size-small;
+    margin: $spacer-size-small 0;
+  }
+
+  &__controls {
+    padding: $spacer-size-big 0 0 0;
+    @extend %clearfix;
+  }
+
+  &__button {
+    border: 1px solid $color-border-transparent;
+    background: transparent;
+    display: block;
+    width: 3.125rem;
+    height: 2.5rem;
+    color: $color-text-white;
+    font-size: $font-size-accent;
+    text-align: center;
+    float: left;
+
+    &--prev {
+      border-top-left-radius: 1.25rem;
+      border-bottom-left-radius: 1.25rem;
+    }
+
+    &--next {
+      border-top-right-radius: 1.25rem;
+      border-bottom-right-radius: 1.25rem;
+      border-left-width: 0;
+    }
+  }
+}
