@@ -182,6 +182,87 @@
 
     </div>
 
+    <div class="headline">
+      <div class="container">
+        <div class="headline__module headline__module--sales">
+          <div class="heading">
+            <div class="heading__title">
+              <h3>Stores with sales <small class="hide__until--phablet">(up to 60% discount)</small></h3>
+            </div>
+            <div class="heading__last hide__until--phablet">
+              <a href="#" class="button button--rounded button--bordered">
+                See all
+              </a>
+            </div>
+          </div>
+          <div class="ribbon">
+            <div>
+              <div class="ribbon__item ribbon__item--macys"><img src="../img/logo-macys.png" alt="Macys"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--lv"><img src="../img/logo-lv.png" alt="LV"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--walmart"><img src="../img/logo-walmart.png" alt="Walmart"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--clarks"><img src="../img/logo-clarks.png" alt="Clarks"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--macys"><img src="../img/logo-macys.png" alt="Macys"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--lv"><img src="../img/logo-lv.png" alt="LV"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--walmart"><img src="../img/logo-walmart.png" alt="Walmart"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--clarks"><img src="../img/logo-clarks.png" alt="Clarks"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--macys"><img src="../img/logo-macys.png" alt="Macys"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--lv"><img src="../img/logo-lv.png" alt="LV"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--walmart"><img src="../img/logo-walmart.png" alt="Walmart"></div>
+            </div>
+
+            <div>
+              <div class="ribbon__item ribbon__item--clarks"><img src="../img/logo-clarks.png" alt="Clarks"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="headline__module headline__module--top">
+          <div class="heading">
+            <div class="heading__title heading__title--alone">
+              <h3>Most visited store</h3>
+            </div>
+          </div>
+          <div class="ribbon">
+            <div>
+              <div class="ribbon__item">
+                <img src="../img/logo-adidas.png" alt="Adidas">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container container--padded">
       <div class="reviews">
         <div class="reviews__heading">
@@ -489,7 +570,9 @@
     $('.carousel').slick({
       arrows: false,
       dots: true,
-      autoplay: true
+      autoplay: true,
+      autoplaySpeed: 8500,
+      speed: 800
     });
 
     $('.reviews__list').on('init', function(event, slick) {
@@ -542,7 +625,15 @@
       autoplaySpeed: 5000,
       slidesToShow: 5,
       variableWidth: true,
-      speed: 650
+      speed: 650,
+      centerMode: true,
+      mobileFirst: true,
+      responsive: [{
+        breakpoint: 639,
+        settings: {
+          centerMode: false
+        }
+      }]
     });
 
   });
