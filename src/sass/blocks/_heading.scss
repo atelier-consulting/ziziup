@@ -17,6 +17,10 @@
       margin: 0 4rem 0 0;
     }
 
+    &--alone {
+      margin: 0;
+    }
+
     & > h3 {
       color: $color-text-default;
       font-size: $font-size-oversize;

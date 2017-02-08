@@ -1,0 +1,37 @@
+.headline {
+  background-color: $color-background-default;
+  box-shadow: 0 2px 4px 0 $color-shadow-default;
+  padding: 1rem 0;
+
+  & > .container {
+    @extend %clearfix;
+  }
+
+  &__module {
+    float: left;
+
+    &--sales {
+      width: 100%;
+
+      @include from(big) {
+        width: calc(100% - 16rem - 1px);
+        padding-right: 2rem;
+      }
+    }
+
+    &--top {
+      width: 16rem;
+      padding-left: 2rem;
+      border-left: 1px solid $color-border-lighter;
+      display: none;
+
+      @include from(big) {
+        display: block;
+      }
+    }
+  }
+
+  & .heading {
+    margin-bottom: $spacer-size-default;
+  }
+}
