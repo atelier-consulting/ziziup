@@ -17,6 +17,10 @@
       margin: 0 4rem 0 0;
     }
 
+    &--alone {
+      margin: 0;
+    }
+
     & > h3 {
       color: $color-text-default;
       font-size: $font-size-oversize;
@@ -53,6 +57,19 @@
         }
       }
     }
+
+    &:last-child {
+      flex-grow: 1;
+      justify-content: center;
+
+      @include from(phablet) {
+        justify-content: flex-end;
+      }
+
+      @include from(desktop) {
+        justify-content: flex-start;
+      }
+    }
   }
 
   &__last {
@@ -62,6 +79,12 @@
     @include from(phablet) {
       flex-grow: 2;
     }
+  }
+
+  // Heading variations
+  &--padded {
+    padding-top: 2rem;
+    padding-bottom: .5rem;
   }
 
 }

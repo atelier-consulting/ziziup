@@ -1,0 +1,92 @@
+.carousel {
+  height: 16rem;
+
+  @include from(big) {
+    height: 21.25rem;
+  }
+
+  &__slide {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .button {
+      display: block;
+      width: 160px;
+      margin: 0 auto;
+
+      @include from(phablet) {
+        margin: 0;
+      }
+    }
+
+    @include from(phablet) {
+      padding-left: 53%;
+      padding-right: 1.5rem;
+    }
+
+    &--1 {
+      background-image: url("../img/slide-1-bg.jpg");
+
+      background-size: auto 100%;
+      background-position: right center;
+
+      @include from(phablet) {
+        background-position: center center;
+      }
+
+      @include from(desktop) {
+        background-size: 100% auto;
+      }
+
+      @include from(large) {
+        background-position: top center;
+      }
+
+    }
+  }
+
+  &__title {
+    color: $color-text-white;
+
+    font-size: $font-size-big;
+    line-height: $line-height-big;
+    padding: 0 $spacer-size-default;
+    text-align: center;
+
+    @include from(phablet) {
+      padding: 0;
+      text-align: left;
+    }
+
+    @include from(tablet) {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+    }
+
+    @include from(big) {
+      font-size: $font-size-huge;
+      line-height: $line-height-huge;
+    }
+  }
+
+  &__copy {
+    color: $color-text-white;
+    margin: $spacer-size-default 0;
+    font-size: $font-size-small;
+    max-width: 21rem;
+
+    padding: 0 $spacer-size-default;
+    text-align: center;
+
+    @include from(phablet) {
+      padding: 0;
+      text-align: left;
+    }
+  }
+
+}
