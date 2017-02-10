@@ -220,6 +220,39 @@ $plate-gutter-default: 1.25rem;
         padding-left: 2.25rem;
         padding-right: 2.25rem;
       }
+
+    }
+
+    &--shelves-overlay {
+      height: 9rem;
+      padding: 0;
+      background-image: url("../img/comp-shelves-light.jpg");
+      background-size: 1180px auto;
+
+      @include from(tablet) {
+        height: 7.5rem;
+      }
+
+      & > .special__overlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
+
+        @include from(tablet) {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 1.25rem 2rem 1.5rem;
+        }
+
+        @include from(desktop) {
+          padding-left: 3rem;
+          padding-right: 3rem;
+        }
+      }
     }
   }
 
@@ -231,14 +264,9 @@ $plate-gutter-default: 1.25rem;
       text-align: left;
     }
 
-    & > h4 {
+    & h4 {
       letter-spacing: $letter-spacing-big;
       color: $color-text-white;
-      margin-bottom: $spacer-size-tiny;
-
-      @include from(tablet) {
-        margin-top: $spacer-size-big;
-      }
 
       @include from(big) {
         font-size: $font-size-larger;
@@ -940,6 +968,10 @@ $plate-gutter-default: 1.25rem;
     }
   }
 
+  //
+  // Product plate
+  //
+
   &.product {
     position: relative;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
@@ -1039,6 +1071,67 @@ $plate-gutter-default: 1.25rem;
         text-align: center;
         color: $color-brand-primary;
       }
+    }
+  }
+
+  //
+  // Two-floor plate
+  //
+
+  &.two-floor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacer-size-default;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%), url("../img/comp-two-floor.jpg");
+    background-position: center center;
+
+    height: 2 * $plate-height-small + $plate-gutter-small;
+    width: calc(100% - #{$plate-gutter-small});
+    background-size: auto 100%;
+
+    @include from(phablet) {
+      float: right;
+      width: calc(50% - #{$plate-gutter-small});
+    }
+
+    @include from(tablet) {
+      height: 2 * $plate-height-default + $plate-gutter-small;
+    }
+
+    @include from(desktop) {
+      padding: 0 3rem;
+      margin: $plate-gutter-default / 2;
+      height: 2 * $plate-height-default + $plate-gutter-default;
+      width: calc(50% - #{$plate-gutter-default});
+      background-size: 100% 100%;
+    }
+
+    & .button {
+      display: block;
+      width: 16rem;
+      margin: 0 auto;
+    }
+
+    // Content
+    .two-floor {
+      &--overlay {
+        width: 100
+      }
+
+      &__title {
+        text-align: center;
+        color: $color-text-white;
+      }
+
+      &__copy {
+        margin: $spacer-size-default 0 1.5 * $spacer-size-default;
+        text-align: center;
+        color: $color-text-white;
+        font-size: $font-size-oversize;
+      }
+
     }
   }
 }
