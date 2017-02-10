@@ -24,11 +24,6 @@
       }
     }
 
-    @include from(phablet) {
-      padding-left: 53%;
-      padding-right: 1.5rem;
-    }
-
     &--1 {
       background-image: url("../img/slide-1-bg.jpg");
 
@@ -37,6 +32,34 @@
 
       @include from(phablet) {
         background-position: center center;
+        padding-left: 53%;
+        padding-right: 1.5rem;
+      }
+
+      @include from(desktop) {
+        background-size: 100% auto;
+      }
+
+      @include from(large) {
+        background-position: top center;
+      }
+
+    }
+
+    &--2 {
+      padding: 0;
+      background-image: url("../img/slide-2-bg.jpg");
+
+      background-size: auto 100%;
+      background-position: left center;
+
+      @include from(phablet) {
+        background-position: center center;
+
+        & > .container {
+          padding-right: 50%;
+        }
+
       }
 
       @include from(desktop) {
