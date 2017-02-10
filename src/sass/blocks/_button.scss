@@ -47,6 +47,14 @@
     padding: 0 1.875rem;
   }
 
+  &--white {
+    background-color: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    line-height: 2.5rem;
+  }
+
   &--inverted {
     background: $color-background-default;
     color: $color-text-lightest;
