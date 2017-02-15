@@ -125,6 +125,14 @@
           flex-grow: 0;
         }
       }
+
+      &-tall {
+        flex-basis: auto;
+
+        @include from(tablet) {
+          flex-basis: 10%;
+        }
+      }
     }
 
     &--radio {
