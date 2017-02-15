@@ -973,7 +973,8 @@ $plate-gutter-default: 1.25rem;
   //
 
   &.product {
-    position: relative;
+    display: block;
+    overflow: hidden;
     box-shadow: 0px 2px 4px 0px $color-shadow-default;
     background: $color-background-default;
 
@@ -1059,6 +1060,8 @@ $plate-gutter-default: 1.25rem;
 
         @include from(tablet) {
           display: block;
+          padding-left: $spacer-size-default;
+          padding-right: $spacer-size-default;
         }
       }
 
@@ -1070,6 +1073,31 @@ $plate-gutter-default: 1.25rem;
         height: 2.25rem;
         text-align: center;
         color: $color-brand-primary;
+      }
+
+      &__button {
+        height: 3rem;
+        position: absolute;
+        width: 100%;
+        bottom: -3rem;
+
+        padding: 0 $spacer-size-big;
+
+        @include from(tablet) {
+          padding: 0 $spacer-size-default;
+        }
+      }
+
+      &__overlay {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        transition: top .35s ease;
+
+        &:hover {
+          top: -3rem;
+        }
       }
     }
   }

@@ -158,21 +158,31 @@
       <code class="html">      &lt;/div&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;!-- Product plates --&gt;</code>
-      <code class="html">    &lt;div class=&quot;plate <mark>product</mark>&quot;&gt;</code>
-      <code class="html">      &lt;div class=&quot;product__image product__image--gray&quot;&gt;</code>
-      <code class="html">        &lt;img src=&quot;../img/product-1.jpg&quot; alt=&quot;Product 1&quot;&gt;</code>
-      <code class="html">      &lt;/div&gt;</code>
-      <code class="html">      &lt;div class=&quot;product__footer&quot;&gt;</code>
-      <code class="html">        &lt;div class=&quot;product__brand&quot;&gt;</code>
-      <code class="html">          &lt;img src=&quot;../img/logo-apple.png&quot; alt=&quot;Apple&quot;&gt;</code>
+      <code class="html">    &lt;a class=&quot;plate <mark>product</mark>&quot; href=&quot;#&quot;&gt;</code>
+      <code class="html">      &lt;div class=&quot;product__overlay&quot;&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>product__image</mark> product__image--gray&quot;&gt;</code>
+      <code class="html">          &lt;img src=&quot;../img/product-1.jpg&quot; alt=&quot;product 1&quot;&gt;</code>
       <code class="html">        &lt;/div&gt;</code>
-      <code class="html">        &lt;h5 class=&quot;product__title&quot;&gt;Apple Watch Sport&lt;/h5&gt;</code>
-      <code class="html">        &lt;p class=&quot;product__description&quot;&gt;</code>
-      <code class="html">          38mm Silver Aluminum Case  with Yellow Sport Band</code>
-      <code class="html">        &lt;/p&gt;</code>
-      <code class="html">        &lt;div class=&quot;product__price&quot;&gt;$1200&lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>product__footer</mark>&quot;&gt;</code>
+      <code class="html">          &lt;div class=&quot;product__brand&quot;&gt;</code>
+      <code class="html">            &lt;img src=&quot;../img/logo-apple.png&quot; alt=&quot;apple&quot;&gt;</code>
+      <code class="html">          &lt;/div&gt;</code>
+      <code class="html">          &lt;h5 class=&quot;product__title&quot;&gt;apple watch sport&lt;/h5&gt;</code>
+      <code class="html">          &lt;p class=&quot;product__description&quot;&gt;</code>
+      <code class="html">            38mm silver aluminum case  with yellow sport band</code>
+      <code class="html">          &lt;/p&gt;</code>
+      <code class="html">          &lt;div class=&quot;product__price&quot;&gt;$1200&lt;/div&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
+      <code class="html">        &lt;div class=&quot;<mark>product__button</mark>&quot;&gt;</code>
+      <code class="html">          &lt;button class=&quot;button button--rounded button--cta&quot;&gt;</code>
+      <code class="html">            buy</code>
+      <code class="html">            &lt;span class=&quot;hide__from--tablet&quot;&gt; now&lt;/span&gt;</code>
+      <code class="html">            &lt;span class=&quot;hide__until--big&quot;&gt; now&lt;/span&gt;</code>
+      <code class="html">            &lt;span class=&quot;hide__until--tablet&quot;&gt; on apple store&lt;/span&gt;</code>
+      <code class="html">          &lt;/button&gt;</code>
+      <code class="html">        &lt;/div&gt;</code>
       <code class="html">      &lt;/div&gt;</code>
-      <code class="html">    &lt;/div&gt;</code>
+      <code class="html">    &lt;/a&gt;</code>
       <code class="html">  &lt;/div&gt;</code>
       <code class="html">&lt;/div&gt;</code>
     </pre>
@@ -914,73 +924,109 @@
 
 
           <!-- Product -->
-          <div class="plate product">
-            <div class="product__image product__image--gray">
-              <img src="../img/product-1.jpg" alt="Product 1">
-            </div>
-            <div class="product__footer">
-              <div class="product__brand">
-                <img src="../img/logo-apple.png" alt="Apple">
-                <!-- Apple -->
+          <a class="plate product" href="#">
+            <div class="product__overlay">
+              <div class="product__image product__image--gray">
+                <img src="../img/product-1.jpg" alt="product 1">
               </div>
-              <h5 class="product__title">Apple Watch Sport</h5>
-              <p class="product__description">
-                38mm Silver Aluminum Case  with Yellow Sport Band
-              </p>
-              <div class="product__price">$1200</div>
+              <div class="product__footer">
+                <div class="product__brand">
+                  <img src="../img/logo-apple.png" alt="apple">
+                </div>
+                <h5 class="product__title">apple watch sport</h5>
+                <p class="product__description">
+                  38mm silver aluminum case  with yellow sport band
+                </p>
+                <div class="product__price">$1200</div>
+              </div>
+              <div class="product__button">
+                <button class="button button--rounded button--cta">
+                  buy
+                  <span class="hide__from--tablet"> now</span>
+                  <span class="hide__until--big"> now</span>
+                  <span class="hide__until--tablet"> on apple store</span>
+                </button>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="plate product">
-            <div class="product__image product__image--gray">
-              <img src="../img/product-2.jpg" alt="Product 2">
-            </div>
-            <div class="product__footer">
-              <div class="product__brand">
-                <img src="../img/logo-apple.png" alt="Apple">
-                <!-- Apple -->
+          <a class="plate product" href="#">
+            <div class="product__overlay">
+              <div class="product__image product__image--gray">
+                <img src="../img/product-2.jpg" alt="product 2">
               </div>
-              <h5 class="product__title">13-inch MacBook&nbsp;Pro</h5>
-              <p class="product__description">
-                13-inch MacBook Pro with Retina Display late 2015
-              </p>
-              <div class="product__price">$1200</div>
+              <div class="product__footer">
+                <div class="product__brand">
+                  <img src="../img/logo-apple.png" alt="apple">
+                </div>
+                <h5 class="product__title">13-inch macbook&nbsp;pro</h5>
+                <p class="product__description">
+                  13-inch macbook pro with retina display late 2015
+                </p>
+                <div class="product__price">$1850</div>
+              </div>
+              <div class="product__button">
+                <button class="button button--rounded button--cta">
+                  buy
+                  <span class="hide__from--tablet"> now</span>
+                  <span class="hide__until--big"> now</span>
+                  <span class="hide__until--tablet"> on apple store</span>
+                </button>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="plate product">
-            <div class="product__image product__image--gray">
-              <img src="../img/product-3.jpg" alt="Product 3">
-            </div>
-            <div class="product__footer">
-              <div class="product__brand">
-                <img src="../img/logo-samsung.png" alt="Apple">
-                <!-- Apple -->
+          <a class="plate product" href="#">
+            <div class="product__overlay">
+              <div class="product__image product__image--gray">
+                <img src="../img/product-3.jpg" alt="product 3">
               </div>
-              <h5 class="product__title">Galaxy S7</h5>
-              <p class="product__description">
-                Samsung G930FD Galaxy S7  32GB (Black)
-              </p>
-              <div class="product__price">$1200</div>
+              <div class="product__footer">
+                <div class="product__brand">
+                  <img src="../img/logo-samsung.png" alt="samsung">
+                </div>
+                <h5 class="product__title">galaxy s7</h5>
+                <p class="product__description">
+                  samsung g930fd galaxy s7  32gb (black)
+                </p>
+                <div class="product__price">$1850</div>
+              </div>
+              <div class="product__button">
+                <button class="button button--rounded button--cta">
+                  buy
+                  <span class="hide__from--tablet"> now</span>
+                  <span class="hide__until--big"> now</span>
+                  <span class="hide__until--tablet"> on amazon</span>
+                </button>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div class="plate product">
-            <div class="product__image">
-              <img src="../img/product-4.jpg" alt="Product 4">
-            </div>
-            <div class="product__footer">
-              <div class="product__brand">
-                <!-- <img src="../img/logo-samsung.png" alt="Apple"> -->
-                Brand name
+          <a class="plate product" href="#">
+            <div class="product__overlay">
+              <div class="product__image product__image--gray">
+                <img src="../img/product-4.jpg" alt="product 4">
               </div>
-              <h5 class="product__title">Dress</h5>
-              <p class="product__description">
-                Ultra modern fashion  cotton dress
-              </p>
-              <div class="product__price">$299.99</div>
+              <div class="product__footer">
+                <div class="product__brand">
+                  brand name
+                </div>
+                <h5 class="product__title">dress</h5>
+                <p class="product__description">
+                  ultra modern fashion cotton dress
+                </p>
+                <div class="product__price">$299.99</div>
+              </div>
+              <div class="product__button">
+                <button class="button button--rounded button--cta">
+                  buy
+                  <span class="hide__from--tablet"> now</span>
+                  <span class="hide__until--big"> now</span>
+                  <span class="hide__until--tablet"> on ebay</span>
+                </button>
+              </div>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
