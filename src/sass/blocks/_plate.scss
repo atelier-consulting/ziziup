@@ -932,6 +932,10 @@ $plate-gutter-default: 1.25rem;
       }
     }
 
+    &--full {
+      width: calc(100% - #{$plate-gutter-small});
+    }
+
     // Content
     .curation {
       &__image {
@@ -991,7 +995,15 @@ $plate-gutter-default: 1.25rem;
 
     @include from(desktop) {
       width: calc(25% - #{$plate-gutter-default});
-    margin: $plate-gutter-default / 2;
+      margin: $plate-gutter-default / 2;
+    }
+
+    &--half {
+      width: calc(50% - #{$plate-gutter-small});
+
+      @include from(desktop) {
+        width: calc(50% - #{$plate-gutter-default});
+      }
     }
 
 
