@@ -38,6 +38,59 @@
       @extend %clearfix;
     }
 
+    &--narrative {
+      background: $color-background-default;
+      box-shadow: 0 2px 4px 0 $color-shadow-default;
+      height: 34rem;
+
+      display: none;
+
+      @include from(tablet) {
+        display: flex;
+        flex-direction: row;
+      }
+
+      & > aside {
+        display: none;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: top right -50px;
+        background-image: url("../img/comp-curation.jpg");
+        flex-basis: 36%;
+
+        & > div {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-image: linear-gradient(141deg, rgba(255,151,54,0.64) 0%, rgba(220,65,48,0.64) 68%);
+
+          & > h3 {
+            text-align: center;
+            color: $color-text-white;
+            line-height: 2.875rem;
+            letter-spacing: $letter-spacing-huge;
+          }
+
+          & > p {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: $font-size-oversize;
+            color: $color-text-white;
+          }
+        }
+
+        @include from(desktop) {
+          display: block;
+        }
+      }
+
+      & > section {
+        flex-grow: 1;
+        padding: 2rem 1.5rem 0;
+      }
+    }
   }
 
   &__title {
