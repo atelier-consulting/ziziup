@@ -162,11 +162,30 @@
   </menu>
 
   <main class="content hiw">
+    <div class="container hiw__switch">
+      Show me how it works for
+      <div class="landing__switch">
+        <a class="landing__button landing__button--web" href="javascript:;">Web</a>
+        <a class="landing__button landing__button--mobile landing__button--off" href="javascript:;">Mobile</a>
+      </div>
+    </div>
+
     <section class="hiw__section hiw__section--plugin">
       <div class="container">
         <div class="hiw__block">
           <h2 class="hiw__title">Install Chrome Plugin</h2>
-          <p class="hiw__copy">Download our Chrome Plugin to start your excellent shopping  experience. If you have Google Chrome browser just follow  instruction. Otherwise install Chrome first.</p>
+          <p class="hiw__copy">Download our <a class="hiw__link" href="#">Chrome Plugin</a> to&nbsp;start your excellent shopping  experience. If you have Google Chrome browser just follow instruction. Otherwise install <a class="hiw__link" href="#">Chrome</a> first.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hiw__section hiw__section--app">
+      <div class="container">
+        <div class="hiw__block">
+          <h2 class="hiw__title">Download the Application</h2>
+          <p class="hiw__copy">You will easily find our app for iOS on Apple Store and on Play Store for Android</p>
+          <a class="button button--store button--app-store" href="#"></a>
+          <a class="button button--store button--play-store" href="#"></a>
         </div>
       </div>
     </section>
@@ -181,11 +200,11 @@
       </div>
     </section>
 
-    <section class="hiw__sectin hiw__section--payment">
+    <section class="hiw__section hiw__section--payment">
       <div class="container">
         <div class="hiw__block">
           <div class="h2 hiw__title">Checkout &amp;&nbsp;Payment</div>
-          <p class="hiw__copy">Export your cart from partners store into your app. Checkout and pay in convenient way: we accept Visa, MasterCard and PayPall. Our members with ZIZIUP Card can make cash deposit.</p>
+          <p class="hiw__copy">Export your cart from partners store into your app. Checkout and pay in convenient way: we accept Visa, MasterCard and PayPall. Our members with ZIZIUP Card can make cash deposit.</p>
           <a class="hiw__button" href="#">Membership</a>
         </div>
       </div>
@@ -307,5 +326,30 @@
 
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var $buttonWeb = document.querySelector('.landing__button--web');
+      var $buttonMobile = document.querySelector('.landing__button--mobile');
+      var $hiw = document.querySelector('.hiw');
+
+      $buttonWeb.addEventListener('click', function(event) {
+        if(event.target.classList.contains('landing__button--off')) {
+          event.target.classList.remove('landing__button--off');
+          $buttonMobile.classList.add('landing__button--off');
+          $hiw.classList.remove('hiw--mobile');
+        }
+      });
+
+      $buttonMobile.addEventListener('click', function(event) {
+        if(event.target.classList.contains('landing__button--off')) {
+          event.target.classList.remove('landing__button--off');
+          $buttonWeb.classList.add('landing__button--off');
+          $hiw.classList.add('hiw--mobile');
+        }
+      });
+
+    })();
+  </script>
 </body>
 </html>

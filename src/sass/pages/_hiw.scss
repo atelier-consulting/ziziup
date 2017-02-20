@@ -1,27 +1,142 @@
 .hiw {
+  &__block {
+    background-repeat: no-repeat;
+    text-align: center;
+
+    @include from(tablet) {
+      text-align: left;
+    }
+  }
+
   &__section {
     padding: 1.5rem 0;
 
+    @include from(desktop) {
+      padding: 2rem 0;
+    }
+
+    @include from(big) {
+      padding: 3rem 0;
+
+      & > .container {
+        max-width: $container-width-big + ($spacer-horizontal-page * 2);
+      }
+    }
+
     &--plugin {
+
+      .hiw--mobile & {
+        display: none;
+      }
+
       & .hiw__block {
         background-image: url("../img/comp-hiw-plugin.jpg");
         background-size: 100% auto;
         background-repeat: no-repeat;
         background-position: top center;
         padding-top: 85vw;
+
+        @include from(tablet) {
+          padding: 2rem 1rem 2rem 62.5%;
+          background-size: auto 95%;
+          background-position: left -1vw center;
+        }
+
+        @include from(desktop) {
+          padding: 4rem 4rem 4rem 42.5%;
+          background-size: auto 100%;
+          background-position: left center;
+        }
+
+        @include from(big) {
+          padding: 6rem 6rem 6rem 42.5%;
+        }
       }
     }
 
-    &--shop {
-      & > .container {
-        background-image: url("../img/comp-hiw-shop.jpg");
-        background-size: 150% auto;
-        background-repeat: no-repeat;
-        background-position: bottom 7.5vw left -10vw;
+    &--app {
+      display: none;
+
+      .hiw--mobile & {
+        display: block;
       }
 
       & .hiw__block {
-        padding-bottom: 105vw;
+        background-image: url("../img/comp-hiw-app.jpg");
+        background-size: 100% auto;
+        padding-top: 120vw;
+        padding-bottom: 2rem;
+
+        @include from(tablet) {
+          padding: 3rem 2rem 3rem 42%;
+          background-size: auto 100%;
+        }
+
+        @include from(desktop) {
+          padding: 5rem 3rem 5rem 42%;
+        }
+
+        @include from(big) {
+          padding: 8rem 5rem 8rem 42%;
+        }
+      }
+
+    }
+
+    &--shop {
+      background-image: url("../img/comp-hiw-shop.jpg");
+      background-size: 150% auto;
+      background-repeat: no-repeat;
+      background-position: bottom 12vw left -10vw;
+
+      .hiw--mobile & {
+        background-image: url("../img/comp-hiw-shop-m.jpg");
+        background-size: 120% auto;
+        background-position: bottom 12vw center;
+
+        @include from(tablet) {
+          background-size: auto 97.5%;
+          background-position: left 47.5vw center;
+        }
+
+        @include from(desktop) {
+          background-size: auto 100%;
+          background-position: left 42vw center;
+        }
+
+        @include from(big) {
+          background-size: auto 92.5%;
+        }
+      }
+
+      @include from(tablet) {
+        background-size: auto 97.5%;
+        background-position: left 47.5vw center;
+      }
+
+      @include from(desktop) {
+        background-size: auto 100%;
+        background-position: left 42vw center;
+      }
+
+      @include from(big) {
+        background-size: auto 92.5%;
+      }
+
+      & .hiw__block {
+        padding-bottom: 100vw;
+
+        @include from(tablet) {
+          padding: 2rem 55% 2rem 0;
+        }
+
+        @include from(desktop) {
+          padding: 4rem 65% 4rem 0;
+        }
+
+        @include from(big) {
+          padding: 6rem 65% 6rem 0;
+        }
       }
     }
 
@@ -32,6 +147,22 @@
         background-repeat: no-repeat;
         background-position: bottom center;
         padding-bottom: 100vw;
+
+        @include from(tablet) {
+          background-size: auto 95%;
+          background-position: left -1vw center;
+          padding: 3rem 1rem 2rem 50%;
+        }
+
+        @include from(desktop) {
+          background-size: auto 100%;
+          background-position: left center;
+          padding: 6rem 6rem 4rem 52.5%;
+        }
+
+        @include from(big) {
+          padding: 8rem 8rem 6rem 50%;
+        }
       }
     }
   }
@@ -40,11 +171,20 @@
     color: $color-text-default;
     font-size: 2.25rem;
     font-weight: $font-weight-base;
-    text-transform: capitalize;
+    text-transform: none;
     letter-spacing: normal;
     line-height: 2.75rem;
     text-align: center;
     margin-bottom: 1rem;
+
+    @include from(tablet) {
+      text-align: left;
+    }
+
+    @include from(desktop) {
+      font-size: 3rem;
+      line-height: 1.15;
+    }
   }
 
   &__copy {
@@ -52,6 +192,10 @@
     font-size: $font-size-oversize;
     line-height: 2rem;
     text-align: center;
+
+    @include from(tablet) {
+      text-align: left;
+    }
   }
 
   &__button {
@@ -71,5 +215,19 @@
 
   &__link {
     color: $color-text-default;
+    -webkit-text-decoration-color: $color-border-icon;
+    text-decoration-color: $color-border-icon;
+  }
+
+  &__switch {
+    padding-top: 3rem;
+    text-align: center;
+    color: $color-text-default;
+    line-height: 3rem;
+
+    & > .landing__switch {
+      display: inline-flex;
+      margin-left: 1rem;
+    }
   }
 }
