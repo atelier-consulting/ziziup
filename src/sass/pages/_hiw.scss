@@ -1,0 +1,75 @@
+.hiw {
+  &__section {
+    padding: 1.5rem 0;
+
+    &--plugin {
+      & .hiw__block {
+        background-image: url("../img/comp-hiw-plugin.jpg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: top center;
+        padding-top: 85vw;
+      }
+    }
+
+    &--shop {
+      & > .container {
+        background-image: url("../img/comp-hiw-shop.jpg");
+        background-size: 150% auto;
+        background-repeat: no-repeat;
+        background-position: bottom 7.5vw left -10vw;
+      }
+
+      & .hiw__block {
+        padding-bottom: 105vw;
+      }
+    }
+
+    &--payment {
+      & .hiw__block {
+        background-image: url("../img/comp-hiw-payment.jpg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        padding-bottom: 100vw;
+      }
+    }
+  }
+
+  &__title {
+    color: $color-text-default;
+    font-size: 2.25rem;
+    font-weight: $font-weight-base;
+    text-transform: capitalize;
+    letter-spacing: normal;
+    line-height: 2.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__copy {
+    color: $color-text-default;
+    font-size: $font-size-oversize;
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  &__button {
+    display: block;
+    border: 1px solid $color-border-icon;
+    height: 3rem;
+    line-height: 2.875rem;
+    border-radius: 1.5rem;
+    font-size: $font-size-default;
+    text-align: center;
+    letter-spacing: $letter-spacing-accent;
+    color: $color-text-lightest;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 1.5rem;
+  }
+
+  &__link {
+    color: $color-text-default;
+  }
+}
