@@ -227,7 +227,9 @@
 
     & > .landing__switch {
       display: inline-flex;
-      margin-left: 1rem;
+      @include from(tablet) {
+        margin-left: 1rem;
+      }
     }
   }
 }
