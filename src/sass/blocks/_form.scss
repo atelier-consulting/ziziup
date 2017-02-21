@@ -6,6 +6,14 @@
     @include from(phablet) {
       flex-direction: row;
     }
+
+    &--tall {
+      flex-direction: column;
+
+      @include from(big) {
+        flex-direction: row;
+      }
+    }
   }
 
   &__cell {
@@ -17,7 +25,26 @@
       flex-basis: 50%;
 
       &:not(:last-child) {
-        padding: 0 $spacer-size-default 0 0;
+        padding-right: $spacer-size-default;
+      }
+    }
+
+    .form__row--tall > & {
+      flex-basis: auto;
+      padding-right: 0;
+
+      @include from(big) {
+        flex-basis: 50%;
+
+        &:not(:last-child) {
+          padding-right: 2 * $spacer-size-default;
+        }
+      }
+    }
+
+    &--relaxed {
+      @include from(phablet) {
+        padding-right: 2 * $spacer-size-default !important;
       }
     }
 
@@ -143,6 +170,10 @@
         }
       }
     }
+
+    &--footer {
+      padding-top: 2.5rem;
+    }
   }
 
   &__label {
@@ -167,6 +198,31 @@
     & > small {
       font-size: $font-size-default;
       color: $color-text-lightest;
+    }
+
+    & > a {
+      font-size: $font-size-small;
+      text-decoration: none;
+      color: $color-brand-primary;
+      margin-left: $spacer-size-default;
+      font-weight: $font-weight-base;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    & + label {
+      padding-left: $icon-size-default;
+      background-repeat: no-repeat;
+      background-size: $icon-size-small $icon-size-small;
+      background-position: left top;
+      background-image: url('../img/icon-checkbox-off.png');
+      transition: background-image .25s ease;
+    }
+
+    &:checked + label {
+      background-image: url('../img/icon-checkbox-on.png');
     }
   }
 
@@ -261,5 +317,38 @@
 
   &__footer {
     margin: $spacer-size-default 0 0 0;
+  }
+
+  &__discard {
+    font-size: $font-size-small;
+    text-decoration: none;
+    font-weight: $font-weight-base;
+    color: $color-brand-primary;
+    vertical-align: baseline;
+  }
+
+  &__save {
+    display: inline-block;
+    height: 1.5rem;
+    border: 1px solid $color-border-light;
+    background: $color-background-default;
+    color: $color-text-dark;
+    font-size: $font-size-tiny;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-small;
+    padding: 0 1.125rem;
+    float: right;
+    border-radius: .75rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-brand-primary;
+
+    & > .icon {
+      vertical-align: text-bottom;
+      margin-right: $spacer-size-small;
+    }
   }
 }

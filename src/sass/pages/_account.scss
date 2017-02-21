@@ -1,0 +1,285 @@
+$sidebar-width-tablet: 10.5rem;
+$sidebar-width-big: 11.25rem;
+$account-container-tablet: $container-width-portrait + ($spacer-horizontal-page * 2);
+$account-container-desktop: $container-width-default + ($spacer-horizontal-page * 2);
+$account-container-big: $container-width-big + ($spacer-horizontal-page * 2);
+$account-container-large: $container-width-large + ($spacer-horizontal-page * 2);
+$account-container-huge: $container-width-huge + ($spacer-horizontal-page * 2);
+$account-gutter-small: .625rem;
+$account-gutter-big: 1.25rem;
+
+.account {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 3.125rem;
+
+  @include from(tablet) {
+    flex-direction: row;
+    padding-top: 6.875rem;
+  }
+
+  @include from(big) {
+    padding-top: 9.625rem;
+  }
+
+
+  &__sidebar {
+    position: relative;
+    background-color: $color-background-dark;
+
+    @include from(tablet) {
+      min-width: calc((100vw - #{$account-container-tablet}) / 2 + #{$sidebar-width-tablet});
+    }
+
+    @include from(desktop) {
+      min-width: calc((100vw - #{$account-container-desktop}) / 2 + #{$sidebar-width-tablet});
+    }
+
+    @include from(big) {
+      min-width: calc((100vw - #{$account-container-big}) / 2 + #{$sidebar-width-big});
+    }
+
+    @include from(large) {
+      min-width: calc((100vw - #{$account-container-large}) / 2 + #{$sidebar-width-big});
+    }
+
+    @include from(huge) {
+      min-width: calc((100vw - #{$account-container-huge}) / 2 + #{$sidebar-width-big});
+    }
+  }
+
+  &__title {
+    color: $color-text-white;
+    font-size: $font-size-oversize;
+    letter-spacing: $letter-spacing-default;
+    height: 3rem;
+    line-height: 3.125rem;
+    border-bottom: 1px solid $color-border-dark;
+
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 2.25rem;
+
+    @include until(tablet) {
+      &--expanded {
+        background-image: url("../img/icon-caret-white-up.png");
+
+        & + .account__menu {
+          display: block;
+        }
+      }
+
+      &--collapsed {
+        background-image: url("../img/icon-caret-white.png");
+        border-bottom: none;
+
+        & + .account__menu {
+          display: none;
+        }
+      }
+    }
+
+    @include from(tablet) {
+      text-align: left;
+      padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{$spacer-size-default});
+    }
+
+    @include from(desktop) {
+      padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{$spacer-size-default});
+    }
+
+    @include from(big) {
+      padding-left: calc((100vw - #{$account-container-big}) / 2 + #{$spacer-size-default});
+    }
+
+    @include from(large) {
+      padding-left: calc((100vw - #{$account-container-large}) / 2 + #{$spacer-size-default});
+    }
+
+    @include from(huge) {
+      padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{$spacer-size-default});
+    }
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 2;
+    width: 100%;
+    background-color: $color-background-dark;
+
+    position: absolute;
+
+    @include from(tablet) {
+      position: static;
+    }
+  }
+
+  &__link {
+    padding: 0;
+    border-bottom: 1px solid $color-border-dark;
+
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: auto 2.25rem;
+
+    &--expanded {
+      background-image: url("../img/icon-caret-white-up.png");
+    }
+
+    &--collapsed {
+      background-image: url("../img/icon-caret-white.png");
+    }
+
+    & > a {
+      display: block;
+      height: 2.25rem;
+      line-height: 2.125rem;
+      color: $color-text-white;
+      text-decoration: none;
+      font-weight: $font-weight-bold;
+
+      text-align: center;
+
+      @include from(tablet) {
+        text-align: left;
+        padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{$spacer-size-default});
+      }
+
+      @include from(desktop) {
+        padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{$spacer-size-default});
+      }
+
+      @include from(big) {
+        padding-left: calc((100vw - #{$account-container-big}) / 2 + #{$spacer-size-default});
+      }
+
+      @include from(large) {
+        padding-left: calc((100vw - #{$account-container-large}) / 2 + #{$spacer-size-default});
+      }
+
+      @include from(huge) {
+        padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{$spacer-size-default});
+      }
+    }
+
+    & & {
+      border-bottom: 1px solid $color-border-darker;
+      background: $color-background-coal;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      & > a {
+        font-weight: $font-weight-base;
+      }
+    }
+  }
+
+  &__sidebanner {
+    height: 16.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include between(tablet, big) {
+      display: none;
+    }
+
+    &--men-accessoires {
+      background-image: url('../img/comp-men-accessoires.jpg');
+      background-repeat: no-repeat;
+      background-size: 160% auto;
+      background-position: center center;
+    }
+
+    & > h3 {
+      color: $color-text-white;
+      text-align: center;
+      padding-bottom: $spacer-size-large;
+    }
+
+    & > p {
+      color: $color-text-white;
+      text-align: center;
+    }
+
+    & > .button {
+      width: 11.25rem;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__main {
+    flex-grow: 1;
+    padding-bottom: $spacer-size-default;
+
+    @include from(tablet) {
+      padding-right: calc((100vw - #{$account-container-tablet}) / 2);
+    }
+
+    @include from(desktop) {
+      padding-right: calc((100vw - #{$account-container-desktop}) / 2);
+    }
+
+    @include from(big) {
+      padding-right: calc((100vw - #{$account-container-big}) / 2);
+      padding-bottom: $account-gutter-big;
+    }
+
+    @include from(large) {
+      padding-right: calc((100vw - #{$account-container-large}) / 2);
+    }
+
+    @include from(huge) {
+      padding-right: calc((100vw - #{$account-container-huge}) / 2);
+    }
+  }
+
+  &__box {
+    background: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+    padding: $spacer-size-default;
+
+    margin-bottom: $account-gutter-small;
+
+    @include from(tablet) {
+      margin: $account-gutter-small $spacer-horizontal-page 0 $account-gutter-small;
+    }
+
+    @include from(big) {
+      margin: $account-gutter-big $spacer-horizontal-page 0 $account-gutter-big;
+    }
+  }
+
+  &__header {
+    margin: 0 0 2rem;
+
+    text-align: center;
+
+    @include from(tablet) {
+      text-align: left;
+    }
+  }
+
+  &__photo {
+    text-align: center;
+    color: $color-text-lightest;
+
+    & > .thumbnail {
+      margin: 0 auto $spacer-size-big;
+    }
+
+    & > .icon {
+      vertical-align: baseline;
+      margin-right: $spacer-size-small;
+    }
+
+  }
+}

@@ -69,7 +69,7 @@
           flex-basis: 50%;
 
           &:last-child {
-            margin: 0 0 0 2 * $spacer-size-default;
+            margin: 0 0 0 $spacer-size-default;
           }
         }
       }
@@ -84,6 +84,22 @@
           }
 
           &:last-child {
+            flex-basis: 38.2%;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    &.golden-reverse__from--#{$name} {
+      & > * {
+        @include from($name) {
+          &:last-child {
+            flex-basis: 61.8%;
+          }
+
+          &:first-child {
+            padding-right: 2 * $spacer-size-default;
             flex-basis: 38.2%;
             margin: 0;
           }
