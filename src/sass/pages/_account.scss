@@ -1,0 +1,112 @@
+.account {
+  @extend %clearfix;
+
+  &__sidebar {
+    position: relative;
+    background-color: $color-background-dark;
+
+    @include from(tablet) {
+      width: 10.5rem;
+    }
+  }
+
+  &__title {
+    color: $color-text-white;
+    font-size: $font-size-oversize;
+    letter-spacing: $letter-spacing-default;
+    height: 3rem;
+    line-height: 3.12.1255rem;
+    border-bottom: 1px solid $color-border-dark;
+
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 2.25rem;
+
+    @include until(tablet) {
+      &--expanded {
+        background-image: url("../img/icon-caret-white-up.png");
+
+        & + .account__menu {
+          display: block;
+        }
+      }
+
+      &--collapsed {
+        background-image: url("../img/icon-caret-white.png");
+        border-bottom: none;
+
+        & + .account__menu {
+          display: none;
+        }
+      }
+    }
+
+    @include from(tablet) {
+      text-align: left;
+      padding-left: $spacer-size-default;
+    }
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 2;
+    width: 100%;
+    background-color: $color-background-dark;
+
+    position: absolute;
+
+    @include from(tablet) {
+      position: static;
+    }
+  }
+
+  &__link {
+    padding: 0;
+    border-bottom: 1px solid $color-border-dark;
+
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: auto 2.25rem;
+
+    &--expanded {
+      background-image: url("../img/icon-caret-white-up.png");
+    }
+
+    &--collapsed {
+      background-image: url("../img/icon-caret-white.png");
+    }
+
+    & > a {
+      display: block;
+      height: 2.25rem;
+      line-height: 2.125rem;
+      color: $color-text-white;
+      text-decoration: none;
+      font-weight: $font-weight-bold;
+
+      text-align: center;
+
+      @include from(tablet) {
+        text-align: left;
+        padding-left: $spacer-size-default;
+      }
+    }
+
+    & & {
+      border-bottom: 1px solid $color-border-darker;
+      background: $color-background-coal;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      & > a {
+        font-weight: $font-weight-base;
+      }
+    }
+  }
+}
