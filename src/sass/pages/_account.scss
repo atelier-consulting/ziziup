@@ -109,4 +109,40 @@
       }
     }
   }
+
+  &__sidebanner {
+    height: 16.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include between(tablet, big) {
+      display: none;
+    }
+
+
+    &--men-accessoires {
+      background-image: url('../img/comp-men-accessoires.jpg');
+      background-repeat: no-repeat;
+      background-size: 140% auto;
+      background-position: center center;
+    }
+
+    & > h3 {
+      color: $color-text-white;
+      text-align: center;
+      padding-bottom: $spacer-size-large;
+    }
+
+    & > p {
+      color: $color-text-white;
+      text-align: center;
+    }
+
+    & > .button {
+      width: 11.25rem;
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }
