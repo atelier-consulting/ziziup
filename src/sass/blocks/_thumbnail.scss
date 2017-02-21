@@ -41,4 +41,20 @@
       border-radius: 50%;
     }
   }
+
+  &--photo {
+    border-radius: 50%;
+
+    width: $thumbnail-size-photo;
+    height: $thumbnail-size-photo;
+
+    @include from(tablet) {
+      width: $thumbnail-size-photo-big;
+      height: $thumbnail-size-photo-big;
+    }
+
+    & > img {
+      border-radius: 50%;
+    }
+  }
 }
