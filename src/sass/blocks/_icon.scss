@@ -278,6 +278,10 @@
     background-image: url("../img/icon-pencil.png");
   }
 
+  &--pencil-alt {
+    background-image: url("../img/icon-pencil-alt.png");
+  }
+
   // Payment
   &--visa {
     width: $icon-size-large;
