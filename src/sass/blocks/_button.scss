@@ -78,6 +78,11 @@
     font-size: $font-size-default;
   }
 
+  &--text-white {
+    color: $color-text-white;
+    font-size: $font-size-default;
+  }
+
   &--submit {
     height: 3.125rem;
     border: 1px solid $color-border-icon;
