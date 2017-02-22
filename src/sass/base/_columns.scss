@@ -63,6 +63,13 @@
     }
   }
 
+  &--gravity {
+    justify-content: space-between;
+    & > * {
+      flex-grow: 0;
+    }
+  }
+
   @each $name, $size in $viewports {
     &.half__from--#{$name} {
       & > * {
@@ -149,6 +156,31 @@
 
           &:nth-child(even) {
             width: 33.33%;
+          }
+        }
+      }
+    }
+
+    &.one-three__from--#{$name} {
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+      }
+
+      @include from($name) {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        & > * {
+          flex-basis: auto;
+
+          &:nth-child(odd) {
+            width: 25%;
+          }
+
+          &:nth-child(even) {
+            width: 75%;
           }
         }
       }

@@ -311,6 +311,25 @@ $account-gutter-big: 1.25rem;
         padding-right: 2rem;
       }
     }
+
+    & > img {
+      height: 2.5rem;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: $spacer-size-big;
+    }
+
+    & > .form__link {
+      display: inline-block;
+      float: right;
+      line-height: 2.25rem;
+
+      @include from(big) {
+        float: none;
+        display: block;
+        margin-top: 1rem;
+      }
+    }
   }
 
   &__photo {
