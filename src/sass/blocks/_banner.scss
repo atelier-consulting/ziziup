@@ -351,13 +351,49 @@
   }
 
   &--membership {
+    width: auto;
     height: 16rem;
+    background-repeat: no-repeat;
+    background-image: url("../img/comp-card.jpg");
+    background-position: center center;
+
+    background-size: auto 140%;
+
+    @include from(tablet) {
+      margin: .625rem 1rem 1rem .625rem;
+      background-size: 100% auto;
+    }
+
+    @include from(big) {
+      margin-top: 1.25rem;
+      margin-left: 1.25rem;
+      height: 11.5rem;
+    }
 
     & > .teaser__overlay {
+      display: flex;
+      flex-direction: column;
       padding-top: 1rem;
+      padding-left: .25rem;
+      padding-right: .25rem;
 
       @include from(phablet) {
         padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @include from(big) {
+        flex-direction: row;
+        padding: 0 2rem;
+        justify-content: space-between;
+        align-items: center;
+
+        & > *:last-child {
+          height: 10rem;
+          position: relative;
+          left: -5rem;
+        }
       }
     }
 
@@ -379,6 +415,14 @@
         @include from(phablet) {
           top: -10rem;
         }
+      }
+    }
+
+    & .button {
+      display: block;
+
+      @include from(desktop) {
+        display: inline-block;
       }
     }
   }
