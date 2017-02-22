@@ -224,39 +224,88 @@
       </article>
 
       <article class="account__box">
-        <div class="columns one-three__from--desktop">
-          <div class="account__header">
-            <img src="../img/payment-mastercard.png" alt="MasterCard" />
-            MasterCard
+        <div class="account__part--view">
+          <div class="columns one-three__from--desktop">
+            <div class="account__header">
+              <img src="../img/payment-mastercard.png" alt="MasterCard" />
+              MasterCard
+            </div>
+            <div class="columns two-one__from--phablet">
+              <div class="form__static">
+                <div class="form__label">Card number</div>
+                1234&nbsp;&nbsp;5678&nbsp;&nbsp;1234&nbsp;&nbsp;5678
+              </div>
+              <div class="form__static">
+                <div class="form__label">Expires</div>
+                11&nbsp;&nbsp;19
+              </div>
+              <div class="form__static">
+                <div class="form__label">Name on card</div>
+                CONSTANTINE CONSTANTINOPOULOS
+              </div>
+              <div class="form__static">
+                <div class="form__label">Primary</div>
+                Yes
+              </div>
+            </div>
           </div>
-          <div class="columns two-one__from--phablet">
-            <div class="form__static">
-              <div class="form__label">Card number</div>
-              1234&nbsp;&nbsp;5678&nbsp;&nbsp;1234&nbsp;&nbsp;5678
-            </div>
-            <div class="form__static">
-              <div class="form__label">Expires</div>
-              11&nbsp;&nbsp;19
-            </div>
-            <div class="form__static">
-              <div class="form__label">Name on card</div>
-              CONSTANTINE CONSTANTINOPOULOS
-            </div>
-            <div class="form__static">
-              <div class="form__label">Primary</div>
-              Yes
-            </div>
+          <div class="columns columns--gravity">
+            <a class="form__link form__link--reverse" href="#">
+              Delete
+              <i class="icon icon--tiny icon--cross-alt"></i>
+            </a>
+            <a class="form__link form__link--reverse account__part--toggle" href="javascript:;">
+              Edit
+              <i class="icon icon--tiny icon--pencil"></i>
+            </a>
           </div>
         </div>
-        <div class="columns columns--gravity">
-          <a class="form__link form__link--reverse" href="#">
-            Delete
-            <i class="icon icon--tiny icon--cross-alt"></i>
-          </a>
-          <a class="form__link form__link--reverse" href="#">
-            Edit
-            <i class="icon icon--tiny icon--pencil"></i>
-          </a>
+        <div class="account__part--edit">
+          <div class="columns one-three__from--desktop">
+            <div class="account__header">
+              <img src="../img/payment-mastercard.png" alt="MasterCard" />
+              MasterCard
+            </div>
+            <form class="form">
+              <div class="columns two-one__from--phablet">
+                <div class="form__cell form__cell--card-number">
+                  <label class="form__label">Card number <small>16 digits</small></label>
+                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                </div>
+                <div class="form__cell form__cell--card-expires">
+                  <label class="form__label">Expires</label>
+                  <select class="form__select">
+                    <option value="mm">11</option>
+                  </select>
+                  <select class="form__select">
+                    <option value="yy">19</option>
+                  </select>
+                </div>
+                <div class="form__cell">
+                  <label class="form__label">Name on card</label>
+                  <input class="form__input" type="text" value="CONSTANTINE CONSTANTINOPOULOS" />
+                </div>
+                <div class="form__cell form__cell--card-cvv">
+                  <label class="form__label">CVV</label>
+                  <input class="form__input" type="text" size="3" maxlength="3" />
+                  <img src="../img/icon-cvv.png" alt="CVV" />
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__cell form__cell--checkbox">
+                  <input class="form__checkbox" id="payment-edit-method-is-primary" type="checkbox" checked="checked" />
+                  <label class="form__label" for="payment-edit-method-is-primary">Primary method</label>
+                </div>
+                <div class="form__cell form__cell--footer">
+                  <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
+                  <input class="form__save" type="submit" value="Save" />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </article>
 
@@ -319,7 +368,7 @@
                     <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
                   </div>
                   <div class="form__cell form__cell--footer">
-                    <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--big"> changes</span></a>
+                    <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
                     <input class="form__save" type="submit" value="Add payment method" />
                   </div>
                 </div>
@@ -370,39 +419,39 @@
           <div class="columns columns__from--desktop golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
-                <label class="form__label" for="profile-shipping-1-country">Country</label>
-                <select id="profile-shipping-1-country" class="form__select">
+                <label class="form__label" for="profile-billing-country">Country</label>
+                <select id="profile-billing-country" class="form__select">
                   <option value="ua">Ukraine</option>
                 </select>
               </div>
               <div class="form__cell">
-                <label class="form__label" for="profile-shipping-1-city">City</label>
-                <select id="profile-shipping-1-city" class="form__select">
-                  <option value="001">Poltava</option>
+                <label class="form__label" for="profile-billing-city">City</label>
+                <select id="profile-billing-city" class="form__select">
+                  <option value="001">Kharkiv</option>
                 </select>
               </div>
             </div>
             <div class="form__row">
               <div class="form__cell form__cell--phone">
-                <label for="landing-input-phone" class="form__label">Phone</label>
-                <select id="landing-select-code" class="form__select">
-                  <option value="+9999">+9999</option>
+                <label for="profile-billing-phone" class="form__label">Phone</label>
+                <select id="profile-billing-code" class="form__select">
+                  <option value="+380">+380</option>
                 </select>
-                <input type="text" id="landing-input-phone" class="form__input" />
+                <input type="text" id="profile-billing-phone" class="form__input" value="(99) 1234567" />
               </div>
             </div>
           </div>
           <div class="form__row">
             <div class="form__cell">
-              <label class="form__label" for="profile-shipping-1-address">Address</label>
-              <input class="form__input" id="profile-shipping-1-address" type="text" />
+              <label class="form__label" for="profile-billing-address">Address</label>
+              <input class="form__input" id="profile-billing-address" type="text" value="Kostomarova street, 67a/56" />
             </div>
           </div>
           <div class="columns columns__from--phablet half__from--phablet golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
-                <label class="form__label" for="profile-shipping-1-zip">Zip</label>
-                <input id="profile-shipping-1-zip" class="form__input" type="text" />
+                <label class="form__label" for="profile-billing-zip">Zip</label>
+                <input id="profile-shipping-1-zip" class="form__input" type="text" value="49004" />
               </div>
               <div class="form__cell form__cell--checkbox hide__until--desktop">
                 &nbsp;
@@ -410,7 +459,7 @@
             </div>
             <div class="form__row">
               <div class="form__cell form__cell--footer">
-                <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--desktop"> changes</span></a>
+                <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--desktop"> changes</span></a>
                 <input class="form__save" type="submit" value="Save all changes" />
               </div>
             </div>
@@ -430,7 +479,7 @@
               </div>
               <div class="form__static form__static--inline">
                 <div class="form__label">Phone</div>
-                +38 (099) 123-45-67
+                +380 (99) 123-45-67
               </div>
             </div>
             <div class="columns two-one__from--phablet auto__from--big">
