@@ -296,16 +296,20 @@ $account-gutter-big: 1.25rem;
   }
 
   &__header {
-    margin: 0 0 $spacer-size-default;
-
     text-align: center;
+
+    &:not(:only-child) {
+      margin: 0 0 $spacer-size-default;
+    }
 
     @include from(tablet) {
       text-align: left;
     }
 
     & h5 {
-      padding-right: 2rem;
+      @include from(tablet) {
+        padding-right: 2rem;
+      }
     }
   }
 
@@ -401,6 +405,21 @@ $account-gutter-big: 1.25rem;
 
     &--active {
       display: block;
+    }
+
+  }
+
+  &__static {
+    @include until(phablet) {
+      padding-bottom: $spacer-size-default;
+    }
+
+    &--padded {
+      padding-bottom: $spacer-size-default;
+
+      @include from(big) {
+        padding-bottom: 0;
+      }
     }
 
   }

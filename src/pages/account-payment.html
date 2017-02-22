@@ -201,7 +201,29 @@
     </aside>
 
     <section class="account__main">
-      <article class="account__box account__box--edit">
+
+      <article class="account__box">
+        <div class="account__header">
+          <div class="columns columns__from--big golden-reverse__from--big">
+            <div class="account__static account__static--padded">
+              <h5>ZIZIUP Elite Card</h5>
+            </div>
+            <div class="columns columns__from--phablet">
+              <div class="account__static">
+                Available on card: &nbsp; <strong>$1000</strong>
+              </div>
+              <div class="account__static">
+                <a class="button button--bordered button--rounded" href="#">Load card</a>
+              </div>
+              <div>
+                <a class="form__link" href="#">Upgrade your membership</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="account__box">
         <div class="account__part--view">
           <a class="form__link account__part--toggle" href="javascript:;">
             <i class="icon icon--tiny icon--plus-alt"></i>
@@ -214,18 +236,18 @@
           </div>
           <div class="account__tabs">
             <div class="account__tabbar">
-              <a class="account__tab account__tab--double-image" rel="account__tabcontent--credit-card" href="javascript:;">
+              <a class="account__tab account__tab--active account__tab--double-image" rel="account__tabcontent--credit-card" href="javascript:;">
                 <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
                 <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
                 Credit Card
               </a>
-              <a class="account__tab account__tab--active" rel="account__tabcontent--paypal" href="javascript:;">
+              <a class="account__tab" rel="account__tabcontent--paypal" href="javascript:;">
                 <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
                 PayPal
               </a>
             </div>
 
-            <div class="account__tabcontent" id="account__tabcontent--credit-card">
+            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--credit-card">
               <form class="form">
                 <div class="columns two-one__from--phablet">
                   <div class="form__cell form__cell--card-number">
@@ -267,7 +289,7 @@
               </form>
             </div>
 
-            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--paypal">
+            <div class="account__tabcontent" id="account__tabcontent--paypal">
               <form class="form">
                 <div class="form__row">
                   <div class="form__cell">
@@ -555,8 +577,6 @@
             ? event.target.rel
             : event.target.closest('.account__tab').rel
           ;
-
-          console.log(id);
 
           $tabContents.forEach(function($content) {
             $content.classList.remove('account__tabcontent--active');
