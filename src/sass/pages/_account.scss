@@ -23,7 +23,6 @@ $account-gutter-big: 1.25rem;
     padding-top: 9.625rem;
   }
 
-
   &__sidebar {
     position: relative;
     background-color: $color-background-dark;
@@ -119,6 +118,12 @@ $account-gutter-big: 1.25rem;
     }
   }
 
+  &__submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &__link {
     padding: 0;
     border-bottom: 1px solid $color-border-dark;
@@ -133,6 +138,10 @@ $account-gutter-big: 1.25rem;
 
     &--collapsed {
       background-image: url("../img/icon-caret-white.png");
+    }
+
+    &--active {
+      background-color: $color-background-darkest;
     }
 
     & > a {
@@ -256,15 +265,70 @@ $account-gutter-big: 1.25rem;
     @include from(big) {
       margin: $account-gutter-big $spacer-horizontal-page 0 $account-gutter-big;
     }
+
+    & .form {
+      margin-bottom: 0;
+    }
+
+    //
+    // View/edit toggle
+    //
+
+    & .account__part--edit {
+      display: none;
+    }
+
+    & .account__part--view {
+      display: block;
+    }
+
+    &--edit {
+
+      & .account__part--edit {
+        display: block;
+      }
+
+      & .account__part--view {
+        display: none;
+      }
+
+    }
   }
 
   &__header {
-    margin: 0 0 2rem;
-
     text-align: center;
+
+    &:not(:only-child) {
+      margin: 0 0 $spacer-size-default;
+    }
 
     @include from(tablet) {
       text-align: left;
+    }
+
+    & h5 {
+      @include from(tablet) {
+        padding-right: 2rem;
+      }
+    }
+
+    & > img {
+      height: 2.5rem;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: $spacer-size-big;
+    }
+
+    & > .form__link {
+      display: inline-block;
+      float: right;
+      line-height: 2.25rem;
+
+      @include from(big) {
+        float: none;
+        display: block;
+        margin-top: 1rem;
+      }
     }
   }
 
@@ -279,6 +343,102 @@ $account-gutter-big: 1.25rem;
     & > .icon {
       vertical-align: baseline;
       margin-right: $spacer-size-small;
+    }
+
+  }
+
+  &__action {
+    padding-top: 1rem;
+    text-align: right;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    padding-top: $spacer-size-default;
+
+    @include from(desktop) {
+      flex-direction: row;
+    }
+
+  }
+
+  &__tabbar {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: $spacer-size-default;
+
+    @include from(desktop) {
+      flex-direction: column;
+      min-width: 16rem;
+    }
+  }
+
+  &__tab {
+    color: $color-text-default;
+    text-decoration: none;
+    padding-left: $icon-size-default;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: $icon-size-small $icon-size-small;
+
+    background-image: url("../img/icon-radio-off.png");
+    flex-grow: 1;
+
+    @include from(desktop) {
+      flex-grow: 0;
+      padding-right: $spacer-size-default;
+      height: 2rem;
+      margin-bottom: 2.25rem;
+    }
+
+    &--active {
+      background-image: url("../img/icon-radio-on.png");
+    }
+
+    & > img {
+      height: 2.5rem;
+      width: auto;
+      vertical-align: middle;
+    }
+
+    &--double-image {
+      & > img {
+        position: relative;
+        z-index: 2;
+        top: .5rem;
+        margin-right: .5rem;
+
+        &:first-child {
+          margin-right: -3rem;
+          z-index: 1;
+          top: -.5rem;
+        }
+      }
+    }
+  }
+
+  &__tabcontent {
+    display: none;
+    flex-grow: 1;
+
+    &--active {
+      display: block;
+    }
+
+  }
+
+  &__static {
+    @include until(phablet) {
+      padding-bottom: $spacer-size-default;
+    }
+
+    &--padded {
+      padding-bottom: $spacer-size-default;
+
+      @include from(big) {
+        padding-bottom: 0;
+      }
     }
 
   }
