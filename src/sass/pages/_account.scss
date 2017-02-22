@@ -23,7 +23,6 @@ $account-gutter-big: 1.25rem;
     padding-top: 9.625rem;
   }
 
-
   &__sidebar {
     position: relative;
     background-color: $color-background-dark;
@@ -117,6 +116,12 @@ $account-gutter-big: 1.25rem;
     @include from(tablet) {
       position: static;
     }
+  }
+
+  &__submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   &__link {
@@ -291,7 +296,7 @@ $account-gutter-big: 1.25rem;
   }
 
   &__header {
-    margin: 0 0 2rem;
+    margin: 0 0 $spacer-size-default;
 
     text-align: center;
 
@@ -322,6 +327,43 @@ $account-gutter-big: 1.25rem;
   &__action {
     padding-top: 1rem;
     text-align: right;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__tabbar {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: $spacer-size-big;
+  }
+
+  &__tab {
+    flex-grow: 1;
+    color: $color-text-default;
+    text-decoration: none;
+    padding-left: $icon-size-default;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: $icon-size-small $icon-size-small;
+
+    background-image: url("../img/icon-radio-off.png");
+
+    &--active {
+      background-image: url("../img/icon-radio-on.png");
+    }
+  }
+
+  &__tabcontent {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+
   }
 
 }
