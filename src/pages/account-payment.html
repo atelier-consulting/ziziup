@@ -201,65 +201,73 @@
     </aside>
 
     <section class="account__main">
-      <article class="account__box">
-        <div class="account__header">
-          <h5>Add payment method</h5>
+      <article class="account__box account__box--edit">
+        <div class="account__part--view">
+          <a class="form__link account__part--toggle" href="javascript:;">
+            <i class="icon icon--tiny icon--plus-alt"></i>
+            Add payment method
+          </a>
         </div>
-        <div class="account__tabs">
-          <div class="account__tabbar">
-            <a class="account__tab account__tab--double-image account__tab--active" href="javascript:;">
-              <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
-              <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
-              Credit Card
-            </a>
-            <a class="account__tab" href="javascript:;">
-              <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
-              PayPal
-            </a>
+        <div class="account__part--edit">
+          <div class="account__header">
+            <h5>Add payment method</h5>
           </div>
-          <div class="account__tabcontent account__tabcontent--active">
-            <form class="form">
-              <div class="columns two-one__from--phablet">
-                <div class="form__cell form__cell--card-number">
-                  <label class="form__label">Card number <small>16 digits</small></label>
-                  <input class="form__input" type="text" size="4" maxlength="4" />
-                  <input class="form__input" type="text" size="4" maxlength="4" />
-                  <input class="form__input" type="text" size="4" maxlength="4" />
-                  <input class="form__input" type="text" size="4" maxlength="4" />
+          <div class="account__tabs">
+            <div class="account__tabbar">
+              <a class="account__tab account__tab--double-image account__tab--active" rel="account__tabcontent--credit-card" href="javascript:;">
+                <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
+                <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
+                Credit Card
+              </a>
+              <a class="account__tab" rel="account__tabcontent--paypal" href="javascript:;">
+                <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
+                PayPal
+              </a>
+            </div>
+            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--credit-card">
+              <form class="form">
+                <div class="columns two-one__from--phablet">
+                  <div class="form__cell form__cell--card-number">
+                    <label class="form__label">Card number <small>16 digits</small></label>
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                  </div>
+                  <div class="form__cell form__cell--card-expires">
+                    <label class="form__label">Expires</label>
+                    <select class="form__select">
+                      <option value="mm">MM</option>
+                    </select>
+                    <select class="form__select">
+                      <option value="yy">YY</option>
+                    </select>
+                  </div>
+                  <div class="form__cell">
+                    <label class="form__label">Name on card</label>
+                    <input class="form__input" type="text" />
+                  </div>
+                  <div class="form__cell form__cell--card-cvv">
+                    <label class="form__label">CVV</label>
+                    <input class="form__input" type="text" size="3" maxlength="3" />
+                    <img src="../img/icon-cvv.png" alt="CVV" />
+                  </div>
                 </div>
-                <div class="form__cell form__cell--card-expires">
-                  <label class="form__label">Expires</label>
-                  <select class="form__select">
-                    <option value="mm">MM</option>
-                  </select>
-                  <select class="form__select">
-                    <option value="yy">YY</option>
-                  </select>
+                <div class="form__row">
+                  <div class="form__cell form__cell--checkbox">
+                    <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
+                    <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                  </div>
+                  <div class="form__cell form__cell--footer">
+                    <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--big"> changes</span></a>
+                    <input class="form__save" type="submit" value="Add payment method" />
+                  </div>
                 </div>
-                <div class="form__cell">
-                  <label class="form__label">Name on card</label>
-                  <input class="form__input" type="text" />
-                </div>
-                <div class="form__cell form__cell--card-cvv">
-                  <label class="form__label">CVV</label>
-                  <input class="form__input" type="text" size="3" maxlength="3" />
-                  <img src="../img/icon-cvv.png" alt="CVV" />
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="form__cell form__cell--checkbox">
-                  <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
-                  <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
-                </div>
-                <div class="form__cell">
-                  <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--big"> changes</span></a>
-                  <input class="form__save" type="submit" value="Save all changes" />
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="account__tabcontent" class="account__tabcontent">
-            tam
+              </form>
+            </div>
+            <div class="account__tabcontent" class="account__tabcontent" id="account__tabcontent--paypal">
+              tam
+            </div>
           </div>
         </div>
 
@@ -513,6 +521,32 @@
         $toggle.addEventListener('click', function(event) {
           event.target.closest('.account__box').classList.toggle('account__box--edit');
         })
+      });
+
+      var $tabsWrapper = document.querySelector('.account__tabs');
+      var $tabs = $tabsWrapper.querySelectorAll('.account__tab');
+      var $tabContents = $tabsWrapper.querySelectorAll('.account__tabcontent');
+
+      $tabs.forEach(function($tab) {
+        $tab.addEventListener('click', function(event) {
+          var id = event.target.classList.contains('account__tab')
+            ? event.target.rel
+            : event.target.closest('.account__tab').rel
+          ;
+
+          console.log(id);
+
+          $tabContents.forEach(function($content) {
+            $content.classList.remove('account__tabcontent--active');
+          });
+
+          $tabs.forEach(function($tab) {
+            $tab.classList.remove('account__tab--active');
+          });
+
+          $tabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          $tab.classList.add('account__tab--active');
+        });
       });
     })();
   </script>
