@@ -113,8 +113,53 @@
       }
     }
 
-  }
+    &.three__from--#{$name} {
+      flex-direction: column;
 
+      & > * {
+        width: 100%;
+      }
+
+      @include from($name) {
+        flex-direction: row;
+
+        & > * {
+          width: 33.33%;
+        }
+      }
+    }
+
+    &.two-one__from--#{$name} {
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+      }
+
+      @include from($name) {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        & > * {
+          &:nth-child(odd) {
+            width: 66.66%;
+          }
+
+          &:nth-child(even) {
+            width: 33.33%;
+          }
+        }
+      }
+    }
+
+    &.auto__from--#{$name} {
+      @include from($name) {
+        & > * {
+          width: auto;
+        }
+      }
+    }
+  }
 }
 
 .column {

@@ -16,6 +16,11 @@
     }
   }
 
+  &__static {
+    margin: 0 0 $spacer-size-default;
+    padding: 0 $spacer-size-default 0 0;
+  }
+
   &__cell {
     padding: 0;
     margin: 0 0 $spacer-size-default * 2 0;

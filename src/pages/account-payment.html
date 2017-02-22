@@ -253,7 +253,7 @@
               <input class="form__input" id="profile-shipping-1-address" type="text" />
             </div>
           </div>
-          <div class="columns columns__from--phablet golden-reverse__from--phablet">
+          <div class="columns columns__from--phablet half__from--phablet golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
                 <label class="form__label" for="profile-shipping-1-zip">Zip</label>
@@ -265,34 +265,38 @@
             </div>
             <div class="form__row">
               <div class="form__cell form__cell--footer">
-                <a class="form__discard account__part--toggle" href="#">Discard changes</a>
+                <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--desktop"> changes</span></a>
                 <input class="form__save" type="submit" value="Save all changes" />
               </div>
             </div>
           </div>
         </form>
 
-        <div class="columns columns__from--big golden__from--big account__part--view">
-          <div class="columns">
-            <div>
-              <div class="form__label">Country</div>
-              Ukraine
+        <div class="account__part--view">
+          <div class="columns columns__from--big">
+            <div class="columns three__from--phablet auto__from--big">
+              <div class="form__static">
+                <div class="form__label">Country</div>
+                Ukraine
+              </div>
+              <div class="form__static">
+                <div class="form__label">City</div>
+                Kharkiv
+              </div>
+              <div class="form__static">
+                <div class="form__label">Phone</div>
+                +38 (099) 123-45-67
+              </div>
             </div>
-            <div>
-              <div class="form__label">City</div>
-              Kharkiv
-            </div>
-            <div>
-              <div class="form__label">Phone</div>
-              +38 (099) 123-45-67
-            </div>
-            <div>
-              <div class="form__label">Address</div>
-              Kostomarova street, 67a/56
-            </div>
-            <div>
-              <div class="form__label">ZIP Code</div>
-              49004
+            <div class="columns two-one__from--phablet auto__from--big">
+              <div class="form__static">
+                <div class="form__label">Address</div>
+                Kostomarova street, 67a/56
+              </div>
+              <div class="form__static">
+                <div class="form__label">ZIP Code</div>
+                49004
+              </div>
             </div>
           </div>
           <div class="account__action">
@@ -302,6 +306,7 @@
             </a>
           </div>
         </div>
+
       </article>
 
       <div class="teaser teaser--membership">
