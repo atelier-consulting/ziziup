@@ -57,6 +57,12 @@
     }
   }
 
+  &--sidebar-first {
+    & > *:first-child {
+      flex-grow: 0;
+    }
+  }
+
   @each $name, $size in $viewports {
     &.half__from--#{$name} {
       & > * {

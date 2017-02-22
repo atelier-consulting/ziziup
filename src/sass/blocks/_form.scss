@@ -178,9 +178,16 @@
 
   &__label {
     display: block;
+    text-align: left;
     font-weight: $font-weight-bold;
-    font-size: 1.125rem;
+    font-size: $font-size-oversize;
     margin: 0 0 $spacer-size-small 0;
+
+    &--small {
+      font-weight: $font-weight-base;
+      color: $color-text-default;
+      font-size: $font-size-default;
+    }
 
     &--checkbox {
       display: inline-block;

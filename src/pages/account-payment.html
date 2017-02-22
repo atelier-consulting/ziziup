@@ -165,7 +165,7 @@
     <aside class="account__sidebar">
       <h1 class="account__title account__title--collapsed">My account</h1>
       <ul class="account__menu">
-        <li class="account__link account__link--active">
+        <li class="account__link">
           <a href="#">Personal info</a>
         </li>
         <li class="account__link account__link--expanded">
@@ -179,7 +179,7 @@
             </li>
           </ul>
         </li>
-        <li class="account__link">
+        <li class="account__link account__link--active">
           <a href="#">Payment</a>
         </li>
         <li class="account__link">
@@ -203,50 +203,22 @@
     <section class="account__main">
       <article class="account__box">
         <div class="account__header">
-          <h5>Personal information</h5>
+          <h5>Payment method</h5>
         </div>
+        <!--.columns-->
 
-        <div class="columns columns__from--tablet golden-reverse__from--tablet">
-          <div class="account__photo">
-            <div class="thumbnail thumbnail--photo">
-              <img src="../img/comp-avatar.jpg" alt="avatar">
-            </div>
-            <i class="icon icon--mini icon--pencil-alt"></i>
-            Edit photo
-          </div>
-
-          <form class="form">
-            <div class="form__row form__row--tall">
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-name">Name</label>
-                <input class="form__input" id="profile-personal-name" type="text" />
-              </div>
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-email">Email</label>
-                <input class="form__input" id="profile-personal-email" type="text" />
-              </div>
-            </div>
-            <div class="form__row form__row--tall">
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-password">
-                  Password
-                  <a href="#">Reset Password</a>
-                </label>
-                <input class="form__input" id="profile-personal-password" type="password" />
-              </div>
-              <div class="form__cell form__cell--footer">
-                <a class="form__discard" href="#">Discard changes</a>
-                <input class="form__save" type="submit" value="Save all changes" />
-              </div>
-            </div>
-          </form>
-        </div>
 
       </article>
 
       <article class="account__box">
         <div class="account__header">
-          <h5>Shippping address</h5>
+          <div class="columns columns__from--tablet columns--sidebar-first">
+            <h5>Billing address</h5>
+            <div>
+              <input id="payment-billing-is-same" class="form__checkbox" type="checkbox" />
+              <label for="payment-billing-is-same" class="form__label form__label--small">Use the same as the shipping<span class="hide__until--phablet"> address</span></label>
+            </div>
+          </div>
         </div>
 
         <form class="form">
@@ -281,33 +253,18 @@
               <input class="form__input" id="profile-shipping-1-address" type="text" />
             </div>
           </div>
-          <div class="columns columns__from--phablet golden__from--phablet">
+          <div class="columns columns__from--phablet golden-reverse__from--phablet">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
                 <label class="form__label" for="profile-shipping-1-zip">Zip</label>
                 <input id="profile-shipping-1-zip" class="form__input" type="text" />
               </div>
-              <div class="form__cell form__cell--checkbox">
-                <input class="form__checkbox" type="checkbox" id="profile-shipping-1-is-primary" />
-                <label class="form__label" for="profile-shipping-1-is-primary">Primary&nbsp;address</label>
+              <div class="form__cell form__cell--checkbox hide__until--desktop">
+                &nbsp;
               </div>
             </div>
             <div class="form__row">
-              <div class="form__cell form__cell--checkbox">
-                <input class="form__checkbox" type="checkbox" id="profile-shipping-1-is-billing" />
-                <label class="form__label" for="profile-shipping-1-is-billing">Use as billing address</label>
-              </div>
-            </div>
-          </div>
-          <div class="columns columns__from--tablet golden-reverse__from--tablet golden__from--big">
-            <div class="form__row">
-              <a class="form__link" href="#">
-                <i class="icon icon--smaller icon--plus-alt"></i>
-                Add <span class="hide__from--tablet hide__until--desktop"> Shipping</span>Address
-              </a>
-            </div>
-            <div class="form__row">
-              <div class="form__cell">
+              <div class="form__cell form__cell--footer">
                 <a class="form__discard" href="#">Discard changes</a>
                 <input class="form__save" type="submit" value="Save all changes" />
               </div>

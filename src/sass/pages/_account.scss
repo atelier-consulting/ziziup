@@ -135,6 +135,10 @@ $account-gutter-big: 1.25rem;
       background-image: url("../img/icon-caret-white.png");
     }
 
+    &--active {
+      background-color: $color-background-darkest;
+    }
+
     & > a {
       display: block;
       height: 2.25rem;
@@ -256,6 +260,10 @@ $account-gutter-big: 1.25rem;
     @include from(big) {
       margin: $account-gutter-big $spacer-horizontal-page 0 $account-gutter-big;
     }
+
+    & .form {
+      margin-bottom: 0;
+    }
   }
 
   &__header {
@@ -265,6 +273,10 @@ $account-gutter-big: 1.25rem;
 
     @include from(tablet) {
       text-align: left;
+    }
+
+    & h5 {
+      padding-right: 2rem;
     }
   }
 
