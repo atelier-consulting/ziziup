@@ -366,7 +366,7 @@ $account-gutter-big: 1.25rem;
       flex-grow: 0;
       padding-right: $spacer-size-default;
       height: 2rem;
-      margin-bottom: 4rem;
+      margin-bottom: 2.25rem;
     }
 
     &--active {
@@ -397,6 +397,7 @@ $account-gutter-big: 1.25rem;
 
   &__tabcontent {
     display: none;
+    flex-grow: 1;
 
     &--active {
       display: block;

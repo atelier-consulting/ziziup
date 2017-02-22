@@ -214,17 +214,18 @@
           </div>
           <div class="account__tabs">
             <div class="account__tabbar">
-              <a class="account__tab account__tab--double-image account__tab--active" rel="account__tabcontent--credit-card" href="javascript:;">
+              <a class="account__tab account__tab--double-image" rel="account__tabcontent--credit-card" href="javascript:;">
                 <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
                 <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
                 Credit Card
               </a>
-              <a class="account__tab" rel="account__tabcontent--paypal" href="javascript:;">
+              <a class="account__tab account__tab--active" rel="account__tabcontent--paypal" href="javascript:;">
                 <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
                 PayPal
               </a>
             </div>
-            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--credit-card">
+
+            <div class="account__tabcontent" id="account__tabcontent--credit-card">
               <form class="form">
                 <div class="columns two-one__from--phablet">
                   <div class="form__cell form__cell--card-number">
@@ -265,8 +266,29 @@
                 </div>
               </form>
             </div>
-            <div class="account__tabcontent" class="account__tabcontent" id="account__tabcontent--paypal">
-              tam
+
+            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--paypal">
+              <form class="form">
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
+                    <input class="form__input" id="payment-add-method-paypal-email" type="email">
+                  </div>
+                  <div class="form__cell">
+                    <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
+                    <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__cell form__cell--checkbox">
+                    <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
+                    <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                  </div>
+                  <div class="form__cell">
+                    <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
