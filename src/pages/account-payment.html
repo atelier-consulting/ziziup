@@ -165,12 +165,12 @@
     <aside class="account__sidebar">
       <h1 class="account__title account__title--collapsed">My account</h1>
       <ul class="account__menu">
-        <li class="account__link account__link--active">
+        <li class="account__link">
           <a href="#">Personal info</a>
         </li>
         <li class="account__link account__link--expanded">
           <a href="#">ZIZIUP Card</a>
-          <ul class="account__menu">
+          <ul class="account__submenu">
             <li class="account__link">
               <a href="#">Activate</a>
             </li>
@@ -179,7 +179,7 @@
             </li>
           </ul>
         </li>
-        <li class="account__link">
+        <li class="account__link account__link--active">
           <a href="#">Payment</a>
         </li>
         <li class="account__link">
@@ -201,120 +201,308 @@
     </aside>
 
     <section class="account__main">
+
       <article class="account__box">
         <div class="account__header">
-          <h5>Personal information</h5>
-        </div>
-
-        <div class="columns columns__from--tablet golden-reverse__from--tablet">
-          <div class="account__photo">
-            <div class="thumbnail thumbnail--photo">
-              <img src="../img/comp-avatar.jpg" alt="avatar">
+          <div class="columns columns__from--big golden-reverse__from--big">
+            <div class="account__static account__static--padded">
+              <h5>ZIZIUP Elite Card</h5>
             </div>
-            <i class="icon icon--mini icon--pencil-alt"></i>
-            Edit photo
+            <div class="columns columns__from--phablet">
+              <div class="account__static">
+                Available on card: &nbsp; <strong>$1000</strong>
+              </div>
+              <div class="account__static">
+                <a class="button button--bordered button--rounded" href="#">Load card</a>
+              </div>
+              <div>
+                <a class="form__link" href="#">Upgrade your membership</a>
+              </div>
+            </div>
           </div>
-
-          <form class="form">
-            <div class="form__row form__row--tall">
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-name">Name</label>
-                <input class="form__input" id="profile-personal-name" type="text" />
-              </div>
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-email">Email</label>
-                <input class="form__input" id="profile-personal-email" type="text" />
-              </div>
-            </div>
-            <div class="form__row form__row--tall">
-              <div class="form__cell">
-                <label class="form__label" for="profile-personal-password">
-                  Password
-                  <a href="#">Reset Password</a>
-                </label>
-                <input class="form__input" id="profile-personal-password" type="password" />
-              </div>
-              <div class="form__cell form__cell--footer">
-                <a class="form__discard" href="#">Discard changes</a>
-                <input class="form__save" type="submit" value="Save all changes" />
-              </div>
-            </div>
-          </form>
         </div>
+      </article>
+
+      <article class="account__box">
+        <div class="account__part--view">
+          <div class="columns one-three__from--desktop">
+            <div class="account__header">
+              <img src="../img/payment-mastercard.png" alt="MasterCard" />
+              MasterCard
+            </div>
+            <div class="columns two-one__from--phablet">
+              <div class="form__static">
+                <div class="form__label">Card number</div>
+                1234&nbsp;&nbsp;5678&nbsp;&nbsp;1234&nbsp;&nbsp;5678
+              </div>
+              <div class="form__static">
+                <div class="form__label">Expires</div>
+                11&nbsp;&nbsp;19
+              </div>
+              <div class="form__static">
+                <div class="form__label">Name on card</div>
+                CONSTANTINE CONSTANTINOPOULOS
+              </div>
+              <div class="form__static">
+                <div class="form__label">Primary</div>
+                Yes
+              </div>
+            </div>
+          </div>
+          <div class="columns columns--gravity">
+            <a class="form__link form__link--reverse" href="#">
+              Delete
+              <i class="icon icon--tiny icon--cross-alt"></i>
+            </a>
+            <a class="form__link form__link--reverse account__part--toggle" href="javascript:;">
+              Edit
+              <i class="icon icon--tiny icon--pencil"></i>
+            </a>
+          </div>
+        </div>
+        <div class="account__part--edit">
+          <div class="columns one-three__from--desktop">
+            <div class="account__header">
+              <img src="../img/payment-mastercard.png" alt="MasterCard" />
+              MasterCard
+            </div>
+            <form class="form">
+              <div class="columns two-one__from--phablet">
+                <div class="form__cell form__cell--card-number">
+                  <label class="form__label">Card number <small>16 digits</small></label>
+                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                </div>
+                <div class="form__cell form__cell--card-expires">
+                  <label class="form__label">Expires</label>
+                  <select class="form__select">
+                    <option value="mm">11</option>
+                  </select>
+                  <select class="form__select">
+                    <option value="yy">19</option>
+                  </select>
+                </div>
+                <div class="form__cell">
+                  <label class="form__label">Name on card</label>
+                  <input class="form__input" type="text" value="CONSTANTINE CONSTANTINOPOULOS" />
+                </div>
+                <div class="form__cell form__cell--card-cvv">
+                  <label class="form__label">CVV</label>
+                  <input class="form__input" type="text" size="3" maxlength="3" />
+                  <img src="../img/icon-cvv.png" alt="CVV" />
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__cell form__cell--checkbox">
+                  <input class="form__checkbox" id="payment-edit-method-is-primary" type="checkbox" checked="checked" />
+                  <label class="form__label" for="payment-edit-method-is-primary">Primary method</label>
+                </div>
+                <div class="form__cell form__cell--footer">
+                  <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
+                  <input class="form__save" type="submit" value="Save" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+
+      <article class="account__box">
+        <div class="account__part--view">
+          <a class="form__link account__part--toggle" href="javascript:;">
+            <i class="icon icon--tiny icon--plus-alt"></i>
+            Add payment method
+          </a>
+        </div>
+        <div class="account__part--edit">
+          <div class="account__header">
+            <h5>Add payment method</h5>
+          </div>
+          <div class="account__tabs">
+            <div class="account__tabbar">
+              <a class="account__tab account__tab--active account__tab--double-image" rel="account__tabcontent--credit-card" href="javascript:;">
+                <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
+                <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
+                Credit Card
+              </a>
+              <a class="account__tab" rel="account__tabcontent--paypal" href="javascript:;">
+                <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
+                PayPal
+              </a>
+            </div>
+
+            <div class="account__tabcontent account__tabcontent--active" id="account__tabcontent--credit-card">
+              <form class="form">
+                <div class="columns two-one__from--phablet">
+                  <div class="form__cell form__cell--card-number">
+                    <label class="form__label">Card number <small>16 digits</small></label>
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="text" size="4" maxlength="4" />
+                  </div>
+                  <div class="form__cell form__cell--card-expires">
+                    <label class="form__label">Expires</label>
+                    <select class="form__select">
+                      <option value="mm">MM</option>
+                    </select>
+                    <select class="form__select">
+                      <option value="yy">YY</option>
+                    </select>
+                  </div>
+                  <div class="form__cell">
+                    <label class="form__label">Name on card</label>
+                    <input class="form__input" type="text" />
+                  </div>
+                  <div class="form__cell form__cell--card-cvv">
+                    <label class="form__label">CVV</label>
+                    <input class="form__input" type="text" size="3" maxlength="3" />
+                    <img src="../img/icon-cvv.png" alt="CVV" />
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__cell form__cell--checkbox">
+                    <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
+                    <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                  </div>
+                  <div class="form__cell form__cell--footer">
+                    <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
+                    <input class="form__save" type="submit" value="Add payment method" />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="account__tabcontent" id="account__tabcontent--paypal">
+              <form class="form">
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
+                    <input class="form__input" id="payment-add-method-paypal-email" type="email">
+                  </div>
+                  <div class="form__cell">
+                    <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
+                    <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__cell form__cell--checkbox">
+                    <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
+                    <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                  </div>
+                  <div class="form__cell">
+                    <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
 
       </article>
 
       <article class="account__box">
         <div class="account__header">
-          <h5>Shippping address</h5>
+          <div class="columns columns__from--tablet columns--sidebar-first">
+            <h5>Billing address</h5>
+            <div>
+              <input id="payment-billing-is-same" class="form__checkbox" type="checkbox" checked="checked" />
+              <label for="payment-billing-is-same" class="form__label form__label--small">Use the same as the shipping<span class="hide__until--phablet"> address</span></label>
+            </div>
+          </div>
         </div>
 
-        <form class="form">
+        <form class="form account__part--edit">
           <div class="columns columns__from--desktop golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
-                <label class="form__label" for="profile-shipping-1-country">Country</label>
-                <select id="profile-shipping-1-country" class="form__select">
+                <label class="form__label" for="profile-billing-country">Country</label>
+                <select id="profile-billing-country" class="form__select">
                   <option value="ua">Ukraine</option>
                 </select>
               </div>
               <div class="form__cell">
-                <label class="form__label" for="profile-shipping-1-city">City</label>
-                <select id="profile-shipping-1-city" class="form__select">
-                  <option value="001">Poltava</option>
+                <label class="form__label" for="profile-billing-city">City</label>
+                <select id="profile-billing-city" class="form__select">
+                  <option value="001">Kharkiv</option>
                 </select>
               </div>
             </div>
             <div class="form__row">
               <div class="form__cell form__cell--phone">
-                <label for="landing-input-phone" class="form__label">Phone</label>
-                <select id="landing-select-code" class="form__select">
-                  <option value="+9999">+9999</option>
+                <label for="profile-billing-phone" class="form__label">Phone</label>
+                <select id="profile-billing-code" class="form__select">
+                  <option value="+380">+380</option>
                 </select>
-                <input type="text" id="landing-input-phone" class="form__input" />
+                <input type="text" id="profile-billing-phone" class="form__input" value="(99) 1234567" />
               </div>
             </div>
           </div>
           <div class="form__row">
             <div class="form__cell">
-              <label class="form__label" for="profile-shipping-1-address">Address</label>
-              <input class="form__input" id="profile-shipping-1-address" type="text" />
+              <label class="form__label" for="profile-billing-address">Address</label>
+              <input class="form__input" id="profile-billing-address" type="text" value="Kostomarova street, 67a/56" />
             </div>
           </div>
-          <div class="columns columns__from--phablet golden__from--phablet">
+          <div class="columns columns__from--phablet half__from--phablet golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
-                <label class="form__label" for="profile-shipping-1-zip">Zip</label>
-                <input id="profile-shipping-1-zip" class="form__input" type="text" />
+                <label class="form__label" for="profile-billing-zip">Zip</label>
+                <input id="profile-shipping-1-zip" class="form__input" type="text" value="49004" />
               </div>
-              <div class="form__cell form__cell--checkbox">
-                <input class="form__checkbox" type="checkbox" id="profile-shipping-1-is-primary" />
-                <label class="form__label" for="profile-shipping-1-is-primary">Primary&nbsp;address</label>
+              <div class="form__cell form__cell--checkbox hide__until--desktop">
+                &nbsp;
               </div>
             </div>
             <div class="form__row">
-              <div class="form__cell form__cell--checkbox">
-                <input class="form__checkbox" type="checkbox" id="profile-shipping-1-is-billing" />
-                <label class="form__label" for="profile-shipping-1-is-billing">Use as billing address</label>
-              </div>
-            </div>
-          </div>
-          <div class="columns columns__from--tablet golden-reverse__from--tablet golden__from--big">
-            <div class="form__row">
-              <a class="form__link" href="#">
-                <i class="icon icon--smaller icon--plus-alt"></i>
-                Add <span class="hide__from--tablet hide__until--desktop"> Shipping</span>Address
-              </a>
-            </div>
-            <div class="form__row">
-              <div class="form__cell">
-                <a class="form__discard" href="#">Discard changes</a>
+              <div class="form__cell form__cell--footer">
+                <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--desktop"> changes</span></a>
                 <input class="form__save" type="submit" value="Save all changes" />
               </div>
             </div>
           </div>
         </form>
+
+        <div class="account__part--view">
+          <div class="columns columns__from--big">
+            <div class="columns three__from--phablet auto__from--big">
+              <div class="form__static form__static--inline">
+                <div class="form__label">Country</div>
+                Ukraine
+              </div>
+              <div class="form__static form__static--inline">
+                <div class="form__label">City</div>
+                Kharkiv
+              </div>
+              <div class="form__static form__static--inline">
+                <div class="form__label">Phone</div>
+                +380 (99) 123-45-67
+              </div>
+            </div>
+            <div class="columns two-one__from--phablet auto__from--big">
+              <div class="form__static">
+                <div class="form__label">Address</div>
+                Kostomarova street, 67a/56
+              </div>
+              <div class="form__static form__static--inline">
+                <div class="form__label">ZIP Code</div>
+                49004
+              </div>
+            </div>
+          </div>
+          <div class="account__action">
+            <a href="javascript:;" class="form__link form__link--reverse account__part--toggle">
+              Edit Address
+              <i class="icon icon--smaller icon--pencil"></i>
+            </a>
+          </div>
+        </div>
+
       </article>
+
       <div class="teaser teaser--membership">
         <div class="teaser__overlay">
           <div>
@@ -455,6 +643,38 @@
       $title.addEventListener('click', function() {
         $title.classList.toggle('account__title--expanded');
         $title.classList.toggle('account__title--collapsed');
+      });
+
+      var $partTogglers = document.querySelectorAll('.account__part--toggle');
+
+      $partTogglers.forEach(function($toggle) {
+        $toggle.addEventListener('click', function(event) {
+          event.target.closest('.account__box').classList.toggle('account__box--edit');
+        })
+      });
+
+      var $tabsWrapper = document.querySelector('.account__tabs');
+      var $tabs = $tabsWrapper.querySelectorAll('.account__tab');
+      var $tabContents = $tabsWrapper.querySelectorAll('.account__tabcontent');
+
+      $tabs.forEach(function($tab) {
+        $tab.addEventListener('click', function(event) {
+          var id = event.target.classList.contains('account__tab')
+            ? event.target.rel
+            : event.target.closest('.account__tab').rel
+          ;
+
+          $tabContents.forEach(function($content) {
+            $content.classList.remove('account__tabcontent--active');
+          });
+
+          $tabs.forEach(function($tab) {
+            $tab.classList.remove('account__tab--active');
+          });
+
+          $tabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          $tab.classList.add('account__tab--active');
+        });
       });
     })();
   </script>
