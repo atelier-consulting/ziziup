@@ -138,6 +138,7 @@
 
       @include from($name) {
         flex-direction: row;
+        flex-wrap: wrap;
 
         & > * {
           &:nth-child(odd) {

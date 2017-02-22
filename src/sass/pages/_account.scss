@@ -338,7 +338,7 @@ $account-gutter-big: 1.25rem;
   &__tabbar {
     display: flex;
     flex-direction: row;
-    padding-bottom: $spacer-size-big;
+    padding-bottom: $spacer-size-default;
   }
 
   &__tab {
@@ -365,5 +365,4 @@ $account-gutter-big: 1.25rem;
     }
 
   }
-
 }

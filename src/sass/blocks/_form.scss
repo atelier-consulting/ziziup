@@ -19,6 +19,15 @@
   &__static {
     margin: 0 0 $spacer-size-default;
     padding: 0 $spacer-size-default 0 0;
+
+    &--inline {
+      @include until(phablet) {
+        & > .form__label {
+          display: inline-block;
+          width: 36%;
+        }
+      }
+    }
   }
 
   &__cell {

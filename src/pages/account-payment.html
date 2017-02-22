@@ -203,7 +203,7 @@
     <section class="account__main">
       <article class="account__box">
         <div class="account__header">
-          <h5>Payment method</h5>
+          <h5>Add payment method</h5>
         </div>
         <div class="account__tabs">
           <div class="account__tabbar">
@@ -214,8 +214,36 @@
               PayPal
             </a>
           </div>
-          <div class="account__tabcontent account__tabcontent--active" class="account__tabcontent">
-            tyt
+          <div class="account__tabcontent account__tabcontent--active">
+            <form class="form">
+              <div class="columns two-one__from--phablet">
+                <div class="form__cell form__cell--card-number">
+                  <label class="form__label">Card number <small>16 digits</small></label>
+                  <input class="form__input" type="text" size="4" maxlength="4" />
+                  <input class="form__input" type="text" size="4" maxlength="4" />
+                  <input class="form__input" type="text" size="4" maxlength="4" />
+                  <input class="form__input" type="text" size="4" maxlength="4" />
+                </div>
+                <div class="form__cell form__cell--card-expires">
+                  <label class="form__label">Expires</label>
+                  <select class="form__select">
+                    <option value="mm">MM</option>
+                  </select>
+                  <select class="form__select">
+                    <option value="yy">YY</option>
+                  </select>
+                </div>
+                <div class="form__cell">
+                  <label class="form__label">Name on card</label>
+                  <input class="form__input" type="text" />
+                </div>
+                <div class="form__cell form__cell--card-cvv">
+                  <label class="form__label">CVV</label>
+                  <input class="form__input" type="text" />
+                  <img src="../img/icon-cvv.png" alt="CVV" />
+                </div>
+              </div>
+            </form>
           </div>
           <div class="account__tabcontent" class="account__tabcontent">
             tam
@@ -290,15 +318,15 @@
         <div class="account__part--view">
           <div class="columns columns__from--big">
             <div class="columns three__from--phablet auto__from--big">
-              <div class="form__static">
+              <div class="form__static form__static--inline">
                 <div class="form__label">Country</div>
                 Ukraine
               </div>
-              <div class="form__static">
+              <div class="form__static form__static--inline">
                 <div class="form__label">City</div>
                 Kharkiv
               </div>
-              <div class="form__static">
+              <div class="form__static form__static--inline">
                 <div class="form__label">Phone</div>
                 +38 (099) 123-45-67
               </div>
@@ -308,7 +336,7 @@
                 <div class="form__label">Address</div>
                 Kostomarova street, 67a/56
               </div>
-              <div class="form__static">
+              <div class="form__static form__static--inline">
                 <div class="form__label">ZIP Code</div>
                 49004
               </div>
