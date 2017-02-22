@@ -357,5 +357,12 @@
       vertical-align: text-bottom;
       margin-right: $spacer-size-small;
     }
+
+    &--reverse {
+      & > .icon {
+        margin-right: 0;
+        margin-left: $spacer-size-small;
+      }
+    }
   }
 }

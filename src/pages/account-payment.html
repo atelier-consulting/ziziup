@@ -215,13 +215,13 @@
           <div class="columns columns__from--tablet columns--sidebar-first">
             <h5>Billing address</h5>
             <div>
-              <input id="payment-billing-is-same" class="form__checkbox" type="checkbox" />
+              <input id="payment-billing-is-same" class="form__checkbox" type="checkbox" checked="checked" />
               <label for="payment-billing-is-same" class="form__label form__label--small">Use the same as the shipping<span class="hide__until--phablet"> address</span></label>
             </div>
           </div>
         </div>
 
-        <form class="form">
+        <form class="form account__part--edit">
           <div class="columns columns__from--desktop golden__from--desktop">
             <div class="form__row">
               <div class="form__cell form__cell--relaxed">
@@ -265,13 +265,45 @@
             </div>
             <div class="form__row">
               <div class="form__cell form__cell--footer">
-                <a class="form__discard" href="#">Discard changes</a>
+                <a class="form__discard account__part--toggle" href="#">Discard changes</a>
                 <input class="form__save" type="submit" value="Save all changes" />
               </div>
             </div>
           </div>
         </form>
+
+        <div class="columns columns__from--big golden__from--big account__part--view">
+          <div class="columns">
+            <div>
+              <div class="form__label">Country</div>
+              Ukraine
+            </div>
+            <div>
+              <div class="form__label">City</div>
+              Kharkiv
+            </div>
+            <div>
+              <div class="form__label">Phone</div>
+              +38 (099) 123-45-67
+            </div>
+            <div>
+              <div class="form__label">Address</div>
+              Kostomarova street, 67a/56
+            </div>
+            <div>
+              <div class="form__label">ZIP Code</div>
+              49004
+            </div>
+          </div>
+          <div class="account__action">
+            <a href="javascript:;" class="form__link form__link--reverse account__part--toggle">
+              Edit Address
+              <i class="icon icon--smaller icon--pencil"></i>
+            </a>
+          </div>
+        </div>
       </article>
+
       <div class="teaser teaser--membership">
         <div class="teaser__overlay">
           <div>
@@ -412,6 +444,14 @@
       $title.addEventListener('click', function() {
         $title.classList.toggle('account__title--expanded');
         $title.classList.toggle('account__title--collapsed');
+      });
+
+      var $partTogglers = document.querySelectorAll('.account__part--toggle');
+
+      $partTogglers.forEach(function($toggle) {
+        $toggle.addEventListener('click', function(event) {
+          event.target.closest('.account__box').classList.toggle('account__box--edit');
+        })
       });
     })();
   </script>

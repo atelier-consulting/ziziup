@@ -264,6 +264,30 @@ $account-gutter-big: 1.25rem;
     & .form {
       margin-bottom: 0;
     }
+
+    //
+    // View/edit toggle
+    //
+
+    & .account__part--edit {
+      display: none;
+    }
+
+    & .account__part--view {
+      display: block;
+    }
+
+    &--edit {
+
+      & .account__part--edit {
+        display: block;
+      }
+
+      & .account__part--view {
+        display: none;
+      }
+
+    }
   }
 
   &__header {
@@ -294,4 +318,10 @@ $account-gutter-big: 1.25rem;
     }
 
   }
+
+  &__action {
+    padding-top: 1rem;
+    text-align: right;
+  }
+
 }
