@@ -141,6 +141,8 @@
         flex-wrap: wrap;
 
         & > * {
+          flex-basis: auto;
+
           &:nth-child(odd) {
             width: 66.66%;
           }

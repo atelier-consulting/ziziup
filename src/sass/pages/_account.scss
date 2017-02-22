@@ -332,6 +332,11 @@ $account-gutter-big: 1.25rem;
   &__tabs {
     display: flex;
     flex-direction: column;
+    padding-top: $spacer-size-default;
+
+    @include from(desktop) {
+      flex-direction: row;
+    }
 
   }
 
@@ -339,10 +344,14 @@ $account-gutter-big: 1.25rem;
     display: flex;
     flex-direction: row;
     padding-bottom: $spacer-size-default;
+
+    @include from(desktop) {
+      flex-direction: column;
+      min-width: 16rem;
+    }
   }
 
   &__tab {
-    flex-grow: 1;
     color: $color-text-default;
     text-decoration: none;
     padding-left: $icon-size-default;
@@ -351,9 +360,38 @@ $account-gutter-big: 1.25rem;
     background-size: $icon-size-small $icon-size-small;
 
     background-image: url("../img/icon-radio-off.png");
+    flex-grow: 1;
+
+    @include from(desktop) {
+      flex-grow: 0;
+      padding-right: $spacer-size-default;
+      height: 2rem;
+      margin-bottom: 4rem;
+    }
 
     &--active {
       background-image: url("../img/icon-radio-on.png");
+    }
+
+    & > img {
+      height: 2.5rem;
+      width: auto;
+      vertical-align: middle;
+    }
+
+    &--double-image {
+      & > img {
+        position: relative;
+        z-index: 2;
+        top: .5rem;
+        margin-right: .5rem;
+
+        &:first-child {
+          margin-right: -3rem;
+          z-index: 1;
+          top: -.5rem;
+        }
+      }
     }
   }
 

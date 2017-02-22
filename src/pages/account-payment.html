@@ -207,10 +207,13 @@
         </div>
         <div class="account__tabs">
           <div class="account__tabbar">
-            <a class="account__tab account__tab--active" href="javascript:;">
+            <a class="account__tab account__tab--double-image account__tab--active" href="javascript:;">
+              <img class="hide__until--desktop" src="../img/payment-mastercard.png" alt="MasterCard" />
+              <img class="hide__until--desktop" src="../img/payment-visa.png" alt="Visa" />
               Credit Card
             </a>
             <a class="account__tab" href="javascript:;">
+              <img class="hide__until--desktop" src="../img/payment-paypal.png" alt="PayPal">
               PayPal
             </a>
           </div>
@@ -239,8 +242,18 @@
                 </div>
                 <div class="form__cell form__cell--card-cvv">
                   <label class="form__label">CVV</label>
-                  <input class="form__input" type="text" />
+                  <input class="form__input" type="text" size="3" maxlength="3" />
                   <img src="../img/icon-cvv.png" alt="CVV" />
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__cell form__cell--checkbox">
+                  <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
+                  <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                </div>
+                <div class="form__cell">
+                  <a class="form__discard account__part--toggle" href="#">Discard<span class="hide__until--big"> changes</span></a>
+                  <input class="form__save" type="submit" value="Save all changes" />
                 </div>
               </div>
             </form>
