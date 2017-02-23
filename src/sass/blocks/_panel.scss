@@ -534,4 +534,12 @@
       background-size: auto 6px;
     }
   }
+
+  &__expander {
+    display: none;
+
+    .panel--open & {
+      display: block;
+    }
+  }
 }

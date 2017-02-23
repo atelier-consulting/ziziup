@@ -216,12 +216,11 @@
             <div class="panel">
               <div class="panel__summary panel__summary--opened">
                 <div class="panel__toggle">
-                  Close
-                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                  <i class="icon icon--tiny icon--caret-full"></i>
                 </div>
                 <div class="panel__title">Feb 27, 2017</div>
                 <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
-                <div class="panel__amount">3 items</div>
+                <div class="panel__amount">1 item</div>
               </div>
 
               <div class="panel__expander">
@@ -258,12 +257,11 @@
             <div class="panel">
               <div class="panel__summary panel__summary--closed">
                 <div class="panel__toggle">
-                  Close
-                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                  <i class="icon icon--tiny icon--caret-full"></i>
                 </div>
-                <div class="panel__title">Feb 27, 2017</div>
+                <div class="panel__title">Jan 14, 2017</div>
                 <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
-                <div class="panel__amount">3 items</div>
+                <div class="panel__amount">2 items</div>
               </div>
 
               <div class="panel__expander">
@@ -280,6 +278,20 @@
                     <div class="panel__quantity">1</div>
                   </div>
                 </div>
+
+                <div class="panel__product">
+                  <div class="panel__image">
+                    <img src="../img/product-2.jpg" alt="">
+                  </div>
+                  <div class="panel__info">
+                    <div class="panel__name">MacBook Pro</div>
+                    <div class="panel__description">13" Early 2015</div>
+                    <div class="panel__price">$1499</div>
+                  </div>
+                  <div class="panel__counter">
+                    <div class="panel__quantity">1</div>
+                  </div>
+                </div>
               </div>
               <div class="panel__summary">
                 <div class="panel__title">
@@ -287,10 +299,7 @@
                   123456
                 </div>
                 <div class="panel__subtitle">
-                  <a class="form__link" href="#">Track this order</a>
-                </div>
-                <div class="panel__amount">
-                  <a class="form__link" href="#">Delivery date</a>
+                  <a class="form__link" href="#">Place this order again</a>
                 </div>
               </div>
             </div>
@@ -300,12 +309,11 @@
             <div class="panel">
               <div class="panel__summary panel__summary--cancelled">
                 <div class="panel__toggle">
-                  Close
-                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                  <i class="icon icon--tiny icon--caret-full"></i>
                 </div>
-                <div class="panel__title">Feb 27, 2017</div>
+                <div class="panel__title">Feb 5, 2017</div>
                 <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
-                <div class="panel__amount">3 items</div>
+                <div class="panel__amount">1 item</div>
               </div>
 
               <div class="panel__expander">
@@ -329,10 +337,7 @@
                   123456
                 </div>
                 <div class="panel__subtitle">
-                  <a class="form__link" href="#">Track this order</a>
-                </div>
-                <div class="panel__amount">
-                  <a class="form__link" href="#">Delivery date</a>
+                  <a class="form__link" href="#">Place this order again</a>
                 </div>
               </div>
             </div>
@@ -471,6 +476,7 @@
 <script type="text/javascript" src="https://rawgit.com/t1m0n/air-datepicker/master/dist/js/datepicker.min.js"></script>
 <script>
   (function(){
+    // Menu
     var domTitle = document.querySelector('.account__title');
 
     domTitle.addEventListener('click', function() {
@@ -478,8 +484,7 @@
       domTitle.classList.toggle('account__title--collapsed');
     });
 
-
-    // tamka
+    // Tabs
     var domTabsWrapper = document.querySelector('.account__orders');
     var domTabs = domTabsWrapper.querySelectorAll('.tabbar__tab');
     var domTabContents = domTabsWrapper.querySelectorAll('.orders__tab');
@@ -499,6 +504,23 @@
       });
     });
 
+    // Expanders
+    // tamka
+    var domSummaries = document.querySelectorAll('.panel .panel__summary:first-child');
+
+    domSummaries.forEach(function(domSummary) {
+      domSummary.addEventListener('click', function(event) {
+        var domTarget = event.target.classList.contains('panel__summary')
+          ? event.target
+          : event.target.closest('.panel__summary');
+        ;
+
+        domTarget.closest('.panel').classList.toggle('panel--open');
+        domTarget.querySelector('.icon--caret-full').classList.toggle('icon--rotated');
+      });
+    });
+
+    // Calendar
     $.fn.datepicker.language['en'] = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
