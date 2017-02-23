@@ -370,6 +370,7 @@
   &__link {
     text-decoration: none;
     color: $color-brand-primary;
+    font-weight: $font-weight-base;
 
     & > .icon {
       vertical-align: text-bottom;

@@ -1,0 +1,66 @@
+.datepicker {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-default;
+  width: 100%;
+  border: 0;
+
+  &--nav {
+    background-color: $color-background-light;
+    padding: .3125rem 1rem;
+    border: 0;
+  }
+
+  &--content {
+    padding: 0;
+  }
+
+  &--days-names {
+    background-color: $color-background-lighter;
+    margin: 0;
+    padding: .5rem 1rem;
+  }
+
+  &--day-name {
+    color: $color-text-light;
+  }
+
+  &--cells {
+    padding: .5rem 1rem 1rem 1rem;
+  }
+
+  &--cell {
+    height: 2.5rem;
+    border-radius: 0;
+    color: $color-text-default;
+
+    @include from(big) {
+      height: 3rem;
+    }
+
+    &.-current-{
+      color: $color-brand-primary;
+    }
+
+    &.-selected-,
+    &.-focus-,
+    &.-selected-.-focus- {
+      background-color: transparent;
+      color: $color-text-default;
+    }
+
+    &.has-order,
+    &.has-order.-focus-,
+    &.has-order.-selected-,
+    &.has-order.-focus-.-selected {
+      color: $color-text-white;
+      background-image: url('../img/icon-bag-alt.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 2.25rem auto;
+
+      @include from(big) {
+        background-size: 2.75rem auto;
+      }
+    }
+  }
+}
