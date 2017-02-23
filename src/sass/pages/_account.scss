@@ -184,6 +184,10 @@ $account-gutter-big: 1.25rem;
         border-bottom: none;
       }
 
+      &.account__link--active {
+        background: $color-background-darkest;
+      }
+
       & > a {
         font-weight: $font-weight-base;
       }
