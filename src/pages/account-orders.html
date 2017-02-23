@@ -208,7 +208,8 @@
         </section>
         <aside>
           <div class="account__box">
-            <div class="datepicker-here"></div>
+            <!--tytka-->
+            <div id="orders__calendar"></div>
           </div>
         </aside>
       </div>
@@ -334,5 +335,29 @@
 <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://rawgit.com/t1m0n/air-datepicker/master/dist/js/datepicker.min.js"></script>
 <script>
+  (function(){
+    // tamka
+    $.fn.datepicker.language['en'] = {
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
+      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      today: 'Today',
+      clear: 'Clear',
+      dateFormat: 'mm/dd/yyyy',
+      timeFormat: 'hh:ii aa',
+        firstDay: 0
+    };
+
+    $(document).ready(function(){
+      var $cal = $('#orders__calendar');
+
+      $cal.datepicker({
+        language: 'en',
+        inline: true
+      });
+    });
+  })();
 </script>
 </html>
