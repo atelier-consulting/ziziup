@@ -304,6 +304,23 @@ $account-gutter-big: 1.25rem;
         }
       }
     }
+
+    &--placeholder {
+      text-align: center;
+
+      & > * {
+        margin: .75rem 0;
+      }
+
+      & > img {
+        width: 80%;
+        max-width: 24rem;
+      }
+
+      & > p {
+        margin-top: -3rem;
+      }
+    }
   }
 
   &__header {

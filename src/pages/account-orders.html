@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="../%CSSPATH%">
 </head>
 <body>
-
   <menu class="menu">
     <div class="menu__floor menu__floor--secondary hide__until--tablet">
       <div class="container">
@@ -211,7 +210,7 @@
               <a class="tabbar__tab" href="javascript:;" rel="orders--cancelled">Cancelled</a>
             </div>
           </div>
-          <!--tytka-->
+
           <div id="orders--opened" class="orders__tab orders__tab--active">
             <div class="panel">
               <div class="panel__summary panel__summary--opened">
@@ -341,6 +340,12 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="account__box account__box--placeholder">
+            <h4>You haven't done any orders yet</h4>
+            <img src="../img/comp-empty-bag.jpg" alt="Empty bag">
+            <p>Let’s go to our stores page, chose one and start shopping?</p>
+            <a class="button button--rounded button--accent" href="#">Go <span class="hide__until--phablet">to store selection</span><span class="hide__from--phablet">shopping</span></a>
           </div>
 
         </section>
@@ -505,7 +510,6 @@
     });
 
     // Expanders
-    // tamka
     var domSummaries = document.querySelectorAll('.panel .panel__summary:first-child');
 
     domSummaries.forEach(function(domSummary) {
