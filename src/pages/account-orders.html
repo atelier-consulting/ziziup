@@ -203,15 +203,32 @@
 
     <section class="account__main">
       <div class="columns columns__from--desktop golden__from--desktop">
-        <section>
-          1
+        <section class="account__orders">
+          <div class="account__box account__box--slim">
+            <div class="tabbar">
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders__opened">Opened</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders__closed">Closed</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders__cancelled">Cancelled</a>
+            </div>
+          </div>
+          <!--tytka-->
+          <div class="panel">
+            <div class="panel__summary">
+              <div class="panel__toggle">
+                Close
+                <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+              </div>
+              <div class="panel__title">Feb 27, 2017</div>
+              <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
+            </div>
+          </div>
+
         </section>
         <aside>
           <div class="account__box account__box--slim">
             <div class="account__header account__header--slim">
               <h5>Delivery calendar</h5>
             </div>
-            <!--tytka-->
             <div id="orders__calendar"></div>
           </div>
         </aside>
@@ -339,7 +356,6 @@
 <script type="text/javascript" src="https://rawgit.com/t1m0n/air-datepicker/master/dist/js/datepicker.min.js"></script>
 <script>
   (function(){
-    // tamka
     $.fn.datepicker.language['en'] = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -356,14 +372,12 @@
     $(document).ready(function(){
       var $cal = $('#orders__calendar');
 
-      var orderDates;
-
       $cal.datepicker({
         language: 'en',
         inline: true,
         onRenderCell: function(date, type) {
-          // 11 is date of upcoming delivery
-          if(type === 'day' && date.getDate() === 11) {
+          // 27 is date of delivery
+          if(type === 'day' && date.getDate() === 27) {
             return {
               classes: 'has-order'
             }

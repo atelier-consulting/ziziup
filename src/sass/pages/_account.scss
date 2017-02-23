@@ -295,6 +295,10 @@ $account-gutter-big: 1.25rem;
 
     &--slim {
       padding: 0;
+
+      & > .tabbar {
+        padding: 0 5%;
+      }
     }
   }
 
@@ -454,5 +458,9 @@ $account-gutter-big: 1.25rem;
       }
     }
 
+  }
+
+  &__orders {
+    padding: 0 !important;
   }
 }
