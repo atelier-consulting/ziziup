@@ -4,8 +4,12 @@
   box-shadow: 0 2px 4px $color-shadow-default;
   margin: 0 0 .625rem 0;
 
-  @include from(phablet) {
-    margin: 0 1.25rem 1.25rem;
+  @include from(tablet) {
+    margin: 0 1rem .625rem .625rem;
+  }
+
+  @include from(big) {
+    margin: 0 1rem 1.25rem 1.25rem;
   }
 
   &__summary {
@@ -19,6 +23,18 @@
     @include from(phablet) {
       justify-content: flex-start;
       padding: $spacer-size-default 1rem;
+    }
+
+    &--opened {
+      background-color: $color-brand-success;
+    }
+
+    &--closed {
+      background-color: $color-brand-disabled;
+    }
+
+    &--cancelled {
+      background-color: $color-brand-warning;
     }
   }
 
@@ -67,8 +83,9 @@
     color: $color-text-default;
 
     & > img {
-      height: 2rem;
+      height: 1.75rem;
       width: auto;
+      margin-top: .25rem;
     }
   }
 
@@ -132,7 +149,7 @@
     display: flex;
     flex-direction: row;
     min-height: 4.25rem;
-    border-top: 1px solid $color-border-lightest;
+    border-bottom: 1px solid $color-border-lightest;
   }
 
   // Product content {
@@ -196,6 +213,7 @@
     margin: 0 $spacer-size-large 0 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     width: 3rem;
     min-width: 3rem;
