@@ -356,9 +356,19 @@
     $(document).ready(function(){
       var $cal = $('#orders__calendar');
 
+      var orderDates;
+
       $cal.datepicker({
         language: 'en',
-        inline: true
+        inline: true,
+        onRenderCell: function(date, type) {
+          // 11 is date of upcoming delivery
+          if(type === 'day' && date.getDate() === 11) {
+            return {
+              classes: 'has-order'
+            }
+          }
+        }
       });
     });
   })();

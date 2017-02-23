@@ -31,14 +31,36 @@
   &--cell {
     height: 2.5rem;
     border-radius: 0;
+    color: $color-text-default;
+
+    @include from(big) {
+      height: 3rem;
+    }
 
     &.-current-{
       color: $color-brand-primary;
     }
 
     &.-selected-,
+    &.-focus-,
     &.-selected-.-focus- {
-      background-color: $color-brand-primary;
+      background-color: transparent;
+      color: $color-text-default;
+    }
+
+    &.has-order,
+    &.has-order.-focus-,
+    &.has-order.-selected-,
+    &.has-order.-focus-.-selected {
+      color: $color-text-white;
+      background-image: url('../img/icon-bag-alt.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 2.25rem auto;
+
+      @include from(big) {
+        background-size: 2.75rem auto;
+      }
     }
   }
 }
