@@ -297,7 +297,11 @@ $account-gutter-big: 1.25rem;
       padding: 0;
 
       & > .tabbar {
-        padding: 0 5%;
+        border: 0;
+
+        @include from(phablet) {
+          padding: 0 5%;
+        }
       }
     }
   }
@@ -462,5 +466,18 @@ $account-gutter-big: 1.25rem;
 
   &__orders {
     padding: 0 !important;
+
+    & > .orders__tab {
+      display: none;
+
+      &--active {
+        display: block;
+        padding-top: $account-gutter-small;
+
+        @include from(big) {
+          padding-top: $account-gutter-big;
+        }
+      }
+    }
   }
 }

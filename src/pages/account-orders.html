@@ -206,49 +206,134 @@
         <section class="account__orders">
           <div class="account__box account__box--slim">
             <div class="tabbar">
-              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders__opened">Opened</a>
-              <a class="tabbar__tab" href="javascript:;" rel="orders__closed">Closed</a>
-              <a class="tabbar__tab" href="javascript:;" rel="orders__cancelled">Cancelled</a>
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders--opened">Opened</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders--closed">Closed</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders--cancelled">Cancelled</a>
+            </div>
+          </div>
+          <!--tytka-->
+          <div id="orders--opened" class="orders__tab orders__tab--active">
+            <div class="panel">
+              <div class="panel__summary panel__summary--opened">
+                <div class="panel__toggle">
+                  Close
+                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                </div>
+                <div class="panel__title">Feb 27, 2017</div>
+                <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
+                <div class="panel__amount">3 items</div>
+              </div>
+
+              <div class="panel__expander">
+                <div class="panel__product">
+                  <div class="panel__image">
+                    <img src="../img/product-3.jpg" alt="">
+                  </div>
+                  <div class="panel__info">
+                    <div class="panel__name">Men&rsquo;s Tee Brush Print</div>
+                    <div class="panel__description">Size: S &nbsp; Color: Black</div>
+                    <div class="panel__price">$15.75</div>
+                  </div>
+                  <div class="panel__counter">
+                    <div class="panel__quantity">1</div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel__summary">
+                <div class="panel__title">
+                  <small>Order number:</small>
+                  123456
+                </div>
+                <div class="panel__subtitle">
+                  <a class="form__link" href="#">Track this order</a>
+                </div>
+                <div class="panel__amount">
+                  <a class="form__link" href="#">Delivery date</a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="panel">
-            <div class="panel__summary panel__summary--opened">
-              <div class="panel__toggle">
-                Close
-                <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+          <div id="orders--closed" class="orders__tab">
+            <div class="panel">
+              <div class="panel__summary panel__summary--closed">
+                <div class="panel__toggle">
+                  Close
+                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                </div>
+                <div class="panel__title">Feb 27, 2017</div>
+                <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
+                <div class="panel__amount">3 items</div>
               </div>
-              <div class="panel__title">Feb 27, 2017</div>
-              <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
-              <div class="panel__amount">3 items</div>
-            </div>
 
-            <div class="panel__expander">
-              <div class="panel__product">
-                <div class="panel__image">
-                  <img src="../img/product-3.jpg" alt="">
+              <div class="panel__expander">
+                <div class="panel__product">
+                  <div class="panel__image">
+                    <img src="../img/product-3.jpg" alt="">
+                  </div>
+                  <div class="panel__info">
+                    <div class="panel__name">Men&rsquo;s Tee Brush Print</div>
+                    <div class="panel__description">Size: S &nbsp; Color: Black</div>
+                    <div class="panel__price">$15.75</div>
+                  </div>
+                  <div class="panel__counter">
+                    <div class="panel__quantity">1</div>
+                  </div>
                 </div>
-                <div class="panel__info">
-                  <div class="panel__name">Men&rsquo;s Tee Brush Print</div>
-                  <div class="panel__description">Size: S &nbsp; Color: Black</div>
-                  <div class="panel__price">$15.75</div>
+              </div>
+              <div class="panel__summary">
+                <div class="panel__title">
+                  <small>Order number:</small>
+                  123456
                 </div>
-                <div class="panel__counter">
-                  <div class="panel__quantity">1</div>
+                <div class="panel__subtitle">
+                  <a class="form__link" href="#">Track this order</a>
+                </div>
+                <div class="panel__amount">
+                  <a class="form__link" href="#">Delivery date</a>
                 </div>
               </div>
             </div>
-            <!--tytka-->
-            <div class="panel__summary">
-              <div class="panel__title">
-                <small>Order number:</small>
-                123456
+          </div>
+
+          <div id="orders--cancelled" class="orders__tab">
+            <div class="panel">
+              <div class="panel__summary panel__summary--cancelled">
+                <div class="panel__toggle">
+                  Close
+                  <i class="icon icon--tiny icon--rotated icon--caret-full"></i>
+                </div>
+                <div class="panel__title">Feb 27, 2017</div>
+                <div class="panel__subtitle"><img src="../img/logo-amazon.png" alt="Amazon"></div>
+                <div class="panel__amount">3 items</div>
               </div>
-              <div class="panel__subtitle">
-                <a class="form__link" href="#">Track this order</a>
+
+              <div class="panel__expander">
+                <div class="panel__product">
+                  <div class="panel__image">
+                    <img src="../img/product-3.jpg" alt="">
+                  </div>
+                  <div class="panel__info">
+                    <div class="panel__name">Men&rsquo;s Tee Brush Print</div>
+                    <div class="panel__description">Size: S &nbsp; Color: Black</div>
+                    <div class="panel__price">$15.75</div>
+                  </div>
+                  <div class="panel__counter">
+                    <div class="panel__quantity">1</div>
+                  </div>
+                </div>
               </div>
-              <div class="panel__amount">
-                <a class="form__link" href="#">Delivery date</a>
+              <div class="panel__summary">
+                <div class="panel__title">
+                  <small>Order number:</small>
+                  123456
+                </div>
+                <div class="panel__subtitle">
+                  <a class="form__link" href="#">Track this order</a>
+                </div>
+                <div class="panel__amount">
+                  <a class="form__link" href="#">Delivery date</a>
+                </div>
               </div>
             </div>
           </div>
@@ -386,6 +471,34 @@
 <script type="text/javascript" src="https://rawgit.com/t1m0n/air-datepicker/master/dist/js/datepicker.min.js"></script>
 <script>
   (function(){
+    var domTitle = document.querySelector('.account__title');
+
+    domTitle.addEventListener('click', function() {
+      domTitle.classList.toggle('account__title--expanded');
+      domTitle.classList.toggle('account__title--collapsed');
+    });
+
+
+    // tamka
+    var domTabsWrapper = document.querySelector('.account__orders');
+    var domTabs = domTabsWrapper.querySelectorAll('.tabbar__tab');
+    var domTabContents = domTabsWrapper.querySelectorAll('.orders__tab');
+
+    domTabs.forEach(function(domTab) {
+      domTab.addEventListener('click', function(event) {
+        domTabContents.forEach(function(domContent) {
+          domContent.classList.remove('orders__tab--active');
+        });
+        domTabs.forEach(function(domTab) {
+          domTab.classList.remove('tabbar__tab--active');
+        });
+
+        event.target.classList.add('tabbar__tab--active');
+
+        domTabsWrapper.querySelector('#' + event.target.rel).classList.add('orders__tab--active');
+      });
+    });
+
     $.fn.datepicker.language['en'] = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
