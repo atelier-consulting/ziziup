@@ -4,8 +4,12 @@
   box-shadow: 0 2px 4px $color-shadow-default;
   margin: 0 0 .625rem 0;
 
-  @include from(phablet) {
-    margin: 0 1.25rem 1.25rem;
+  @include from(tablet) {
+    margin: 0 1rem .625rem .625rem;
+  }
+
+  @include from(big) {
+    margin: 0 1rem 1.25rem 1.25rem;
   }
 
   &__summary {
@@ -19,6 +23,18 @@
     @include from(phablet) {
       justify-content: flex-start;
       padding: $spacer-size-default 1rem;
+    }
+
+    &--opened {
+      background-color: $color-brand-success;
+    }
+
+    &--closed {
+      background-color: $color-brand-disabled;
+    }
+
+    &--cancelled {
+      background-color: $color-brand-warning;
     }
   }
 
@@ -65,6 +81,12 @@
     height: 2rem;
     line-height: 2rem;
     color: $color-text-default;
+
+    & > img {
+      height: 1.75rem;
+      width: auto;
+      margin-top: .25rem;
+    }
   }
 
   &__value {
@@ -102,7 +124,7 @@
     font-size: $font-size-oversize;
     text-decoration: none;
     text-transform: capitalize;
-    background-color: $color-background-light;
+    background-color: $color-brand-light;
     color: $color-brand-primary;
     text-align: center;
     line-height: 4.125rem;
@@ -127,7 +149,7 @@
     display: flex;
     flex-direction: row;
     min-height: 4.25rem;
-    border-top: 1px solid $color-border-lightest;
+    border-bottom: 1px solid $color-border-lightest;
   }
 
   // Product content {
@@ -191,6 +213,7 @@
     margin: 0 $spacer-size-large 0 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     width: 3rem;
     min-width: 3rem;
@@ -236,7 +259,7 @@
     width: 3.75rem;
     max-width: 3.75rem;
     margin: 0 0 0 1.125rem;
-    background-color: $color-background-light;
+    background-color: $color-brand-light;
     flex-direction: column;
     justify-content: center;
 
@@ -509,6 +532,14 @@
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAMAAABP7o1HAAAAGFBMVEUAAAD///8pMzMoLTAnLi8oLi8oLS8nLS8i1XWBAAAAB3RSTlMAARllvcjzFSFYnAAAAEBJREFUGNONkEkKACAMA7um//+xIqJUCDjHDF1FRD2BdJUHi1qE9Vx3Pk2v8Tp4E3lFNoEr8CdoKzqcrksPZC8Z2hsDCVB8R4kAAAAASUVORK5CYII=);
       background-repeat: repeat-x;
       background-size: auto 6px;
+    }
+  }
+
+  &__expander {
+    display: none;
+
+    .panel--open & {
+      display: block;
     }
   }
 }
