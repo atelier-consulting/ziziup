@@ -291,7 +291,10 @@ $account-gutter-big: 1.25rem;
       & .account__part--view {
         display: none;
       }
+    }
 
+    &--slim {
+      padding: 0;
     }
   }
 
@@ -328,6 +331,16 @@ $account-gutter-big: 1.25rem;
         float: none;
         display: block;
         margin-top: 1rem;
+      }
+    }
+
+    &--slim {
+      text-align: center;
+      padding: $spacer-size-default 0 0 0;
+
+      & h5 {
+        text-align: center;
+        padding: 0;
       }
     }
   }
