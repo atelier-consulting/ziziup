@@ -1,8 +1,19 @@
 .carousel {
   height: 16rem;
 
+
   @include from(big) {
     height: 21.25rem;
+  }
+
+  &--zcard {
+    //height: 31.5rem;
+    height: auto;
+    margin: $spacer-size-default 0 0 0;
+
+    @include from(desktop) {
+      margin: 2 * $spacer-size-default 0 0 0;
+    }
   }
 
   &__slide {
@@ -109,6 +120,56 @@
     @include from(phablet) {
       padding: 0;
       text-align: left;
+    }
+  }
+
+  &__z-slide {
+    width: 100%;
+    padding: 0 1.5rem;
+
+    & .list {
+      margin: $spacer-size-default 0 1.5 * $spacer-size-default;
+
+      @include from(desktop) {
+        & > .list__item {
+          margin: $spacer-size-big 0;
+        }
+      }
+    }
+
+    & h3 {
+      text-align: left;
+      color: $color-text-white;
+
+      & > sup {
+        font-weight: $font-weight-base;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    }
+
+    & .button {
+      float: right;
+    }
+
+    & h4 {
+      text-align: center;
+      color: $color-text-white;
+
+      @include from(phablet) {
+        text-align: left;
+      }
+
+    }
+
+    & img {
+      display: block;
+      margin: 0 auto;
+      max-width: 14rem;
+
+      @include from(big) {
+        max-width: 17.25rem;
+      }
     }
   }
 

@@ -125,6 +125,12 @@
         color: $color-brand-primary;
       }
     }
+
+    &.list--inverted {
+      & > .list__item:before {
+        color: $color-text-white;
+      }
+    }
   }
 
   &--dashed {
