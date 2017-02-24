@@ -205,6 +205,28 @@
         <div class="account__header">
           <h5>Activate ZIZIUP Card</h5>
         </div>
+        <div class="form__row">
+          <div class="form__cell form__cell--card-number">
+            <label class="form__label">Enter ZIZIUP Card Number</label>
+            <input class="form__input" type="text" size="4" maxlength="4" />
+            <input class="form__input" type="text" size="4" maxlength="4" />
+            <input class="form__input" type="text" size="4" maxlength="4" />
+            <input class="form__input" type="text" size="4" maxlength="4" />
+          </div>
+          <div class="form__cell form__cell--card-cvv">
+            <label class="form__label">PIN Code <small>4 digits</small></label>
+            <input class="form__input" type="text" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__cell form__cell--checkbox">
+            <input id="account-zcard-activate-is-primary" class="form__checkbox" type="checkbox">
+            <label class="form__label" for="account-zcard-activate-is-primary">Primary Payment Method</label>
+          </div>
+          <div class="form__cell">
+            <input class="button button--rounded button--accent" type="submit" value="Activate card" />
+          </div>
+        </div>
       </article>
     </section>
   </main>
