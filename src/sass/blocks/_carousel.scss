@@ -7,13 +7,34 @@
   }
 
   &--zcard {
-    //height: 31.5rem;
-    height: auto;
+    height: 29.5rem;
+    //height: auto;
+    width: 100%;
     margin: $spacer-size-default 0 0 0;
 
-    @include from(desktop) {
-      margin: 2 * $spacer-size-default 0 0 0;
+    @include from(phablet) {
+      height: 17rem;
     }
+
+    @include from(tablet) {
+      height: 18.5rem;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+      color: rgba(255,255,255,.4);
+    }
+
+    .slick-prev {
+      left: .5rem;
+      top: 43.3%;
+    }
+
+    .slick-next {
+      right: .5rem;
+      top: 43.3%;
+    }
+
   }
 
   &__slide {
@@ -125,6 +146,10 @@
 
   &__z-slide {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0 1.5rem;
 
     & .list {
@@ -143,13 +168,10 @@
 
       & > sup {
         font-weight: $font-weight-base;
+        font-size: $font-size-default;
         text-transform: none;
         letter-spacing: normal;
       }
-    }
-
-    & .button {
-      float: right;
     }
 
     & h4 {
