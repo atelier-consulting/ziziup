@@ -19,10 +19,9 @@
     <div class="example__demo example__demo--checkout">
 
       <!--Products-->
-      <div class="panel">
+      <div class="panel panel--open">
         <div class="panel__summary">
           <div class="panel__toggle">
-            Close
             <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
           </div>
           <div class="panel__title">Cart summary:</div>
@@ -67,8 +66,7 @@
       <div class="panel">
         <div class="panel__summary">
           <div class="panel__toggle">
-            Close
-            <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
+            <i class="icon icon--tiny icon--caret-full"></i>
           </div>
           <div class="panel__title">Ship to:</div>
           <div class="panel__value">
@@ -128,8 +126,7 @@
       <div class="panel">
         <div class="panel__summary">
           <div class="panel__toggle">
-            Close
-            <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
+            <i class="icon icon--tiny icon--caret-full"></i>
           </div>
           <div class="panel__title">Payment</div>
           <div class="panel__value">
@@ -390,8 +387,7 @@
       <div class="panel">
         <div class="panel__summary">
           <div class="panel__toggle">
-            Close
-            <i class="icon icon--tiny icon--caret-full icon--rotated"></i>
+            <i class="icon icon--tiny icon--caret-full"></i>
           </div>
           <div class="panel__title">Donation</div>
           <div class="panel__value">
@@ -481,10 +477,9 @@
     </div>
     <pre class="example__code">
       <code class="html">&lt;!--Products--&gt;</code>
-      <code class="html">&lt;div class=&quot;<mark>panel</mark>&quot;&gt;</code>
+      <code class="html">&lt;div class=&quot;<mark>panel panel--open</mark>&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;<mark>panel__summary</mark>&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;<mark>panel__toggle</mark>&quot;&gt;</code>
-      <code class="html">      Close</code>
       <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;<mark>panel__title</mark>&quot;&gt;Cart summary:&lt;/div&gt;</code>
@@ -529,8 +524,7 @@
       <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
-      <code class="html">      Close</code>
-      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full&quot;&gt;&lt;/i&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Ship to:&lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
@@ -590,8 +584,7 @@
       <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
-      <code class="html">      Close</code>
-      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full&quot;&gt;&lt;/i&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Payment&lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
@@ -852,8 +845,7 @@
       <code class="html">&lt;div class=&quot;panel&quot;&gt;</code>
       <code class="html">  &lt;div class=&quot;panel__summary&quot;&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__toggle&quot;&gt;</code>
-      <code class="html">      Close</code>
-      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full icon--rotated&quot;&gt;&lt;/i&gt;</code>
+      <code class="html">      &lt;i class=&quot;icon icon--tiny icon--caret-full&quot;&gt;&lt;/i&gt;</code>
       <code class="html">    &lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__title&quot;&gt;Donation&lt;/div&gt;</code>
       <code class="html">    &lt;div class=&quot;panel__value&quot;&gt;</code>
@@ -909,5 +901,23 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+    (function(){
+      // Expanders
+      var domSummaries = document.querySelectorAll('.panel .panel__summary:first-child');
+
+      domSummaries.forEach(function(domSummary) {
+        domSummary.addEventListener('click', function(event) {
+          var domTarget = event.target.classList.contains('panel__summary')
+            ? event.target
+            : event.target.closest('.panel__summary');
+          ;
+
+          domTarget.closest('.panel').classList.toggle('panel--open');
+          domTarget.querySelector('.icon--caret-full').classList.toggle('icon--rotated');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
