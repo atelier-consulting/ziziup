@@ -1,8 +1,40 @@
 .carousel {
   height: 16rem;
 
+
   @include from(big) {
     height: 21.25rem;
+  }
+
+  &--zcard {
+    height: 29.5rem;
+    //height: auto;
+    width: 100%;
+    margin: $spacer-size-default 0 0 0;
+
+    @include from(phablet) {
+      height: 17rem;
+    }
+
+    @include from(tablet) {
+      height: 18.5rem;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+      color: rgba(255,255,255,.4);
+    }
+
+    .slick-prev {
+      left: .5rem;
+      top: 43.3%;
+    }
+
+    .slick-next {
+      right: .5rem;
+      top: 43.3%;
+    }
+
   }
 
   &__slide {
@@ -109,6 +141,57 @@
     @include from(phablet) {
       padding: 0;
       text-align: left;
+    }
+  }
+
+  &__z-slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+
+    & .list {
+      margin: $spacer-size-default 0 1.5 * $spacer-size-default;
+
+      @include from(desktop) {
+        & > .list__item {
+          margin: $spacer-size-big 0;
+        }
+      }
+    }
+
+    & h3 {
+      text-align: left;
+      color: $color-text-white;
+
+      & > sup {
+        font-weight: $font-weight-base;
+        font-size: $font-size-default;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    }
+
+    & h4 {
+      text-align: center;
+      color: $color-text-white;
+
+      @include from(phablet) {
+        text-align: left;
+      }
+
+    }
+
+    & img {
+      display: block;
+      margin: 0 auto;
+      max-width: 14rem;
+
+      @include from(big) {
+        max-width: 17.25rem;
+      }
     }
   }
 
