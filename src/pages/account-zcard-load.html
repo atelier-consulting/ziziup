@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -171,10 +171,10 @@
         <li class="account__link account__link--expanded">
           <a href="#">ZIZIUP Card</a>
           <ul class="account__menu">
-            <li class="account__link account__link--active">
+            <li class="account__link">
               <a href="#">Activate</a>
             </li>
-            <li class="account__link">
+            <li class="account__link account__link--active">
               <a href="#">Load</a>
             </li>
           </ul>
@@ -201,34 +201,53 @@
     </aside>
 
     <section class="account__main">
-      <article class="account__box">
-        <div class="account__header">
-          <h5>Activate ZIZIUP Card</h5>
-        </div>
-        <div class="form__row">
-          <div class="form__cell form__cell--card-number">
-            <label class="form__label">Enter ZIZIUP Card Number</label>
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
-          </div>
-          <div class="form__cell form__cell--card-cvv">
-            <label class="form__label">PIN Code <small>4 digits</small></label>
-            <input class="form__input" type="text" />
+      <div class="columns columns__from--desktop columns__reverse-from--desktop columns--sidebar-first">
+        <div class="account__box account__box--sidebar">
+          <div class="account__header">
+            <img src="../img/landing-card-elite.png" alt="ZIZIUP Elite Card" class="hide__until--desktop">
+            <h4>ZIZIUP Elite</h4>
+            <div>
+              Available credit: <strong>$1000</strong>
+            </div>
+            <div>
+              <a class="button button--large button--bordered button--rounded" href="#">Upgrade</a>
+            </div>
           </div>
         </div>
-        <div class="form__row">
-          <div class="form__cell form__cell--checkbox">
-            <input id="account-zcard-activate-is-primary" class="form__checkbox" type="checkbox">
-            <label class="form__label" for="account-zcard-activate-is-primary">Primary Payment Method</label>
+        <div class="account__load">
+          <div class="account__box">
+            <div class="account__header">
+              <h4>Load ZIZIUP Card</h4>
+            </div>
+            <div class="tabbar">
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="load--deposit">
+                <span class="hide__until--phablet">Bank </span>deposit
+              </a>
+              <a class="tabbar__tab" href="javascript:;" rel="load--card">
+                <span class="hide__until--phablet">Credit </span>card
+              </a>
+              <a class="tabbar__tab" href="javascript:;" rel="load--paypal">
+                Paypal<span class="hide__until--phablet"> account</span>
+              </a>
+            </div>
+            <div id="load--deposit" class="load__tab load__tab--active">
+              deposit
+            </div>
+            <div id="load--card" class="load__tab">
+              card
+            </div>
+            <div id="load--paypal" class="load__tab">
+              card
+            </div>
           </div>
-          <div class="form__cell">
-            <input class="button button--rounded button--accent" type="submit" value="Activate card" />
           </div>
         </div>
-      </article>
-
+      </div>
+      <!--<article class="account__box">-->
+        <!--<div class="account__header">-->
+          <!--<h5>Load ZIZIUP Card</h5>-->
+        <!--</div>-->
+      <!--</article>-->
     </section>
   </main>
 
@@ -356,15 +375,6 @@
       domTitle.addEventListener('click', function() {
         domTitle.classList.toggle('account__title--expanded');
         domTitle.classList.toggle('account__title--collapsed');
-      });
-
-      $('.carousel').slick({
-        //arrows: false,
-        arrows: true,
-        dots: false,
-        autoplay: true,
-        autoplaySpeed: 3250,
-        speed: 850
       });
     })();
   </script>
