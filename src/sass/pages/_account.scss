@@ -11,6 +11,7 @@ $account-gutter-big: 1.25rem;
 .account {
   display: flex;
   flex-direction: column;
+  max-width: 100vw;
 
   padding-top: 3.125rem;
 
@@ -184,6 +185,10 @@ $account-gutter-big: 1.25rem;
         border-bottom: none;
       }
 
+      &.account__link--active {
+        background: $color-background-darkest;
+      }
+
       & > a {
         font-weight: $font-weight-base;
       }
@@ -228,9 +233,11 @@ $account-gutter-big: 1.25rem;
   &__main {
     flex-grow: 1;
     padding-bottom: $spacer-size-default;
+    max-width: 100%;
 
     @include from(tablet) {
       padding-right: calc((100vw - #{$account-container-tablet}) / 2);
+      max-width: calc(100vw - #{$sidebar-width-tablet});
     }
 
     @include from(desktop) {
@@ -240,6 +247,7 @@ $account-gutter-big: 1.25rem;
     @include from(big) {
       padding-right: calc((100vw - #{$account-container-big}) / 2);
       padding-bottom: $account-gutter-big;
+      max-width: calc(100vw - #{$sidebar-width-big});
     }
 
     @include from(large) {
