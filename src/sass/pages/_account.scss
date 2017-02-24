@@ -237,25 +237,28 @@ $account-gutter-big: 1.25rem;
 
     @include from(tablet) {
       padding-right: calc((100vw - #{$account-container-tablet}) / 2);
-      max-width: calc(100vw - #{$sidebar-width-tablet});
+      max-width: calc(100vw - ((100vw - #{$account-container-tablet}) / 2 + #{$sidebar-width-tablet}));
     }
 
     @include from(desktop) {
       padding-right: calc((100vw - #{$account-container-desktop}) / 2);
+      max-width: calc(100vw - ((100vw - #{$account-container-desktop}) / 2 + #{$sidebar-width-tablet}));
     }
 
     @include from(big) {
       padding-right: calc((100vw - #{$account-container-big}) / 2);
       padding-bottom: $account-gutter-big;
-      max-width: calc(100vw - #{$sidebar-width-big});
+      max-width: calc(100vw - ((100vw - #{$account-container-big}) / 2 + #{$sidebar-width-big}));
     }
 
     @include from(large) {
       padding-right: calc((100vw - #{$account-container-large}) / 2);
+      max-width: calc(100vw - ((100vw - #{$account-container-large}) / 2 + #{$sidebar-width-big}));
     }
 
     @include from(huge) {
       padding-right: calc((100vw - #{$account-container-huge}) / 2);
+      max-width: calc(100vw - ((100vw - #{$account-container-huge}) / 2 + #{$sidebar-width-big}));
     }
   }
 
