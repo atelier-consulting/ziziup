@@ -563,6 +563,7 @@ $account-gutter-big: 1.25rem;
 
   &__load {
     .load__tab {
+      padding-top: $spacer-size-default;
       display: none;
 
       &--active {

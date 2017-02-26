@@ -361,10 +361,17 @@
     font-size: $font-size-tiny;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: $letter-spacing-small;
     padding: 0 1.125rem;
     float: right;
     border-radius: .75rem;
+
+    &--large {
+      height: 2.25rem;
+      line-height: 2.25rem;
+      border-radius: 1.625rem;
+    }
   }
 
   &__link {
