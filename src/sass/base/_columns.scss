@@ -203,6 +203,131 @@
       max-width: 17.5rem;
     }
   }
+
+  &__pricing {
+
+    padding-top: .625rem;
+    padding-bottom: .625rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+
+    @include from(tablet) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: .25rem;
+      padding-right: .25rem;
+
+      height: 46rem;
+
+      &--featured {
+        padding-top: .625rem;
+        padding-bottom: .625rem;
+        padding-left: .25rem;
+        padding-right: .25rem;
+
+      }
+    }
+
+    @include from(desktop) {
+      height: 42.25rem;
+      padding-left: .75rem;
+      padding-right: .75rem;
+    }
+
+    & > .pricing {
+      position: relative;
+      background: $color-background-default;
+      box-shadow: 0 2px 4px $color-shadow-default;
+      width: 100%;
+      height: 100%;
+      padding: 1.75rem 0 .5rem;
+
+      &--featured {
+        @include from(tablet) {
+          padding-top: 3.125rem;
+        }
+      }
+
+      & > h4 {
+        color: $color-text-default;
+        text-align: center;
+        font-size: $font-size-oversize;
+        letter-spacing: $letter-spacing-small;
+        margin: 0 0 2rem 0;
+      }
+
+      & > img {
+        max-width: 12rem;
+        display: block;
+        margin: 0 auto 1rem;
+      }
+
+      & > h3 {
+        text-align: center;
+        letter-spacing: $letter-spacing-small;
+
+        & > sup {
+          font-weight: $font-weight-base;
+          text-transform: none;
+          letter-spacing: normal;
+          font-size: $font-size-default;
+        }
+      }
+
+      & > .dash {
+        width: 50%;
+        max-width: 8.75rem;
+        height: .125rem;
+        margin: 1rem auto;
+
+        &--elite {
+          background-color: $color-brand-primary;
+        }
+
+        &--gold {
+          background-color: $color-brand-gold;
+        }
+
+        &--platinum {
+          background-color: $color-brand-platinum;
+        }
+      }
+
+      & > .list {
+        font-size: $font-size-small;
+        color: $color-text-default;
+
+        & > .list__item {
+          padding: .75rem 1rem;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $color-border-lightest;
+          }
+
+          @include from(desktop) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+      }
+
+      & > .pricing__cta {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        padding: 1rem 0 2rem;
+
+        &--featured {
+          @include from(tablet) {
+            padding-bottom: 3.375rem;
+          }
+        }
+      }
+
+    }
+  }
 }
 
 .rows {

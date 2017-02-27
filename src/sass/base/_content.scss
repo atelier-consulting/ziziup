@@ -122,6 +122,11 @@
       }
     }
 
+    &--center-always {
+      text-align: center;
+      color: $color-text-default;
+    }
+
     &--small {
       padding-top: 0;
       padding-bottom: $spacer-size-default;
