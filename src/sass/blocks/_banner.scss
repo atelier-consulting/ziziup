@@ -189,6 +189,27 @@
       }
     }
 
+    & > h2 {
+      color: $color-text-white;
+      font-size: $font-size-default;
+      letter-spacing: $letter-spacing-default;
+      text-align: center;
+
+      @include from(phablet) {
+        letter-spacing: $letter-spacing-big;
+        font-size: $font-size-oversize;
+      }
+
+      @include from(tablet) {
+        font-size: $font-size-large;
+      }
+
+      @include from(big) {
+        font-size: $font-size-larger;
+        letter-spacing: $letter-spacing-large;
+      }
+    }
+
     & > p {
       margin: $spacer-size-big 0 0 0;
     }
