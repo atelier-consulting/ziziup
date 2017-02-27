@@ -138,7 +138,7 @@
           <a href="#" class="tabbar__tab">
             Sales
           </a>
-          <a href="#" class="tabbar__tab">
+          <a href="#" class="tabbar__tab tabbar__tab--active">
             ZIZIUP Card
           </a>
           <a href="#" class="tabbar__tab">
@@ -161,128 +161,124 @@
     </div>
   </menu>
 
-  <main class="account">
-    <aside class="account__sidebar">
-      <h1 class="account__title account__title--collapsed">My account</h1>
-      <ul class="account__menu">
-        <li class="account__link">
-          <a href="#">Personal info</a>
-        </li>
-        <li class="account__link account__link--expanded">
-          <a href="#">ZIZIUP Card</a>
-          <ul class="account__menu">
-            <li class="account__link account__link--active">
-              <a href="#">Activate</a>
-            </li>
-            <li class="account__link">
-              <a href="#">Load</a>
-            </li>
-          </ul>
-        </li>
-        <li class="account__link">
-          <a href="#">Payment</a>
-        </li>
-        <li class="account__link">
-          <a href="#">My Orders</a>
-        </li>
-        <li class="account__link">
-          <a href="#">Messages</a>
-        </li>
-        <li class="account__link">
-          <a href="#">Log Out</a>
-        </li>
+  <main class="content">
 
-        <li class="account__sidebanner account__sidebanner--men-accessoires">
-          <h3>Summer sales</h3>
-          <p>Men accessoires 2016</p>
-          <a class="button button--accent button--rounded" href="#">Discover</a>
-        </li>
-      </ul>
-    </aside>
-
-    <section class="account__main">
-      <article class="account__box">
-        <div class="account__header">
-          <h5>Activate ZIZIUP Card</h5>
-        </div>
-        <div class="form__row">
-          <div class="form__cell form__cell--card-number">
-            <label class="form__label">Enter ZIZIUP Card Number</label>
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
-            <input class="form__input" type="text" size="4" maxlength="4" />
+    <div class="banner banner--ziziup-card">
+      <div class="banner__overlay">
+        <div class="container">
+          <div class="banner__module">
+            <h1>ZIZIUP Card</h1>
           </div>
-          <div class="form__cell form__cell--card-cvv">
-            <label class="form__label">PIN Code <small>4 digits</small></label>
-            <input class="form__input" type="text" />
-          </div>
-        </div>
-        <div class="form__row">
-          <div class="form__cell form__cell--checkbox">
-            <input id="account-zcard-activate-is-primary" class="form__checkbox" type="checkbox">
-            <label class="form__label" for="account-zcard-activate-is-primary">Primary Payment Method</label>
-          </div>
-          <div class="form__cell">
-            <input class="button button--rounded button--accent" type="submit" value="Activate card" />
-          </div>
-        </div>
-      </article>
-      
-      <div class="teaser teaser--zcard">
-        <h3>Have no ZIZIUP Card yet?</h3>
-        <h3 class="hide__until--phablet">Chose yours</h3>
-
-        <div class="carousel carousel--zcard">
-          <div>
-            <div class="carousel__z-slide carousel__z-slide--1">
-              <div class="columns columns__from--phablet golden-reverse__from--phablet">
-                <div><img src="../img/landing-card-gold.png" alt="ZIZIUP Gold Card"></div>
-                <div>
-                  <h4>ZIZIUP Gold</h4>
-                  <ul class="list list--inverted list--dotted">
-                    <li class="list__item">We apply store coupons to your orders</li>
-                    <li class="list__item">Participate in seasonal promotion and store discounts</li>
-                    <li class="list__item">Get credit if the items price reduces before we place your order</li>
-                    <li class="list__item">10 free shippings to local pickup</li>
-                  </ul>
-                  <div class="columns">
-                    <h3>$100<sup>/year</sup></h3>
-                    <div>
-                      <a class="button button--large button--rounded button--transparent" href="#">Buy online</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="carousel__z-slide carousel__z-slide--2">
-              <div class="columns columns__from--phablet golden-reverse__from--phablet">
-                <div><img src="../img/landing-card-platinum.png" alt="ZIZIUP Gold Card"></div>
-                <div>
-                  <h4>ZIZIUP Platinum</h4>
-                  <ul class="list list--inverted list--dotted">
-                    <li class="list__item">We apply store coupons to your orders</li>
-                    <li class="list__item">Participate in seasonal promotion and store discounts</li>
-                    <li class="list__item">Get credit if the items price reduces before we place your order</li>
-                    <li class="list__item">20 free shippings to local pickup</li>
-                  </ul>
-                  <div class="columns">
-                    <h3>$200<sup>/year</sup></h3>
-                    <div>
-                      <a class="button button--large button--rounded button--transparent" href="#">Buy online</a>
-                    </div>
-                  </div>
-                </div>
+          <div class="banner__module hide__until--desktop">
+            <div class="dropdown">
+              <div class="dropdown__label dropdown__label--large">Yaounde, Cameroon</div>
+              <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
+                <span class="dropdown__value">Change location</span>
+                <i class="icon icon--caret-white"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="teaser teaser--offline">
+    <div class="headline headline--centered">
+      <div class="container">
+        <div class="columns columns__from--tablet half__from--tablet golden-reverse__from--big">
+          <div class="headline__description">
+            If you have ZIZIUP Card already, you can:
+          </div>
+          <div class="headline__actions">
+            <a class="button button--rounded button--bordered" href="#">Activate card</a>
+            <span class="hide__until--phablet">&nbsp;or&nbsp;</span>
+            <a class="button button--rounded button--bordered" href="#">Load card</a>
+          <span class="hide__until--big">but please login first</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--padded container--narrow">
+      <h3 class="content__title content__title--center-always">Choose your membership program</h3>
+
+      <div class="columns three__from--tablet">
+        <div class="column__pricing">
+          <div class="pricing">
+            <h4>Ziziup Elite Card</h4>
+            <img src="../img/landing-card-elite.png" alt="ZIZIUP Elite Card">
+            <h3>$15<sup>/year</sup></h3>
+            <div class="dash dash--elite"></div>
+            <ul class="list list--separated">
+              <li class="list__item">
+                We apply store coupons to your orders
+              </li>
+              <li class="list__item">
+                Participate on seasonal promotion
+              </li>
+              <li class="list__item">
+                Get credit if the item price reduces before we placed the order
+              </li>
+            </ul>
+            <div class="pricing__cta">
+              <a class="button button--rounded button--accent" href="#">Buy online</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column__pricing column__pricing--featured">
+          <div class="pricing pricing--featured">
+            <h4>Ziziup Gold Card</h4>
+            <img src="../img/landing-card-gold.png" alt="ZIZIUP Gold Card">
+            <h3>$100<sup>/year</sup></h3>
+            <div class="dash dash--gold"></div>
+            <ul class="list list--separated">
+              <li class="list__item">
+                We apply store coupons to your orders
+              </li>
+              <li class="list__item">
+                Participate on seasonal promotion
+              </li>
+              <li class="list__item">
+                Get credit if the item price reduces before we placed the order
+              </li>
+              <li class="list__item">
+                10 free shipping to local pickup
+              </li>
+            </ul>
+            <div class="pricing__cta pricing__cta--featured">
+              <a class="button button--rounded button--accent" href="#">Buy online</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column__pricing">
+          <div class="pricing">
+            <h4>Ziziup Platinum Card</h4>
+            <img src="../img/landing-card-platinum.png" alt="ZIZIUP Platinum Card">
+            <h3>$200<sup>/year</sup></h3>
+            <div class="dash dash--platinum"></div>
+            <ul class="list list--separated">
+              <li class="list__item">
+                We apply store coupons to your orders
+              </li>
+              <li class="list__item">
+                Participate on seasonal promotion
+              </li>
+              <li class="list__item">
+                Get credit if the item price reduces before we placed the order
+              </li>
+              <li class="list__item">
+                25 free shipping to local pickup
+              </li>
+            </ul>
+            <div class="pricing__cta">
+              <a class="button button--rounded button--accent" href="#">Buy online</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="teaser teaser--offline teaser--standalone">
         <div class="teaser__overlay">
           <div>
             <a class="button button--large button--transparent button--rounded" href="#">
@@ -291,8 +287,8 @@
           </div>
         </div>
       </div>
+    </div>
 
-    </section>
   </main>
 
   <footer class="footer">
@@ -410,26 +406,6 @@
 
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  <script>
-    (function(){
-      var domTitle = document.querySelector('.account__title');
 
-      domTitle.addEventListener('click', function() {
-        domTitle.classList.toggle('account__title--expanded');
-        domTitle.classList.toggle('account__title--collapsed');
-      });
-
-      $('.carousel').slick({
-        //arrows: false,
-        arrows: true,
-        dots: false,
-        autoplay: true,
-        autoplaySpeed: 3250,
-        speed: 850
-      });
-    })();
-  </script>
 </body>
 </html>

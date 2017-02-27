@@ -3,6 +3,14 @@
   box-shadow: 0 2px 4px 0 $color-shadow-default;
   padding: 1rem 0;
 
+  &--centered {
+    text-align: center;
+
+    @include from(tablet) {
+      text-align: left;
+    }
+  }
+
   & > .container {
     @extend %clearfix;
   }
@@ -28,6 +36,34 @@
       @include from(big) {
         display: block;
       }
+    }
+  }
+
+  &__description {
+    @include from(tablet) {
+      text-align: right;
+    }
+  }
+
+  &__actions {
+    margin-top: .5rem !important;
+
+    @include from(tablet) {
+      margin-top: 0 !important;
+    }
+
+    & > .button {
+      min-width: 10.25rem;
+
+      @include until(phablet) {
+        &:first-child {
+          margin-bottom: $spacer-size-big;
+        }
+      }
+    }
+
+    & > span:last-child {
+      margin-left: 3rem;
     }
   }
 }

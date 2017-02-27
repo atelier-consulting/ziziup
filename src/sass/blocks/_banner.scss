@@ -285,6 +285,12 @@
     background-position: center center;
   }
 
+  &--ziziup-card {
+    background-image: url("../img/banner-bg-ziziup-card.jpg");
+    background-size: 100% auto;
+    background-position: center center;
+  }
+
   &--team {
     background-image: url("../img/banner-bg-team.jpg");
     background-size: 100% auto;
@@ -445,6 +451,11 @@
       flex-direction: column;
       justify-content: center;
     }
+  }
+
+  &--standalone {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   &--zcard {
