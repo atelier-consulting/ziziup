@@ -140,3 +140,55 @@ body {
   }
 }
 
+.table {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  color: $color-text-default;
+  table-layout: fixed;
+
+  & + a {
+    margin: 2rem 0;
+    float: right;
+  }
+
+  & > thead {
+    background-color: $color-background-page;
+
+    & th {
+      padding: .375rem;
+      text-align: center;
+
+      &:first-child {
+        width: 44%;
+        text-align: left;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  & > tbody {
+    & td {
+      border-bottom: 1px solid $color-border-lightest;
+      padding: .375rem;
+      text-align: center;
+      height: 2.5rem;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 1rem;
+
+        width: 44%;
+
+        @include from(desktop) {
+          width: 24%;
+        }
+      }
+
+      & > img {
+        max-height: 3rem;
+      }
+    }
+  }
+}
+
