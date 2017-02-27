@@ -205,11 +205,14 @@
   }
 
   &__pricing {
+    height: 38.75rem;
 
     padding-top: .625rem;
     padding-bottom: .625rem;
-    padding-left: .25rem;
-    padding-right: .25rem;
+    //padding-left: .25rem;
+    //padding-right: .25rem;
+    padding-left: 0;
+    padding-right: 0;
 
     @include from(tablet) {
       padding-top: 2rem;
@@ -302,6 +305,11 @@
 
           &:not(:last-child) {
             border-bottom: 1px solid $color-border-lightest;
+          }
+
+          @include between(phablet, tablet) {
+            padding-left: 27.5%;
+            padding-right: 27.5%;
           }
 
           @include from(desktop) {
