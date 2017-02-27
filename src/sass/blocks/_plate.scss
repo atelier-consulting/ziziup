@@ -983,7 +983,6 @@ $plate-gutter-default: 1.25rem;
     background: $color-background-default;
 
 
-    // height: 23.75rem;
     height: 21.25rem;
     margin: $plate-gutter-small / 2;
     width: calc(50% - #{$plate-gutter-small});
@@ -1113,6 +1112,65 @@ $plate-gutter-default: 1.25rem;
       }
     }
   }
+
+  //
+  // Location plate
+  //
+  &.location {
+    box-shadow: 0 2px 4px $color-shadow-default;
+    background-color: $color-background-default;
+    
+    @extend %clearfix;
+
+    height: $plate-height-small;
+    margin: $plate-gutter-small / 2;
+    width: calc(100% - #{$plate-gutter-small});
+
+    @include from(phablet) {
+      width: calc(50% - #{$plate-gutter-small});
+    }
+
+    @include from(tablet) {
+      height: $plate-height-default;
+    }
+
+    @include from(big) {
+      width: calc(33.33% - #{$plate-gutter-default});
+      margin: $plate-gutter-default / 2;
+    }
+
+    @include from(huge) {
+      width: calc(25% - #{$plate-gutter-default});
+    }
+
+    .location {
+      &__image {
+        width: 7.75rem;
+        height: 100%;
+        float: left;
+
+        & > img {
+          display: block;
+          max-width: 7.75rem;
+          max-height: $plate-height-small;
+        }
+      }
+
+      &__info {
+        height: 100%;
+        margin-left: 7.25rem;
+
+        padding: .5rem;
+        font-size: $font-size-small;
+
+        @include from(tablet) {
+          padding: .75rem 1rem 1rem 1.5rem;
+          font-size: $font-size-default;
+        }
+      }
+    }
+  }
+
 
   //
   // Two-floor plate
