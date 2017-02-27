@@ -1153,6 +1153,10 @@ $plate-gutter-default: 1.25rem;
           display: block;
           max-width: 7.75rem;
           max-height: $plate-height-small;
+
+          @include from(tablet) {
+            max-height: $plate-height-default;
+          }
         }
       }
 
