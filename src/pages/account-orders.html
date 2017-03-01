@@ -205,13 +205,13 @@
         <section class="account__orders">
           <div class="account__box account__box--slim">
             <div class="tabbar">
-              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders--opened">Opened</a>
-              <a class="tabbar__tab" href="javascript:;" rel="orders--closed">Closed</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders--opened">Opened</a>
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders--closed">Closed</a>
               <a class="tabbar__tab" href="javascript:;" rel="orders--cancelled">Cancelled</a>
             </div>
           </div>
 
-          <div id="orders--opened" class="orders__tab orders__tab--active">
+          <div id="orders--opened" class="orders__tab">
             <div class="panel">
               <div class="panel__summary panel__summary--opened">
                 <div class="panel__toggle">
@@ -252,7 +252,21 @@
             </div>
           </div>
 
-          <div id="orders--closed" class="orders__tab">
+          <div id="orders--closed" class="orders__tab orders__tab--active orders__tab--fit">
+            <div class="account__box account__box--toolbox">
+              <div class="dropdown">
+                <div class="dropdown__label">Sort by:</div>
+                <div class="dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted">
+                  <div class="dropdown__value">Date</div>
+                  <i class="icon icon--small icon--caret-white"></i>
+                </div>
+              </div>
+
+              <div class="search">
+                <div class="search__label">Filter by store:</div>
+                <input class="search__input" type="text">
+              </div>
+            </div>
             <div class="panel">
               <div class="panel__summary panel__summary--closed">
                 <div class="panel__toggle">

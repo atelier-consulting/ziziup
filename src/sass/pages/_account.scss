@@ -337,6 +337,7 @@ $account-gutter-big: 1.25rem;
 
     &--slim {
       padding: 0;
+      margin-bottom: 0;
 
       & > .tabbar {
         border: 0;
@@ -344,6 +345,20 @@ $account-gutter-big: 1.25rem;
         @include from(phablet) {
           padding: 0 5%;
         }
+      }
+    }
+
+    &--toolbox {
+      margin-top: 0;
+      border-top: 1px solid $color-border-lighter;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-bottom: $account-gutter-small;
+
+      @include from (desktop) {
+        margin-bottom: $account-gutter-big;
       }
     }
 
@@ -583,10 +598,13 @@ $account-gutter-big: 1.25rem;
 
       &--active {
         display: block;
-        padding-top: $account-gutter-small;
 
-        @include from(big) {
-          padding-top: $account-gutter-big;
+        &:not(.orders__tab--fit) {
+          padding-top: $account-gutter-small;
+
+          @include from(big) {
+            padding-top: $account-gutter-big;
+          }
         }
       }
     }
