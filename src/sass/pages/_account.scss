@@ -133,13 +133,22 @@ $account-gutter-big: 1.25rem;
     background-position: top right;
     background-size: auto 2.25rem;
 
-    &--expanded {
-      background-image: url("../img/icon-caret-white-up.png");
+    &--expandable {
+      background-image: url("../img/icon-caret-white.png");
+
+      & > .account__submenu {
+        display: none;
+      }
+
+      &.account__link--open {
+        background-image: url("../img/icon-caret-white-up.png");
+
+        & > .account__submenu {
+          display: block;
+        }
+      }
     }
 
-    &--collapsed {
-      background-image: url("../img/icon-caret-white.png");
-    }
 
     &--active,
     &:hover {
@@ -159,22 +168,42 @@ $account-gutter-big: 1.25rem;
       @include from(tablet) {
         text-align: left;
         padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(desktop) {
         padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(big) {
         padding-left: calc((100vw - #{$account-container-big}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-big}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(large) {
         padding-left: calc((100vw - #{$account-container-large}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-large}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(huge) {
         padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{2*$spacer-size-default});
+        }
       }
     }
 
