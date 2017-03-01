@@ -412,3 +412,32 @@
     }
   }
 }
+
+.search {
+  display: inline-block;
+  vertical-align: middle;
+
+  &__label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: $spacer-size-default;
+    font-size: $font-size-tiny;
+    color: $color-text-lighter;
+  }
+
+  &__input {
+    display: inline-block;
+    vertical-align: middle;
+    height: 26px;
+    line-height: 26px;
+    border: none;
+    background-color: $color-background-page;
+    border-radius: 13px;
+    padding: 0 $spacer-size-large;
+    background-image: url("../img/icon-search-dark.png");
+    background-position: right .5rem center;
+    background-repeat: no-repeat;
+    background-size: $icon-size-small;
+    width: 9rem;
+  }
+}
