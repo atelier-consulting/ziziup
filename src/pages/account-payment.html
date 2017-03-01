@@ -365,8 +365,8 @@
                   </div>
                 </div>
                 <div class="form__row">
-                  <div class="form__cell form__cell--checkbox">
-                    <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                  <div class="form__cell form__cell--footer">
+                    <label class="form__label form__label--inline" for="payment-add-method-is-primary">Primary method</label>
                     <input class="form__switch" type="checkbox" id="payment-add-method-is-primary">
                     <label for="payment-add-method-is-primary"></label>
                   </div>
@@ -379,27 +379,77 @@
             </div>
 
             <div class="account__tabcontent" id="account__tabcontent--paypal">
-              <form class="form">
-                <div class="form__row">
-                  <div class="form__cell">
-                    <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
-                    <input class="form__input" id="payment-add-method-paypal-email" type="email">
+              <div class="paypal__add">
+                <form class="form">
+                  <div class="form__row">
+                    <div class="form__cell">
+                      <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
+                      <input class="form__input" id="payment-add-method-paypal-email" type="email">
+                    </div>
+                    <div class="form__cell">
+                      <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
+                      <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                    </div>
                   </div>
-                  <div class="form__cell">
-                    <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
-                    <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                  <div class="form__row">
+                    <div class="form__cell form__cell--checkbox">
+                      <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
+                      <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                    </div>
+                    <div class="form__cell">
+                      <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="paypal__edit">
+                <div class="columns columns__from--phablet columns--sidebar">
+                  <div class="form__label form__label--inline">PayPal Account:</div>
+                  <div>
+                    lextimo@gmail.com
+                  </div>
+                  <div>
+                    Card&nbsp;x1614,$50
+                  </div>
+                  <a class="form__link" href="#">Change</a>
+                </div>
+                <div>&nbsp;</div>
+                <div class="columns columns__from--phablet columns--sidebar">
+                  <div class="columns columns__from--phablet">
+                    <div class="form__label form__label--inline">Pay with:</div>
+                    <div>
+                      <label class="form__radio" for="payment-add-method-paypal-card1">
+                        <input type="radio" id="payment-add-method-paypal-card1" checked="checked" name="payment-add-method-paypal-card">
+                        Card x1720
+                      </label>
+                    </div>
+                    <div>
+                      <label class="form__radio" for="payment-add-method-paypal-card2">
+                        <input type="radio" id="payment-add-method-paypal-card2" name="payment-add-method-paypal-card">
+                        Card x1614
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="form__link" href="#">
+                      <i class="icon icon--tiny icon--plus-alt"></i>Add Card
+                    </a>
                   </div>
                 </div>
+
                 <div class="form__row">
-                  <div class="form__cell form__cell--checkbox">
-                    <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
-                    <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                  <div class="form__cell form__cell--footer">
+                    <label class="form__label form__label--inline" for="payment-add-method-paypal-is-primary">Primary method</label>
+                    <input class="form__switch" type="checkbox" id="payment-add-method-paypal-is-primary">
+                    <label for="payment-add-method-paypal-is-primary"></label>
                   </div>
-                  <div class="form__cell">
-                    <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                  <div class="form__cell form__cell--footer">
+                    <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
+                    <input class="form__save" type="submit" value="Add payment method" />
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
