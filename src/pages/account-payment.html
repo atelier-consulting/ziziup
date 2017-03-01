@@ -270,10 +270,10 @@
               <div class="columns two-one__from--phablet">
                 <div class="form__cell form__cell--card-number">
                   <label class="form__label">Card number <small>16 digits</small></label>
-                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="5678" />
                 </div>
                 <div class="form__cell form__cell--card-expires">
                   <label class="form__label">Expires</label>
@@ -284,7 +284,7 @@
                     <option value="yy">19</option>
                   </select>
                 </div>
-                <div class="form__cell">
+                <div class="form__cell form__cell--name-on-card">
                   <label class="form__label">Name on card</label>
                   <input class="form__input" type="text" value="CONSTANTINE CONSTANTINOPOULOS" />
                 </div>
@@ -338,10 +338,10 @@
                 <div class="columns two-one__from--phablet">
                   <div class="form__cell form__cell--card-number">
                     <label class="form__label">Card number <small>16 digits</small></label>
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
                   </div>
                   <div class="form__cell form__cell--card-expires">
                     <label class="form__label">Expires</label>
@@ -352,7 +352,7 @@
                       <option value="yy">YY</option>
                     </select>
                   </div>
-                  <div class="form__cell">
+                  <div class="form__cell form__cell--name-on-card">
                     <label class="form__label">Name on card</label>
                     <input class="form__input" type="text" />
                   </div>
@@ -682,6 +682,19 @@
 
           domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
           domTab.classList.add('account__tab--active');
+        });
+      });
+
+
+      var domCardInputs = document.querySelectorAll('.form__cell--card-number > input:not(:last-child)');
+
+      domCardInputs.forEach(function(domInput) {
+        domInput.addEventListener('keyup', function(event) {
+          console.log('keyup', event.target.value);
+          if(event.target.value.length > 3 && event.target.nextElementSibling.value.length === 0) {
+            console.log('match');
+            event.target.nextElementSibling.focus();
+          }
         });
       });
     })();

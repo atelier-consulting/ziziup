@@ -241,10 +241,10 @@
                       <label class="form__label">
                         Card number <small>16 digits</small>
                       </label>
-                      <input type="text" class="form__input" size="4" maxlength="4" />
-                      <input type="text" class="form__input" size="4" maxlength="4" />
-                      <input type="text" class="form__input" size="4" maxlength="4" />
-                      <input type="text" class="form__input" size="4" maxlength="4" />
+                      <input type="number" class="form__input" size="4" maxlength="4" />
+                      <input type="number" class="form__input" size="4" maxlength="4" />
+                      <input type="number" class="form__input" size="4" maxlength="4" />
+                      <input type="number" class="form__input" size="4" maxlength="4" />
                     </div>
                     <div class="form__cell form__cell--card-expires">
                       <label class="form__label">Expires</label>
@@ -699,10 +699,10 @@
       <code class="html">                &lt;label class=&quot;form__label&quot;&gt;</code>
       <code class="html">                  Card number &lt;small&gt;16 digits&lt;/small&gt;</code>
       <code class="html">                &lt;/label&gt;</code>
-      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
-      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
-      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
-      <code class="html">                &lt;input type=&quot;text&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;number&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;number&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;number&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
+      <code class="html">                &lt;input type=&quot;number&quot; class=&quot;form__input&quot; size=&quot;4&quot; maxlength=&quot;4&quot; /&gt;</code>
       <code class="html">              &lt;/div&gt;</code>
       <code class="html">              &lt;div class=&quot;form__cell form__cell--card-expires&quot;&gt;</code>
       <code class="html">                &lt;label class=&quot;form__label&quot;&gt;Expires&lt;/label&gt;</code>
@@ -915,6 +915,18 @@
 
           domTarget.closest('.panel').classList.toggle('panel--open');
           domTarget.querySelector('.icon--caret-full').classList.toggle('icon--rotated');
+        });
+      });
+
+      var domCardInputs = document.querySelectorAll('.form__cell--card-number > input:not(:last-child)');
+
+      domCardInputs.forEach(function(domInput) {
+        domInput.addEventListener('keyup', function(event) {
+          console.log('keyup', event.target.value);
+          if(event.target.value.length > 3 && event.target.nextElementSibling.value.length === 0) {
+            console.log('match');
+            event.target.nextElementSibling.focus();
+          }
         });
       });
     })();
