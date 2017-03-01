@@ -168,7 +168,7 @@
         <li class="account__link">
           <a href="#">Personal info</a>
         </li>
-        <li class="account__link account__link--expanded">
+        <li class="account__link account__link--expandable">
           <a href="#">ZIZIUP Card</a>
           <ul class="account__submenu">
             <li class="account__link">
@@ -638,42 +638,50 @@
   </footer>
   <script>
     (function(){
-      var $title = document.querySelector('.account__title');
+      var domTitle = document.querySelector('.account__title');
 
-      $title.addEventListener('click', function() {
-        $title.classList.toggle('account__title--expanded');
-        $title.classList.toggle('account__title--collapsed');
+      domTitle.addEventListener('click', function() {
+        domTitle.classList.toggle('account__title--expanded');
+        domTitle.classList.toggle('account__title--collapsed');
       });
 
-      var $partTogglers = document.querySelectorAll('.account__part--toggle');
+      var domMenuExpandables = document.querySelectorAll('.account__link--expandable > a');
 
-      $partTogglers.forEach(function($toggle) {
-        $toggle.addEventListener('click', function(event) {
+      domMenuExpandables.forEach(function(domLink) {
+        domLink.addEventListener('click', function(event) {
+          event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
+        });
+      });
+
+      var domPartTogglers = document.querySelectorAll('.account__part--toggle');
+
+      domPartTogglers.forEach(function(domToggle) {
+        domToggle.addEventListener('click', function(event) {
           event.target.closest('.account__box').classList.toggle('account__box--edit');
-        })
+        });
       });
 
-      var $tabsWrapper = document.querySelector('.account__tabs');
-      var $tabs = $tabsWrapper.querySelectorAll('.account__tab');
-      var $tabContents = $tabsWrapper.querySelectorAll('.account__tabcontent');
+      var domTabsWrapper = document.querySelector('.account__tabs');
+      var domTabs = domTabsWrapper.querySelectorAll('.account__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.account__tabcontent');
 
-      $tabs.forEach(function($tab) {
-        $tab.addEventListener('click', function(event) {
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
           var id = event.target.classList.contains('account__tab')
             ? event.target.rel
             : event.target.closest('.account__tab').rel
           ;
 
-          $tabContents.forEach(function($content) {
-            $content.classList.remove('account__tabcontent--active');
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('account__tabcontent--active');
           });
 
-          $tabs.forEach(function($tab) {
-            $tab.classList.remove('account__tab--active');
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('account__tab--active');
           });
 
-          $tabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
-          $tab.classList.add('account__tab--active');
+          domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          domTab.classList.add('account__tab--active');
         });
       });
     })();

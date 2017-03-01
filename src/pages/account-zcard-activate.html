@@ -168,9 +168,9 @@
         <li class="account__link">
           <a href="#">Personal info</a>
         </li>
-        <li class="account__link account__link--expanded">
+        <li class="account__link account__link--expandable account__link--open">
           <a href="#">ZIZIUP Card</a>
-          <ul class="account__menu">
+          <ul class="account__submenu">
             <li class="account__link account__link--active">
               <a href="#">Activate</a>
             </li>
@@ -228,7 +228,7 @@
           </div>
         </div>
       </article>
-      
+
       <div class="teaser teaser--zcard">
         <h3>Have no ZIZIUP Card yet?</h3>
         <h3 class="hide__until--phablet">Chose yours</h3>
@@ -421,8 +421,15 @@
         domTitle.classList.toggle('account__title--collapsed');
       });
 
+      var domMenuExpandables = document.querySelectorAll('.account__link--expandable > a');
+
+      domMenuExpandables.forEach(function(domLink) {
+        domLink.addEventListener('click', function(event) {
+          event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
+        });
+      });
+
       $('.carousel').slick({
-        //arrows: false,
         arrows: true,
         dots: false,
         autoplay: true,
