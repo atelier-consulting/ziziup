@@ -141,7 +141,8 @@ $account-gutter-big: 1.25rem;
       background-image: url("../img/icon-caret-white.png");
     }
 
-    &--active {
+    &--active,
+    &:hover {
       background-color: $color-background-darkest;
     }
 
@@ -185,7 +186,8 @@ $account-gutter-big: 1.25rem;
         border-bottom: none;
       }
 
-      &.account__link--active {
+      &.account__link--active,
+      &:hover {
         background: $color-background-darkest;
       }
 
