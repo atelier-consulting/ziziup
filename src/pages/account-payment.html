@@ -260,6 +260,7 @@
             </a>
           </div>
         </div>
+
         <div class="account__part--edit">
           <div class="columns one-three__from--desktop">
             <div class="account__header">
@@ -296,8 +297,9 @@
               </div>
               <div class="form__row">
                 <div class="form__cell form__cell--checkbox">
-                  <input class="form__checkbox" id="payment-edit-method-is-primary" type="checkbox" checked="checked" />
                   <label class="form__label" for="payment-edit-method-is-primary">Primary method</label>
+                  <input class="form__switch" type="checkbox" id="payment-edit-method-is-primary" checked="checked">
+                  <label for="payment-edit-method-is-primary"></label>
                 </div>
                 <div class="form__cell form__cell--footer">
                   <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
@@ -364,8 +366,9 @@
                 </div>
                 <div class="form__row">
                   <div class="form__cell form__cell--checkbox">
-                    <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
                     <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                    <input class="form__switch" type="checkbox" id="payment-add-method-is-primary">
+                    <label for="payment-add-method-is-primary"></label>
                   </div>
                   <div class="form__cell form__cell--footer">
                     <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
