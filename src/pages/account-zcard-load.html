@@ -440,6 +440,32 @@
           event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
         });
       });
+
+      // Tabs
+      var domTabsWrapper = document.querySelector('.account__load');
+      var domTabs = domTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.load__tab');
+
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('load__tab--active');
+          });
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('tabbar__tab--active');
+          });
+
+          var domTarget = event.target.classList.contains('tabbar__tab')
+            ? event.target
+            : event.target.closest('.tabbar__tab')
+          ;
+
+          domTarget.classList.add('tabbar__tab--active');
+
+          domTabsWrapper.querySelector('#' + domTarget.rel).classList.add('load__tab--active');
+        });
+      });
+
     })();
   </script>
 </body>
