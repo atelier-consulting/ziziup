@@ -108,13 +108,27 @@
 
           <!-- Actions -->
           <div class="menu__module menu__module--actions">
-            <div class="dropdown">
+            <div class="dropdown auth">
               <div class="dropdown__button dropdown__button--large">
                 <span class="dropdown__value hide__until--big">Hello,&nbsp;</span>
                 <i class="icon icon--user hide__from--big"></i>
                 <i class="icon icon--tiny icon--user hide__until--big"></i>
                 <span class="dropdown__value dropdown__value--accent hide__until--big">Log in</span>
                 <i class="icon icon--small icon--caret hide__until--big"></i>
+              </div>
+              <div class="auth__popup">
+                <div class="tabbar">
+                  <a class="tabbar__tab tabbar__tab--active" href="javascript;" rel="auth__tab--login">Log in</a>
+                  <a class="tabbar__tab" href="javascript:;" rel="auth__tab--signup">Sign up</a>
+                </div>
+                <div class="auth__tabs">
+                  <div id="auth__tab--login" class="auth__tab">
+                    login
+                  </div>
+                  <!--<div id="auth__tab--signup" class="auth__tab">-->
+                    <!--signup-->
+                  <!--</div>-->
+                </div>
               </div>
             </div>
 

@@ -1,0 +1,32 @@
+.auth {
+  position: static;
+
+  @include from(tablet) {
+    position: relative;
+  }
+
+  &__popup {
+    position: absolute;
+    left: 0;
+    font-size: $font-size-small;
+    text-align: center;
+    background-color: $color-background-default;
+    padding: $spacer-size-big $spacer-size-default;
+    line-height: 1.5rem;
+
+    width: 100%;
+    top: 3.125rem;
+
+    @include from(tablet) {
+      top: 1.6125rem;
+      left: auto;
+      right: -2.875rem;
+      width: 25rem;
+      box-shadow: 0 2px 24px 0 $color-shadow-auth;
+    }
+
+    @include from(big) {
+      right: -7rem;
+    }
+  }
+}
