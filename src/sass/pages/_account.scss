@@ -515,9 +515,29 @@ $account-gutter-big: 1.25rem;
     flex-direction: row;
     padding-bottom: $spacer-size-default;
 
+    & > * {
+      flex-grow: 1;
+    }
+
+    &--slim {
+      & > *:not(:last-child) {
+        margin-right: .5rem;
+      }
+    }
+
     @include from(desktop) {
       flex-direction: column;
       min-width: 16rem;
+
+      &--slim {
+        min-width: 13.25rem;
+      }
+    }
+
+    @include from(big) {
+      &--slim {
+        min-width: 16rem;
+      }
     }
   }
 
@@ -532,11 +552,21 @@ $account-gutter-big: 1.25rem;
     background-image: url("../img/icon-radio-off.png");
     flex-grow: 1;
 
+    &--slim {
+      font-size: $font-size-oversize;
+      font-weight: $font-weight-bold;
+    }
+
     @include from(desktop) {
       flex-grow: 0;
       padding-right: $spacer-size-default;
       height: 2rem;
+      line-height: 2rem;
       margin-bottom: 2.25rem;
+
+      &--slim {
+        margin-bottom: 1rem;
+      }
     }
 
     &--active {

@@ -222,17 +222,17 @@
               <h4>Load ZIZIUP Card</h4>
             </div>
             <div class="tabbar">
-              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="load--deposit">
+              <a class="tabbar__tab" href="javascript:;" rel="load--deposit">
                 <span class="hide__until--phablet">Bank </span>deposit
               </a>
-              <a class="tabbar__tab" href="javascript:;" rel="load--card">
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="load--card">
                 <span class="hide__until--phablet">Credit </span>card
               </a>
               <a class="tabbar__tab" href="javascript:;" rel="load--paypal">
                 Paypal<span class="hide__until--phablet"> account</span>
               </a>
             </div>
-            <div id="load--deposit" class="load__tab load__tab--active">
+            <div id="load--deposit" class="load__tab">
               <form class="form" action="">
                 <div class="form__row">
                   <div class="form__cell">
@@ -294,11 +294,61 @@
                 </div>
               </form>
             </div>
-            <div id="load--card" class="load__tab">
-              card
+            <div id="load--card" class="load__tab load__tab--active">
+
+              <div class="account__tabs">
+
+                <div class="account__tabbar account__tabbar--slim">
+                  <a class="account__tab account__tab--slim account__tab--active" href="javascript:;" rel="account__tabcontent--card1">Visa <span class="hide__until--phablet">&hellip;</span>1720</a>
+                  <a class="account__tab account__tab--slim" href="javascript:;" rel="account__tabcontent--card2">MasterCard <span class="hide__until--phablet">&hellip;</span>8784</a>
+                  <a class="form__link" href="#">
+                    <i class="icon icon--tiny icon--plus-alt hide__until--phablet"></i>Add Card
+                  </a>
+                </div>
+
+                <div id="account__tabcontent--card1" class="account__tabcontent account__tabcontent--active">
+                  <div class="panel__input panel__input--accent">
+                    <label>Enter amount in USD</label>
+                    <input type="text" />
+                    <button class="accent">Add credit</button>
+                    <small>Your card will be credited in 24 hours</small>
+                  </div>
+                </div>
+
+                <div id="account__tabcontent--card2" class="account__tabcontent">
+                  <div class="panel__input panel__input--accent">
+                    <label>Enter amount in CFA</label>
+                    <input type="text" />
+                    <button class="accent">Add credit</button>
+                    <small>Your card will be credited in 24 hours</small>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
             <div id="load--paypal" class="load__tab">
-              paypal
+              <div class="account__tabs">
+                <div class="account__tabbar account__tabbar--slim">
+                  <div class="form__label">PayPal account</div>
+                  <p>
+                    lextimo@gmail.com<br>
+                    Card&nbsp;x1614,&nbsp;&nbsp;$50
+                  </p>
+                  <a class="form__link" href="#">
+                    <i class="icon icon--tiny icon--pencil hide__until--phablet"></i>
+                    Edit
+                  </a>
+                </div>
+                <div class="account__tabcontent account__tabcontent--active">
+                  <div class="panel__input panel__input--accent">
+                    <label>Enter amount in USD</label>
+                    <input type="text" />
+                    <button class="accent">Add credit</button>
+                    <small>Your card will be credited in 24 hours</small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           </div>
@@ -440,6 +490,58 @@
           event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
         });
       });
+
+
+      // Horizontal method tabs
+      var domMethodTabsWrapper = document.querySelector('.account__load');
+      var domMethodTabs = domMethodTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domMethodTabContents = domMethodTabsWrapper.querySelectorAll('.load__tab');
+
+      domMethodTabs.forEach(function(domMethodTab) {
+        domMethodTab.addEventListener('click', function(event) {
+          domMethodTabContents.forEach(function(domMethodContent) {
+            domMethodContent.classList.remove('load__tab--active');
+          });
+          domMethodTabs.forEach(function(domMethodTab) {
+            domMethodTab.classList.remove('tabbar__tab--active');
+          });
+
+          var domMethodTarget = event.target.classList.contains('tabbar__tab')
+            ? event.target
+            : event.target.closest('.tabbar__tab')
+          ;
+
+          domMethodTarget.classList.add('tabbar__tab--active');
+
+          domMethodTabsWrapper.querySelector('#' + domMethodTarget.rel).classList.add('load__tab--active');
+        });
+      });
+
+      // Vertical tabs on credit card
+      var domTabsWrapper = document.querySelector('.account__tabs');
+      var domTabs = domTabsWrapper.querySelectorAll('.account__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.account__tabcontent');
+
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
+          var id = event.target.classList.contains('account__tab')
+            ? event.target.rel
+            : event.target.closest('.account__tab').rel
+          ;
+
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('account__tabcontent--active');
+          });
+
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('account__tab--active');
+          });
+
+          domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          domTab.classList.add('account__tab--active');
+        });
+      });
+
     })();
   </script>
 </body>
