@@ -515,6 +515,16 @@ $account-gutter-big: 1.25rem;
     flex-direction: row;
     padding-bottom: $spacer-size-default;
 
+    & > * {
+      flex-grow: 1;
+    }
+
+    &--slim {
+      & > *:not(:last-child) {
+        margin-right: .5rem;
+      }
+    }
+
     @include from(desktop) {
       flex-direction: column;
       min-width: 16rem;
