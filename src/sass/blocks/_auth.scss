@@ -29,4 +29,41 @@
       right: -7rem;
     }
   }
+
+  &__form {
+    padding: $spacer-size-big 0 0 0;
+
+    & .divider {
+      width: 45%;
+      margin: 0 auto;
+      color: $color-text-lightest;
+    }
+  }
+
+  &__row {
+    display: flex;
+
+    &--padded {
+      padding: $spacer-size-large 0;
+    }
+
+    & .form__input {
+      text-align: center;
+    }
+
+    & .form__label {
+      font-size: $font-size-small;
+      color: $color-text-lightest;
+    }
+
+    & .button {
+      width: 100%;
+      font-weight: $font-weight-base;
+    }
+
+  }
+
+  &__col {
+    flex-grow: 1;
+  }
 }
