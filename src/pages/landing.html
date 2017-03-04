@@ -235,28 +235,28 @@
     (function(){
 
       // Web/mobile toggle
-      var $buttons = document.querySelectorAll('.landing__switch > .landing__button');
-      var $steps = document.querySelector('.landing__steps');
+      var domButtons = document.querySelectorAll('.landing__switch > .landing__button');
+      var domSteps = document.querySelector('.landing__steps');
 
-      $buttons.forEach(function($button){
-        $button.addEventListener('click', function(e) {
-          var $target = e.target;
+      domButtons.forEach(function(domButton){
+        domButton.addEventListener('click', function(e) {
+          var domTarget = e.target;
 
-          if($target.classList.contains('landing__button--off')) {
-            if($target.classList.contains('landing__button--web')) {
+          if(domTarget.classList.contains('landing__button--off')) {
+            if(domTarget.classList.contains('landing__button--web')) {
               document.querySelector('.landing__button--mobile').classList.add('landing__button--off');
-              $target.classList.remove('landing__button--off');
+              domTarget.classList.remove('landing__button--off');
 
-              $steps.classList.remove('landing__steps--mobile');
-              $steps.classList.add('landing__steps--web');
+              domSteps.classList.remove('landing__steps--mobile');
+              domSteps.classList.add('landing__steps--web');
             }
 
-            if($target.classList.contains('landing__button--mobile')) {
+            if(domTarget.classList.contains('landing__button--mobile')) {
               document.querySelector('.landing__button--web').classList.add('landing__button--off');
-              $target.classList.remove('landing__button--off');
+              domTarget.classList.remove('landing__button--off');
 
-              $steps.classList.remove('landing__steps--web');
-              $steps.classList.add('landing__steps--mobile');
+              domSteps.classList.remove('landing__steps--web');
+              domSteps.classList.add('landing__steps--mobile');
             }
           }
         });
