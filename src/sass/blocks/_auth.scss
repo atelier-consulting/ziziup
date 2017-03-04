@@ -17,6 +17,7 @@
 
     width: 100%;
     top: 3.125rem;
+    box-shadow: 0 3px 4px 0 $color-shadow-auth;
 
     @include from(tablet) {
       top: 1.6125rem;
