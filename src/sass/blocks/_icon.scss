@@ -302,6 +302,10 @@
     background-image: url("../img/icon-send.png");
   }
 
+  &--received {
+    background-image: url("../img/icon-received.png");
+  }
+
   // Payment
   &--visa {
     width: $icon-size-large;
