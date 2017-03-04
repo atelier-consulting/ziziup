@@ -290,6 +290,18 @@
     background-image: url("../img/icon-pencil-alt.png");
   }
 
+  &--attachment {
+    background-image: url("../img/icon-attachment.png");
+  }
+
+  &--record {
+    background-image: url("../img/icon-record.png");
+  }
+
+  &--send {
+    background-image: url("../img/icon-send.png");
+  }
+
   // Payment
   &--visa {
     width: $icon-size-large;
