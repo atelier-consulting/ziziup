@@ -108,7 +108,7 @@
 
           <!-- Actions -->
           <div class="menu__module menu__module--actions">
-            <div class="dropdown auth">
+            <div class="dropdown auth auth--open">
               <div class="dropdown__button dropdown__button--large">
                 <span class="dropdown__value hide__until--big">Hello,&nbsp;</span>
                 <i class="icon icon--user hide__from--big"></i>
@@ -118,11 +118,12 @@
               </div>
               <div class="auth__popup">
                 <div class="tabbar">
-                  <a class="tabbar__tab tabbar__tab--active" href="javascript;" rel="auth__tab--login">Log in</a>
+                  <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="auth__tab--login">Log in</a>
                   <a class="tabbar__tab" href="javascript:;" rel="auth__tab--signup">Sign up</a>
                 </div>
                 <div class="auth__tabs">
-                  <div id="auth__tab--login" class="auth__tab">
+
+                  <div id="auth__tab--login" class="auth__tab auth__tab--active">
                     <form class="auth__form">
                       <div class="auth__row">
                         <input class="form__input" type="email" placeholder="Email address">
@@ -130,7 +131,7 @@
                       <div class="auth__row">
                         <input class="form__input" type="password" placeholder="Password">
                       </div>
-                      <div class="auth__row auth__row--padded">
+                      <div class="auth__row auth__row--relaxed">
                         <div class="auth__col">
                           <input id="auth-login-remember" class="form__checkbox" type="checkbox" checked="checked">
                           <label class="form__label form__label--small" for="auth-login-remember">
@@ -141,18 +142,69 @@
                           <a class="form__link" href="#">Forgot password?</a>
                         </div>
                       </div>
-                      <div class="auth__row auth__row--padded">
+                      <div class="auth__row">
                         <input class="button button--rounded button--accent" type="submit" value="Log in">
                       </div>
                       <div class="divider divider--horizontal">OR</div>
-                      <div class="auth__row auth__row--padded">
+                      <div class="auth__row">
                         <a class="button button--bordered button--large button--rounded button--facebook" href="#">Facebook</a>
                       </div>
                     </form>
                   </div>
-                  <!--<div id="auth__tab--signup" class="auth__tab">-->
-                    <!--signup-->
-                  <!--</div>-->
+
+                  <div id="auth__tab--signup" class="auth__tab">
+                    <form class="auth__form">
+                      <div class="auth__row">
+                        <input class="form__input" type="text" placeholder="Name">
+                      </div>
+                      <div class="auth__row">
+                        <input class="form__input" type="email" placeholder="Email address">
+                      </div>
+                      <div class="auth__row">
+                        <input class="form__input" type="tel" placeholder="Phone number">
+                      </div>
+                      <div class="auth__row">
+                        <input class="form__input" type="password" placeholder="Password">
+                      </div>
+                      <div class="auth__row auth__row--relaxed">
+                        <div class="auth__col">Gender</div>
+                        <div class="auth__col">
+                          <label class="form__radio" for="auth-signup-gender-male">
+                            <input id="auth-signup-gender-male" type="radio" name="auth-signup-gender" checked="checked">
+                            Male
+                          </label>
+                        </div>
+                        <div class="auth__col">
+                          <label class="form__radio" for="auth-signup-gender-male">
+                            <input id="auth-signup-gender-female" type="radio" name="auth-signup-gender">
+                            Female
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="auth__row auth__row--bordered">
+                        <label class="auth__label" for="auth-signup-country">Country</label>
+                        <select id="auth-signup-country" class="form__select">
+                          <option value="ua">Ukraine</option>
+                        </select>
+                      </div>
+
+                      <div class="auth__row auth__row--bordered">
+                        <label class="auth__label" for="auth-signup-city">City</label>
+                        <select id="auth-signup-city" class="form__select">
+                          <option value="001">Kyiv</option>
+                        </select>
+                      </div>
+
+                      <div class="auth__row auth__row--relaxed">
+                        <input class="button button--rounded button--accent" type="submit" value="Register">
+                      </div>
+                      <p>
+                        By clicking "Register" I agree to ZIZIUP's<br>
+                        <a class="form__link" href="#">Terms of service</a>
+                      </p>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -350,5 +402,29 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function() {
+      // Tabs
+      var domTabsWrapper = document.querySelector('.auth__popup');
+      var domTabs = domTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.auth__tab');
+
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('auth__tab--active');
+          });
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('tabbar__tab--active');
+          });
+
+          event.target.classList.add('tabbar__tab--active');
+
+          domTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
