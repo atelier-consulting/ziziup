@@ -42,6 +42,17 @@
     }
   }
 
+  &--chat {
+    width: $thumbnail-size-chat;
+    height: $thumbnail-size-chat;
+    border-radius: 50%;
+    margin: 0;
+
+    & > img {
+      border-radius: 50%;
+    }
+  }
+
   &--photo {
     border-radius: 50%;
 
