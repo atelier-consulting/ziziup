@@ -133,15 +133,25 @@ $account-gutter-big: 1.25rem;
     background-position: top right;
     background-size: auto 2.25rem;
 
-    &--expanded {
-      background-image: url("../img/icon-caret-white-up.png");
-    }
-
-    &--collapsed {
+    &--expandable {
       background-image: url("../img/icon-caret-white.png");
+
+      & > .account__submenu {
+        display: none;
+      }
+
+      &.account__link--open {
+        background-image: url("../img/icon-caret-white-up.png");
+
+        & > .account__submenu {
+          display: block;
+        }
+      }
     }
 
-    &--active {
+
+    &--active,
+    &:hover {
       background-color: $color-background-darkest;
     }
 
@@ -158,22 +168,42 @@ $account-gutter-big: 1.25rem;
       @include from(tablet) {
         text-align: left;
         padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-tablet}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(desktop) {
         padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-desktop}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(big) {
         padding-left: calc((100vw - #{$account-container-big}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-big}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(large) {
         padding-left: calc((100vw - #{$account-container-large}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-large}) / 2 + #{2*$spacer-size-default});
+        }
       }
 
       @include from(huge) {
         padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{$spacer-size-default});
+
+        .account__submenu > & {
+          padding-left: calc((100vw - #{$account-container-huge}) / 2 + #{2*$spacer-size-default});
+        }
       }
     }
 
@@ -185,7 +215,8 @@ $account-gutter-big: 1.25rem;
         border-bottom: none;
       }
 
-      &.account__link--active {
+      &.account__link--active,
+      &:hover {
         background: $color-background-darkest;
       }
 
@@ -306,6 +337,7 @@ $account-gutter-big: 1.25rem;
 
     &--slim {
       padding: 0;
+      margin-bottom: 0;
 
       & > .tabbar {
         border: 0;
@@ -313,6 +345,20 @@ $account-gutter-big: 1.25rem;
         @include from(phablet) {
           padding: 0 5%;
         }
+      }
+    }
+
+    &--toolbox {
+      margin-top: 0;
+      border-top: 1px solid $color-border-lighter;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-bottom: $account-gutter-small;
+
+      @include from (desktop) {
+        margin-bottom: $account-gutter-big;
       }
     }
 
@@ -469,9 +515,29 @@ $account-gutter-big: 1.25rem;
     flex-direction: row;
     padding-bottom: $spacer-size-default;
 
+    & > * {
+      flex-grow: 1;
+    }
+
+    &--slim {
+      & > *:not(:last-child) {
+        margin-right: .5rem;
+      }
+    }
+
     @include from(desktop) {
       flex-direction: column;
       min-width: 16rem;
+
+      &--slim {
+        min-width: 13.25rem;
+      }
+    }
+
+    @include from(big) {
+      &--slim {
+        min-width: 16rem;
+      }
     }
   }
 
@@ -486,11 +552,21 @@ $account-gutter-big: 1.25rem;
     background-image: url("../img/icon-radio-off.png");
     flex-grow: 1;
 
+    &--slim {
+      font-size: $font-size-oversize;
+      font-weight: $font-weight-bold;
+    }
+
     @include from(desktop) {
       flex-grow: 0;
       padding-right: $spacer-size-default;
       height: 2rem;
+      line-height: 2rem;
       margin-bottom: 2.25rem;
+
+      &--slim {
+        margin-bottom: 1rem;
+      }
     }
 
     &--active {
@@ -552,10 +628,13 @@ $account-gutter-big: 1.25rem;
 
       &--active {
         display: block;
-        padding-top: $account-gutter-small;
 
-        @include from(big) {
-          padding-top: $account-gutter-big;
+        &:not(.orders__tab--fit) {
+          padding-top: $account-gutter-small;
+
+          @include from(big) {
+            padding-top: $account-gutter-big;
+          }
         }
       }
     }

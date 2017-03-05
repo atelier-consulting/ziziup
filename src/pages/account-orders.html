@@ -107,13 +107,104 @@
 
         <!-- Actions -->
         <div class="menu__module menu__module--actions">
-          <div class="dropdown">
+          <div class="dropdown auth">
             <div class="dropdown__button dropdown__button--large">
               <span class="dropdown__value hide__until--big">Hello,&nbsp;</span>
               <i class="icon icon--user hide__from--big"></i>
               <i class="icon icon--tiny icon--user hide__until--big"></i>
               <span class="dropdown__value dropdown__value--accent hide__until--big">Log in</span>
               <i class="icon icon--small icon--caret hide__until--big"></i>
+            </div>
+            <div class="auth__popup">
+              <div class="tabbar">
+                <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="auth__tab--login">Log in</a>
+                <a class="tabbar__tab" href="javascript:;" rel="auth__tab--signup">Sign up</a>
+              </div>
+              <div class="auth__tabs">
+
+                <div id="auth__tab--login" class="auth__tab auth__tab--active">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">
+                        <input id="auth-login-remember" class="form__checkbox" type="checkbox" checked="checked">
+                        <label class="form__label form__label--small" for="auth-login-remember">
+                          Remember me
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <a class="form__link" href="#">Forgot password?</a>
+                      </div>
+                    </div>
+                    <div class="auth__row">
+                      <input class="button button--rounded button--accent" type="submit" value="Log in">
+                    </div>
+                    <div class="divider divider--horizontal">OR</div>
+                    <div class="auth__row">
+                      <a class="button button--bordered button--large button--rounded button--facebook" href="#">Facebook</a>
+                    </div>
+                  </form>
+                </div>
+
+                <div id="auth__tab--signup" class="auth__tab">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="text" placeholder="Name">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="tel" placeholder="Phone number">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">Gender</div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-male">
+                          <input id="auth-signup-gender-male" type="radio" name="auth-signup-gender" >
+                          Male
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-female">
+                          <input id="auth-signup-gender-female" type="radio" name="auth-signup-gender">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-country">Country</label>
+                      <select id="auth-signup-country" class="form__select">
+                        <option value="ua">Ukraine</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-city">City</label>
+                      <select id="auth-signup-city" class="form__select">
+                        <option value="001">Kyiv</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--relaxed">
+                      <input class="button button--rounded button--accent" type="submit" value="Register">
+                    </div>
+                    <p>
+                      By clicking "Register" I agree to ZIZIUP's<br>
+                      <a class="form__link" href="#">Terms of service</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -168,7 +259,7 @@
         <li class="account__link">
           <a href="#">Personal info</a>
         </li>
-        <li class="account__link account__link--expanded">
+        <li class="account__link account__link--expandable">
           <a href="#">ZIZIUP Card</a>
           <ul class="account__submenu">
             <li class="account__link">
@@ -179,10 +270,10 @@
             </li>
           </ul>
         </li>
-        <li class="account__link account__link--active">
+        <li class="account__link">
           <a href="#">Payment</a>
         </li>
-        <li class="account__link">
+        <li class="account__link account__link--active">
           <a href="#">My Orders</a>
         </li>
         <li class="account__link">
@@ -205,13 +296,13 @@
         <section class="account__orders">
           <div class="account__box account__box--slim">
             <div class="tabbar">
-              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders--opened">Opened</a>
-              <a class="tabbar__tab" href="javascript:;" rel="orders--closed">Closed</a>
+              <a class="tabbar__tab" href="javascript:;" rel="orders--opened">Opened</a>
+              <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="orders--closed">Closed</a>
               <a class="tabbar__tab" href="javascript:;" rel="orders--cancelled">Cancelled</a>
             </div>
           </div>
 
-          <div id="orders--opened" class="orders__tab orders__tab--active">
+          <div id="orders--opened" class="orders__tab">
             <div class="panel">
               <div class="panel__summary panel__summary--opened">
                 <div class="panel__toggle">
@@ -252,7 +343,21 @@
             </div>
           </div>
 
-          <div id="orders--closed" class="orders__tab">
+          <div id="orders--closed" class="orders__tab orders__tab--active orders__tab--fit">
+            <div class="account__box account__box--toolbox">
+              <div class="dropdown">
+                <div class="dropdown__label">Sort by:</div>
+                <div class="dropdown__button dropdown__button--rounded dropdown__button--inverted dropdown__button--uppercase dropdown__button--careted">
+                  <div class="dropdown__value">Date</div>
+                  <i class="icon icon--small icon--caret-white"></i>
+                </div>
+              </div>
+
+              <div class="search">
+                <div class="search__label">Filter by store:</div>
+                <input class="search__input" type="text">
+              </div>
+            </div>
             <div class="panel">
               <div class="panel__summary panel__summary--closed">
                 <div class="panel__toggle">
@@ -489,6 +594,14 @@
       domTitle.classList.toggle('account__title--collapsed');
     });
 
+    var domMenuExpandables = document.querySelectorAll('.account__link--expandable > a');
+
+    domMenuExpandables.forEach(function(domLink) {
+      domLink.addEventListener('click', function(event) {
+        event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
+      });
+    });
+
     // Tabs
     var domTabsWrapper = document.querySelector('.account__orders');
     var domTabs = domTabsWrapper.querySelectorAll('.tabbar__tab');
@@ -553,6 +666,48 @@
           }
         }
       });
+    });
+  })();
+</script>
+
+<script>
+  (function() {
+    // Auth Tabs
+    var domAuthTabsWrapper = document.querySelector('.auth__popup');
+    var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
+    var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
+
+    domAuthTabs.forEach(function(domAuthTab) {
+      domAuthTab.addEventListener('click', function(event) {
+        domAuthTabContents.forEach(function(domAuthContent) {
+          domAuthContent.classList.remove('auth__tab--active');
+        });
+        domAuthTabs.forEach(function(domTab) {
+          domTab.classList.remove('tabbar__tab--active');
+        });
+        event.target.classList.add('tabbar__tab--active');
+        domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
+      });
+    });
+
+    // Auth popup
+    var domAuthWrapper = document.querySelector('.auth');
+    var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
+
+    function closeAuthPopup(event) {
+      if (!event.target.closest('.auth__popup')) {
+        domAuthWrapper.classList.remove('auth--open');
+        document.body.removeEventListener('click', closeAuthPopup);
+      }
+    }
+
+    domAuthButton.addEventListener('click', function(event) {
+      if (!domAuthWrapper.classList.contains('auth--open')) {
+        domAuthWrapper.classList.add('auth--open');
+        setTimeout(function() {
+          document.body.addEventListener('click', closeAuthPopup);
+        }, 100);
+      }
     });
   })();
 </script>

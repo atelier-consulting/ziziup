@@ -107,13 +107,104 @@
 
         <!-- Actions -->
         <div class="menu__module menu__module--actions">
-          <div class="dropdown">
+          <div class="dropdown auth">
             <div class="dropdown__button dropdown__button--large">
               <span class="dropdown__value hide__until--big">Hello,&nbsp;</span>
               <i class="icon icon--user hide__from--big"></i>
               <i class="icon icon--tiny icon--user hide__until--big"></i>
               <span class="dropdown__value dropdown__value--accent hide__until--big">Log in</span>
               <i class="icon icon--small icon--caret hide__until--big"></i>
+            </div>
+            <div class="auth__popup">
+              <div class="tabbar">
+                <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="auth__tab--login">Log in</a>
+                <a class="tabbar__tab" href="javascript:;" rel="auth__tab--signup">Sign up</a>
+              </div>
+              <div class="auth__tabs">
+
+                <div id="auth__tab--login" class="auth__tab auth__tab--active">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">
+                        <input id="auth-login-remember" class="form__checkbox" type="checkbox" checked="checked">
+                        <label class="form__label form__label--small" for="auth-login-remember">
+                          Remember me
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <a class="form__link" href="#">Forgot password?</a>
+                      </div>
+                    </div>
+                    <div class="auth__row">
+                      <input class="button button--rounded button--accent" type="submit" value="Log in">
+                    </div>
+                    <div class="divider divider--horizontal">OR</div>
+                    <div class="auth__row">
+                      <a class="button button--bordered button--large button--rounded button--facebook" href="#">Facebook</a>
+                    </div>
+                  </form>
+                </div>
+
+                <div id="auth__tab--signup" class="auth__tab">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="text" placeholder="Name">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="tel" placeholder="Phone number">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">Gender</div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-male">
+                          <input id="auth-signup-gender-male" type="radio" name="auth-signup-gender" >
+                          Male
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-female">
+                          <input id="auth-signup-gender-female" type="radio" name="auth-signup-gender">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-country">Country</label>
+                      <select id="auth-signup-country" class="form__select">
+                        <option value="ua">Ukraine</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-city">City</label>
+                      <select id="auth-signup-city" class="form__select">
+                        <option value="001">Kyiv</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--relaxed">
+                      <input class="button button--rounded button--accent" type="submit" value="Register">
+                    </div>
+                    <p>
+                      By clicking "Register" I agree to ZIZIUP's<br>
+                      <a class="form__link" href="#">Terms of service</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -168,7 +259,7 @@
         <li class="account__link">
           <a href="#">Personal info</a>
         </li>
-        <li class="account__link account__link--expanded">
+        <li class="account__link account__link--expandable">
           <a href="#">ZIZIUP Card</a>
           <ul class="account__submenu">
             <li class="account__link">
@@ -260,6 +351,7 @@
             </a>
           </div>
         </div>
+
         <div class="account__part--edit">
           <div class="columns one-three__from--desktop">
             <div class="account__header">
@@ -270,10 +362,10 @@
               <div class="columns two-one__from--phablet">
                 <div class="form__cell form__cell--card-number">
                   <label class="form__label">Card number <small>16 digits</small></label>
-                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="1234" />
-                  <input class="form__input" type="text" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="5678" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="1234" />
+                  <input class="form__input" type="number" size="4" maxlength="4" value="5678" />
                 </div>
                 <div class="form__cell form__cell--card-expires">
                   <label class="form__label">Expires</label>
@@ -284,7 +376,7 @@
                     <option value="yy">19</option>
                   </select>
                 </div>
-                <div class="form__cell">
+                <div class="form__cell form__cell--name-on-card">
                   <label class="form__label">Name on card</label>
                   <input class="form__input" type="text" value="CONSTANTINE CONSTANTINOPOULOS" />
                 </div>
@@ -296,8 +388,9 @@
               </div>
               <div class="form__row">
                 <div class="form__cell form__cell--checkbox">
-                  <input class="form__checkbox" id="payment-edit-method-is-primary" type="checkbox" checked="checked" />
                   <label class="form__label" for="payment-edit-method-is-primary">Primary method</label>
+                  <input class="form__switch" type="checkbox" id="payment-edit-method-is-primary" checked="checked">
+                  <label for="payment-edit-method-is-primary"></label>
                 </div>
                 <div class="form__cell form__cell--footer">
                   <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
@@ -338,10 +431,10 @@
                 <div class="columns two-one__from--phablet">
                   <div class="form__cell form__cell--card-number">
                     <label class="form__label">Card number <small>16 digits</small></label>
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
-                    <input class="form__input" type="text" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
+                    <input class="form__input" type="number" size="4" maxlength="4" />
                   </div>
                   <div class="form__cell form__cell--card-expires">
                     <label class="form__label">Expires</label>
@@ -352,7 +445,7 @@
                       <option value="yy">YY</option>
                     </select>
                   </div>
-                  <div class="form__cell">
+                  <div class="form__cell form__cell--name-on-card">
                     <label class="form__label">Name on card</label>
                     <input class="form__input" type="text" />
                   </div>
@@ -363,9 +456,10 @@
                   </div>
                 </div>
                 <div class="form__row">
-                  <div class="form__cell form__cell--checkbox">
-                    <input class="form__checkbox" id="payment-add-method-is-primary" type="checkbox">
-                    <label class="form__label" for="payment-add-method-is-primary">Primary method</label>
+                  <div class="form__cell form__cell--footer">
+                    <label class="form__label form__label--inline" for="payment-add-method-is-primary">Primary method</label>
+                    <input class="form__switch" type="checkbox" id="payment-add-method-is-primary">
+                    <label for="payment-add-method-is-primary"></label>
                   </div>
                   <div class="form__cell form__cell--footer">
                     <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
@@ -376,27 +470,77 @@
             </div>
 
             <div class="account__tabcontent" id="account__tabcontent--paypal">
-              <form class="form">
-                <div class="form__row">
-                  <div class="form__cell">
-                    <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
-                    <input class="form__input" id="payment-add-method-paypal-email" type="email">
+              <div class="paypal__add">
+                <form class="form">
+                  <div class="form__row">
+                    <div class="form__cell">
+                      <label class="form__label" for="payment-add-method-paypal-email">PayPal login <small>(email)</small></label>
+                      <input class="form__input" id="payment-add-method-paypal-email" type="email">
+                    </div>
+                    <div class="form__cell">
+                      <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
+                      <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                    </div>
                   </div>
-                  <div class="form__cell">
-                    <label class="form__label" for="payment-add-method-paypal-pass">Password</label>
-                    <input id="payment-add-method-paypal-pass" class="form__input" type="password" />
+                  <div class="form__row">
+                    <div class="form__cell form__cell--checkbox">
+                      <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
+                      <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                    </div>
+                    <div class="form__cell">
+                      <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="paypal__edit">
+                <div class="columns columns__from--phablet columns--sidebar">
+                  <div class="form__label form__label--inline">PayPal Account:</div>
+                  <div>
+                    lextimo@gmail.com
+                  </div>
+                  <div>
+                    Card&nbsp;x1614,$50
+                  </div>
+                  <a class="form__link" href="#">Change</a>
+                </div>
+                <div>&nbsp;</div>
+                <div class="columns columns__from--phablet columns--sidebar">
+                  <div class="columns columns__from--phablet">
+                    <div class="form__label form__label--inline">Pay with:</div>
+                    <div>
+                      <label class="form__radio" for="payment-add-method-paypal-card1">
+                        <input type="radio" id="payment-add-method-paypal-card1" checked="checked" name="payment-add-method-paypal-card">
+                        Card x1720
+                      </label>
+                    </div>
+                    <div>
+                      <label class="form__radio" for="payment-add-method-paypal-card2">
+                        <input type="radio" id="payment-add-method-paypal-card2" name="payment-add-method-paypal-card">
+                        Card x1614
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="form__link" href="#">
+                      <i class="icon icon--tiny icon--plus-alt"></i>Add Card
+                    </a>
                   </div>
                 </div>
+
                 <div class="form__row">
-                  <div class="form__cell form__cell--checkbox">
-                    <input id="payment-add-method-paypal-stay" class="form__checkbox" type="checkbox">
-                    <label for="payment-add-method-paypal-stay" class="form__label form__label--small">Stay logged in</label>
+                  <div class="form__cell form__cell--footer">
+                    <label class="form__label form__label--inline" for="payment-add-method-paypal-is-primary">Primary method</label>
+                    <input class="form__switch" type="checkbox" id="payment-add-method-paypal-is-primary">
+                    <label for="payment-add-method-paypal-is-primary"></label>
                   </div>
-                  <div class="form__cell">
-                    <input class="button button--rounded button--accent" type="submit" value="Enter PayPal">
+                  <div class="form__cell form__cell--footer">
+                    <a class="form__discard account__part--toggle" href="javascript:;">Discard<span class="hide__until--big"> changes</span></a>
+                    <input class="form__save" type="submit" value="Add payment method" />
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -638,43 +782,106 @@
   </footer>
   <script>
     (function(){
-      var $title = document.querySelector('.account__title');
+      var domTitle = document.querySelector('.account__title');
 
-      $title.addEventListener('click', function() {
-        $title.classList.toggle('account__title--expanded');
-        $title.classList.toggle('account__title--collapsed');
+      domTitle.addEventListener('click', function() {
+        domTitle.classList.toggle('account__title--expanded');
+        domTitle.classList.toggle('account__title--collapsed');
       });
 
-      var $partTogglers = document.querySelectorAll('.account__part--toggle');
+      var domMenuExpandables = document.querySelectorAll('.account__link--expandable > a');
 
-      $partTogglers.forEach(function($toggle) {
-        $toggle.addEventListener('click', function(event) {
+      domMenuExpandables.forEach(function(domLink) {
+        domLink.addEventListener('click', function(event) {
+          event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
+        });
+      });
+
+      var domPartTogglers = document.querySelectorAll('.account__part--toggle');
+
+      domPartTogglers.forEach(function(domToggle) {
+        domToggle.addEventListener('click', function(event) {
           event.target.closest('.account__box').classList.toggle('account__box--edit');
-        })
+        });
       });
 
-      var $tabsWrapper = document.querySelector('.account__tabs');
-      var $tabs = $tabsWrapper.querySelectorAll('.account__tab');
-      var $tabContents = $tabsWrapper.querySelectorAll('.account__tabcontent');
+      var domTabsWrapper = document.querySelector('.account__tabs');
+      var domTabs = domTabsWrapper.querySelectorAll('.account__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.account__tabcontent');
 
-      $tabs.forEach(function($tab) {
-        $tab.addEventListener('click', function(event) {
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
           var id = event.target.classList.contains('account__tab')
             ? event.target.rel
             : event.target.closest('.account__tab').rel
           ;
 
-          $tabContents.forEach(function($content) {
-            $content.classList.remove('account__tabcontent--active');
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('account__tabcontent--active');
           });
 
-          $tabs.forEach(function($tab) {
-            $tab.classList.remove('account__tab--active');
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('account__tab--active');
           });
 
-          $tabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
-          $tab.classList.add('account__tab--active');
+          domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          domTab.classList.add('account__tab--active');
         });
+      });
+
+
+      var domCardInputs = document.querySelectorAll('.form__cell--card-number > input:not(:last-child)');
+
+      domCardInputs.forEach(function(domInput) {
+        domInput.addEventListener('keyup', function(event) {
+          console.log('keyup', event.target.value);
+          if(event.target.value.length > 3 && event.target.nextElementSibling.value.length === 0) {
+            console.log('match');
+            event.target.nextElementSibling.focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      // Auth Tabs
+      var domAuthTabsWrapper = document.querySelector('.auth__popup');
+      var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
+
+      domAuthTabs.forEach(function(domAuthTab) {
+        domAuthTab.addEventListener('click', function(event) {
+          domAuthTabContents.forEach(function(domAuthContent) {
+            domAuthContent.classList.remove('auth__tab--active');
+          });
+          domAuthTabs.forEach(function(domTab) {
+            domTab.classList.remove('tabbar__tab--active');
+          });
+          event.target.classList.add('tabbar__tab--active');
+          domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
+        });
+      });
+
+      // Auth popup
+      var domAuthWrapper = document.querySelector('.auth');
+      var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
+
+      function closeAuthPopup(event) {
+        if (!event.target.closest('.auth__popup')) {
+          domAuthWrapper.classList.remove('auth--open');
+          document.body.removeEventListener('click', closeAuthPopup);
+        }
+      }
+
+      domAuthButton.addEventListener('click', function(event) {
+        if (!domAuthWrapper.classList.contains('auth--open')) {
+          domAuthWrapper.classList.add('auth--open');
+          setTimeout(function() {
+            document.body.addEventListener('click', closeAuthPopup);
+          }, 100);
+        }
       });
     })();
   </script>

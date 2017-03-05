@@ -1,0 +1,307 @@
+$chat-offset-phone: 6.125rem;
+$chat-offset-tablet: 6.9375rem;
+$chat-offset-big: 9.6875rem;
+
+.chat {
+  position: relative;
+  display: flex;
+
+  height: calc(100vh - #{$chat-offset-phone} - .5rem);
+
+  @include from(tablet) {
+    height: calc(100vh - #{$chat-offset-tablet} - .5rem);
+    padding: .5rem .5rem 0 .5rem;
+  }
+
+  @include from(big) {
+    height: calc(100vh - #{$chat-offset-big} - .5rem);
+  }
+
+  &__main {
+    height: 100%;
+    flex-grow: 1;
+    max-height: 100%;
+    position: relative;
+    background-color: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+
+    display: block;
+  }
+
+  &__sidebar {
+    background: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+
+    display: none;
+    width: 100%;
+
+    @include from(phablet) {
+      width: auto;
+      margin-right: .5rem;
+    }
+
+    @include from(desktop) {
+      display: block;
+    }
+
+  }
+
+  &--open {
+    .chat__main {
+      display: none;
+    }
+
+    .chat__sidebar {
+      display: block;
+    }
+
+    @include from(phablet) {
+      .chat__main {
+        display: block;
+      }
+
+      .chat__sidebar {
+        display: block;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $spacer-size-large $spacer-size-big;
+    border-bottom: 1px solid $color-border-lighter;
+
+    & > .button {
+      height: 1.5rem;
+      line-height: 1.5rem;
+      font-size: $font-size-tiny;
+      font-weight: $font-weight-base;
+      letter-spacing: $letter-spacing-small;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      .chat--open .chat__main & {
+        display: none;
+      }
+    }
+
+
+      justify-content: flex-end;
+    }
+
+    strong {
+      letter-spacing: $letter-spacing-small;
+    }
+
+  }
+
+  &__orders {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+
+    height: calc(100% - 3rem - 1px);
+
+    @include from(big) {
+      height: 100%;
+    }
+
+    .order {
+      padding: 1rem 2rem 1rem .5rem;
+      display: flex;
+      height: 5.25rem;
+      flex-direction: row;
+      align-items: top;
+      border-bottom: 1px solid $color-border-lighter;
+      background-image: url("../img/icon-shevron-right.png");
+      background-repeat: no-repeat;
+      background-size: $icon-size-tiny $icon-size-tiny;
+      background-position: right .25rem center;
+
+      &--active {
+        background-color: $color-brand-lighter;
+      }
+
+      &__counter {
+        height: 100%;
+        width: 2rem;
+        text-align: center;
+        font-size: $font-size-mini;
+        color: $color-text-white;
+        background-image: url("../img/icon-bubble.png");
+        background-position: top .125rem left;
+        background-size: $icon-size-small $icon-size-small;
+        background-repeat: no-repeat;
+        padding-top: .3125rem;
+        padding-right: .5rem;
+
+        &--inactive {
+          background-image: url("../img/icon-bubble-inactive.png");
+        }
+      }
+
+      &__title {
+        & > strong {
+          letter-spacing: $letter-spacing-small;
+        }
+      }
+
+      &__preview {
+        height: 1.5rem;
+        max-width: 13.25rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include from(big) {
+          max-width: 16rem;
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__soften {
+    color: $color-text-lightest;
+    margin-right: .125rem;
+  }
+
+
+  &__thread {
+    overflow-y: scroll;
+    padding-bottom: 1rem;
+
+    max-height: calc(100% - 6rem);
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    background-color: $color-background-default;
+    border-top: 1px solid $color-border-lighter;
+  }
+
+  &__input {
+    flex-grow: 1;
+
+    & > input {
+      width: 100%;
+      height: 3rem;
+      border: 0;
+      padding: 0 0 0 $spacer-size-big;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+
+    & > * {
+      display: block;
+      width: 3rem;
+      padding: $spacer-size-large;
+      height: 3rem;
+      border-left: 1px solid $color-border-lighter;
+    }
+  }
+
+  .message {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 1rem .5rem 1.5rem;
+
+    &__text {
+      position: relative;
+      margin: 0 $spacer-size-default;
+      background-color: $color-background-page;
+      border-radius: .3125rem;
+      padding: .5rem 1rem;
+      min-width: 6rem;
+
+      &:after {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " "; height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: $color-background-page;
+        border-width: .5rem;
+        margin-top: -.5rem;
+      }
+
+      @include from(phablet) {
+        max-width: 66%;
+        // TODO: change when list is open from tablet
+      }
+    }
+
+    &__timestamp {
+      position: absolute;
+      font-size: $font-size-tiny;
+      color: $color-text-lightest;
+      bottom: - 1.25rem;
+    }
+
+    &--outgoing {
+      flex-direction: row-reverse;
+
+      .message__text {
+        background-color: $color-background-default;
+        border: 1px solid $color-border-lighter;
+
+        &:after,
+        &:before {
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:before {
+          border-color: transparent;
+          border-left-color: $color-border-light;
+          border-width: 9px;
+          margin-top: -9px;
+        }
+
+        &:after {
+          border-color: transparent;
+          border-left-color: $color-background-default;
+          border-width: 8px;
+          margin-top: -8px;
+        }
+      }
+
+      .message__timestamp {
+        right: 1rem;
+
+        & > .icon {
+          vertical-align: baseline;
+          margin-left: .125rem;
+        }
+      }
+    }
+
+
+
+  }
+}
