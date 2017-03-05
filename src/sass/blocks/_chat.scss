@@ -24,7 +24,6 @@ $chat-offset-big: 9.6875rem;
     position: relative;
     background-color: $color-background-default;
     box-shadow: 0 2px 4px $color-shadow-default;
-
     display: block;
   }
 
@@ -43,7 +42,6 @@ $chat-offset-big: 9.6875rem;
     @include from(desktop) {
       display: block;
     }
-
   }
 
   &--open {
@@ -88,6 +86,7 @@ $chat-offset-big: 9.6875rem;
     }
 
 
+    .chat__sidebar > & {
       justify-content: flex-end;
     }
 
@@ -246,7 +245,6 @@ $chat-offset-big: 9.6875rem;
 
       @include from(phablet) {
         max-width: 66%;
-        // TODO: change when list is open from tablet
       }
     }
 
@@ -300,8 +298,5 @@ $chat-offset-big: 9.6875rem;
         }
       }
     }
-
-
-
   }
 }
