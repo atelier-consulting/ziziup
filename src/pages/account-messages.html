@@ -259,10 +259,10 @@
         <li class="account__link">
           <a href="#">Personal info</a>
         </li>
-        <li class="account__link account__link--expandable account__link--open">
+        <li class="account__link account__link--expandable">
           <a href="#">ZIZIUP Card</a>
           <ul class="account__submenu">
-            <li class="account__link account__link--active">
+            <li class="account__link">
               <a href="#">Activate</a>
             </li>
             <li class="account__link">
@@ -276,7 +276,7 @@
         <li class="account__link">
           <a href="#">My Orders</a>
         </li>
-        <li class="account__link">
+        <li class="account__link account__link--active">
           <a href="#">Messages</a>
         </li>
         <li class="account__link">
@@ -293,11 +293,50 @@
 
     <section class="account__main">
       <div class="chat">
+        <aside class="chat__sidebar">
+          <header class="chat__header hide__from--desktop">
+            <a class="button button--rounded button--accent chat__toggle" href="javascript:;">Hide list</a>
+          </header>
+          <ul class="chat__orders">
+            <li class="order">
+              <div class="order__counter">
+                2
+              </div>
+              <div class="order__info">
+                <div class="order__title">
+                  <span class="chat__soften">Order number:</span>
+                  <strong>18471206</strong>
+                </div>
+                <div class="order__preview">
+                  <strong>Admin:</strong>
+                  No problem, there's a solution
+                </div>
+              </div>
+            </li>
+
+            <li class="order order--active">
+              <div class="order__counter order__counter--inactive"></div>
+              <div class="order__info">
+                <div class="order__title">
+                  <span class="chat__soften">Order number:</span>
+                  <strong>23609123</strong>
+                </div>
+                <div class="order__preview">
+                  <strong>Me:</strong>
+                  Thanks a lot! Please warn me before shipping to my home.
+                </div>
+              </div>
+            </li>
+          </ul>
+        </aside>
+
         <section class="chat__main">
           <header class="chat__header">
-            <a class="button button--rounded button--accent" href="javascript:;">Orders list</a>
+            <a class="button button--rounded button--accent hide__from--desktop chat__toggle" href="javascript:;">
+              Orders<span class="hide__until--phablet"> list</span>
+            </a>
             <div>
-              <small>Order number:</small>
+              <span class="chat__soften">Order number:</span>
               <strong>23609123</strong>
             </div>
           </header>
@@ -553,6 +592,19 @@
             document.body.addEventListener('click', closeAuthPopup);
           }, 100);
         }
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      var domChat = document.querySelector('.chat');
+      var domChatToggles = domChat.querySelectorAll('.chat__toggle');
+
+      domChatToggles.forEach(function(domToggle) {
+        domToggle.addEventListener('click', function(event) {
+          domChat.classList.toggle('chat--open');
+        });
       });
     })();
   </script>

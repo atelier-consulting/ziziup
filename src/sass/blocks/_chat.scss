@@ -1,27 +1,69 @@
 $chat-offset-phone: 6.125rem;
 $chat-offset-tablet: 6.9375rem;
 $chat-offset-big: 9.6875rem;
-.chat {
-  height: 100%;
-  position: relative;
 
-  height: calc(100vh - #{$chat-offset-phone} - 1rem);
+.chat {
+  position: relative;
+  display: flex;
+
+  height: calc(100vh - #{$chat-offset-phone} - .5rem);
 
   @include from(tablet) {
-    height: calc(100vh - #{$chat-offset-tablet} - 1rem);
+    height: calc(100vh - #{$chat-offset-tablet} - .5rem);
     padding: .5rem .5rem 0 .5rem;
   }
 
   @include from(big) {
-    height: calc(100vh - #{$chat-offset-big} - 1rem);
+    height: calc(100vh - #{$chat-offset-big} - .5rem);
   }
 
   &__main {
     height: 100%;
+    flex-grow: 1;
     max-height: 100%;
     position: relative;
     background-color: $color-background-default;
     box-shadow: 0 2px 4px $color-shadow-default;
+
+    display: block;
+  }
+
+  &__sidebar {
+    background: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+
+    display: none;
+    width: 100%;
+
+    @include from(phablet) {
+      width: auto;
+      margin-right: .5rem;
+    }
+
+    @include from(desktop) {
+      display: block;
+    }
+
+  }
+
+  &--open {
+    .chat__main {
+      display: none;
+    }
+
+    .chat__sidebar {
+      display: block;
+    }
+
+    @include from(phablet) {
+      .chat__main {
+        display: block;
+      }
+
+      .chat__sidebar {
+        display: block;
+      }
+    }
   }
 
   &__header {
@@ -39,8 +81,99 @@ $chat-offset-big: 9.6875rem;
       letter-spacing: $letter-spacing-small;
       padding-left: 1rem;
       padding-right: 1rem;
+
+      .chat--open .chat__main & {
+        display: none;
+      }
+    }
+
+
+      justify-content: flex-end;
+    }
+
+    strong {
+      letter-spacing: $letter-spacing-small;
+    }
+
+  }
+
+  &__orders {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+
+    height: calc(100% - 3rem - 1px);
+
+    @include from(big) {
+      height: 100%;
+    }
+
+    .order {
+      padding: 1rem 2rem 1rem .5rem;
+      display: flex;
+      height: 5.25rem;
+      flex-direction: row;
+      align-items: top;
+      border-bottom: 1px solid $color-border-lighter;
+      background-image: url("../img/icon-shevron-right.png");
+      background-repeat: no-repeat;
+      background-size: $icon-size-tiny $icon-size-tiny;
+      background-position: right .25rem center;
+
+      &--active {
+        background-color: $color-brand-lighter;
+      }
+
+      &__counter {
+        height: 100%;
+        width: 2rem;
+        text-align: center;
+        font-size: $font-size-mini;
+        color: $color-text-white;
+        background-image: url("../img/icon-bubble.png");
+        background-position: top .125rem left;
+        background-size: $icon-size-small $icon-size-small;
+        background-repeat: no-repeat;
+        padding-top: .3125rem;
+        padding-right: .5rem;
+
+        &--inactive {
+          background-image: url("../img/icon-bubble-inactive.png");
+        }
+      }
+
+      &__title {
+        & > strong {
+          letter-spacing: $letter-spacing-small;
+        }
+      }
+
+      &__preview {
+        height: 1.5rem;
+        max-width: 13.25rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include from(big) {
+          max-width: 16rem;
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
     }
   }
+
+  &__soften {
+    color: $color-text-lightest;
+    margin-right: .125rem;
+  }
+
 
   &__thread {
     overflow-y: scroll;
