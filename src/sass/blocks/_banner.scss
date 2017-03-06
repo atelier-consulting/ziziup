@@ -512,5 +512,10 @@
       color: $color-text-white;
       margin: 0 0 $spacer-size-small;
     }
+
+    &.teaser--full {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }

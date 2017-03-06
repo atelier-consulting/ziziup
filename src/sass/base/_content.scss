@@ -356,4 +356,25 @@
       height: 100%;
     }
   }
+
+  &__box {
+    background-color: $color-background-default;
+    box-shadow: 0 2px 4px $color-shadow-default;
+
+    padding: 1rem;
+    margin: 0 -1rem .5rem -1rem;
+
+    @include from(desktop) {
+      padding: 1.25rem;
+      margin: 0;
+
+      &.account__load {
+        margin-right: 1rem;
+      }
+      &--sidebar {
+        width: 25rem;
+      }
+    }
+
+  }
 }

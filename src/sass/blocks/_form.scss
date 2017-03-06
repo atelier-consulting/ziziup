@@ -62,6 +62,14 @@
       }
     }
 
+    &--small {
+      flex-basis: 33.33%;
+    }
+
+    &--large {
+      flex-basis: 66.66%;
+    }
+
     &--phone {
 
       & > select,

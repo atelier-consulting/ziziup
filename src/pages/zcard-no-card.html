@@ -1,0 +1,714 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="cleartype" content="on">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>ZIZIUP</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+</head>
+<body>
+
+  <menu class="menu">
+    <div class="menu__floor menu__floor--secondary hide__until--tablet">
+      <div class="container">
+        <div class="menu__module">
+          We accept&nbsp;<i class="icon icon--payment icon--mastercard"></i>&nbsp;<i class="icon icon--payment icon--visa"></i>&nbsp;&nbsp;&nbsp;<i class="icon icon--payment icon--paypal"></i>
+        </div>
+        <div class="menu__module">
+          <i class="icon icon--tiny icon--tick-alt"></i>
+          Charge your ZIZIUP Card
+        </div>
+        <div class="menu__module hide__upto--tablet">
+          <i class="icon icon--tiny icon--track"></i>
+          Track your orders
+        </div>
+        <div class="menu__module">
+          <i class="icon icon--tiny icon--pickup"></i>
+          Pickup point is Yaounde
+        </div>
+      </div>
+    </div>
+    <div class="menu__floor menu__floor--primary">
+      <div class="container">
+        <div class="menu__module menu__module--base">
+          <i class="icon icon--toggle hide__from--big"></i>
+          <a href="#" class="logo">ZIZIUP</a>
+        </div>
+
+        <div class="menu__module menu__module--apps hide__until--tablet">
+          <a href="#" class="button button--store button--app-store"></a>
+          <a href="#" class="button button--store button--play-store"></a>
+          <a href="#" class="button button--store button--chrome-store hide__until--desktop"></a>
+        </div>
+
+        <!-- Settings -->
+        <div class="menu__module menu__module--settings hide__until--desktop">
+          <div class="dropdown">
+            <div class="dropdown__button">
+              <i class="icon icon--small icon--location"></i>
+              <span class="dropdown__value">Yaounde</span> <span class="dropdown__value hide__until--big">, Cameroon</span>
+              <i class="icon icon--small icon--caret-alt"></i>
+            </div>
+            <div class="dropdown__scrollpane dropdown__scrollpane--search">
+              <div class="dropdown__searchbar">
+                <input type="search" placeholder="Search location"/>
+              </div>
+              <ul class="dropdown__options dropdown__options--search">
+                <li class="dropdown__optgroup">Cameroon</li>
+                <li class="dropdown__option">Bali</li>
+                <li class="dropdown__option dropdown__option--selected">Bamenda</li>
+                <li class="dropdown__option">Bamingie</li>
+                <li class="dropdown__option">Bandjoun</li>
+                <li class="dropdown__option">Bandgem</li>
+                <li class="dropdown__option">Bali</li>
+                <li class="dropdown__option">Bamenda</li>
+                <li class="dropdown__option">Bamingie</li>
+                <li class="dropdown__option">Bandjoun</li>
+                <li class="dropdown__option">Bandgem</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <div class="dropdown__button">
+              <i class="icon icon--flag icon--flag-uk"></i>
+              <span class="dropdown__value">En</span>
+              <i class="icon icon--small icon--caret-alt"></i>
+            </div>
+            <div class="dropdown__scrollpane dropdown__scrollpane--lang">
+              <ul class="dropdown__options">
+                <li class="dropdown__option">
+                  <i class="icon icon--flag icon--flag-ue"></i> Arabian
+                </li>
+                <li class="dropdown__option dropdown__option--selected">
+                  <i class="icon icon--flag icon--flag-uk"></i> UK English
+                </li>
+                <li class="dropdown__option">
+                  <i class="icon icon--flag icon--flag-ua"></i> Ukrainian
+                </li>
+                <li class="dropdown__option">
+                  <i class="icon icon--flag icon--flag-fr"></i> French
+                </li>
+                <li class="dropdown__option">
+                  <i class="icon icon--flag icon--flag-it"></i> Italian
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider divider--vertical hide__until--big"></div>
+
+        <!-- Actions -->
+        <div class="menu__module menu__module--actions">
+          <div class="dropdown auth">
+            <div class="dropdown__button dropdown__button--large">
+              <span class="dropdown__value hide__until--big">Hello,&nbsp;</span>
+              <i class="icon icon--user hide__from--big"></i>
+              <i class="icon icon--tiny icon--user hide__until--big"></i>
+              <span class="dropdown__value dropdown__value--accent hide__until--big">Log in</span>
+              <i class="icon icon--small icon--caret hide__until--big"></i>
+            </div>
+            <div class="auth__popup">
+              <div class="tabbar">
+                <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="auth__tab--login">Log in</a>
+                <a class="tabbar__tab" href="javascript:;" rel="auth__tab--signup">Sign up</a>
+              </div>
+              <div class="auth__tabs">
+
+                <div id="auth__tab--login" class="auth__tab auth__tab--active">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">
+                        <input id="auth-login-remember" class="form__checkbox" type="checkbox" checked="checked">
+                        <label class="form__label form__label--small" for="auth-login-remember">
+                          Remember me
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <a class="form__link" href="#">Forgot password?</a>
+                      </div>
+                    </div>
+                    <div class="auth__row">
+                      <input class="button button--rounded button--accent" type="submit" value="Log in">
+                    </div>
+                    <div class="divider divider--horizontal">OR</div>
+                    <div class="auth__row">
+                      <a class="button button--bordered button--large button--rounded button--facebook" href="#">Facebook</a>
+                    </div>
+                  </form>
+                </div>
+
+                <div id="auth__tab--signup" class="auth__tab">
+                  <form class="auth__form">
+                    <div class="auth__row">
+                      <input class="form__input" type="text" placeholder="Name">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="email" placeholder="Email address">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="tel" placeholder="Phone number">
+                    </div>
+                    <div class="auth__row">
+                      <input class="form__input" type="password" placeholder="Password">
+                    </div>
+                    <div class="auth__row auth__row--relaxed">
+                      <div class="auth__col">Gender</div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-male">
+                          <input id="auth-signup-gender-male" type="radio" name="auth-signup-gender" >
+                          Male
+                        </label>
+                      </div>
+                      <div class="auth__col">
+                        <label class="form__radio" for="auth-signup-gender-female">
+                          <input id="auth-signup-gender-female" type="radio" name="auth-signup-gender">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-country">Country</label>
+                      <select id="auth-signup-country" class="form__select">
+                        <option value="ua">Ukraine</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--bordered">
+                      <label class="auth__label" for="auth-signup-city">City</label>
+                      <select id="auth-signup-city" class="form__select">
+                        <option value="001">Kyiv</option>
+                      </select>
+                    </div>
+
+                    <div class="auth__row auth__row--relaxed">
+                      <input class="button button--rounded button--accent" type="submit" value="Register">
+                    </div>
+                    <p>
+                      By clicking "Register" I agree to ZIZIUP's<br>
+                      <a class="form__link" href="#">Terms of service</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="button button--icon">
+            <i class="icon icon--bag"></i>
+          </a>
+          <a href="#" class="button button--icon hide__until--big">
+            <i class="icon icon--search"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="menu__floor menu__floor--tabs hide__until--big">
+      <div class="container">
+        <nav class="tabbar tabbar--main">
+          <a href="#" class="tabbar__tab">
+            Main
+          </a>
+          <a href="#" class="tabbar__tab">
+            Stores
+          </a>
+          <a href="#" class="tabbar__tab">
+            Sales
+          </a>
+          <a href="#" class="tabbar__tab tabbar__tab--active">
+            ZIZIUP Card
+          </a>
+          <a href="#" class="tabbar__tab">
+            Partners
+          </a>
+          <a href="#" class="tabbar__tab">
+            Gifts
+          </a>
+          <a href="#" class="tabbar__tab">
+            Specialty orders
+          </a>
+          <a href="#" class="tabbar__tab">
+            Curation
+          </a>
+          <a href="#" class="tabbar__tab">
+            How it works
+          </a>
+        </nav>
+      </div>
+    </div>
+  </menu>
+
+  <main class="content">
+    <div class="container container--padded">
+      <div class="columns columns__from--desktop columns__reverse-from--desktop columns--sidebar-first">
+        <div>
+          <div class="content__box content__box--sidebar">
+            <div class="account__header">
+              <h5>Activate ZIZIUP Card</h5>
+            </div>
+            <form class="form">
+              <div class="form__row">
+                <div class="form__cell form__cell--card-number">
+                  <label class="form__label">Enter ZIZIUP Card Number</label>
+                  <input class="form__input" type="number" size="4" max="9999" />
+                  <input class="form__input" type="number" size="4" max="9999" />
+                  <input class="form__input" type="number" size="4" max="9999" />
+                  <input class="form__input" type="number" size="4" max="9999" />
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__cell form__cell--card-cvv form__cell--small">
+                  <label class="form__label">PinCode</label>
+                  <input class="form__input" type="text" />
+                </div>
+                <div class="form__cell form__cell--large">
+                  <label class="form__label form__label--inline" for="account-zcard-activate-is-primary">Primary Payment Method</label>
+                  <input class="form__switch" type="checkbox" id="account-zcard-activate-is-primary" checked="checked">
+                  <label for="account-zcard-activate-is-primary"></label>
+                </div>
+              </div>
+              <div class="form__row">
+                <input class="button button--full button--rounded button--accent" type="submit" value="Activate ZIZIUP card" />
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="content__box account__load">
+          <div class="account__header">
+            <h5>Load your <span class="hide__until--phablet">ZIZIUP</span> Card with</h5>
+          </div>
+          <div class="tabbar">
+            <a class="tabbar__tab tabbar__tab--active" href="javascript:;" rel="load--deposit">
+              <span class="hide__until--phablet">Bank </span>deposit
+            </a>
+            <a class="tabbar__tab" href="javascript:;" rel="load--card">
+              <span class="hide__until--phablet">Credit </span>card
+            </a>
+            <a class="tabbar__tab" href="javascript:;" rel="load--paypal">
+              Paypal<span class="hide__until--phablet"> account</span>
+            </a>
+          </div>
+          <div id="load--deposit" class="load__tab load__tab--active">
+            <form class="form" action="">
+              <div class="form__row">
+                <div class="form__cell">
+                  <label class="form__label">Country</label>
+                  <select class="form__select">
+                    <option value="ua">Ukraine</option>
+                  </select>
+                </div>
+                <div class="form__cell">
+                  <label class="form__label">City</label>
+                  <select class="form__select">
+                    <option value="001">Kiev</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__row">
+                <ul class="list list--decorated">
+                  <li class="list__item">
+                    <strong>Choose banking Partner</strong>
+                    <small><a class="form__link" href="#">See list</a></small>
+                    <br>
+                    Go to local UBA bank and deposit either CFA or USD into our account.
+                  </li>
+                  <li class="list__item">
+                    <strong>Completing deposit</strong>
+                    <ul class="list list--dotted">
+                      <li class="list__item">
+                        Company name: ZIZIUP Limited.
+                      </li>
+                      <li class="list__item">
+                        Account numbers
+                        <ul class="list list--dashed">
+                          <li class="list__item">
+                            UBA USD: 1234567890
+                          </li>
+                          <li class="list__item">
+                            UBA CFA: 2345678901
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list__item">
+                    <strong>Account credited</strong>
+                    <br>
+                    We will credit your account within 24 hours from the moment money was deposited
+                  </li>
+                </ul>
+              </div>
+              <div class="form__row">
+                <div class="form__cell">
+                  <img src="../img/comp-payment-sample.png" alt="Deposit sample">
+                  <br>
+                  <a class="form__link" href="#">Download sample</a>
+                </div>
+                <div class="form__cell form__cell--footer">
+                  <a class="form__save form__save--large" href="#">Download instructions</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="load--card" class="load__tab">
+            <div class="account__tabs">
+              <div class="account__tabbar account__tabbar--slim">
+                <a class="account__tab account__tab--slim account__tab--active" href="javascript:;" rel="account__tabcontent--card1">Visa <span class="hide__until--phablet">&hellip;</span>1720</a>
+                <a class="account__tab account__tab--slim" href="javascript:;" rel="account__tabcontent--card2">MasterCard <span class="hide__until--phablet">&hellip;</span>8784</a>
+                <a class="form__link" href="#">
+                  <i class="icon icon--tiny icon--plus-alt hide__until--phablet"></i>Add Card
+                </a>
+              </div>
+              <div id="account__tabcontent--card1" class="account__tabcontent account__tabcontent--active">
+                <div class="panel__input panel__input--accent">
+                  <label>Enter amount in USD</label>
+                  <input type="text" />
+                  <button class="accent">Add credit</button>
+                  <small>Your card will be credited in 24 hours</small>
+                </div>
+              </div>
+              <div id="account__tabcontent--card2" class="account__tabcontent">
+                <div class="panel__input panel__input--accent">
+                  <label>Enter amount in CFA</label>
+                  <input type="text" />
+                  <button class="accent">Add credit</button>
+                  <small>Your card will be credited in 24 hours</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="load--paypal" class="load__tab">
+            <div class="account__tabs">
+              <div class="account__tabbar account__tabbar--slim">
+                <div class="form__label">PayPal account</div>
+                <p>
+                  lextimo@gmail.com<br>
+                  Card&nbsp;x1614,&nbsp;&nbsp;$50
+                </p>
+                <a class="form__link" href="#">
+                  <i class="icon icon--tiny icon--pencil hide__until--phablet"></i>
+                  Edit
+                </a>
+              </div>
+              <div class="account__tabcontent account__tabcontent--active">
+                <div class="panel__input panel__input--accent">
+                  <label>Enter amount in USD</label>
+                  <input type="text" />
+                  <button class="accent">Add credit</button>
+                  <small>Your card will be credited in 24 hours</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="teaser teaser--zcard teaser--full">
+        <h3>Have no ZIZIUP Card yet?</h3>
+        <h3 class="hide__until--phablet">Chose yours</h3>
+
+        <div class="carousel carousel--zcard">
+          <div>
+            <div class="carousel__z-slide carousel__z-slide--1">
+              <div class="columns columns__from--phablet golden-reverse__from--phablet">
+                <div><img src="../img/landing-card-gold.png" alt="ZIZIUP Gold Card"></div>
+                <div>
+                  <h4>ZIZIUP Gold</h4>
+                  <ul class="list list--inverted list--dotted">
+                    <li class="list__item">We apply store coupons to your orders</li>
+                    <li class="list__item">Participate in seasonal promotion and store discounts</li>
+                    <li class="list__item">Get credit if the items price reduces before we place your order</li>
+                    <li class="list__item">10 free shippings to local pickup</li>
+                  </ul>
+                  <div class="columns">
+                    <h3>$100<sup>/year</sup></h3>
+                    <div>
+                      <a class="button button--large button--rounded button--transparent" href="#">Buy online</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="carousel__z-slide carousel__z-slide--2">
+              <div class="columns columns__from--phablet golden-reverse__from--phablet">
+                <div><img src="../img/landing-card-platinum.png" alt="ZIZIUP Gold Card"></div>
+                <div>
+                  <h4>ZIZIUP Platinum</h4>
+                  <ul class="list list--inverted list--dotted">
+                    <li class="list__item">We apply store coupons to your orders</li>
+                    <li class="list__item">Participate in seasonal promotion and store discounts</li>
+                    <li class="list__item">Get credit if the items price reduces before we place your order</li>
+                    <li class="list__item">20 free shippings to local pickup</li>
+                  </ul>
+                  <div class="columns">
+                    <h3>$200<sup>/year</sup></h3>
+                    <div>
+                      <a class="button button--large button--rounded button--transparent" href="#">Buy online</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__module footer__module--cards hide__until--huge">
+        <img src="../img/landing-card-platinum.png" alt="Platinum ZIZIUP Card">
+        <img src="../img/landing-card-gold.png" alt="Gold ZIZIUP Card">
+      </div>
+
+      <div class="footer__module">
+        <h5>Buy Ziziup Card</h5>
+        <ul class="list list--expandable list--inverted hide__until--phablet">
+          <li class="list__item list__item--expanded">
+            <a href="javascript:;" class="list__link">Cameroon</a>
+            <ul class="list">
+              <li class="list__item">
+                <a href="javascript:;" class="list__link">Yaounde</a>
+              </li>
+              <li class="list__item">
+                <a href="javascript:;" class="list__link">Bamenda</a>
+              </li>
+              <li class="list__item">
+                <a href="javascript:;" class="list__link">Douala</a>
+              </li>
+            </ul>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Nigeria</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">USA</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Ghana</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">South Africa</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__module">
+        <h5><span class="hide__until--tablet">Pick up </span>location</h5>
+        <ul class="list list--expandable list--inverted hide__until--phablet">
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Cameroon</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Nigeria</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">USA</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Ghana</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">South Africa</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__module hide__until--desktop">
+        <h5>Ziziup menu</h5>
+        <ul class="list list--inverted">
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">About</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Policies</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">FAQ</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Press</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Contact</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Affiliates</a>
+          </li>
+          <li class="list__item">
+            <a href="javascript:;" class="list__link">Team</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__module">
+        <h5>Social</h5>
+        <div class="footer__social">
+          <i class="icon icon--social icon--facebook"></i>
+          <i class="icon icon--social icon--twitter"></i>
+          <i class="icon icon--social icon--gplus"></i>
+          <i class="icon icon--social icon--instagram"></i>
+          <i class="icon icon--social icon--linkedin"></i>
+        </div>
+        <div class="divider divider--horizontal divider--inverted">Become</div>
+        <div class="footer__buttons">
+          <a href="#" class="button button--rounded button--inverted button--huge">Partner</a>
+          <a href="#" class="button button--rounded button--inverted button--huge">Affiliate</a>
+        </div>
+        <ul class="list list--inverted">
+          <li class="list__item">Skype:&nbsp;&nbsp;omenerd</li>
+          <li class="list__item">Phone:&nbsp;&nbsp;817-717-1286</li>
+          <li class="list__item">Fax:&nbsp;&nbsp;415-515-6171</li>
+        </ul>
+      </div>
+
+      <div class="footer__copyright">
+        &copy;&nbsp;2016&nbsp;ZIZIUP
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+  <script>
+    (function(){
+      // Horizontal method tabs
+      var domMethodTabsWrapper = document.querySelector('.account__load');
+      var domMethodTabs = domMethodTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domMethodTabContents = domMethodTabsWrapper.querySelectorAll('.load__tab');
+
+      domMethodTabs.forEach(function(domMethodTab) {
+        domMethodTab.addEventListener('click', function(event) {
+          domMethodTabContents.forEach(function(domMethodContent) {
+            domMethodContent.classList.remove('load__tab--active');
+          });
+          domMethodTabs.forEach(function(domMethodTab) {
+            domMethodTab.classList.remove('tabbar__tab--active');
+          });
+
+          var domMethodTarget = event.target.classList.contains('tabbar__tab')
+            ? event.target
+            : event.target.closest('.tabbar__tab')
+          ;
+
+          domMethodTarget.classList.add('tabbar__tab--active');
+
+          domMethodTabsWrapper.querySelector('#' + domMethodTarget.rel).classList.add('load__tab--active');
+        });
+      });
+
+      // Vertical tabs on credit card
+      var domTabsWrapper = document.querySelector('.account__tabs');
+      var domTabs = domTabsWrapper.querySelectorAll('.account__tab');
+      var domTabContents = domTabsWrapper.querySelectorAll('.account__tabcontent');
+
+      domTabs.forEach(function(domTab) {
+        domTab.addEventListener('click', function(event) {
+          var id = event.target.classList.contains('account__tab')
+            ? event.target.rel
+            : event.target.closest('.account__tab').rel
+          ;
+
+          domTabContents.forEach(function(domContent) {
+            domContent.classList.remove('account__tabcontent--active');
+          });
+
+          domTabs.forEach(function(domTab) {
+            domTab.classList.remove('account__tab--active');
+          });
+
+          domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
+          domTab.classList.add('account__tab--active');
+        });
+      });
+
+      var domCardInputs = document.querySelectorAll('.form__cell--card-number > input:not(:last-child)');
+
+      domCardInputs.forEach(function(domInput) {
+        domInput.addEventListener('keyup', function(event) {
+          if(event.target.value.length > 3 && event.target.nextElementSibling.value.length === 0) {
+            event.target.nextElementSibling.focus();
+          }
+        });
+      });
+
+      $('.carousel').slick({
+        arrows: true,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3250,
+        speed: 850
+      });
+
+    })();
+  </script>
+
+  <script>
+    (function() {
+      // Auth Tabs
+      var domAuthTabsWrapper = document.querySelector('.auth__popup');
+      var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
+      var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
+
+      domAuthTabs.forEach(function(domAuthTab) {
+        domAuthTab.addEventListener('click', function(event) {
+          domAuthTabContents.forEach(function(domAuthContent) {
+            domAuthContent.classList.remove('auth__tab--active');
+          });
+          domAuthTabs.forEach(function(domTab) {
+            domTab.classList.remove('tabbar__tab--active');
+          });
+          event.target.classList.add('tabbar__tab--active');
+          domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
+        });
+      });
+
+      // Auth popup
+      var domAuthWrapper = document.querySelector('.auth');
+      var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
+
+      function closeAuthPopup(event) {
+        if (!event.target.closest('.auth__popup')) {
+          domAuthWrapper.classList.remove('auth--open');
+          document.body.removeEventListener('click', closeAuthPopup);
+        }
+      }
+
+      domAuthButton.addEventListener('click', function(event) {
+        if (!domAuthWrapper.classList.contains('auth--open')) {
+          domAuthWrapper.classList.add('auth--open');
+          setTimeout(function() {
+            document.body.addEventListener('click', closeAuthPopup);
+          }, 100);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
