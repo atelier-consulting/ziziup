@@ -99,6 +99,17 @@ $slick-opacity-not-active: 0.3 !default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    .popup & {
+      top: 32.5%;
+      width: 2.5rem;
+      height: 2.5rem;
+
+      &:before {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, .3);
+      }
+    }
 }
 
 .slick-prev {
@@ -113,6 +124,10 @@ $slick-opacity-not-active: 0.3 !default;
             content: $slick-next-character;
         }
     }
+
+    .popup & {
+      left: -2.5rem;
+    }
 }
 
 .slick-next {
@@ -126,6 +141,10 @@ $slick-opacity-not-active: 0.3 !default;
         [dir="rtl"] & {
             content: $slick-prev-character;
         }
+    }
+
+    .popup & {
+      right: -2.5rem;
     }
 }
 

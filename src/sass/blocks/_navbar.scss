@@ -16,6 +16,13 @@
     margin: 0 3rem 0 0;
     color: $color-text-lightest;
     font-size: $font-size-tiny;
+
+    &--large {
+      font-size: $font-size-oversize;
+      font-weight: $font-weight-bold;
+      color: $color-text-default;
+      line-height: 3.875rem;
+    }
   }
 
   &__link {
