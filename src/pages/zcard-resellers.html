@@ -12,13 +12,14 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
   <link rel="stylesheet" href="../%CSSPATH%">
 </head>
-<body class="has-popup">
+<body>
 
   <div class="popup">
     <div class="popup__overlay">
       <div class="popup__window">
         <a class="popup__close" href="javascript:;">&times;</a>
         <div class="popup__carousel">
+
           <div class="reseller__slide">
             <div class="slide">
               <section class="slide__content">
@@ -29,26 +30,71 @@
                   <div class="slide__name">Philemon Yang</div>
                   <div class="slide__timestamp">25.09.2014</div>
                 </div>
-                <div class="slide__actions">
-                  <div class="slide__social">
-                    <a href="#">
-                      <i class="icon icon--social icon--facebook"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon icon--social icon--twitter"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon icon--social icon--gplus"></i>
-                    </a>
-                  </div>
-                  <div class="slide__controls">
-                    <button class="slide__prev" disabled>&lt;</button>
-                    <button class="slide__next">&gt;</button>
-                  </div>
+                <div class="slide__social">
+                  <a href="#">
+                    <i class="icon icon--social icon--facebook"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--gplus"></i>
+                  </a>
                 </div>
               </footer>
             </div>
           </div>
+
+          <div class="reseller__slide">
+            <div class="slide">
+              <section class="slide__content">
+                <img src="../img/comp-customer-2.jpg" alt="Customer">
+              </section>
+              <footer class="slide__footer">
+                <div class="slide__info">
+                  <div class="slide__name">Philemon Yang</div>
+                  <div class="slide__timestamp">25.09.2014</div>
+                </div>
+                <div class="slide__social">
+                  <a href="#">
+                    <i class="icon icon--social icon--facebook"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--gplus"></i>
+                  </a>
+                </div>
+              </footer>
+            </div>
+          </div>
+
+          <div class="reseller__slide">
+            <div class="slide">
+              <section class="slide__content">
+                <img src="../img/comp-customer-3.jpg" alt="Customer">
+              </section>
+              <footer class="slide__footer">
+                <div class="slide__info">
+                  <div class="slide__name">Philemon Yang</div>
+                  <div class="slide__timestamp">25.09.2014</div>
+                </div>
+                <div class="slide__social">
+                  <a href="#">
+                    <i class="icon icon--social icon--facebook"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="icon icon--social icon--gplus"></i>
+                  </a>
+                </div>
+              </footer>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -330,32 +376,30 @@
     </div>
 
     <div class="container container--padded">
-      <div class="customer">
+      <a class="customer" href="javascript:;" rel="0">
         <img class="customer__preview" src="../img/comp-customer-1.jpg" alt="Customer 1">
         <div class="customer__details">
           <div class="customer__name">Philemon Yang</div>
           <div class="customer__timestamp">24.06.2017</div>
         </div>
-        <div class="customer__play"></div>
-      </div>
+      </a>
 
-      <div class="customer">
+      <a class="customer" href="javascript:;" rel="1">
         <img class="customer__preview" src="../img/comp-customer-2.jpg" alt="Customer 1">
         <div class="customer__details">
           <div class="customer__name">Philemon Yang</div>
           <div class="customer__timestamp">24.06.2017</div>
         </div>
-        <div class="customer__play"></div>
-      </div>
+      </a>
 
-      <div class="customer">
+      <a class="customer" href="javascript:;" rel="2">
         <img class="customer__preview" src="../img/comp-customer-3.jpg" alt="Customer 1">
         <div class="customer__details">
           <div class="customer__name">Philemon Yang</div>
           <div class="customer__timestamp">24.06.2017</div>
         </div>
         <div class="customer__play"></div>
-      </div>
+      </a>
     </div>
   </main>
 
@@ -474,6 +518,45 @@
 
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script>
+    (function($) {
+      var $popup = $('.popup').first();
+      var $body = $('body');
+      var $carousel = $('.popup__carousel');
+
+      $(document).ready(function() {
+        $carousel.slick({
+          arrows: false,
+          dots: false,
+          autoplay: false,
+          touchMove: false,
+          speed: 800,
+          mobileFirst: true,
+          responsive: [{
+            breakpoint: 639,
+            settings: {
+              arrows: true
+            }
+          }]
+        });
+      });
+
+      $('.customer').on('click', function(){
+        $body.addClass('has-popup');
+        $popup.addClass('popup--open');
+        $carousel.slick('slickGoTo', parseInt(this.rel, 10));
+      });
+
+      $('.popup__close').on('click', function() {
+        $body.removeClass('has-popup');
+        $popup.removeClass('popup--open');
+      });
+
+    })(jQuery);
+  </script>
 
   <script>
     (function() {

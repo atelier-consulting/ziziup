@@ -167,8 +167,23 @@
       height: auto;
 
       &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 10.5rem;
+
         & > img {
-          max-width: 100%;
+          display: block;
+          flex: none;
+          width: 100%;
+        }
+
+        @include from(tablet) {
+          height: 24rem;
+        }
+
+        @include from(big) {
         }
       }
 
@@ -179,12 +194,25 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 1rem;
-        height: 10rem;
+        height: 9rem;
+
+        @include from(tablet) {
+          flex-direction: row;
+          height: auto;
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
       }
 
       &__info {
         text-align: center;
-        align-self: center;
+        display: flex;
+        flex-direction: column;
+
+        @include from(tablet) {
+          flex-direction: row;
+          align-items: baseline;
+        }
       }
 
       &__name {
@@ -193,15 +221,14 @@
 
       &__timestamp {
         font-size: $font-size-small;
-      }
 
-      &__actions {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include from(tablet) {
+          padding-left: 1rem;
+        }
       }
 
       &__social {
+        align-self: center;
         & > a {
           text-decoration: none;
         }

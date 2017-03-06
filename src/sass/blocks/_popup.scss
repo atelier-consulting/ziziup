@@ -1,25 +1,51 @@
 body.has-popup {
   height: 100vh;
   overflow-y: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 .popup {
-  display: block;
+  display: none;
   position: absolute;
   z-index: 90;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+
+  &--open {
+    display: block;
+  }
 
   &__overlay {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.8);
-    padding-top: 12vh;
+    padding-top: 9vh;
     text-align: right;
+
+    @include from(phablet) {
+      padding-top: 0;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+
+    @include from(tablet) {
+      padding-top: 8rem;
+    }
+
+    @include from(desktop) {
+      padding-top: 5vh;
+      padding-left: 11.25rem;
+      padding-right: 11.25rem;
+    }
+
+    @include from(big) {
+      padding-top: 5vh;
+      padding-left: 19rem;
+      padding-right: 19rem;
+    }
   }
 
   &__close {
@@ -32,5 +58,10 @@ body.has-popup {
     color: rgba(255,255,255,.5);
     font-size: $font-size-big;
     font-weight: 100;
+
+    @include from(tablet) {
+      position: relative;
+      right: -2.5rem;
+    }
   }
 }
