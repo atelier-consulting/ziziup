@@ -63,11 +63,15 @@
     }
 
     &--small {
-      flex-basis: 33.33%;
+      @include from(phablet) {
+        flex-basis: 33.33%;
+      }
     }
 
     &--large {
-      flex-basis: 66.66%;
+      @include from(phablet) {
+        flex-basis: 66.66%;
+      }
     }
 
     &--phone {
@@ -276,6 +280,10 @@
     &--inline {
       display: inline-block;
       margin-right: $spacer-size-default;
+    }
+
+    &--inverted {
+      color: $color-text-white;
     }
   }
 

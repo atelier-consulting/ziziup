@@ -92,7 +92,7 @@
     overflow: hidden;
     position: relative;
 
-    width: 100%;
+    width: calc(100% - 1rem);
     margin: .5rem;
 
     @include from(phablet) {
