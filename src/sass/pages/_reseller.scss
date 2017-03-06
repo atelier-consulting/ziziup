@@ -156,6 +156,88 @@
         border-width: .75rem 0 .75rem 1.25rem;
         border-color: transparent transparent transparent #ffffff;
         margin: 1.3125rem auto 0 1.5625rem;
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  }
+
+  &__slide {
+    .slide {
+      max-width: 100%;
+      height: auto;
+
+      &__content {
+        & > img {
+          max-width: 100%;
+        }
+      }
+
+      &__footer {
+        background-color: $color-background-default;
+        color: $color-text-default;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        height: 10rem;
+      }
+
+      &__info {
+        text-align: center;
+        align-self: center;
+      }
+
+      &__name {
+        font-size: $font-size-big;
+      }
+
+      &__timestamp {
+        font-size: $font-size-small;
+      }
+
+      &__actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &__social {
+        & > a {
+          text-decoration: none;
+        }
+      }
+
+      &__controls {
+        display: block;
+        @extend %clearfix;
+
+        & > button {
+          display: block;
+          float: left;
+          height: 2.5rem;
+          line-height: 2.125rem;
+          width: 3.125rem;
+          background: $color-background-default;
+          color: $color-text-lightest;
+          font-size: $font-size-big;
+          border: 1px solid $color-border-icon;
+
+          &[disabled] {
+            opacity: .3;
+          }
+        }
+      }
+
+      &__prev {
+        border-top-left-radius: 1.25rem;
+        border-bottom-left-radius: 1.25rem;
+      }
+
+      &__next {
+        position: relative;
+        left: -1px;
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
       }
     }
   }
