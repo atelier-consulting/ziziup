@@ -411,6 +411,10 @@
     background-image: url("../img/icon-phone.png");
   }
 
+  &--phone-alt {
+    background-image: url("../img/icon-phone-alt.png");
+  }
+
   &--mail {
     background-image: url("../img/icon-mail.png");
   }
@@ -419,7 +423,15 @@
     background-image: url("../img/icon-viber.png");
   }
 
+  &--viber-alt {
+    background-image: url("../img/icon-viber-alt.png");
+  }
+
   &--skype {
     background-image: url("../img/icon-skype.png");
+  }
+
+  &--clock {
+    background-image: url("../img/icon-clock.png");
   }
 }
