@@ -1,0 +1,82 @@
+.checkout {
+  text-align: left;
+  padding-bottom: 2rem;
+
+  &__header {
+    padding: 1.5rem .5rem;
+
+    @extend %clearfix;
+  }
+
+  &__title {
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url("../img/logo.svg");
+    color: $color-text-default;
+    float: left;
+
+    background-size: 138px 38px;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: $font-size-big;
+    padding-left: 9rem;
+
+    @include from(desktop) {
+      background-size: 185px 51px;
+      height: 5.5rem;
+      line-height: 5.5rem;
+      font-size: $font-size-larger;
+      padding-left: 12rem;
+    }
+
+  }
+
+  &__close {
+    display: block;
+    float:right;
+    text-decoration: none;
+    color: $color-text-default;
+    text-align: right;
+
+    padding: 1rem 0;
+    width: 3rem;
+
+    @include from(phablet) {
+      width: 6rem;
+    }
+
+    @include from(desktop) {
+      padding: 2rem 0 1rem;
+    }
+
+    & > em {
+      font-style: normal;
+      font-size: $font-size-large;
+      vertical-align: baseline;
+      vertical-align: bottom;
+      line-height: 1.5rem;
+      display: inline-block;
+      margin-left: .25rem;
+    }
+  }
+
+  &__sidebar {
+    width: 100%;
+
+    & > .panel {
+      margin: 0 0 1rem 0;
+    }
+
+    @include from(desktop) {
+      min-width: 16rem;
+      width: 16rem;
+    }
+  }
+
+  &__panels {
+    & > .panel {
+      margin-left: 0;
+    }
+
+  }
+}

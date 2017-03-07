@@ -54,6 +54,16 @@ body.has-popup {
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
     }
+
+    &--checkout {
+      padding-top: 0;
+      background-color: rgba(228,228,228,.7);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      overflow-y: auto;
+
+    }
   }
 
   &__close {
