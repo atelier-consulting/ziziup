@@ -155,10 +155,6 @@
 
       & > .form__label--checkbox {
         margin-left: 1rem;
-
-        @include from(phablet) {
-          margin-left: 2.5rem;
-        }
       }
     }
 
