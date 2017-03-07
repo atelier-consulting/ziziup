@@ -47,6 +47,16 @@ body.has-popup {
       padding-right: 16rem;
     }
 
+    @include from(large) {
+      padding-left: 22.25rem;
+      padding-right: 22.25rem;
+    }
+
+    @include from(huge) {
+      padding-left: 29.25rem;
+      padding-right: 29.25rem;
+    }
+
     &--branded {
       padding-top: 0;
       background-color: transparent;
