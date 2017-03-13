@@ -418,70 +418,16 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      var domSpoilers = document.querySelectorAll('.spoiler');
-
-      for (var i = 0; i < domSpoilers.length; i++) {
-        domSpoilers[i].addEventListener('click', function(event) {
-          var domTarget = event.target.classList.contains('spoiler')
-            ? event.target
-            : event.target.closest('.spoiler')
-          ;
-
-          if (domTarget.classList.contains('spoiler--open')) {
-            domTarget.classList.remove('spoiler--open');
-          } else {
-            for(var j = 0; j < domSpoilers.length; j++) {
-              domSpoilers[j].classList.remove('spoiler--open')
-            }
-            domTarget.classList.add('spoiler--open');
-          }
-        });
-      }
-    })();
-  </script>
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../js/zizi.jquery.js"></script>
 
   <script>
-    (function() {
-      // Auth Tabs
-      var domAuthTabsWrapper = document.querySelector('.auth__popup');
-      var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
-      var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
-
-      domAuthTabs.forEach(function(domAuthTab) {
-        domAuthTab.addEventListener('click', function(event) {
-          domAuthTabContents.forEach(function(domAuthContent) {
-            domAuthContent.classList.remove('auth__tab--active');
-          });
-          domAuthTabs.forEach(function(domTab) {
-            domTab.classList.remove('tabbar__tab--active');
-          });
-          event.target.classList.add('tabbar__tab--active');
-          domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
-        });
-      });
-
-      // Auth popup
-      var domAuthWrapper = document.querySelector('.auth');
-      var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
-
-      function closeAuthPopup(event) {
-        if (!event.target.closest('.auth__popup')) {
-          domAuthWrapper.classList.remove('auth--open');
-          document.body.removeEventListener('click', closeAuthPopup);
-        }
-      }
-
-      domAuthButton.addEventListener('click', function(event) {
-        if (!domAuthWrapper.classList.contains('auth--open')) {
-          domAuthWrapper.classList.add('auth--open');
-          setTimeout(function() {
-            document.body.addEventListener('click', closeAuthPopup);
-          }, 100);
-        }
-      });
-    })();
+    $(document).ready(function(){
+      $('.auth').ziziAuth();
+      $('.auth__popup').ziziTabs();
+      $('.spoiler').ziziSpoilers();
+    });
   </script>
+
 </body>
 </html>

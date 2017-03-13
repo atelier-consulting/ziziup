@@ -885,137 +885,43 @@
     </div>
   </footer>
 
-</body>
-<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-<script>
-  function updateReviewsLegend(current, showed, total) {
-    $('.reviews__legend').html((current + 1) + '..' + (current + showed) + '&nbsp;of&nbsp' + total);
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script src="../js/zizi.jquery.js"></script>
 
-    console.log(current, showed, total);
-    current === 0
-      ? $('.reviews__button--prev').prop('disabled', true)
-      : $('.reviews__button--prev').prop('disabled', false)
-    ;
+  <script>
+    $(document).ready(function(){
+      $('.auth').ziziAuth();
+      $('.auth__popup').ziziTabs();
+      $('.reviews').ziziReviews();
 
-    current + showed === total
-      ? $('.reviews__button--next').prop('disabled', true)
-      : $('.reviews__button--next').prop('disabled', false)
-    ;
-  }
+      $('.carousel').slick({
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 8500,
+        speed: 800
+      });
 
-  $(document).ready(function(){
-    $('.carousel').slick({
-      arrows: false,
-      dots: true,
-      autoplay: true,
-      autoplaySpeed: 8500,
-      speed: 800
-    });
-
-    $('.reviews__list').on('init', function(event, slick) {
-      updateReviewsLegend(0, slick.options.slidesToShow, slick.slideCount);
-      console.log('__');
-    });
-
-    $('.reviews__list').slick({
-      arrows: false,
-      dots: false,
-      autoplay: false,
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      infinite: false,
-      mobileFirst: true,
-      responsive: [{
-        breakpoint: 1023,
-        settings: {
-          slidesToShow: 3
-        }
-      },{
-        breakpoint: 1365,
-        settings: {
-          slidesToShow: 4
-        }
-      },{
-        breakpoint: 1599,
-        settings: {
-          slidesToShow: 5
-        }
-      }]
-    });
-
-    $('.reviews__button--next').on('click', function() {
-      $('.reviews__list').slick('slickNext');
-    });
-
-    $('.reviews__button--prev').on('click', function() {
-      $('.reviews__list').slick('slickPrev');
-    });
-
-    $('.reviews__list').on('afterChange', function(event, slick, currentSlide) {
-      updateReviewsLegend(currentSlide, slick.options.slidesToShow, slick.slideCount);
-    });
-
-    $('.ribbon').slick({
-      infinite: true,
-      autoplay: true,
-      arrows: false,
-      autoplaySpeed: 5000,
-      slidesToShow: 5,
-      variableWidth: true,
-      speed: 650,
-      centerMode: true,
-      mobileFirst: true,
-      responsive: [{
-        breakpoint: 639,
-        settings: {
-          centerMode: false
-        }
-      }]
-    });
-
-  });
-</script>
-
-<script>
-  (function() {
-    // Auth Tabs
-    var domAuthTabsWrapper = document.querySelector('.auth__popup');
-    var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
-    var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
-
-    domAuthTabs.forEach(function(domAuthTab) {
-      domAuthTab.addEventListener('click', function(event) {
-        domAuthTabContents.forEach(function(domAuthContent) {
-          domAuthContent.classList.remove('auth__tab--active');
-        });
-        domAuthTabs.forEach(function(domTab) {
-          domTab.classList.remove('tabbar__tab--active');
-        });
-        event.target.classList.add('tabbar__tab--active');
-        domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
+      $('.ribbon').slick({
+        infinite: true,
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 5000,
+        slidesToShow: 5,
+        variableWidth: true,
+        speed: 650,
+        centerMode: true,
+        mobileFirst: true,
+        responsive: [{
+          breakpoint: 639,
+          settings: {
+            centerMode: false
+          }
+        }]
       });
     });
-
-    // Auth popup
-    var domAuthWrapper = document.querySelector('.auth');
-    var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
-
-    function closeAuthPopup(event) {
-      if (!event.target.closest('.auth__popup')) {
-        domAuthWrapper.classList.remove('auth--open');
-        document.body.removeEventListener('click', closeAuthPopup);
-      }
-    }
-
-    domAuthButton.addEventListener('click', function(event) {
-      if (!domAuthWrapper.classList.contains('auth--open')) {
-        domAuthWrapper.classList.add('auth--open');
-        setTimeout(function() {
-          document.body.addEventListener('click', closeAuthPopup);
-        }, 100);
-      }
-    });
-  })();
-</script>
+  </script>
+  
+</body>
 </html>

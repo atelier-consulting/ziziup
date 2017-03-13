@@ -387,46 +387,15 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../js/zizi.jquery.js"></script>
+
   <script>
-    (function() {
-      // Auth Tabs
-      var domAuthTabsWrapper = document.querySelector('.auth__popup');
-      var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
-      var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
-
-      domAuthTabs.forEach(function(domAuthTab) {
-        domAuthTab.addEventListener('click', function(event) {
-          domAuthTabContents.forEach(function(domAuthContent) {
-            domAuthContent.classList.remove('auth__tab--active');
-          });
-          domAuthTabs.forEach(function(domTab) {
-            domTab.classList.remove('tabbar__tab--active');
-          });
-          event.target.classList.add('tabbar__tab--active');
-          domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
-        });
-      });
-
-      // Auth popup
-      var domAuthWrapper = document.querySelector('.auth');
-      var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
-
-      function closeAuthPopup(event) {
-        if (!event.target.closest('.auth__popup')) {
-          domAuthWrapper.classList.remove('auth--open');
-          document.body.removeEventListener('click', closeAuthPopup);
-        }
-      }
-
-      domAuthButton.addEventListener('click', function(event) {
-        if (!domAuthWrapper.classList.contains('auth--open')) {
-          domAuthWrapper.classList.add('auth--open');
-          setTimeout(function() {
-            document.body.addEventListener('click', closeAuthPopup);
-          }, 100);
-        }
-      });
-    })();
+    $(document).ready(function(){
+      $('.auth').ziziAuth();
+      $('.auth__popup').ziziTabs();
+    });
   </script>
+
 </body>
 </html>
