@@ -25,61 +25,63 @@ console.log('test');
 
   $.fn.ziziTabs = function(options) {
     var defaults = {
-      tabs: '.tabbar__tab',
-      contents: '.auth__tab',
-      activeTab: 'tabbar__tab--active',
-      activeContent: 'auth__tab--active'
+      selectorTabs:           '.tabbar__tab',
+      selectorContents:       '.auth__tab',
+      classNameActiveTab:     'tabbar__tab--active',
+      classNameActiveContent: 'auth__tab--active',
+      targetSelectorAttr:     'rel'
     }
-    var config = $.extend(defaults, options);
+    var cfg = $.extend(defaults, options);
 
     var $root = this;
-    var $tabs = $root.find(config.tabs);
-    var $contents = $root.find(config.contents);
+    var $tabs = $root.find(cfg.selectorTabs);
+    var $contents = $root.find(cfg.selectorContents);
 
     $tabs.on('click', function() {
       var $tab = $(this);
+      var $targetContent = $('#' + $tab.attr(cfg.targetSelectorAttr));
 
-      $tabs.removeClass(config.activeTab);
-      $contents.removeClass(config.activeContent);
-      $tab.addClass(config.activeTab);
-      $('#' + $tab.attr('rel')).addClass(config.activeContent);
+      $tabs.removeClass(cfg.classNameActiveTab);
+      $contents.removeClass(cfg.classNameActiveContent);
+      $tab.addClass(cfg.classNameActiveTab);
+      $targetContent.addClass(cfg.classNameActiveContent);
     });
   }
 
   $.fn.ziziSpoilers = function(options) {
     var defaults = {
-      openSpoiler: 'spoiler--open'
+      classNameOpen: 'spoiler--open'
     }
-    var config = $.extend(defaults, options);
+    var cfg = $.extend(defaults, options);
 
     var $spoilers = this;
 
     $spoilers.on('click', function() {
       var $spoiler = $(this);
 
-      if ($spoiler.is('.' + config.openSpoiler)) {
-        $spoiler.removeClass(config.openSpoiler)
+      if ($spoiler.hasClass(cfg.classNameOpen)) {
+        $spoiler.removeClass(cfg.classNameOpen)
       } else {
-        $spoilers.removeClass(config.openSpoiler);
-        $spoiler.addClass(config.openSpoiler);
+        $spoilers.removeClass(cfg.classNameOpen);
+        $spoiler.addClass(cfg.classNameOpen);
       }
     })
   }
 
   $.fn.ziziReviews = function(options) {
     var defaults = {
-      range: '..',
-      part: '&nbsp;of&nbsp;'
+      range:  '..',
+      part:   '&nbsp;of&nbsp;'
     }
-    var config = $.extend(defaults, options);
+    var cfg = $.extend(defaults, options);
 
     var $root = this;
     var $list = $root.find('.reviews__list');
     var $legend = $root.find('.reviews__legend');
     var $btnPrev = $root.find('.reviews__button--prev');
     var $btnNext = $root.find('.reviews__button--next');
-    var updater = function(current, showed, total) {
-      $legend.html((current + 1) + config.range + (current + showed) + config.part + total);
+    var updateLegend = function(current, showed, total) {
+      $legend.html((current + 1) + cfg.range + (current + showed) + cfg.part + total);
 
       current === 0
         ? $btnPrev.prop('disabled', true)
@@ -93,7 +95,7 @@ console.log('test');
     }
 
     $list.on('init', function(event, slick) {
-      updater(0, slick.options.slidesToShow, slick.slideCount);
+      updateLegend(0, slick.options.slidesToShow, slick.slideCount);
     });
 
     $list.slick({
@@ -131,8 +133,87 @@ console.log('test');
     });
 
     $list.on('afterChange', function(event, slick, currentSlide) {
-      updater(currentSlide, slick.options.slidesToShow, slick.slideCount);
+      updateLegend(currentSlide, slick.options.slidesToShow, slick.slideCount);
     });
   }
 
+  $.fn.ziziSale = function() {
+    this.on('click', function() {
+      $(this)
+        .next('.sale__info')
+        .toggleClass('sale__info--open')
+        .on('click', function() {
+          $(this)
+            .toggleClass('sale__info--open')
+            .off('click')
+          ;
+        })
+      ;
+    });
+  }
+
+  $.fn.ziziWebMobile = function(options) {
+    var defaults = {
+      selectorButtonWeb:    '.landing__button--web',
+      selectorButtonMobile: '.landing__button--mobile',
+      classNameButtonOff:   'landing__button--off',
+      classNameRootMobile:  'hiw--mobile'
+    }
+    var cfg = $.extend(defaults, options);
+
+    var $root = this;
+    var $btnWeb = $root.find(cfg.selectorButtonWeb);
+    var $btnMobile = $root.find(cfg.selectorButtonMobile);
+
+    $btnWeb.on('click', function() {
+      if ($btnWeb.hasClass(cfg.classNameButtonOff)) {
+        $btnWeb.removeClass(cfg.classNameButtonOff);
+        $btnMobile.addClass(cfg.classNameButtonOff);
+        $root.removeClass(cfg.classNameRootMobile);
+      }
+    });
+
+    $btnMobile.on('click', function() {
+      if ($btnMobile.hasClass(cfg.classNameButtonOff)) {
+        $btnMobile.removeClass(cfg.classNameButtonOff);
+        $btnWeb.addClass(cfg.classNameButtonOff);
+        $root.addClass(cfg.classNameRootMobile);
+      }
+    });
+  }
+
+  $.fn.ziziLists = function(options) {
+    var defaults = {
+      selectorList:       '.list--expandable',
+      selectorItem:       '.list__item',
+      selectorExpander:   '.list__link',
+      ancestry:           '>',
+      classNameExpanded:  'list__item--expanded'
+    }
+    var cfg = $.extend(defaults, options);
+
+    var $expanders = this.find(
+      cfg.selectorList +
+      cfg.ancestry +
+      cfg.selectorItem +
+      cfg.ancestry +
+      cfg.selectorExpander
+    );
+
+    $expanders.on('click', function() {
+      var $expander = $(this);
+      var $listItem = $expander.closest(cfg.selectorItem);
+
+      if ($listItem.hasClass(cfg.classNameExpanded)) {
+        $listItem.removeClass(cfg.classNameExpanded);
+      } else {
+        $expander
+          .closest(cfg.selectorList)
+          .children('.' + cfg.classNameExpanded)
+          .removeClass(cfg.classNameExpanded)
+        ;
+        $listItem.addClass(cfg.classNameExpanded);
+      }
+    });
+  }
 }(jQuery));
