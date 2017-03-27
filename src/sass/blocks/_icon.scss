@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   vertical-align: middle;
+  transition: transform .16s ease-out;
 
   // Sizes
   &--giant {

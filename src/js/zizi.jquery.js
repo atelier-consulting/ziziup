@@ -216,4 +216,95 @@ console.log('test');
       }
     });
   }
+
+  $.fn.ziziToggleSelf = function(options) {
+    var defaults = {
+      classNamesArray: [
+        'account__title--expanded',
+        'account__title--collapsed'
+      ]
+    }
+    var cfg = $.extend(defaults, options);
+
+    var $self = this;
+
+    $self.on('click', function() {
+      $self.toggleClass(cfg.classNamesArray.join(' '));
+    });
+  }
+
+  $.fn.ziziToggleClosest = function(options) {
+    var defaults = {
+      selectorClosest:              '.account__link--expandable',
+      classNameToToggle:            'account__link--open',
+      selectorToggleInClickable:    false,
+      classNameToToggleInClickable: false
+    }
+    var cfg = $.extend(defaults, options);
+
+    var $clickables = this;
+
+    $clickables.on('click', function(e) {
+      $(this).closest(cfg.selectorClosest).toggleClass(cfg.classNameToToggle);
+      if(cfg.selectorToggleInClickable && cfg.classNameToToggleInClickable) {
+        $(this)
+          .find(cfg.selectorToggleInClickable)
+          .toggleClass(cfg.classNameToToggleInClickable)
+        ;
+      }
+    });
+  }
+
+  $.fn.ziziCardInput = function() {
+    var $inputs = $('.form__cell--card-number > input:not(:last-child)');
+
+    $inputs.on('keyup', function(e) {
+      e.target.value.length > 3 &&
+      e.target.nextElementSibling.value.length === 0
+        ? event.target.nextElementSibling.focus()
+        : null
+        ;
+    });
+  }
+
+  $.fn.ziziCalendar = function(orderDatesArray) {
+    if(!$.fn.datepicker) return;
+
+    var hasOrder = function(currentDate, type) {
+      if (type !== 'day') return;
+
+      for (var i = 0; i < orderDatesArray.length; i++) {
+        var orderDate = new Date(orderDatesArray[i]);
+        if (
+          orderDate.getFullYear() === currentDate.getFullYear() &&
+          orderDate.getMonth() === currentDate.getMonth() &&
+          orderDate.getDate() === currentDate.getDate()
+        ) {
+          return {
+            classes: 'has-order'
+          }
+        }
+      }
+    }
+
+    $.fn.datepicker.language['en'] = {
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
+      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      today: 'Today',
+      clear: 'Clear',
+      dateFormat: 'mm/dd/yyyy',
+      timeFormat: 'hh:ii aa',
+      firstDay: 0
+    };
+
+    this.datepicker({
+      language: 'en',
+      inline: true,
+      onRenderCell: hasOrder
+    });
+
+  }
 }(jQuery));
