@@ -17,12 +17,14 @@ var path = {
     scss: 'src/sass/**/*.scss',
     scssPROD: 'src/sass/prod.scss',
     scssDEMO: 'src/sass/demo.scss',
-    img : 'src/img/*.*'
+    img: 'src/img/*.*',
+    js: 'src/js/*.js'
   },
   dev: {
     html: 'dev',
     css: 'dev/css',
-    img: 'dev/img'
+    img: 'dev/img',
+    js: 'dev/js'
   },
   prod: {
     html: 'prod',
@@ -32,17 +34,19 @@ var path = {
   demo: {
     html: 'demo',
     css:  'demo/css',
-    img: 'demo/img'
+    img: 'demo/img',
+    js: 'demo/js'
   }
 };
 
-gulp.task('serve', ['html', 'sass', 'img'], function(){
+gulp.task('serve', ['html', 'sass', 'img', 'js'], function(){
   sync.init({
     server: './dev'
   });
   gulp.watch(path.src.html, ['html']);
   gulp.watch(path.src.scss, ['sass']);
   gulp.watch(path.src.img, ['img']);
+  gulp.watch(path.src.js, ['js']);
 });
 
 gulp.task('build', function(){
@@ -88,6 +92,10 @@ gulp.task('demo', function(){
     .pipe(replace('%VERSION%', VERSION))
     .pipe(gulp.dest(path.demo.html))
     ;
+
+  gulp.src(path.src.js)
+    .pipe(gulp.dest(path.demo.js))
+    ;
 })
 
 gulp.task('sass', function(){
@@ -113,6 +121,13 @@ gulp.task('img', function(){
   return gulp.src(path.src.img)
     .pipe(newer(path.dev.img))
     .pipe(gulp.dest(path.dev.img))
+    .pipe(sync.stream())
+    ;
+});
+
+gulp.task('js', function(){
+  return gulp.src(path.src.js)
+    .pipe(gulp.dest(path.dev.js))
     .pipe(sync.stream())
     ;
 });

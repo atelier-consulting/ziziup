@@ -564,118 +564,27 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  <script>
-    (function(){
-      var domTitle = document.querySelector('.account__title');
-
-      domTitle.addEventListener('click', function() {
-        domTitle.classList.toggle('account__title--expanded');
-        domTitle.classList.toggle('account__title--collapsed');
-      });
-
-      var domMenuExpandables = document.querySelectorAll('.account__link--expandable > a');
-
-      domMenuExpandables.forEach(function(domLink) {
-        domLink.addEventListener('click', function(event) {
-          event.target.closest('.account__link--expandable').classList.toggle('account__link--open');
-        });
-      });
-
-
-      // Horizontal method tabs
-      var domMethodTabsWrapper = document.querySelector('.account__load');
-      var domMethodTabs = domMethodTabsWrapper.querySelectorAll('.tabbar__tab');
-      var domMethodTabContents = domMethodTabsWrapper.querySelectorAll('.load__tab');
-
-      domMethodTabs.forEach(function(domMethodTab) {
-        domMethodTab.addEventListener('click', function(event) {
-          domMethodTabContents.forEach(function(domMethodContent) {
-            domMethodContent.classList.remove('load__tab--active');
-          });
-          domMethodTabs.forEach(function(domMethodTab) {
-            domMethodTab.classList.remove('tabbar__tab--active');
-          });
-
-          var domMethodTarget = event.target.classList.contains('tabbar__tab')
-            ? event.target
-            : event.target.closest('.tabbar__tab')
-          ;
-
-          domMethodTarget.classList.add('tabbar__tab--active');
-
-          domMethodTabsWrapper.querySelector('#' + domMethodTarget.rel).classList.add('load__tab--active');
-        });
-      });
-
-      // Vertical tabs on credit card
-      var domTabsWrapper = document.querySelector('.account__tabs');
-      var domTabs = domTabsWrapper.querySelectorAll('.account__tab');
-      var domTabContents = domTabsWrapper.querySelectorAll('.account__tabcontent');
-
-      domTabs.forEach(function(domTab) {
-        domTab.addEventListener('click', function(event) {
-          var id = event.target.classList.contains('account__tab')
-            ? event.target.rel
-            : event.target.closest('.account__tab').rel
-          ;
-
-          domTabContents.forEach(function(domContent) {
-            domContent.classList.remove('account__tabcontent--active');
-          });
-
-          domTabs.forEach(function(domTab) {
-            domTab.classList.remove('account__tab--active');
-          });
-
-          domTabsWrapper.querySelector('#' + id).classList.add('account__tabcontent--active');
-          domTab.classList.add('account__tab--active');
-        });
-      });
-
-    })();
-  </script>
+  <script src="../js/zizi.jquery.js"></script>
 
   <script>
-    (function() {
-      // Auth Tabs
-      var domAuthTabsWrapper = document.querySelector('.auth__popup');
-      var domAuthTabs = domAuthTabsWrapper.querySelectorAll('.tabbar__tab');
-      var domAuthTabContents = domAuthTabsWrapper.querySelectorAll('.auth__tab');
-
-      domAuthTabs.forEach(function(domAuthTab) {
-        domAuthTab.addEventListener('click', function(event) {
-          domAuthTabContents.forEach(function(domAuthContent) {
-            domAuthContent.classList.remove('auth__tab--active');
-          });
-          domAuthTabs.forEach(function(domTab) {
-            domTab.classList.remove('tabbar__tab--active');
-          });
-          event.target.classList.add('tabbar__tab--active');
-          domAuthTabsWrapper.querySelector('#' + event.target.rel).classList.add('auth__tab--active');
-        });
+    $(document).ready(function(){
+      $('.auth').ziziAuth();
+      $('.auth__popup').ziziTabs();
+      $('.footer').ziziLists();
+      $('.account__title').ziziToggleSelf();
+      $('.account__link--expandable > a').ziziToggleClosest();
+      $('.account__load').ziziTabs({
+        selectorContents: '.load__tab',
+        classNameActiveContent: 'load__tab--active'
       });
-
-      // Auth popup
-      var domAuthWrapper = document.querySelector('.auth');
-      var domAuthButton = domAuthWrapper.querySelector('.dropdown__button');
-
-      function closeAuthPopup(event) {
-        if (!event.target.closest('.auth__popup')) {
-          domAuthWrapper.classList.remove('auth--open');
-          document.body.removeEventListener('click', closeAuthPopup);
-        }
-      }
-
-      domAuthButton.addEventListener('click', function(event) {
-        if (!domAuthWrapper.classList.contains('auth--open')) {
-          domAuthWrapper.classList.add('auth--open');
-          setTimeout(function() {
-            document.body.addEventListener('click', closeAuthPopup);
-          }, 100);
-        }
+      $('#load--card').ziziTabs({
+        selectorTabs: '.account__tab',
+        selectorContents: '.account__tabcontent',
+        classNameActiveTab: 'account__tab--active',
+        classNameActiveContent: 'account__tabcontent--active'
       });
-    })();
+    });
   </script>
+
 </body>
 </html>
