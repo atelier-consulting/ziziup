@@ -7,6 +7,7 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var mini = require('gulp-cssmin');
 var del = require('del');
+var prefix = require('gulp-autoprefixer');
 
 var VERSION = process.env.npm_package_version;
 
@@ -64,6 +65,15 @@ gulp.task('demo', function(){
 
   gulp.src(path.src.scssDEMO)
     .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
+    .pipe(
+      prefix({
+        browsers: [
+          'ie >= 10',
+          'safari >= 6.1'
+        ],
+        cascade: false
+      })
+    )
     .pipe(mini({keepSpecialComments: 0}))
     .pipe(rename('styles-v' + VERSION +'.min.css'))
     .pipe(gulp.dest(path.demo.css))
