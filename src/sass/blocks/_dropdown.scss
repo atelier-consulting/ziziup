@@ -10,6 +10,28 @@
     line-height: 26px;
     cursor: pointer;
 
+    &--sort {
+      text-transform: uppercase;
+      font-size: $font-size-tiny;
+      letter-spacing: $letter-spacing-small;
+      font-weight: $font-weight-bold;
+      border-radius: 20px;
+      padding: 0 .5875rem 0 1.125rem;
+      background-color: $color-background-page;
+      width: 11rem;
+      text-align: center;
+
+      &-inverted {
+        background-color: $color-background-darker;
+        color: $color-text-white;
+      }
+
+      .dropdown--open & {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
     &--uppercase {
       text-transform: uppercase;
       font-size: $font-size-tiny;
@@ -77,7 +99,23 @@
       color: $color-brand-primary;
     }
 
+    &--upper {
+      text-transform: uppercase;
+    }
+  }
 
+  &__pane {
+    background: $color-background-page;
+    display: none;
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 11rem;
+    z-index: 2;
+
+    .dropdown--open & {
+      display: block;
+    }
   }
 
   &__scrollpane {
@@ -98,13 +136,17 @@
       padding: $spacer-size-big 0;
     }
 
+    &--sort {
+      left: auto;
+      right: 0;
+    }
+
     .dropdown--open > & {
       display: block;
     }
   }
 
   &__searchbar {
-    //position: fixed;
     height: 40px;
     width: 200px;
     background: $color-background-default;
@@ -135,7 +177,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 180px;
+    max-height: 180px;
     overflow: scroll;
   }
 
@@ -167,6 +209,24 @@
       background-repeat: no-repeat;
       background-position: center right;
       cursor: default;
+    }
+
+    &--sort {
+      font-size: $font-size-tiny;
+      letter-spacing: $letter-spacing-small;
+      text-transform: uppercase;
+      font-weight: $font-weight-bold;
+      padding: 0 .5875rem 0 1.125rem;
+
+      &.dropdown__option--selected {
+        background-image: url("../img/icon-tick.png");
+        background-color: $color-background-lighter;
+      }
+
+      .dropdown__pane--inverted & {
+        background-color: $color-background-darker;
+        color: $color-text-white;
+      }
     }
 
     & > .icon {

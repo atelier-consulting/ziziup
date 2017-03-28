@@ -324,9 +324,14 @@
       searchable: false,
       selectorSearchBar: '.dropdown__searchbar',
       classNameNotSearchable: 'dropdown__searchbar--hidden',
-      classNameNotMatched: 'dropdown__option--hidden'
+      classNameNotMatched: 'dropdown__option--hidden',
+      selectorFlag: '.icon--flag'
     }
     var cfg = $.extend(defaults, options);
+
+//     $("#hello").removeClass (function (index, className) {
+//     return (className.match (/(^|\s)color-\S+/g) || []).join(' ');
+// });
 
     var $root = this;
     var $btn = $root.find(cfg.selectorButton);
@@ -358,15 +363,33 @@
       if (!$target.hasClass(cfg.classNameSelected)) {
         switch(cfg.type) {
           case 'location':
-            $(cfg.selectorValue+cfg.separatorSelector+cfg.modifierCity)
+            $root
+              .find(cfg.selectorValue+cfg.separatorSelector+cfg.modifierCity)
               .text($target.data('city'))
             ;
-            $(cfg.selectorValue+cfg.separatorSelector+cfg.modifierCountry)
+            $root
+              .find(cfg.selectorValue+cfg.separatorSelector+cfg.modifierCountry)
               .text(cfg.separatorValue + $target.data('country'))
             ;
             break;
+          case 'language':
+            $root
+              .find(cfg.selectorValue)
+              .text($target.data('value'))
+            ;
+            $btn
+              .find(cfg.selectorFlag)
+              .removeClass(function(index, className) {
+                return (className.match (/(^|\s)icon--flag-\S+/g) || []).join(' ');
+              })
+              .addClass('icon--flag-' + $target.data('value'));
+
+            break;
+
           default:
-            $(cfg.selectorValue)
+          console.log('here');
+            $root
+              .find(cfg.selectorValue)
               .text($target.data('value'))
             ;
             break;

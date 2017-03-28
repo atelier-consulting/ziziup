@@ -71,8 +71,114 @@
     </div>
 
     <h2 class="example__subheader">Language dropdown</h2>
+    <div class="example__demo" style="height: 220px;">
 
-    <div class="example__demo" style="height: 290px;">
+      <div class="dropdown" id="dropdown-language">
+        <div class="dropdown__button">
+          <i class="icon icon--flag icon--flag-uk"></i>
+          <span class="dropdown__value dropdown__value--upper">En</span>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__scrollpane">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option"
+              data-value='ue'
+            >
+              <i class="icon icon--flag icon--flag-ue"></i> Arabian
+            </li>
+            <li
+              class="dropdown__option dropdown__option--selected"
+              data-value="uk"
+            >
+              <i class="icon icon--flag icon--flag-uk"></i> UK English
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="ua"
+            >
+              <i class="icon icon--flag icon--flag-ua"></i> Ukrainian
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="fr"
+            >
+              <i class="icon icon--flag icon--flag-fr"></i> French
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="it"
+            >
+              <i class="icon icon--flag icon--flag-it"></i> Italian
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="example__subheader">Sorting dropdown</h2>
+    <div class="example__demo" style="height: 160px">
+
+      <div class="dropdown" id="dropdown-sort">
+        <div class="dropdown__label hide__until--tablet">Sort by:</div>
+        <div class="dropdown__button dropdown__button--sort">
+          <div class="dropdown__value">Recent first</div>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__pane">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option dropdown__option--sort dropdown__option--selected"
+              data-value="Recent first"
+            >
+              Recent first
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="Alphabetically"
+            >
+              Alphabetically
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="By popularity"
+            >
+              By popularity
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dropdown" id="dropdown-sort-inverted">
+        <div class="dropdown__label hide__until--tablet">Sort by:</div>
+        <div class="dropdown__button dropdown__button--sort dropdown__button--sort-inverted">
+          <div class="dropdown__value">Recent first</div>
+          <i class="icon icon--small icon--caret-white"></i>
+        </div>
+        <div class="dropdown__pane dropdown__pane--inverted">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option dropdown__option--sort dropdown__option--selected"
+              data-value="Recent first"
+            >
+              Recent first
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="Alphabetically"
+            >
+              Alphabetically
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="By popularity"
+            >
+              By popularity
+            </li>
+          </ul>
+        </div>
+      </div>
 
     </div>
 
@@ -90,6 +196,14 @@
         type: 'location',
         searchable: true
       });
+
+      $('#dropdown-language').ziziDropdown({
+        type: 'language'
+      });
+
+      $('#dropdown-sort').ziziDropdown();
+      $('#dropdown-sort-inverted').ziziDropdown();
+
     });
   </script>
 
