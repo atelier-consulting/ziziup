@@ -125,6 +125,10 @@
       background-position: left center;
       text-align: center;
     }
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &__options {
@@ -167,6 +171,10 @@
 
     & > .icon {
       vertical-align: baseline;
+    }
+
+    &--hidden {
+      display: none;
     }
   }
 
