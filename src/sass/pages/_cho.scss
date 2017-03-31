@@ -17,18 +17,106 @@ $cho-padding-vertical: .625rem;
     @include from(phablet) {
       flex-direction: row;
     }
+
+    & .icon {
+      margin-top: .25rem;
+    }
   }
 
   &__title {
-    min-width: 8.25rem;
-    width: 8.25rem;
+    min-width: 6.25rem;
+    width: 6.25rem;
     font-size: $font-size-oversize;
     font-weight: $font-weight-bold;
+
   }
 
   &__toggle {
     position: absolute;
-    top: $cho-padding-vertical;
+    top: $cho-padding-vertical + 0.125rem;
     right: $cho-padding-horizontal;
+  }
+
+  &__action {
+    color: $color-brand-primary;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 0 $cho-padding-horizontal;
+    color: $color-text-lightest;
+  }
+
+  &__bar {
+    display: flex;
+    padding: $cho-padding-vertical $cho-padding-horizontal;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-border-lightest;
+  }
+
+  &__nothing {
+    color: $color-text-lightest;
+    text-align: center;
+    padding: $cho-padding-vertical $cho-padding-horizontal;
+  }
+
+  &__choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: $cho-padding-vertical 0;
+    border-bottom: 1px solid $color-border-lightest;
+  }
+
+  &__info {
+    flex-grow: 1;
+  }
+
+  &__icon {
+    min-width: 4.25rem;
+    width: 4.25rem;
+    padding: 0 $cho-padding-horizontal;
+  }
+
+  &__picture {
+    min-width: 8.25rem;
+    width: 8.25rem;
+  }
+
+  &__radio {
+    padding: 0 $cho-padding-horizontal;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__button {
+    text-align: center;
+    color: $color-brand-primary;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: $color-brand-lighter;
+
+    &--disabled {
+      background-color: $color-background-lighter;
+      color: $color-text-lightest;
+      cursor: not-allowed;
+    }
+
+    &--cancel {
+      flex-grow: 1;
+      border-right: 2px solid $color-background-default;
+    }
+    &--submit {
+      flex-grow: 2;
+    }
+  }
+
+  &__list {
+    border-top: 1px solid $color-border-lightest;
   }
 }

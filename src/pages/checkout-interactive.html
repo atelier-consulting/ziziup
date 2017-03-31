@@ -23,13 +23,16 @@
     <div id="checkout-shipping" class="cho__module">
       <div class="cho__summary">
         <div class="cho__title">Shipping</div>
+        <div class="cho__icon" m-if={{showShippingValue}}>
+          <i class="icon icon--cho icon--cho-{{shipping.currentValue.type}}"></i>
+        </div>
         <div class="cho__value" m-if="{{showShippingValue}}">
           <cho-info
             line1={{shipping.currentValue.line1}}
             line2={{shipping.currentValue.line2}}
           ></cho-info>
         </div>
-        <div class="cho__toggle"
+        <div class="cho__toggle cho__action"
           m-if="{{showShippingAdd}}"
           m-on:click="navigate('shipping', 'pickup')"
         >
@@ -60,14 +63,59 @@
           </div>
           <div class="cho__bar">
             <div class="cho__status">
-              Available pick up points near <strong>{{shippingLocation}}</strong>
+              <span class="hide__until--phablet">Available pick up points near </span>
+              <span class="hide__from--phablet">Near </span>
+              <strong>{{shippingLocation}}</strong>
             </div>
             <div
               class="cho__action"
               m-on:click="navigate('shipping', 'location')"
             >
-              Change location
+              Change<span class="hide__until--phablet"> location</span>
             </div>
+          </div>
+          <div class="cho__list" m-if="{{shippingFilteredPoints}}">
+            <div
+              class="cho__choice"
+              m-for="point in {{shippingFilteredPoints}}"
+              m-on:click="selectShippingPoint({{point.id}})"
+            >
+              <div class="cho__icon">
+                <i class="icon icon--cho icon--cho-pickup"></i>
+              </div>
+              <cho-info
+                line1="{{point.line1}}"
+                line2="{{point.line2}}"
+              ></cho-info>
+              <div
+                class="cho__radio"
+              >
+                <i class="icon icon--small icon--radio-on"
+                  m-if="{{point.id}} === {{shipping.currentPoint.id}}"
+                ></i>
+                <i class="icon icon--small icon--radio-off"
+                  m-if="{{point.id}} !== {{shipping.currentPoint.id}}"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="cho__nothing" m-if="!{{shippingFilteredPoints}}">
+            No points found near selected location.
+          </div>
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--cancel"
+              m-on:click="unselectShippingPoint"
+            >Cancel</div>
+            <div
+              class="cho__button cho__button--submit"
+              m-if="{{shipping.currentPoint.id}}"
+              m-on:click="submitShippingPoint({{shipping.currentPoint.id}})"
+            >Select Address</div>
+            <div
+              class="cho__button cho__button--submit cho__button--disabled"
+              m-if="!{{shipping.currentPoint.id}}"
+            >Select Address</div>
           </div>
         </div>
 
@@ -79,18 +127,81 @@
             </div>
             <div class="tabbar__tab tabbar__tab--active">Address</div>
           </div>
+          TODO: Address Form
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--cancel"
+              m-on:click="cancelAddingAddress"
+            >Cancel</div>
+            <div
+              class="cho__button cho__button--submit cho__button--disabled"
+            >Select Address</div>
+          </div>
         </div>
 
         <div class="cho__screen" m-if="{{shipping.path}} === 'list'">
-          list
+          <div class="cho__list" m-if="{{shipping.values.length}}">
+            <div
+              class="cho__choice"
+              m-for="value in {{shipping.values}}"
+              m-on:click="selectShippingValue({{value.id}})"
+            >
+              <div class="cho__icon">
+                <i class="icon icon--cho icon--cho-{{value.type}}"></i>
+              </div>
+              <cho-info
+                line1="{{value.line1}}"
+                line2="{{value.line2}}"
+              ></cho-info>
+              <div
+                class="cho__radio"
+              >
+                <i class="icon icon--small icon--radio-on"
+                  m-if="{{value.id}} === {{shipping.currentValue.id}}"
+                ></i>
+                <i class="icon icon--small icon--radio-off"
+                  m-if="{{value.id}} !== {{shipping.currentValue.id}}"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--submit"
+              m-on:click="navigate('shipping', 'pickup')"
+            >Add Shipping Address</div>
+          </div>
         </div>
 
         <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
-          location
+          <div class="cho__header">{{shipping.action}} shipping address</div>
+          <div class="tabbar">
+            <div class="tabbar__tab tabbar__tab--active">Pick up point</div>
+            <div class="tabbar__tab" m-on:click="navigate('shipping', 'address')">
+              Address
+            </div>
+          </div>
+          <div class="cho__bar">
+            <div class="cho__status">
+              Select your location
+            </div>
+          </div>
+          TODO: Change location
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--cancel"
+              m-on:click="cancelChangingLocation"
+            >Cancel</div>
+            <div
+              class="cho__button cho__button--submit cho__button--disabled"
+            >Find Pick Up Addresses</div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
+
   <script src="https://unpkg.com/moonjs"></script>
   <script src="../js/cho.moon.js"></script>
 </body>
