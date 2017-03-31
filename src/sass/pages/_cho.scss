@@ -1,0 +1,34 @@
+$cho-padding-horizontal: 1rem;
+$cho-padding-vertical: .625rem;
+
+.cho {
+
+  &__module {
+    background-color: $color-background-default;
+    box-shadow: 0 2px 4px 0 $color-shadow-default;
+    position: relative;
+  }
+
+  &__summary {
+    display: flex;
+    flex-direction: column;
+    padding: $cho-padding-vertical $cho-padding-horizontal;
+
+    @include from(phablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__title {
+    min-width: 8.25rem;
+    width: 8.25rem;
+    font-size: $font-size-oversize;
+    font-weight: $font-weight-bold;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: $cho-padding-vertical;
+    right: $cho-padding-horizontal;
+  }
+}
