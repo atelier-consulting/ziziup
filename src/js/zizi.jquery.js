@@ -329,10 +329,6 @@
     }
     var cfg = $.extend(defaults, options);
 
-//     $("#hello").removeClass (function (index, className) {
-//     return (className.match (/(^|\s)color-\S+/g) || []).join(' ');
-// });
-
     var $root = this;
     var $btn = $root.find(cfg.selectorButton);
     var $options = $root.find(cfg.selectorOption);
