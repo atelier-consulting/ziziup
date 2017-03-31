@@ -15,66 +15,198 @@
 
     <h1 class="example__header">Dropdown</h1>
 
+    <h2 class="example__subheader">Location dropdown</h2>
+
+
     <div class="example__demo" style="height: 290px;">
-      <div class="dropdown dropdown--open">
+
+      <div class="dropdown" id="dropdown-location">
         <div class="dropdown__button">
           <i class="icon icon--small icon--location"></i>
-          <span class="dropdown__value">Yaounde</span> <span class="dropdown__value hide__until--big">, Cameroon</span>
+          <span class="dropdown__value dropdown__value--city">Yaounde</span><span class="dropdown__value dropdown__value--country hide__until--big">, Cameroon</span>
           <i class="icon icon--small icon--caret-alt"></i>
         </div>
-        <div class="dropdown__scrollpane dropdown__scrollpane--search">
+        <div class="dropdown__scrollpane">
           <div class="dropdown__searchbar">
-            <input type="search" placeholder="Search location"/>
+            <input type="search" placeholder="Search city"/>
           </div>
           <ul class="dropdown__options dropdown__options--search">
             <li class="dropdown__optgroup">Cameroon</li>
-            <li class="dropdown__option">Bali</li>
-            <li class="dropdown__option dropdown__option--selected">Bamenda</li>
-            <li class="dropdown__option">Bamingie</li>
-            <li class="dropdown__option">Bandjoun</li>
-            <li class="dropdown__option">Bandgem</li>
-            <li class="dropdown__option">Bali</li>
-            <li class="dropdown__option">Bamenda</li>
-            <li class="dropdown__option">Bamingie</li>
-            <li class="dropdown__option">Bandjoun</li>
-            <li class="dropdown__option">Bandgem</li>
+            <li
+              class="dropdown__option dropdown__option--selected"
+              data-country="Cameroon"
+              data-city="Yaounde"
+            >Yaounde</li>
+            <li
+              class="dropdown__option"
+              data-country="Cameroon"
+              data-city="Bamenda"
+            >Bamenda</li>
+            <li class="dropdown__optgroup">Nigeria</li>
+            <li
+              class="dropdown__option"
+              data-country="Nigeria"
+              data-city="Lagos"
+            >Lagos</li>
+            <li
+              class="dropdown__option"
+              data-country="Nigeria"
+              data-city="Abuja"
+            >Abuja</li>
+            <li class="dropdown__optgroup">Ghana</li>
+            <li
+              class="dropdown__option"
+              data-country="Ghana"
+              data-city="Accra"
+            >Accra</li>
+            <li
+              class="dropdown__option"
+              data-country="Ghana"
+              data-city="Tamale"
+            >Tamale</li>
           </ul>
         </div>
       </div>
+
     </div>
 
-    <pre class="example__code">
-      <code class="html">&lt;div class=&quot;<mark>dropdown</mark> dropdown--open&quot;&gt;</code>
-      <code class="html">  &lt;div class=&quot;<mark>dropdown__button</mark>&quot;&gt;</code>
-      <code class="html">    &lt;i class=&quot;icon icon--small icon--location&quot;&gt;&lt;/i&gt;</code>
-      <code class="html">    &lt;span class=&quot;<mark>dropdown__value</mark>&quot;&gt;Yaounde&lt;/span&gt; &lt;span class=&quot;dropdown__value hide__until--big&quot;&gt;, Cameroon&lt;/span&gt;</code>
-      <code class="html">    &lt;i class=&quot;icon icon--small icon--caret-alt&quot;&gt;&lt;/i&gt;</code>
-      <code class="html">  &lt;/div&gt;</code>
-      <code class="html">  &lt;div class=&quot;<mark>dropdown__scrollpane</mark>&quot;&gt;</code>
-      <code class="html">    &lt;div class=&quot;<mark>dropdown__searchbar</mark>&quot;&gt;</code>
-      <code class="html">      &lt;input type=&quot;search&quot; placeholder=&quot;Search location&quot;/&gt;</code>
-      <code class="html">    &lt;/div&gt;</code>
-      <code class="html">    &lt;ul class=&quot;<mark>dropdown__options</mark>&quot;&gt;</code>
-      <code class="html">      &lt;li class=&quot;<mark>dropdown__optgroup</mark>&quot;&gt;Cameroon&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;<mark>dropdown__option</mark>&quot;&gt;Bali&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option <mark>dropdown__option--selected</mark>&quot;&gt;Bamenda&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamingie&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandjoun&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandgem&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bali&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamenda&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bamingie&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandjoun&lt;/li&gt;</code>
-      <code class="html">      &lt;li class=&quot;dropdown__option&quot;&gt;Bandgem&lt;/li&gt;</code>
-      <code class="html">    &lt;/ul&gt;</code>
-      <code class="html">  &lt;/div&gt;</code>
-      <code class="html">&lt;/div&gt;</code>
-    </pre>
+    <h2 class="example__subheader">Language dropdown</h2>
+    <div class="example__demo" style="height: 220px;">
+
+      <div class="dropdown" id="dropdown-language">
+        <div class="dropdown__button">
+          <i class="icon icon--flag icon--flag-uk"></i>
+          <span class="dropdown__value dropdown__value--upper">En</span>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__scrollpane">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option"
+              data-value='ue'
+            >
+              <i class="icon icon--flag icon--flag-ue"></i> Arabian
+            </li>
+            <li
+              class="dropdown__option dropdown__option--selected"
+              data-value="uk"
+            >
+              <i class="icon icon--flag icon--flag-uk"></i> UK English
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="ua"
+            >
+              <i class="icon icon--flag icon--flag-ua"></i> Ukrainian
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="fr"
+            >
+              <i class="icon icon--flag icon--flag-fr"></i> French
+            </li>
+            <li
+              class="dropdown__option"
+              data-value="it"
+            >
+              <i class="icon icon--flag icon--flag-it"></i> Italian
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="example__subheader">Sorting dropdown</h2>
+    <div class="example__demo" style="height: 160px">
+
+      <div class="dropdown" id="dropdown-sort">
+        <div class="dropdown__label hide__until--tablet">Sort by:</div>
+        <div class="dropdown__button dropdown__button--sort">
+          <div class="dropdown__value">Recent first</div>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__pane">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option dropdown__option--sort dropdown__option--selected"
+              data-value="Recent first"
+            >
+              Recent first
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="Alphabetically"
+            >
+              Alphabetically
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="By popularity"
+            >
+              By popularity
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dropdown" id="dropdown-sort-inverted">
+        <div class="dropdown__label hide__until--tablet">Sort by:</div>
+        <div class="dropdown__button dropdown__button--sort dropdown__button--sort-inverted">
+          <div class="dropdown__value">Recent first</div>
+          <i class="icon icon--small icon--caret-white"></i>
+        </div>
+        <div class="dropdown__pane dropdown__pane--inverted">
+          <ul class="dropdown__options">
+            <li
+              class="dropdown__option dropdown__option--sort dropdown__option--selected"
+              data-value="Recent first"
+            >
+              Recent first
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="Alphabetically"
+            >
+              Alphabetically
+            </li>
+            <li
+              class="dropdown__option dropdown__option--sort"
+              data-value="By popularity"
+            >
+              By popularity
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
 
     <footer class="example__footer">
       ZIZIUP Slicing development version %VERSION%
     </footer>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../js/zizi.jquery.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#dropdown-location').ziziDropdown({
+        type: 'location',
+        searchable: true
+      });
+
+      $('#dropdown-language').ziziDropdown({
+        type: 'language'
+      });
+
+      $('#dropdown-sort').ziziDropdown();
+      $('#dropdown-sort-inverted').ziziDropdown();
+
+    });
+  </script>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
