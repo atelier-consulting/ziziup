@@ -331,6 +331,12 @@
     &:focus {
       border-bottom-color: $color-brand-primary;
     }
+
+    &[disabled] {
+      color: $color-text-lightest;
+      background-image: none;
+      opacity: .5;
+    }
   }
 
   &__textarea {

@@ -12,23 +12,33 @@ $cho-padding-vertical: .625rem;
   &__summary {
     display: flex;
     flex-direction: column;
-    padding: $cho-padding-vertical $cho-padding-horizontal;
+    padding: $cho-padding-vertical $cho-padding-horizontal 1.5*$cho-padding-vertical;
 
     @include from(phablet) {
       flex-direction: row;
     }
-
-    & .icon {
-      margin-top: .25rem;
-    }
   }
 
   &__title {
-    min-width: 6.25rem;
-    width: 6.25rem;
-    font-size: $font-size-oversize;
+    min-width: 7rem;
+    width: 7rem;
+    font-size: $font-size-accent;
+    line-height: 1.5rem;
     font-weight: $font-weight-bold;
+  }
 
+  &__value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > .cho__icon {
+      padding-right: $cho-padding-horizontal;
+    }
+
+    @include until(phablet) {
+      margin-top: $cho-padding-vertical;
+    }
   }
 
   &__toggle {
@@ -47,18 +57,25 @@ $cho-padding-vertical: .625rem;
     color: $color-text-lightest;
   }
 
+  &__pad {
+    padding: $cho-padding-vertical $cho-padding-horizontal;
+  }
+
+  &__cell {
+    width: 50%;
+  }
+
   &__bar {
     display: flex;
     padding: $cho-padding-vertical $cho-padding-horizontal;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid $color-border-lightest;
   }
 
   &__nothing {
     color: $color-text-lightest;
     text-align: center;
-    padding: $cho-padding-vertical $cho-padding-horizontal;
+    padding: $cho-padding-vertical $cho-padding-horizontal 2.5*$cho-padding-vertical;
   }
 
   &__choice {
@@ -68,16 +85,14 @@ $cho-padding-vertical: .625rem;
     align-items: center;
     padding: $cho-padding-vertical 0;
     border-bottom: 1px solid $color-border-lightest;
+
+    & > .cho__icon {
+      padding: 0 $cho-padding-horizontal;
+    }
   }
 
   &__info {
     flex-grow: 1;
-  }
-
-  &__icon {
-    min-width: 4.25rem;
-    width: 4.25rem;
-    padding: 0 $cho-padding-horizontal;
   }
 
   &__picture {
@@ -98,7 +113,13 @@ $cho-padding-vertical: .625rem;
     text-align: center;
     color: $color-brand-primary;
     height: 4rem;
-    line-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-small;
+    padding: 0 $cho-padding-horizontal;
     background-color: $color-brand-lighter;
 
     &--disabled {

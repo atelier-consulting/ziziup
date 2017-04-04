@@ -1,11 +1,7 @@
+Moon.config.silent = true;
+
 Moon.component('cho-info', {
-  props: [
-    'title',
-    'line1',
-    'line2',
-    'descr',
-    'price',
-  ],
+  props: ['title', 'line1', 'line2', 'descr', 'price'],
   template: '<div class="cho__info">' +
   '<div m-if="{{title}}" class="info__title">{{title}}</div>' +
   '<div m-if="{{line1}}" class="info__line">{{line1}}</div>' +
@@ -19,18 +15,18 @@ var cho = new Moon({
   el: '#checkout',
   data: {
     shipping: {
-      path: 'closed', // 'pickup', 'address', 'location', 'open'
+      path: 'closed', // 'closed', 'pickup', 'address', 'location', 'open'
       values: [],
       currentValue: false,
-      currentPoint: {
-        id: 0
-      },
+      currentPoint: {id: 0},
       action: 'Add',
-      location: {
+      editableLocation: {
+        country: '',
+        city: ''
+      },
+      currentLocation: {
         city: 'Bamenda',
         country: 'Cameroon'
-        // city: 'Lagos',
-        // country: 'Nigeria'
       },
       points: [{
         id: 1,
@@ -76,8 +72,24 @@ var cho = new Moon({
     unselectShippingPoint: function() {
       this.set('shipping.currentPoint', {id:0});
       if (this.get('shipping').values.length) {
-        this.set('shipping.path', 'list');
+        this.set('shipping.path', 'open');
       } else {
+        this.set('shipping.path', 'closed');
+      }
+    },
+    removeShippingValue: function() {
+      var values = this.get('shipping').values;
+      var current = this.get('shipping').currentValue;
+
+      var filtered = values.filter(function(value) {
+        return value.id !== current.id;
+      });
+
+      this.set('shipping.values', filtered);
+      if(filtered.length > 0) {
+        this.set('shipping.currentValue', filtered[0]);
+      } else {
+        this.set('shipping.currentValue', false);
         this.set('shipping.path', 'closed');
       }
     },
@@ -86,7 +98,6 @@ var cho = new Moon({
         return value.id === id
       })[0];
       this.set('shipping.currentValue', value);
-      console.log(this.get('shipping').currentValue);
     },
     submitShippingPoint: function(id) {
       var values = this.get('shipping').values;
@@ -101,12 +112,23 @@ var cho = new Moon({
       this.set('shipping.values', values);
       this.set('shipping.currentPoint', {id:0});
       this.set('shipping.currentValue', newPoint);
-      this.set('shipping.path', 'list');
+      this.set('shipping.path', 'open');
     },
-    cancelAddingAddress: function() {
+    submitShippingLocation: function() {
+      var l = this.get('shipping').editableLocation;
+      this.set('shipping.currentLocation.city', l.city);
+      this.set('shipping.currentLocation.country', l.country);
+      this.set('shipping.editableLocation.country', '');
+      this.set('shipping.editableLocation.city', '');
+      this.set('shipping.currentPoint', {id:0});
+      this.set('shipping.path', 'pickup');
+    },
+    cancelAddingShippingAddress: function() {
       this.set('shipping.path', 'closed');
     },
-    cancelChangingLocation: function() {
+    cancelChangingShippingLocation: function() {
+      this.set('shipping.editableLocation.country', '');
+      this.set('shipping.editableLocation.city', '');
       this.set('shipping.path', 'pickup');
     }
   },
@@ -126,7 +148,7 @@ var cho = new Moon({
     showShippingClose: {
       get: function() {
         var s = this.get('shipping');
-        return s.values.length && s.path === 'list';
+        return s.values.length && s.path === 'open';
       }
     },
     showShippingValue: {
@@ -135,10 +157,47 @@ var cho = new Moon({
         return s.currentValue && s.path === 'closed';
       }
     },
-    shippingLocation: {
+    yieldShippingLocation: {
       get: function() {
-        var l = this.get('shipping').location;
+        var l = this.get('shipping').currentLocation;
         return l.city + ', ' + l.country
+      }
+    },
+    showShippingLocationSubmit: {
+      get: function() {
+        var l = this.get('shipping').editableLocation;
+        return l.city !== '' && l.country !== '';
+      }
+    },
+    shippingCountries: {
+      get: function() {
+        var pts = this.get('shipping').points;
+        var countries = pts
+          .map(function(point) { return point.country; })
+          .sort()
+          .filter(function(country, i, arr) {
+            return !i || country !== arr[i-1];
+          });
+        return countries;
+      },
+    },
+    shippingCities: {
+      get: function() {
+        var country = this.get('shipping').editableLocation.country;
+        if (country === '') return [];
+        var pts = this.get('shipping').points;
+        var cities = pts
+          .reduce(function(memo, point) {
+            if(point.country === country) {
+              memo.push(point.city);
+            }
+            return memo;
+          }, [])
+          .sort()
+          .filter(function(city, i, arr) {
+            return !i || city !== arr[i-1];
+          });
+        return cities;
       }
     },
     shippingFilteredPoints: {
@@ -154,13 +213,13 @@ var cho = new Moon({
           return match.length < 1;
         });
         var byCity = notSelectedPoints.filter(function(point) {
-          return point.city.toLowerCase() === s.location.city.toLowerCase();
+          return point.city.toLowerCase() === s.currentLocation.city.toLowerCase();
         });
         if (byCity.length) {
           return byCity;
         } else {
           var byCountry = notSelectedPoints.filter(function(point) {
-            return point.country.toLowerCase() === s.location.country.toLowerCase()
+            return point.country.toLowerCase() === s.currentLocation.country.toLowerCase()
           });
           if (byCountry.length) {
             return byCountry;

@@ -23,10 +23,10 @@
     <div id="checkout-shipping" class="cho__module">
       <div class="cho__summary">
         <div class="cho__title">Shipping</div>
-        <div class="cho__icon" m-if={{showShippingValue}}>
-          <i class="icon icon--cho icon--cho-{{shipping.currentValue.type}}"></i>
-        </div>
         <div class="cho__value" m-if="{{showShippingValue}}">
+          <div class="cho__icon" m-if={{showShippingValue}}>
+            <i class="icon icon--cho icon--cho-{{shipping.currentValue.type}}"></i>
+          </div>
           <cho-info
             line1={{shipping.currentValue.line1}}
             line2={{shipping.currentValue.line2}}
@@ -38,9 +38,9 @@
         >
           Add shipping address
         </div>
-        <div class="cho__toggle"
+        <div class="cho__toggle cho__action"
           m-if="{{showShippingChange}}"
-          m-on:click="navigate('shipping', 'list')"
+          m-on:click="navigate('shipping', 'open')"
         >
           Change
         </div>
@@ -65,7 +65,7 @@
             <div class="cho__status">
               <span class="hide__until--phablet">Available pick up points near </span>
               <span class="hide__from--phablet">Near </span>
-              <strong>{{shippingLocation}}</strong>
+              <strong>{{yieldShippingLocation}}</strong>
             </div>
             <div
               class="cho__action"
@@ -139,14 +139,16 @@
           </div>
         </div>
 
-        <div class="cho__screen" m-if="{{shipping.path}} === 'list'">
+        <div class="cho__screen" m-if="{{shipping.path}} === 'open'">
           <div class="cho__list" m-if="{{shipping.values.length}}">
             <div
               class="cho__choice"
               m-for="value in {{shipping.values}}"
               m-on:click="selectShippingValue({{value.id}})"
             >
-              <div class="cho__icon">
+              <div
+                class="cho__icon"
+              >
                 <i class="icon icon--cho icon--cho-{{value.type}}"></i>
               </div>
               <cho-info
@@ -167,33 +169,77 @@
           </div>
           <div class="cho__footer">
             <div
+              class="cho__button cho__button--cancel"
+              m-if="{{shipping.currentValue.type}} === 'pickup'"
+              m-on:click="removeShippingValue"
+            >
+              Remove Selected
+            </div>
+            <div
               class="cho__button cho__button--submit"
               m-on:click="navigate('shipping', 'pickup')"
-            >Add Shipping Address</div>
+            >Add Another Address</div>
           </div>
         </div>
 
         <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
-          <div class="cho__header">{{shipping.action}} shipping address</div>
-          <div class="tabbar">
-            <div class="tabbar__tab tabbar__tab--active">Pick up point</div>
-            <div class="tabbar__tab" m-on:click="navigate('shipping', 'address')">
-              Address
+          <div class="cho__header">Select your location</div>
+          <div class="cho__pad">
+            <div class="form__row">
+              <div class="form__cell">
+                <label for="cho-shipping-location-country" class="form__label">Country</label>
+                <select
+                  name="cho-shipping-location-country"
+                  id="cho-shipping-location-country"
+                  class="form__select"
+                  m-model="shipping.editableLocation.country"
+                >
+                  <option value="">Select country</option>
+                  <option
+                    m-for="country in {{shippingCountries}}"
+                    value="{{country}}"
+                  >{{country}}</option>
+                </select>
+              </div>
+              <div class="form__cell">
+                <label for="cho-shipping-location-city" class="form__label">City</label>
+                <select
+                  class="form__select"
+                  disabled="disabled"
+                  m-if="{{shipping.editableLocation.country}} === ''"
+                >
+                  <option value="-1">Please select country first</option>
+                </select>
+                <select
+                  name="cho-shipping-location-city"
+                  id="cho-shipping-location-city"
+                  class="form__select"
+                  m-if="{{shipping.editableLocation.country}} !== ''"
+                  m-model="shipping.editableLocation.city"
+                >
+                  <option value="">Select city</option>
+                  <option
+                    m-for="city in {{shippingCities}}"
+                    value="{{city}}"
+                  >{{city}}</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div class="cho__bar">
-            <div class="cho__status">
-              Select your location
-            </div>
-          </div>
-          TODO: Change location
+
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
-              m-on:click="cancelChangingLocation"
+              m-on:click="cancelChangingShippingLocation"
             >Cancel</div>
             <div
               class="cho__button cho__button--submit cho__button--disabled"
+              m-if="{{showShippingLocationSubmit}} === false"
+            >Find Pick Up Addresses</div>
+            <div
+              class="cho__button cho__button--submit"
+              m-if="{{showShippingLocationSubmit}}"
+              m-on:click="submitShippingLocation"
             >Find Pick Up Addresses</div>
           </div>
         </div>
@@ -202,7 +248,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/moonjs@0.7.1"></script>
+  <script src="../js/moon.js"></script>
   <script src="../js/cho.moon.js"></script>
 </body>
 </html>
