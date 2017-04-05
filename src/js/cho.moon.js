@@ -1,21 +1,49 @@
+(function(){
+
 Moon.config.silent = true;
+
+var compiled = {
+  choInfo: Moon.compile(
+    document
+      .querySelector('#tpl-cho-info')
+      .innerHTML
+      .trim()
+  )
+}
 
 Moon.component('cho-info', {
   props: ['title', 'line1', 'line2', 'descr', 'price'],
-  template: '<div class="cho__info">' +
-  '<div m-if="{{title}}" class="info__title">{{title}}</div>' +
-  '<div m-if="{{line1}}" class="info__line">{{line1}}</div>' +
-  '<div m-if="{{line2}}" class="info__line">{{line2}}</div>' +
-  '<div m-if="{{descr}}" class="info__descr">{{descr}}</div>' +
-  '<div m-if="{{price}}" class="info__price">{{price}}</div>' +
-  '</div>'
+  render: compiled.choInfo
 });
 
 var cho = new Moon({
+  hooks: {
+    init: function() {
+      var self = this;
+
+      window.callback = function(data) {
+        var location = {
+          city: data.city,
+          country: data.country_name
+        };
+        self.set('shipping.currentLocation', location);
+        self.set('geoData', data);
+
+        delete window.callback;
+      }
+
+      var dataScript = document.createElement('script');
+      dataScript.type = 'text/javascript';
+      dataScript.src = 'https://geoip-db.com/jsonp';
+      var firstScript = document.getElementsByTagName('script')[0];
+      firstScript.parentNode.insertBefore(dataScript, firstScript);
+    }
+  },
   el: '#checkout',
   data: {
+    geoData: false,
     shipping: {
-      path: 'closed', // 'closed', 'pickup', 'address', 'location', 'open'
+      path: 'pickup', // 'closed', 'pickup', 'address', 'location', 'open'
       values: [],
       currentValue: false,
       currentPoint: {id: 0},
@@ -24,10 +52,7 @@ var cho = new Moon({
         country: '',
         city: ''
       },
-      currentLocation: {
-        city: 'Bamenda',
-        country: 'Cameroon'
-      },
+      currentLocation: false,
       points: [{
         id: 1,
         type: 'pickup',
@@ -56,6 +81,20 @@ var cho = new Moon({
         country: 'Ghana',
         line1: 'Stop Point',
         line2: 'Main Street 67, Accra, Ghana'
+      },{
+        id: 121,
+        type: 'pickup',
+        city: 'Ternopil',
+        country: 'Ukraine',
+        line1: 'Podolyany Mall',
+        line2: '28 Podil\'ska Street, Ternopil, Ukraine'
+      },{
+        id: 141,
+        type: 'pickup',
+        city: 'Fort Worth',
+        country: 'United States',
+        line1: 'La Gran Plaza',
+        line2: '4200 South Fwy, Fort Worth TX'
       }]
     }
   },
@@ -160,7 +199,10 @@ var cho = new Moon({
     yieldShippingLocation: {
       get: function() {
         var l = this.get('shipping').currentLocation;
-        return l.city + ', ' + l.country
+        return l
+          ? l.city + ', ' + l.country
+          : 'Locating...'
+        ;
       }
     },
     showShippingLocationSubmit: {
@@ -203,6 +245,7 @@ var cho = new Moon({
     shippingFilteredPoints: {
       get: function() {
         var s = this.get('shipping');
+        if(!s.currentLocation) return false;
         var selectedIds = s.values.map(function(value){
           return value.id;
         });
@@ -231,3 +274,5 @@ var cho = new Moon({
     }
   }
 });
+
+})();
