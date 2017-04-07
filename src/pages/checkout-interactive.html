@@ -133,15 +133,150 @@
             </div>
             <div class="tabbar__tab tabbar__tab--active">Address</div>
           </div>
-          TODO: Address Form
+
+          <!-- tyt -->
+          <div class="cho__pad">
+
+            <div class="form__row">
+              <div class="form__cell">
+                <label
+                  class="form__label"
+                  for="cho-shipping-address-country"
+                >Country</label>
+                <select
+                  name="cho-shipping-address-country"
+                  id="cho-shipping-address-country"
+                  class="form__select"
+                  m-model="shipping.editableAddress.country"
+                >
+                  <option value="">Select country</option>
+                  <option
+                    m-for="country in {{allCountries}}"
+                    value="{{country}}"
+                  >{{country}}</option>
+                </select>
+              </div>
+              <div class="form__cell">
+                <label
+                  for="cho-shipping-address-city"
+                  class="form__label"
+                >City</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  id="cho-shipping-address-city"
+                  m-model="shipping.editableAddress.city"
+                />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__cell">
+                <label
+                  for="cho-shipping-address-fullname"
+                  class="form__label"
+                >Full Name</label>
+                <input
+                  id="cho-shipping-address-fullname"
+                  class="form__input"
+                  type="text"
+                  m-model="shipping.editableAddress.fullName"
+                />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__cell">
+                <label
+                  for="cho-shipping-address-line1"
+                  class="form__label"
+                >Address</label>
+                <input
+                  type="text"
+                  class="form__input"
+                  id="cho-shipping-address-line1"
+                  m-model="shipping.editableAddress.line1"
+                />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__cell">
+                <input
+                  type="text"
+                  class="form__input"
+                  id="cho-shipping-address-line2"
+                  m-model="shipping.editableAddress.line2"
+                />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__cell form__cell--phone">
+                <label
+                  for="landing-input-phone"
+                  class="form__label"
+                >Phone</label>
+                <select
+                  id="landing-select-code"
+                  class="form__select"
+                  m-model="shipping.editableAddress.code"
+                >
+                  <option value=""></option>
+                  <option
+                    m-for="code in {{allCodes}}"
+                    value="{{code}}"
+                  >{{code}}</option>
+                </select>
+                <input type="text" id="landing-input-phone" class="form__input" />
+              </div>
+              <div class="form__cell">
+                <div class="columns columns__from--phablet">
+                  <div class="form__cell">
+                    <label
+                      for="cho-shipping-address-zip"
+                      class="form__label"
+                    >ZIP</label>
+                    <input
+                      type="text"
+                      class="form__input"
+                      id="cho-shipping-address-zip"
+                      m-model="shipping.editableAddress.zip"
+                    />
+                  </div>
+                  <div class="form__cell">
+                    <label
+                      for="cho-shipping-address-primary"
+                      class="form__label"
+                      >Make Primary</label>
+                      <input
+                        class="form__switch"
+                        type="checkbox"
+                        id="cho-shipping-address-primary"
+                        m-model="shipping.editableAddress.isPrimary"
+                      />
+                      <label for="cho-shipping-address-primary"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- pad -->
+
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
-              m-on:click="cancelAddingAddress"
+              m-on:click="cancelAddingShippingAddress"
             >Cancel</div>
             <div
+              class="cho__button cho__button--submit"
+              m-if="{{showShippingAddressSubmit}}"
+              m-on:click="submitShippingAddress"
+            >Save Address</div>
+            <div
+              m-if="{{showShippingAddressSubmit}} === false"
               class="cho__button cho__button--submit cho__button--disabled"
-            >Select Address</div>
+            >Save Address</div>
           </div>
         </div>
 

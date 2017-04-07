@@ -1,5 +1,17 @@
 (function(){
 
+function uid(data) {
+  var d = new Date();
+  var str = window.btoa(JSON.stringify(data)+(Math.random() * d.valueOf() + ''));
+  var hash = 0, i, chr;
+  for (i = 0; i < str.length; i++) {
+    chr = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  return window.btoa(hash).split('=').join('');
+}
+
 Moon.config.silent = true;
 
 var compiled = {
@@ -37,13 +49,18 @@ var cho = new Moon({
       dataScript.src = 'https://geoip-db.com/jsonp';
       var firstScript = document.getElementsByTagName('script')[0];
       firstScript.parentNode.insertBefore(dataScript, firstScript);
+    },
+    updated: function() {
+      // console.log(this.get('shipping').editableAddress);
     }
   },
   el: '#checkout',
   data: {
     geoData: false,
+    allCountries: ['Cameroon', 'Canada', 'Ghana', 'France', 'United States', 'Ukraine'],
+    allCodes: ['+237', '+1', '+233', '+33', '+38'],
     shipping: {
-      path: 'pickup', // 'closed', 'pickup', 'address', 'location', 'open'
+      path: 'address', // 'closed', 'pickup', 'address', 'location', 'open'
       values: [],
       currentValue: false,
       currentPoint: {id: 0},
@@ -51,6 +68,17 @@ var cho = new Moon({
       editableLocation: {
         country: '',
         city: ''
+      },
+      editableAddress: {
+        country: 'United States',
+        city: 'Fort Worth',
+        fullName: 'Roland Omene',
+        line1: '3000 Some Road',
+        line2: 'Fort Worth TX',
+        code: '+1',
+        phone: '98765432',
+        zip: '10192',
+        isPrimary: false
       },
       currentLocation: false,
       points: [{
@@ -95,7 +123,8 @@ var cho = new Moon({
         country: 'United States',
         line1: 'La Gran Plaza',
         line2: '4200 South Fwy, Fort Worth TX'
-      }]
+      }],
+      addresses: []
     }
   },
   methods: {
@@ -162,8 +191,17 @@ var cho = new Moon({
       this.set('shipping.currentPoint', {id:0});
       this.set('shipping.path', 'pickup');
     },
+    submitShippingAddress: function() {
+      var a = Moon.util.extend({}, this.get('shipping').editableAddress);
+      a.uid = uid(a);
+      console.log(a);
+    },
     cancelAddingShippingAddress: function() {
-      this.set('shipping.path', 'closed');
+      var destination = this.get('shipping').values.length
+        ? 'open'
+        : 'closed'
+      ;
+      this.set('shipping.path', destination);
     },
     cancelChangingShippingLocation: function() {
       this.set('shipping.editableLocation.country', '');
@@ -209,6 +247,17 @@ var cho = new Moon({
       get: function() {
         var l = this.get('shipping').editableLocation;
         return l.city !== '' && l.country !== '';
+      }
+    },
+    showShippingAddressSubmit: {
+      get: function() {
+        var a = this.get('shipping').editableAddress;
+        // TODO: Determine proper valid conditions
+        return !!a.country.length &&
+          !!a.city.length &&
+          !!a.fullName.length &&
+          !!a.line1.length
+        ;
       }
     },
     shippingCountries: {

@@ -1,7 +1,12 @@
+$cho-padding-initial: 1.5rem;
 $cho-padding-horizontal: 1rem;
 $cho-padding-vertical: .625rem;
 
 .cho {
+
+  .form__row:last-child > .form__cell {
+    margin-bottom: 0;
+  }
 
   &__module {
     background-color: $color-background-default;
@@ -58,7 +63,7 @@ $cho-padding-vertical: .625rem;
   }
 
   &__pad {
-    padding: $cho-padding-vertical $cho-padding-horizontal;
+    padding: $cho-padding-initial $cho-padding-horizontal 0;
   }
 
   &__cell {
@@ -140,4 +145,5 @@ $cho-padding-vertical: .625rem;
   &__list {
     border-top: 1px solid $color-border-lightest;
   }
+
 }
