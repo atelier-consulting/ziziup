@@ -28,6 +28,7 @@
             <i class="icon icon--cho icon--cho-{{shipping.currentValue.type}}"></i>
           </div>
           <cho-info
+            m-literal:title="{{shipping.currentValue.fullName}} === undefined ? '' : {{shipping.currentValue.fullName}}"
             line1={{shipping.currentValue.line1}}
             line2={{shipping.currentValue.line2}}
           ></cho-info>
@@ -228,11 +229,16 @@
                     value="{{code}}"
                   >{{code}}</option>
                 </select>
-                <input type="text" id="landing-input-phone" class="form__input" />
+                <input
+                  type="text"
+                  id="landing-input-phone"
+                  class="form__input"
+                  m-model="shipping.editableAddress.phone"
+                />
               </div>
               <div class="form__cell">
                 <div class="columns columns__from--phablet">
-                  <div class="form__cell">
+                  <div class="form__cell form__cell--flat">
                     <label
                       for="cho-shipping-address-zip"
                       class="form__label"
@@ -244,7 +250,7 @@
                       m-model="shipping.editableAddress.zip"
                     />
                   </div>
-                  <div class="form__cell">
+                  <div class="form__cell form__cell--flat">
                     <label
                       for="cho-shipping-address-primary"
                       class="form__label"
@@ -293,6 +299,7 @@
                 <i class="icon icon--cho icon--cho-{{value.type}}"></i>
               </div>
               <cho-info
+                m-literal:title="{{value.fullName}} === undefined ? '' : {{value.fullName}}"
                 line1="{{value.line1}}"
                 line2="{{value.line2}}"
               ></cho-info>

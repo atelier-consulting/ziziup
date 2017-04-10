@@ -4,10 +4,6 @@ $cho-padding-vertical: .625rem;
 
 .cho {
 
-  .form__row:last-child > .form__cell {
-    margin-bottom: 0;
-  }
-
   &__module {
     background-color: $color-background-default;
     box-shadow: 0 2px 4px 0 $color-shadow-default;
