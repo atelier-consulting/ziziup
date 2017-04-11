@@ -20,18 +20,17 @@
   </style>
 
   <div id="checkout" class="cho" m-mask>
+
+    <!-- SHIPPING -->
     <div id="checkout-shipping" class="cho__module">
+      <!-- Summary -->
       <div class="cho__summary">
         <div class="cho__title">Shipping</div>
         <div class="cho__value" m-if="{{showShippingValue}}">
           <div class="cho__icon" m-if={{showShippingValue}}>
             <i class="icon icon--cho icon--cho-{{shipping.currentValue.type}}"></i>
           </div>
-          <cho-info
-            m-literal:title="{{shipping.currentValue.fullName}} === undefined ? '' : {{shipping.currentValue.fullName}}"
-            line1={{shipping.currentValue.line1}}
-            line2={{shipping.currentValue.line2}}
-          ></cho-info>
+          <cho-address m-literal:value="{{shipping.currentValue}}"></cho-address>
         </div>
         <div class="cho__toggle cho__action"
           m-if="{{showShippingAdd}}"
@@ -51,9 +50,12 @@
         >
           Close
         </div>
-      </div>
+      </div> <!-- } Summary -->
+
+      <!-- Content -->
       <div class="cho__content" m-if="{{shipping.path}} !== 'closed'">
 
+        <!-- Pick up tab -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'pickup'">
           <div class="cho__header">{{shipping.action}} shipping address</div>
           <div class="tabbar">
@@ -62,6 +64,7 @@
               Address
             </div>
           </div>
+          <!-- Bar -->
           <div class="cho__bar">
             <div class="cho__status">
               <span
@@ -81,6 +84,7 @@
               Change<span class="hide__until--phablet"> location</span>
             </div>
           </div>
+          <!-- List -->
           <div class="cho__list" m-if="{{shippingFilteredPoints}}">
             <div
               class="cho__choice"
@@ -90,13 +94,8 @@
               <div class="cho__icon">
                 <i class="icon icon--cho icon--cho-pickup"></i>
               </div>
-              <cho-info
-                line1="{{point.line1}}"
-                line2="{{point.line2}}"
-              ></cho-info>
-              <div
-                class="cho__radio"
-              >
+              <cho-address m-literal:value="{{point}}"></cho-address>
+              <div class="cho__radio">
                 <i class="icon icon--small icon--radio-on"
                   m-if="{{point.id}} === {{shipping.currentPoint.id}}"
                 ></i>
@@ -106,9 +105,11 @@
               </div>
             </div>
           </div>
+          <!-- Nothing found -->
           <div class="cho__nothing" m-if="!{{shippingFilteredPoints}}">
             No points found near selected location.
           </div>
+          <!-- Footer -->
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
@@ -126,18 +127,21 @@
           </div>
         </div>
 
+        <!-- Address tab -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'address'">
           <div class="cho__header">{{shipping.action}} shipping address</div>
-          <div class="tabbar">
+          <div
+            class="tabbar"
+            m-if="{{shipping.action}} === 'Add'"
+          >
             <div class="tabbar__tab" m-on:click="navigate('shipping', 'pickup')">
               Pick up point
             </div>
             <div class="tabbar__tab tabbar__tab--active">Address</div>
           </div>
-
-          <!-- tyt -->
+          <!-- Address form -->
           <div class="cho__pad">
-
+            <!-- Country and city -->
             <div class="form__row">
               <div class="form__cell">
                 <label
@@ -170,7 +174,7 @@
                 />
               </div>
             </div>
-
+            <!-- Name -->
             <div class="form__row">
               <div class="form__cell">
                 <label
@@ -185,7 +189,7 @@
                 />
               </div>
             </div>
-
+            <!-- Address -->
             <div class="form__row">
               <div class="form__cell">
                 <label
@@ -200,7 +204,6 @@
                 />
               </div>
             </div>
-
             <div class="form__row">
               <div class="form__cell">
                 <input
@@ -211,7 +214,7 @@
                 />
               </div>
             </div>
-
+            <!-- Phone, ZIP and Primary checkbox -->
             <div class="form__row">
               <div class="form__cell form__cell--phone">
                 <label
@@ -266,14 +269,18 @@
                 </div>
               </div>
             </div>
-
-          </div> <!-- pad -->
-
+          </div>
+          <!-- Footer -->
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
               m-on:click="cancelAddingShippingAddress"
             >Cancel</div>
+            <div
+              class="cho__button cho__button--cancel"
+              m-if="{{shipping.editableAddress.id}}"
+              m-on:click="deleteShippingAddress"
+            >Delete</div>
             <div
               class="cho__button cho__button--submit"
               m-if="{{showShippingAddressSubmit}}"
@@ -286,6 +293,7 @@
           </div>
         </div>
 
+        <!-- Main choice list -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'open'">
           <div class="cho__list" m-if="{{shipping.values.length}}">
             <div
@@ -298,11 +306,7 @@
               >
                 <i class="icon icon--cho icon--cho-{{value.type}}"></i>
               </div>
-              <cho-info
-                m-literal:title="{{value.fullName}} === undefined ? '' : {{value.fullName}}"
-                line1="{{value.line1}}"
-                line2="{{value.line2}}"
-              ></cho-info>
+              <cho-address m-literal:value="{{value}}"></cho-address>
               <div
                 class="cho__radio"
               >
@@ -315,6 +319,7 @@
               </div>
             </div>
           </div>
+          <!-- Footer -->
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
@@ -324,15 +329,24 @@
               Remove Selected
             </div>
             <div
+              class="cho__button cho__button--cancel"
+              m-if="{{shipping.currentValue.type}} === 'address'"
+              m-on:click="editShippingValue"
+            >
+              Edit Selected
+            </div>
+            <div
               class="cho__button cho__button--submit"
               m-on:click="navigate('shipping', 'pickup')"
             >Add Another Address</div>
           </div>
         </div>
 
+        <!-- Location -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
           <div class="cho__header">Select your location</div>
           <div class="cho__pad">
+            <!-- Location form -->
             <div class="form__row">
               <div class="form__cell">
                 <label for="cho-shipping-location-country" class="form__label">Country</label>
@@ -374,7 +388,7 @@
               </div>
             </div>
           </div>
-
+          <!-- Footer -->
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
@@ -392,17 +406,21 @@
           </div>
         </div>
 
-      </div>
-    </div>
-  </div>
+      </div> <!-- Content -->
+    </div> <!-- SHIPPING -->
 
-  <script type="text/template" id="tpl-cho-info">
+  </div> <!-- .cho -->
+
+  <script type="text/template" id="tpl-cho-address">
     <div class="cho__info">
-      <div m-if="{{title}}" class="info__title">{{title}}</div>
-      <div m-if="{{line1}}" class="info__line">{{line1}}</div>
-      <div m-if="{{line2}}" class="info__line">{{line2}}</div>
-      <div m-if="{{descr}}" class="info__descr">{{descr}}</div>
-      <div m-if="{{price}}" class="info__price">{{price}}</div>
+      <div m-if="{{value.title}}" class="info__title">{{value.title}}</div>
+      <div m-if="{{value.fullName}}" class="info__title">{{value.fullName}}</div>
+      <div m-if="{{value.line1}}" class="info__line">{{value.line1}}</div>
+      <div m-if="{{value.line2}}" class="info__line">{{value.line2}}</div>
+      <div class="info__line">
+        <span m-if="{{value.city}}">{{value.city}}, </span>
+        <span m-if="{{value.country}}">{{value.country}}</span><span m-if="{{value.zip}}">, {{value.zip}}</span>
+      </div>
     </div>
   </script>
 

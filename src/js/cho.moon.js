@@ -1,5 +1,10 @@
 (function(){
 
+/**
+ * Generates unique string
+ * @param  {object} data Data object
+ * @return {string}      Unique string
+ */
 function uid(data) {
   var d = new Date();
   var str = window.btoa(JSON.stringify(data)+(Math.random() * d.valueOf() + ''));
@@ -15,17 +20,17 @@ function uid(data) {
 Moon.config.silent = true;
 
 var compiled = {
-  choInfo: Moon.compile(
+  choAddress: Moon.compile(
     document
-      .querySelector('#tpl-cho-info')
+      .querySelector('#tpl-cho-address')
       .innerHTML
       .trim()
   )
 }
 
-Moon.component('cho-info', {
-  props: ['title', 'line1', 'line2', 'descr', 'price'],
-  render: compiled.choInfo
+Moon.component('cho-address', {
+  props: ['value'],
+  render: compiled.choAddress,
 });
 
 var cho = new Moon({
@@ -98,57 +103,77 @@ var cho = new Moon({
         type: 'pickup',
         city: 'Bamenda',
         country: 'Cameroon',
-        line1: 'Niki Mash International',
-        line2: 'Small Mankon, Bamenda, NWR'
+        title: 'Niki Mash International',
+        line1: '4200 Quiet Str',
+        line2: 'Small Mankon, NWR'
       },{
         id: 2,
         type: 'pickup',
         city: 'Bamenda',
         country: 'Cameroon',
-        line1: 'Post Office',
-        line2: 'Ngwafang Street, Bamenda, NWR'
+        title: 'Post Office',
+        line1: ' 249 Ngwafang Street, NWR'
       },{
         id: 11,
         type: 'pickup',
         city: 'Yaounde',
         country: 'Cameroon',
-        line1: 'Happy Mall',
-        line2: 'Yaounde, Cameroon'
+        title: 'Happy Mall',
+        line1: '18 Main Street'
       },{
         id: 101,
         type: 'pickup',
         city: 'Accra',
         country: 'Ghana',
-        line1: 'Stop Point',
-        line2: 'Main Street 67, Accra, Ghana'
+        title: 'Stop Point',
+        line1: '5 Fifth Ave'
       },{
         id: 121,
         type: 'pickup',
         fullName: '',
         city: 'Ternopil',
         country: 'Ukraine',
-        line1: 'Podolyany Mall',
-        line2: '28 Podil\'ska Street, Ternopil, Ukraine'
+        title: 'Podolyany Mall',
+        line1: '28 Podil\'ska Street'
       },{
         id: 141,
         type: 'pickup',
         city: 'Fort Worth',
         country: 'United States',
-        line1: 'La Gran Plaza',
-        line2: '4200 South Fwy, Fort Worth TX'
+        title: 'La Gran Plaza',
+        line1: '4200 South Fwy'
       }],
     }
   },
   methods: {
+    // SHIPPING
+
+    /**
+     * Navigates to specific screen
+     * @param  {string} module      Module to navigate
+     * @param  {string} destination Screen to switch to
+     * @return {void}
+     */
     navigate: function(module, destination) {
       this.set(module + '.path', destination);
     },
+
+    /**
+     * Selects pickup point as current
+     * @param  {string} id Point ID
+     * @return {void}
+     */
     selectShippingPoint: function(id) {
       var point = this.get('shipping').points.filter(function(point) {
         return point.id === id;
       })[0];
       this.set('shipping.currentPoint', point);
     },
+
+    /**
+     * Deselects previously selected pickup point
+     * @return {void}
+     */
     unselectShippingPoint: function() {
       this.set('shipping.currentPoint', {id:0});
       if (this.get('shipping').values.length) {
@@ -157,6 +182,11 @@ var cho = new Moon({
         this.set('shipping.path', 'closed');
       }
     },
+
+    /**
+     * Removes current pickup point
+     * @return {void}
+     */
     removeShippingValue: function() {
       var values = this.get('shipping').values;
       var current = this.get('shipping').currentValue;
@@ -173,12 +203,35 @@ var cho = new Moon({
         this.set('shipping.path', 'closed');
       }
     },
+
+    /**
+     * Sets editing mode for current address
+     * @return {void}
+     */
+    editShippingValue: function() {
+      var current = this.get('shipping').currentValue;
+      this.set('shipping.editableAddress', current);
+      this.set('shipping.path', 'address');
+      this.set('shipping.action', 'Edit');
+    },
+
+    /**
+     * Selects point or address as current shipping destination
+     * @param  {string} id Value ID
+     * @return {void}
+     */
     selectShippingValue: function(id) {
       var value = this.get('shipping').values.filter(function(val) {
         return val.id === id
       })[0];
       this.set('shipping.currentValue', value);
     },
+
+    /**
+     * Sets point as shipping destination choice
+     * @param  {string} id Point ID
+     * @return {void}
+     */
     submitShippingPoint: function(id) {
       var values = this.get('shipping').values;
       var newPoint = this.get('shipping').points.filter(function(point) {
@@ -194,6 +247,11 @@ var cho = new Moon({
       this.set('shipping.currentValue', newPoint);
       this.set('shipping.path', 'open');
     },
+
+    /**
+     * Changes current location
+     * @return {void}
+     */
     submitShippingLocation: function() {
       var l = this.get('shipping').editableLocation;
       this.set('shipping.currentLocation.city', l.city);
@@ -203,11 +261,14 @@ var cho = new Moon({
       this.set('shipping.currentPoint', {id:0});
       this.set('shipping.path', 'pickup');
     },
+
+    /**
+     * Saves edited or creates new address
+     * @return {void}
+     */
     submitShippingAddress: function() {
       var a = this.get('shipping').editableAddress;
-      var all = this.get('shipping').values.filter(function(val) {
-        return val.type = 'address';
-      });
+      var all = this.get('shipping').values;
       if(a.id) {
         var existing = all.filter(function(addr) {
           return a.id === addr.id;
@@ -218,18 +279,52 @@ var cho = new Moon({
         this.get('shipping').values.push(a);
       }
 
-      this.set('shipping.path', 'open');
-      this.set('shipping.currentValue', a);
       this.set('shipping.editableAddress', this.get('shipping').emptyAddress);
-
+      this.set('shipping.path', 'open');
+      this.set('shipping.action', 'Add');
+      this.set('shipping.currentValue', a);
     },
+
+    /**
+     * Deletes current address
+     * @return {void}
+     */
+    deleteShippingAddress: function() {
+      var current = this.get('shipping').currentValue;
+      var filteredValues = this.get('shipping').values.filter(function(val) {
+        return val.id !== current.id;
+      });
+
+      this.set('shipping.editableAddress', this.get('shipping').emptyAddress);
+      this.set('shipping.values', filteredValues);
+      this.set('shipping.action', 'Add');
+      if(filteredValues.length > 0) {
+        this.set('shipping.path', 'open');
+        this.set('shipping.currentValue', filteredValues[0]);
+      } else {
+        this.set('shipping.path', 'closed');
+        this.set('shipping.currentValue', false);
+      }
+    },
+
+    /**
+     * Cancels adding or editing address
+     * @return {void}
+     */
     cancelAddingShippingAddress: function() {
       var destination = this.get('shipping').values.length
         ? 'open'
         : 'closed'
       ;
       this.set('shipping.path', destination);
+      this.set('shipping.action', 'Add');
+      this.set('shipping.editableAddress', this.get('shipping').emptyAddress);
     },
+
+    /**
+     * Cancels editing location
+     * @return {void}
+     */
     cancelChangingShippingLocation: function() {
       this.set('shipping.editableLocation.country', '');
       this.set('shipping.editableLocation.city', '');

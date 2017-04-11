@@ -233,7 +233,9 @@
     }
 
     &--flat {
-      margin-bottom: 0;
+      @include from(phablet) {
+        margin-bottom: 0;
+      }
     }
   }
 
