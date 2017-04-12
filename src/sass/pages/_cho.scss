@@ -8,12 +8,17 @@ $cho-padding-vertical: .625rem;
     background-color: $color-background-default;
     box-shadow: 0 2px 4px 0 $color-shadow-default;
     position: relative;
+    margin-bottom: .75rem;
+
+    @include from(phablet) {
+      margin-bottom: 1.25rem;
+    }
   }
 
   &__summary {
     display: flex;
     flex-direction: column;
-    padding: $cho-padding-vertical $cho-padding-horizontal 1.5*$cho-padding-vertical;
+    padding: $cho-padding-vertical $cho-padding-horizontal 1.25*$cho-padding-vertical;
 
     @include from(phablet) {
       flex-direction: row;
@@ -32,9 +37,11 @@ $cho-padding-vertical: .625rem;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     & > .cho__icon {
       padding-right: $cho-padding-horizontal;
+      min-width: 4.5rem;
     }
 
     @include until(phablet) {
@@ -89,17 +96,137 @@ $cho-padding-vertical: .625rem;
 
     & > .cho__icon {
       padding: 0 $cho-padding-horizontal;
+      min-width: 5.5rem;
     }
   }
 
-  &__info {
+  // INFO
+  &-info {
     flex-grow: 1;
+
+    &__title {
+      color: $color-text-darkest;
+    }
+
+    &__params {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      line-height: 1rem;
+
+      & > li {
+        display: inline-block;
+        color: $color-text-lightest;
+        font-size: $font-size-tiny;
+
+        &:not(:first-child):before{
+          display: inline-block;
+          content: '\00a0\00a0'
+        }
+      }
+    }
+
+    &__price {
+      margin-top: .25rem;
+      font-size: $font-size-oversize;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  // PRODUCT
+  &__product {
+    display: flex;
+    flex-direction: row;
+    min-height: 4.25rem;
+    border-bottom: 1px solid $color-border-lightest;
+    align-items: center;
   }
 
   &__picture {
-    min-width: 8.25rem;
-    width: 8.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 7rem;
+    width: 7rem;
+    height: 7rem;
+
+    & > img {
+      display: block;
+      max-width: 80%;
+      height: auto;
+      max-height: 80%;
+      margin: 0 auto;
+    }
   }
+
+  &__counter {
+    margin: 0 $spacer-size-large 0 0;
+    display: flex;
+    justify-content: center;
+
+    width: 3rem;
+    min-width: 3rem;
+
+    flex-direction: column;
+
+    &--horizontal {
+      flex-direction: row;
+      width: 8rem !important;
+      min-width: 8rem !important;
+
+      & .icon {
+        margin: .125rem 0 0 0 !important;
+      }
+
+      & > .panel__quantity {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @include from(phablet) {
+      width: 3.75rem;
+      min-width: 3.75rem;
+    }
+  }
+
+  &__increment {
+    display: block;
+    flex-grow: 1;
+
+    & > .icon {
+      display: block;
+      margin: $spacer-size-small auto 0;
+    }
+  }
+
+  &__decrement {
+    display: block;
+    flex-grow: 1;
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: .2;
+    }
+
+    & > .icon {
+      display: block;
+      margin: 0 auto $spacer-size-small;
+    }
+  }
+
+  &__quantity {
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 1.125rem;
+  }
+
+
+
+
+
+
 
   &__radio {
     padding: 0 $cho-padding-horizontal;

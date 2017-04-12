@@ -21,6 +21,82 @@
 
   <div id="checkout" class="cho" m-mask>
 
+    <!-- CART -->
+    <div id="checkout-cart" class="cho__module">
+      <!-- Summary -->
+      <div class="cho__summary">
+        <div class="cho__title">Cart</div>
+        <div class="cho__value">
+          <div class="cho__icon">
+            {{cart.values.length}} item<span
+              m-if="{{cart.values.length}} !== 1"
+            >
+              s
+            </span>
+          </div>
+          <strong>$&thinsp;{{cartTotal}}</strong>
+        </div>
+        <div class="cho__toggle cho__action"
+          m-if="{{cart.path}} === 'closed'"
+          m-on:click="navigate('cart', 'open')"
+        >
+          Change
+        </div>
+        <div class="cho__toggle"
+          m-if="{{cart.path}} === 'open'"
+          m-on:click="navigate('cart', 'closed')"
+        >
+          Close
+        </div>
+      </div> <!-- Summary -->
+
+      <!-- Content -->
+      <div class="cho__content" m-if="{{cart.path}} === 'open'">
+        <div class="cho__list">
+          <div
+            class="cho__product"
+            m-for="value in {{cart.values}}"
+          >
+            <cho-picture
+              picture="{{value.picture}}"
+              title="{{value.title}}"
+            ></cho-picture>
+            <cho-details
+              m-literal:value="{{value}}"
+            ></cho-details>
+            <div class="cho__counter">
+              <a
+                class="cho__increment"
+                href="javascript:;"
+                m-on:click="increment({{value.id}})"
+              >
+                <i class="icon icon--plus"></i>
+              </a>
+              <div class="cho__quantity">{{value.quantity}}</div>
+              <div
+                class="cho__decrement cho__decrement--disabled"
+                m-if="{{value.quantity}} === 1"
+              >
+                <i class="icon icon--minus"></i>
+              </div>
+              <div
+                class="cho__decrement"
+                m-if="{{value.quantity}} !== 1"
+                m-on:click="decrement({{value.id}})"
+              >
+                <i class="icon icon--minus"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- CART -->
+
+
+
+
     <!-- SHIPPING -->
     <div id="checkout-shipping" class="cho__module">
       <!-- Summary -->
@@ -50,7 +126,7 @@
         >
           Close
         </div>
-      </div> <!-- } Summary -->
+      </div> <!-- Summary -->
 
       <!-- Content -->
       <div class="cho__content" m-if="{{shipping.path}} !== 'closed'">
@@ -125,7 +201,7 @@
               m-if="!{{shipping.currentPoint.id}}"
             >Select Address</div>
           </div>
-        </div>
+        </div> <!-- Pick up tab -->
 
         <!-- Address tab -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'address'">
@@ -291,7 +367,7 @@
               class="cho__button cho__button--submit cho__button--disabled"
             >Save Address</div>
           </div>
-        </div>
+        </div> <!-- Address tab -->
 
         <!-- Main choice list -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'open'">
@@ -340,7 +416,7 @@
               m-on:click="navigate('shipping', 'pickup')"
             >Add Another Address</div>
           </div>
-        </div>
+        </div> <!-- Main choice list -->
 
         <!-- Location -->
         <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
@@ -404,7 +480,7 @@
               m-on:click="submitShippingLocation"
             >Find Pick Up Addresses</div>
           </div>
-        </div>
+        </div> <!-- Location -->
 
       </div> <!-- Content -->
     </div> <!-- SHIPPING -->
@@ -412,15 +488,32 @@
   </div> <!-- .cho -->
 
   <script type="text/template" id="tpl-cho-address">
-    <div class="cho__info">
-      <div m-if="{{value.title}}" class="info__title">{{value.title}}</div>
-      <div m-if="{{value.fullName}}" class="info__title">{{value.fullName}}</div>
-      <div m-if="{{value.line1}}" class="info__line">{{value.line1}}</div>
-      <div m-if="{{value.line2}}" class="info__line">{{value.line2}}</div>
-      <div class="info__line">
+    <div class="cho-info">
+      <div m-if="{{value.title}}" class="cho-info__title">{{value.title}}</div>
+      <div m-if="{{value.fullName}}" class="cho-info__title">{{value.fullName}}</div>
+      <div m-if="{{value.line1}}" class="cho-info__line">{{value.line1}}</div>
+      <div m-if="{{value.line2}}" class="cho-info__line">{{value.line2}}</div>
+      <div class="cho-info__line">
         <span m-if="{{value.city}}">{{value.city}}, </span>
         <span m-if="{{value.country}}">{{value.country}}</span><span m-if="{{value.zip}}">, {{value.zip}}</span>
       </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl-cho-details">
+    <div class="cho-info">
+      <div class="cho-info__title">{{value.title}}</div>
+      <ul class="cho-info__params">
+        <li m-if="{{value.params.size}}">Size: {{value.params.size}}</li>
+        <li m-if="{{value.params.color}}">Color: {{value.params.color}}</li>
+      </ul>
+      <div class="cho-info__price">${{value.price}}</div>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl-cho-picture">
+    <div class="cho__picture">
+      <img src="{{picture}}" alt="{{title}}">
     </div>
   </script>
 

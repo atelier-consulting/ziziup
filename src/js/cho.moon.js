@@ -17,6 +17,41 @@ function uid(data) {
   return window.btoa(hash).split('=').join('');
 }
 
+function fromMoney(amount) {
+  var arr = amount.split('.');
+  var str = '';
+
+  switch (arr.length) {
+    case 1:
+      str += amount + '00';
+      break;
+    default:
+      str += arr.join('');
+      break;
+  }
+
+  return parseInt(str, 10);
+}
+
+function toMoney(amount) {
+  var str = '' + amount;
+  switch (str.length) {
+    case 0:
+      console.error('toMoney: wrong amount');
+      return false;
+      break;
+    case 1:
+      return '0.0' + str;
+      break;
+    case 2:
+      return '0.' + str;
+      break;
+    default:
+      return str.slice(0, -2) + '.' + str.slice(-2);
+      break;
+  }
+}
+
 Moon.config.silent = true;
 
 var compiled = {
@@ -25,12 +60,34 @@ var compiled = {
       .querySelector('#tpl-cho-address')
       .innerHTML
       .trim()
+  ),
+  choDetails: Moon.compile(
+    document
+      .querySelector('#tpl-cho-details')
+      .innerHTML
+      .trim()
+  ),
+  choPicture: Moon.compile(
+    document
+      .querySelector('#tpl-cho-picture')
+      .innerHTML
+      .trim()
   )
 }
 
 Moon.component('cho-address', {
   props: ['value'],
   render: compiled.choAddress,
+});
+
+Moon.component('cho-details', {
+  props: ['value'],
+  render: compiled.choDetails,
+});
+
+Moon.component('cho-picture', {
+  props: ['picture', 'title'],
+  render: compiled.choPicture,
 });
 
 var cho = new Moon({
@@ -61,12 +118,28 @@ var cho = new Moon({
     geoData: false,
     allCountries: ['Cameroon', 'Canada', 'Ghana', 'France', 'United States', 'Ukraine'],
     allCodes: ['+237', '+1', '+233', '+33', '+38'],
+    cart: {
+      trigger: false,
+      path: 'closed', // 'closed', 'open'
+      action: 'View',
+      values: [{
+        id: 1,
+        title: 'Galaxy S7',
+        params: {
+          size: 'S',
+          color: 'Black'
+        },
+        price: '450.75',
+        picture: '../img/product-3.jpg',
+        quantity: 1
+      }]
+    },
     shipping: {
       path: 'closed', // 'closed', 'pickup', 'address', 'location', 'open'
+      action: 'Add',
       values: [],
       currentValue: false,
       currentPoint: {id: 0},
-      action: 'Add',
       editableLocation: {
         country: '',
         city: ''
@@ -146,6 +219,30 @@ var cho = new Moon({
     }
   },
   methods: {
+    // CART
+
+    increment: function(id) {
+      var value = this.get('cart').values.filter(function(val) {
+        return val.id === id;
+      })[0];
+
+      value.quantity++;
+      this.set('cart.trigger', false);
+    },
+
+    decrement: function(id) {
+      var value = this.get('cart').values.filter(function(val) {
+        return val.id === id;
+      })[0];
+
+      value.quantity > 1
+        ? value.quantity--
+        : null
+      ;
+      this.set('cart.trigger', false);
+    },
+
+
     // SHIPPING
 
     /**
@@ -332,6 +429,14 @@ var cho = new Moon({
     }
   },
   computed: {
+    cartTotal: {
+      get: function() {
+        var total = this.get('cart').values.reduce(function(memo, val) {
+          return memo + (fromMoney(val.price) * val.quantity);
+        }, 0);
+        return toMoney(total);
+      }
+    },
     showShippingAdd: {
       get: function() {
         var s = this.get('shipping');
