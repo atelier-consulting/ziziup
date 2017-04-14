@@ -149,6 +149,7 @@ $cho-padding-vertical: .625rem;
     min-width: 7rem;
     width: 7rem;
     height: 7rem;
+    margin-right: .5rem;
 
     & > img {
       display: block;
@@ -222,11 +223,21 @@ $cho-padding-vertical: .625rem;
     border-radius: 1.125rem;
   }
 
+  &__deleter {
+    display: flex;
+    width: 3.75rem;
+    max-width: 3.75rem;
+    margin: 0 0 0 1.125rem;
+    background-color: $color-brand-light;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
 
-
-
-
-
+    & > .icon {
+      display: block;
+      margin: 0 auto;
+    }
+  }
 
   &__radio {
     padding: 0 $cho-padding-horizontal;
@@ -260,8 +271,13 @@ $cho-padding-vertical: .625rem;
       flex-grow: 1;
       border-right: 2px solid $color-background-default;
     }
+
     &--submit {
       flex-grow: 2;
+    }
+
+    & > .icon {
+      margin-right: .5rem;
     }
   }
 

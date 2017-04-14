@@ -136,7 +136,7 @@ var cho = new Moon({
     },
     shipping: {
       path: 'closed', // 'closed', 'pickup', 'address', 'location', 'open'
-      action: 'Add',
+      action: 'View', // 'View', 'Edit'
       values: [],
       currentValue: false,
       currentPoint: {id: 0},
@@ -240,6 +240,22 @@ var cho = new Moon({
         : null
       ;
       this.set('cart.trigger', false);
+    },
+
+    deleteCartItem: function(id) {
+      var filtered = this.get('cart').values.filter(function(val) {
+        return val.id !== id;
+      });
+
+      this.set('cart.values', filtered);      
+    },
+
+    editCart: function() {
+      this.set('cart.action', 'Edit');
+    },
+
+    doneEditingCart: function() {
+      this.set('cart.action', 'View');
     },
 
 

@@ -30,9 +30,7 @@
           <div class="cho__icon">
             {{cart.values.length}} item<span
               m-if="{{cart.values.length}} !== 1"
-            >
-              s
-            </span>
+            >s</span>
           </div>
           <strong>$&thinsp;{{cartTotal}}</strong>
         </div>
@@ -52,7 +50,13 @@
 
       <!-- Content -->
       <div class="cho__content" m-if="{{cart.path}} === 'open'">
-        <div class="cho__list">
+
+        <!-- List -->
+        <div
+          class="cho__list"
+          m-if="{{cart.values.length}}"
+        >
+          <!-- Product -->
           <div
             class="cho__product"
             m-for="value in {{cart.values}}"
@@ -64,7 +68,11 @@
             <cho-details
               m-literal:value="{{value}}"
             ></cho-details>
-            <div class="cho__counter">
+            <!-- Counter -->
+            <div
+              class="cho__counter"
+              m-if="{{cart.action}} === 'View'"
+             >
               <a
                 class="cho__increment"
                 href="javascript:;"
@@ -87,10 +95,44 @@
                 <i class="icon icon--minus"></i>
               </div>
             </div>
+            <!-- Deleter -->
+            <div
+              class="cho__deleter"
+              m-if="{{cart.action}} === 'Edit'"
+              m-on:click="deleteCartItem({{value.id}})"
+            >
+              <i class="icon icon--times"></i>
+            </div>
           </div>
         </div>
 
-      </div>
+        <!-- Footer -->
+        <div
+          class="cho__footer"
+          m-if="{{cart.values.length}}"
+        >
+          <div
+            class="cho__button cho__button--submit"
+            m-if="{{cart.action}} === 'View'"
+            m-on:click="editCart"
+          >
+            <i class="icon icon--tiny icon--pencil"></i>
+            Edit Cart
+          </div>
+          <div
+            class="cho__button cho__button--submit"
+            m-if="{{cart.action}} === 'Edit'"
+            m-on:click="doneEditingCart"
+          >Done</div>
+        </div>
+
+        <!-- Empty cart -->
+        <div class="cho__nothing" m-if="!{{cart.values.length}}">
+          Cart is empty<br>
+          <a href="#" class="cho__action">Shop something</a>
+        </div>
+
+      </div> <!-- Content -->
 
     </div> <!-- CART -->
 
