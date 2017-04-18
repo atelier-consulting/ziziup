@@ -28,11 +28,13 @@
         <div class="cho__title">Cart</div>
         <div class="cho__value">
           <div class="cho__icon">
+            <strong>$&thinsp;{{cartTotal}}</strong>
+          </div>
+          <div>
             {{cart.values.length}} item<span
               m-if="{{cart.values.length}} !== 1"
             >s</span>
           </div>
-          <strong>$&thinsp;{{cartTotal}}</strong>
         </div>
         <div class="cho__toggle cho__action"
           m-if="{{cart.path}} === 'closed'"
@@ -135,7 +137,6 @@
       </div> <!-- Content -->
 
     </div> <!-- CART -->
-
 
 
 
@@ -526,6 +527,62 @@
 
       </div> <!-- Content -->
     </div> <!-- SHIPPING -->
+
+
+
+    <!-- DONATION -->
+    <div id="checkout-donation" class="cho__module">
+      <!-- Summary -->
+      <div class="cho__summary">
+        <div class="cho__title">Donation</div>
+        <div
+          class="cho__value"
+          m-if="{{donation.path}} !=='open'"
+        >
+          <div class="cho__icon">
+            <strong>$&thinsp;{{donation.currentValue}}</strong>
+          </div>
+          <a href="#" class="cho__action">Learn more</a>
+        </div>
+        <div class="cho__toggle cho__action"
+          m-if="{{donation.path}} === 'closed'"
+          m-on:click="navigate('donation', 'open')"
+        >
+          Change
+        </div>
+        <div class="cho__toggle"
+          m-if="{{donation.path}} === 'open'"
+          m-on:click="navigate('donation', 'closed')"
+        >
+          Close
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="cho__content" m-if="{{donation.path}} !== 'closed'">
+        <div class="cho__list">
+          <div
+            class="cho__choice cho__choice--padded"
+            m-for="value in {{donation.values}}"
+            m-on:click="selectDonationValue({{value}})"
+          >
+            <div class="cho-info">
+              <div class="cho-info__title">$&thinsp;{{value}}</div>
+            </div>
+            <div class="cho__radio">
+              <i class="icon icon--small icon--radio-on"
+                m-if="{{value}} === {{donation.currentValue}}"
+              ></i>
+              <i class="icon icon--small icon--radio-off"
+                m-if="{{value}} !== {{donation.currentValue}}"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div> <!-- Content -->
+
+    </div> <!-- DONATION -->
+
 
   </div> <!-- .cho -->
 

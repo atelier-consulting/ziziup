@@ -136,7 +136,7 @@ var cho = new Moon({
     },
     shipping: {
       path: 'closed', // 'closed', 'pickup', 'address', 'location', 'open'
-      action: 'View', // 'View', 'Edit'
+      action: 'Add', // 'Add', 'Edit'
       values: [],
       currentValue: false,
       currentPoint: {id: 0},
@@ -216,6 +216,11 @@ var cho = new Moon({
         title: 'La Gran Plaza',
         line1: '4200 South Fwy'
       }],
+    },
+    donation: {
+      path: 'closed', // 'closed', 'open'
+      currentValue: '0',
+      values: ['0', '1', '2', '5', '10']
     }
   },
   methods: {
@@ -247,7 +252,7 @@ var cho = new Moon({
         return val.id !== id;
       });
 
-      this.set('cart.values', filtered);      
+      this.set('cart.values', filtered);
     },
 
     editCart: function() {
@@ -442,6 +447,11 @@ var cho = new Moon({
       this.set('shipping.editableLocation.country', '');
       this.set('shipping.editableLocation.city', '');
       this.set('shipping.path', 'pickup');
+    },
+
+    // DONATION
+    selectDonationValue: function(val) {
+      this.set('donation.currentValue', val);
     }
   },
   computed: {

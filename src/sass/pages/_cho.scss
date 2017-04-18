@@ -98,6 +98,10 @@ $cho-padding-vertical: .625rem;
       padding: 0 $cho-padding-horizontal;
       min-width: 5.5rem;
     }
+
+    &--padded {
+      padding-left: $cho-padding-horizontal;
+    }
   }
 
   // INFO
