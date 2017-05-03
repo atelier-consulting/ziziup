@@ -108,6 +108,9 @@
 
     &--card-number {
       @extend %clearfix;
+      @include from(phablet) {
+        min-width: 22rem;
+      }
 
       & > input {
         display: block;

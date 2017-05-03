@@ -8,7 +8,7 @@ $cho-padding-vertical: .625rem;
     background-color: $color-background-default;
     box-shadow: 0 2px 4px 0 $color-shadow-default;
     position: relative;
-    margin-bottom: .75rem;
+    margin-bottom: 1.5rem;
 
     @include from(phablet) {
       margin-bottom: 1.25rem;
@@ -67,6 +67,13 @@ $cho-padding-vertical: .625rem;
 
   &__pad {
     padding: $cho-padding-initial $cho-padding-horizontal 0;
+
+    & > small {
+      display: block;
+      font-size: $font-size-small;
+      color: $color-text-lighter;
+      padding: $cho-padding-vertical 0 $cho-padding-initial;
+    }
   }
 
   &__cell {
@@ -110,6 +117,7 @@ $cho-padding-vertical: .625rem;
 
     &__title {
       color: $color-text-darkest;
+      font-weight: $font-weight-bold;
     }
 
     &__params {
@@ -264,6 +272,7 @@ $cho-padding-vertical: .625rem;
     letter-spacing: $letter-spacing-small;
     padding: 0 $cho-padding-horizontal;
     background-color: $color-brand-lighter;
+    flex-grow: 1;
 
     &--disabled {
       background-color: $color-background-lighter;
@@ -273,6 +282,7 @@ $cho-padding-vertical: .625rem;
 
     &--cancel {
       flex-grow: 1;
+      min-width: 25%;
       border-right: 2px solid $color-background-default;
     }
 
@@ -289,4 +299,23 @@ $cho-padding-vertical: .625rem;
     border-top: 1px solid $color-border-lightest;
   }
 
+  &__method {
+    min-width: 7rem;
+    width: 7rem;
+    margin-right: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > img {
+      display: block;
+      max-width: 70%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+
+  &__upper {
+    text-transform: capitalize;
+  }
 }

@@ -18,12 +18,13 @@ function uid(data) {
 }
 
 function fromMoney(amount) {
-  var arr = amount.split('.');
+  var amt = amount.replace('-', '');
+  var arr = amt.split('.');
   var str = '';
 
   switch (arr.length) {
     case 1:
-      str += amount + '00';
+      str += amt + '00';
       break;
     default:
       str += arr.join('');
@@ -72,6 +73,18 @@ var compiled = {
       .querySelector('#tpl-cho-picture')
       .innerHTML
       .trim()
+  ),
+  choMethod: Moon.compile(
+    document
+      .querySelector('#tpl-cho-method')
+      .innerHTML
+      .trim()
+  ),
+  choPaymentDetails: Moon.compile(
+    document
+      .querySelector('#tpl-cho-payment-details')
+      .innerHTML
+      .trim()
   )
 }
 
@@ -88,6 +101,27 @@ Moon.component('cho-details', {
 Moon.component('cho-picture', {
   props: ['picture', 'title'],
   render: compiled.choPicture,
+});
+
+Moon.component('cho-method', {
+  props: ['method'],
+  render: compiled.choMethod,
+});
+
+Moon.component('cho-payment-details', {
+  props: ['value', 'display'],
+  render: compiled.choPaymentDetails,
+  computed: {
+    isExpired: {
+      get: function() {
+        var v = this.get('value');
+        var now = new Date();
+        return now.getFullYear() > parseInt('20'+v.expY, 10) &&
+          now.getMonth() > parseInt(v.expM, 10)
+        ;
+      }
+    }
+  }
 });
 
 var cho = new Moon({
@@ -111,6 +145,12 @@ var cho = new Moon({
       dataScript.src = 'https://geoip-db.com/jsonp';
       var firstScript = document.getElementsByTagName('script')[0];
       firstScript.parentNode.insertBefore(dataScript, firstScript);
+
+      var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+      var years = ['17','18','19','20','21','22','23','24'];
+
+      self.set('months', months);
+      self.set('years', years);
     }
   },
   el: '#checkout',
@@ -217,20 +257,274 @@ var cho = new Moon({
         line1: '4200 South Fwy'
       }],
     },
+
+    payment: {
+
+      path: 'closed',
+      // 'closed', 'open', 'add',
+      // 'zcedit', 'zcdeposit', 'zccard', 'zcpp',
+      // 'ccedit',
+      // 'pplogin', 'ppedit'
+
+      selectedMethod: '',
+      selectedCreditCard: false,
+      zaction: 'Activate', // 'Activate', 'Edit'
+
+      caction: 'Add Credit Card',
+      // 'Add Credit Card', 'Edit Credit Card', 'Add Card to Load with'
+
+
+      creditFromCard: '',
+      currentValue: {
+        id: 'fe6ac9',
+        num1: '1212',
+        num2: '1212',
+        num3: '1231',
+        num4: '2312',
+        expM: '02',
+        expY: '19',
+        name: 'ZIZIUP Elite Card',
+        cvv: '1234',
+        primary: false,
+        type: 'zcard',
+        credit: '2000'
+      },
+      values: [{
+        id: 'fe6ac9',
+        num1: '1212',
+        num2: '1212',
+        num3: '1231',
+        num4: '2312',
+        expM: '02',
+        expY: '19',
+        name: 'ZIZIUP Elite Card',
+        cvv: '1234',
+        primary: false,
+        type: 'zcard',
+        credit: '2000'
+      },{
+        id: 'sd81udas',
+        num1: '8787',
+        num2: '9898',
+        num3: '4646',
+        num4: '1010',
+        expM: '11',
+        expY: '20',
+        name: 'Roland Omene',
+        cvv: '123',
+        primary: false,
+        type: 'visa',
+        credit: ''
+      }],
+      editableCard: {
+        id: '',
+        num1: '',
+        num2: '',
+        num3: '',
+        num4: '',
+        expM: '',
+        expY: '',
+        name: '',
+        cvv: '',
+        primary: false,
+        type: '',
+        credit: ''
+      },
+      emptyCard: {
+        id: '',
+        num1: '',
+        num2: '',
+        num3: '',
+        num4: '',
+        expM: '',
+        expY: '',
+        name: '',
+        cvv: '',
+        primary: false,
+        type: '', // '', 'cc','zcard', 'visa', 'mastercard'
+        credit: ''
+      }
+    },
+
     donation: {
       path: 'closed', // 'closed', 'open'
       currentValue: '0',
       values: ['0', '1', '2', '5', '10']
     }
   },
-  methods: {
-    // CART
 
+
+
+
+
+  methods: {
+    /**
+     * Navigates to specific screen
+     * @param  {string} module      Module to navigate
+     * @param  {string} destination Screen to switch to
+     * @return {void}
+     */
+    navigate: function(module, destination) {
+      this.set(module + '.path', destination);
+    },
+
+    // PAYMENT
+    changeSelectedMethod: function(method) {
+      this.set('payment.selectedMethod', method);
+    },
+    unselectPaymentMethod: function() {
+      var path = this.get('payment').values.length
+        ? 'open'
+        : 'closed'
+      ;
+      this.set('payment.selectedMethod', '');
+      this.set('payment.path', path);
+    },
+    limitCardLength: function(e) {
+      var el = e.target;
+      if (el.nextElementSibling &&
+          el.value.length === 4 &&
+          el.nextElementSibling.value.length === 0) {
+        e.target.nextElementSibling.focus()
+      }
+      if (el.value.length > 4) {
+        el.value = el.value.slice(0, 4);
+      }
+    },
+    cancelEditingZcard: function() {
+      var p = this.get('payment');
+      this.set('payment.editableCard', p.emptyCard);
+      if (p.zaction === 'Activate') {
+        this.set('payment.path', 'add');
+      } else {
+        this.set('payment.path', 'open');
+      }
+    },
+    submitZcard: function() {
+      var p = this.get('payment');
+
+      if (p.editableCard.id) {
+        var existing = p.values.filter(function(val) {
+          return p.editableCard.id === val.id;
+        })[0];
+        Moon.util.extend(existing, p.editableCard);
+      } else {
+        p.editableCard.id = uid(p.editableCard);
+        p.editableCard.type = 'zcard';
+        // TODO: Determine card name here (elite, gold, platinum)
+        p.editableCard.name = 'ZIZIUP Elite Card';
+        p.values.push(p.editableCard);
+      }
+
+      this.set('payment.path', 'open');
+      this.set('payment.zaction', 'Add');
+      this.set('payment.currentValue', p.editableCard);
+      this.set('payment.editableCard', p.emptyCard);
+    },
+    submitCreditCard: function() {
+      var p = this.get('payment');
+      var type, dest;
+      if (p.editableCard.id) {
+        var existing = p.values.filter(function(val) {
+          return p.editableCard.id === val.id;
+        })[0];
+        Moon.util.extend(existing, p.editableCard);
+      } else {
+        p.editableCard.id = uid(p.editableCard);
+        // TODO: Determine card type
+        if (p.editableCard.num1[0] === '4') {
+          type = 'mastercard'
+        } else {
+          type = 'visa';
+        }
+        p.editableCard.type = type;
+
+        switch (p.caction) {
+          case 'Add Credit Card':
+          case 'Edit Credit Card':
+            dest = 'open';
+            this.set('payment.currentValue', p.editableCard);
+            break;
+          case 'Add Card to Load with':
+            dest = 'zccard';
+            this.set('payment.selectedCreditCard', p.editableCard);
+            break;
+        }
+
+        p.values.push(p.editableCard);
+      }
+
+      this.set('payment.path', dest);
+      this.set('payment.caction', 'Add Credit Card');
+      this.set('payment.editableCard', p.emptyCard);
+    },
+    selectPaymentValue: function(id) {
+      var p = this.get('payment');
+
+      var value = p.values.filter(function(val) {
+        return val.id === id;
+      })[0];
+
+      this.set('payment.currentValue', value);
+    },
+    loadCurrentZcard: function() {
+      this.set('payment.path', 'zcdeposit');
+    },
+    editPaymentValue: function() {
+      console.log(this.get('payment').currentValue.id);
+    },
+    selectCreditCard: function(id) {
+      var card = this.get('payment').values.filter(function(val) {
+        return val.id === id;
+      })[0];
+      this.set('payment.selectedCreditCard', card);
+    },
+    addCardToLoadFrom: function() {
+      this.set('payment.caction', 'Add Card to Load with');
+      this.set('payment.path', 'ccedit');
+    },
+    cancelEditingCreditCard: function() {
+      var dest;
+      switch(this.get('payment').caction) {
+        case 'Add Credit Card':
+          dest = 'add';
+          break;
+        case 'Add Card to Load with':
+          dest = 'zccard';
+          break;
+        case 'Edit Credit Card':
+          dest = 'open';
+          break;
+      }
+
+      this.set('payment.path', dest);
+    },
+    addCreditFromCard: function() {
+      var p = this.get('payment');
+      var type = p.selectedCreditCard.type.charAt(0).toUpperCase() +
+      p.selectedCreditCard.type.slice(1)
+      var zCard = p.values.filter(function(val) {
+        return val.type === 'zcard';
+      })[0];
+      var updatedCredit = toMoney(fromMoney(zCard.credit) + fromMoney(p.creditFromCard));
+      var amt = toMoney(fromMoney(p.creditFromCard));
+
+      Moon.util.extend(zCard, {credit: updatedCredit});
+
+      alert('Loaded $' + amt + ' to ZIZIUP Card with ' + type
+      + '...' + p.selectedCreditCard.num4);
+
+      this.set('payment.path', 'open');
+      this.set('payment.creditFromCard', '');
+    },
+
+
+
+    // CART
     increment: function(id) {
       var value = this.get('cart').values.filter(function(val) {
         return val.id === id;
       })[0];
-
       value.quantity++;
       this.set('cart.trigger', false);
     },
@@ -239,7 +533,6 @@ var cho = new Moon({
       var value = this.get('cart').values.filter(function(val) {
         return val.id === id;
       })[0];
-
       value.quantity > 1
         ? value.quantity--
         : null
@@ -251,7 +544,6 @@ var cho = new Moon({
       var filtered = this.get('cart').values.filter(function(val) {
         return val.id !== id;
       });
-
       this.set('cart.values', filtered);
     },
 
@@ -266,15 +558,6 @@ var cho = new Moon({
 
     // SHIPPING
 
-    /**
-     * Navigates to specific screen
-     * @param  {string} module      Module to navigate
-     * @param  {string} destination Screen to switch to
-     * @return {void}
-     */
-    navigate: function(module, destination) {
-      this.set(module + '.path', destination);
-    },
 
     /**
      * Selects pickup point as current
@@ -342,6 +625,7 @@ var cho = new Moon({
       var value = this.get('shipping').values.filter(function(val) {
         return val.id === id
       })[0];
+      console.log(value);
       this.set('shipping.currentValue', value);
     },
 
@@ -454,7 +738,13 @@ var cho = new Moon({
       this.set('donation.currentValue', val);
     }
   },
+
+
+
+
+
   computed: {
+
     cartTotal: {
       get: function() {
         var total = this.get('cart').values.reduce(function(memo, val) {
@@ -463,6 +753,65 @@ var cho = new Moon({
         return toMoney(total);
       }
     },
+
+
+    showPaymentAdd: {
+      get: function() {
+        var p = this.get('payment');
+        return p.values.length === 0 && p.path === 'closed'
+      }
+    },
+    showPaymentChange: {
+      get: function() {
+        var p = this.get('payment');
+        return p.values.length > 0 && p.path === 'closed'
+      }
+    },
+    editableCardNumberValid: {
+      get: function() {
+        var card = this.get('payment').editableCard;
+        var pattern = /^\d{4}$/;
+        return pattern.test(card.num1) &&
+          pattern.test(card.num2) &&
+          pattern.test(card.num3) &&
+          pattern.test(card.num4)
+        ;
+      }
+    },
+    showPaymentActivate: {
+      get: function() {
+        var card = this.get('payment').editableCard;
+        var numberIsValid = this.get('editableCardNumberValid');
+        return numberIsValid && card.cvv.length > 2;
+      }
+    },
+    showPaymentCCSubmit: {
+      get: function() {
+        var card = this.get('payment').editableCard;
+        var numberIsValid = this.get('editableCardNumberValid');
+        return numberIsValid &&
+          card.cvv.length > 2 &&
+          card.name.length > 3 &&
+          card.expM.length > 0 &&
+          card.expY.length > 0
+        ;
+      }
+    },
+    showPaymentValue: {
+      get: function() {
+        var p = this.get('payment');
+        return p.currentValue && p.path === 'closed';
+      }
+    },
+    creditCards: {
+      get: function() {
+        return this.get('payment').values.filter(function(val) {
+          return val.type === 'visa' || val.type === 'mastercard';
+        });
+      }
+    },
+
+
     showShippingAdd: {
       get: function() {
         var s = this.get('shipping');
