@@ -28,9 +28,10 @@ $cho-padding-vertical: .625rem;
   &__title {
     min-width: 7rem;
     width: 7rem;
-    font-size: $font-size-accent;
+    // font-size: $font-size-accent;
     line-height: 1.5rem;
-    font-weight: $font-weight-bold;
+    // font-weight: $font-weight-bold;
+    // color: $color-text-default;
   }
 
   &__value {
@@ -51,7 +52,7 @@ $cho-padding-vertical: .625rem;
 
   &__toggle {
     position: absolute;
-    top: $cho-padding-vertical + 0.125rem;
+    top: $cho-padding-vertical;
     right: $cho-padding-horizontal;
   }
 
@@ -142,6 +143,10 @@ $cho-padding-vertical: .625rem;
       margin-top: .25rem;
       font-size: $font-size-oversize;
       font-weight: $font-weight-bold;
+    }
+
+    & .cho__value {
+      margin-top: 0;
     }
   }
 

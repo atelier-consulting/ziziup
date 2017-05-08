@@ -596,7 +596,7 @@
         <!-- Footer -->
         <div class="cho__footer">
           <div
-            class="cho__button cho__button--cancel cho__button--disabled"
+            class="cho__button cho__button--cancel"
             m-on:click="editPaymentValue"
           >Edit</div>
           <div
@@ -626,6 +626,7 @@
           <!-- ZIZIUP Card -->
           <div
             class="cho__choice"
+            m-if="{{showZcardAdder}}"
             m-on:click="changeSelectedMethod('zcedit')"
           >
             <div class="cho__method">
@@ -666,6 +667,7 @@
           <!-- PayPal -->
           <div
             class="cho__choice"
+            m-if="{{showPaypalAdder}}"
             m-on:click="changeSelectedMethod('pplogin')"
           >
             <div class="cho__method">
@@ -793,7 +795,101 @@
               m-if="{{showPaymentCCSubmit}} === false"
             >Save card</div>
           </div>
+        </div> <!-- Edit Credit Card screen -->
+
+
+        <!-- PayPal login screen -->
+        <div
+          class="cho__screen"
+          m-if="{{payment.path}} === 'pplogin'"
+        >
+          <div class="cho__header">{{payment.ppaction}}</div>
+
+          <div class="cho__pad">
+            <div class="form__row">
+              <div class="form__cell">
+                <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
+                <input
+                  type="email"
+                  class="form__input"
+                  id="cho-paypal-login-pass"
+                  m-model="payment.pp.login"
+                />
+              </div>
+              <div class="form__cell">
+                <label for="cho-paypal-login-pass" class="form__label">Password</label>
+                <input
+                  type="password"
+                  class="form__input"
+                  m-model="payment.pp.pass"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--cancel"
+              m-on:click="cancelPaypalLogin"
+            >Cancel</div>
+            <div
+              class="cho__button cho__button--submit"
+              m-on:click="submitPaypalLogin"
+              m-if="{{showPaymentPPSubmit}}"
+            >Log in</div>
+            <div
+              class="cho__button cho__button--submit cho__button--disabled"
+              m-if="!{{showPaymentPPSubmit}}"
+            >Log in</div>
+          </div>
+        </div> <!-- PayPal login screen -->
+
+
+
+        <!-- Edit PayPal screen -->
+        <div
+          class="cho__screen"
+          m-if="{{payment.path}} === 'ppedit'"
+        >
+          <div class="cho__header">Edit PayPal settings</div>
+          <div class="cho__bar">
+            {{payment.pp.login}}
+          </div>
+
+          <div class="cho__list">
+            <div
+              class="cho__choice cho__choice--padded"
+              m-for="card in {{payment.pp.cards}}"
+              m-on:click="selectCurrentPPCard({{card.id}})"
+            >
+              <div class="cho-info">
+                <div class="cho-info__title">
+                  Card x{{card.num4}}, $&thinsp;{{card.credit}}
+                </div>
+              </div>
+              <div class="cho__radio">
+                <i class="icon icon--small icon--radio-on"
+                  m-if="{{card.id}} === {{payment.pp.currentCard.id}}"
+                ></i>
+                <i class="icon icon--small icon--radio-off"
+                  m-if="{{card.id}} !== {{payment.pp.currentCard.id}}"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="cho__footer">
+            <div
+              class="cho__button cho__button--cancel"
+              m-on:click="submitPaypalLogout"
+            >Log out</div>
+            <div
+              class="cho__button cho__button--submit"
+              m-on:click="navigate('payment', 'open')"
+            >Save</div>
+          </div>
         </div>
+
 
         <!-- Activate/edit Z-Card screen -->
         <div
@@ -863,7 +959,7 @@
         </div> <!-- Activate/edit Z-Card screen -->
 
 
-        <!-- Load Zcard with deposit tyt-->
+        <!-- Load Zcard with deposit -->
         <div
           class="cho__screen"
           m-if="{{payment.path}} === 'zcdeposit'"
@@ -1135,16 +1231,35 @@
   <script type="text/template" id="tpl-cho-payment-details">
     <div class="cho-info">
       <div m-if="{{display}} === 'inline'">
-        <div class="cho-info__line" m-if="{{value.type}} === 'zcard'">
-          <strong>{{value.name}}</strong>, <span class="hide__until--phablet">Available Credit:</span> ${{value.credit}}
+
+        <div class="cho__value" m-if="{{value.type}} === 'zcard'">
+          <div class="cho__icon">
+            <strong>{{value.name}}</strong>
+          </div>
+          <div>${{value.credit}}</div>
         </div>
 
-        <div class="cho-info__line" m-if="{{value.type}} === 'visa'">
-          <strong>Visa ...{{value.num4}}</strong>, {{value.name}}
+        <div class="cho__value" m-if="{{value.type}} === 'visa'">
+          <div class="cho__icon">
+            <strong>Visa ...{{value.num4}}</strong>
+          </div>
+          <div>{{value.name}}</div>
         </div>
 
-        <div class="cho-info__line" m-if="{{value.type}} === 'mastercard'">
-          <strong>Mastercard ...{{value.num4}}</strong>, {{value.name}}
+        <div class="cho__value" m-if="{{value.type}} === 'mastercard'">
+          <div class="cho__icon">
+            <strong>Mastercard ...{{value.num4}}</strong>
+          </div>
+          <div>{{value.name}}</div>
+        </div>
+
+        <div class="cho__value" m-if="{{value.type}} === 'paypal'">
+          <div class="cho__icon">
+            <strong>{{paypalShortLogin}}</strong>
+          </div>
+          <div>
+            x{{value.num4}}, ${{value.credit}}
+          </div>
         </div>
       </div>
       <div m-if="{{display}} === 'block'">
@@ -1175,6 +1290,15 @@
         <div class="cho-info__line" m-if="{{value.type}} === 'mastercard'">
           <span m-if="{{isExpired}}">Card is expired</span>
           <span m-if="!{{isExpired}}">Expires {{value.expM}}/{{value.expY}}</span>
+        </div>
+
+        <div class="cho-info__title" m-if="{{value.type}} === 'paypal'">
+          PayPal account
+        </div>
+        <div class="cho-info__line hide__from--phablet" m-if="{{value.type}} === 'paypal'" >{{paypalShortLogin}}</div>
+        <div class="cho-info__line hide__until--phablet" m-if="{{value.type}} === 'paypal'" >{{value.name}}</div>
+        <div class="cho-info__line" m-if="{{value.type}} === 'paypal'">
+          Card x{{value.num4}}, ${{value.credit}}
         </div>
       </div>
     </div>

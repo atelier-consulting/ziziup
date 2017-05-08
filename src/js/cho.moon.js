@@ -17,6 +17,11 @@ function uid(data) {
   return window.btoa(hash).split('=').join('');
 }
 
+function isEmail(str) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(str);
+}
+
 function fromMoney(amount) {
   var amt = amount.replace('-', '');
   var arr = amt.split('.');
@@ -119,6 +124,26 @@ Moon.component('cho-payment-details', {
         return now.getFullYear() > parseInt('20'+v.expY, 10) &&
           now.getMonth() > parseInt(v.expM, 10)
         ;
+      }
+    },
+    paypalShortLogin: {
+      get: function() {
+        var v = this.get('value');
+        if (!v.name.length) return 'Not logged in';
+
+        if (v.name.length < 18) {
+          return v.name;
+        } else {
+          return v.name.slice(0, 15) + '...';
+        }
+      }
+    },
+    displayValue: {
+      get: function() {
+        var v = this.get('value');
+        var d = this.get('display');
+
+        return v.type === 'paypal' & d === 'inline'
       }
     }
   }
@@ -260,7 +285,7 @@ var cho = new Moon({
 
     payment: {
 
-      path: 'closed',
+      path: 'pplogin',
       // 'closed', 'open', 'add',
       // 'zcedit', 'zcdeposit', 'zccard', 'zcpp',
       // 'ccedit',
@@ -273,6 +298,15 @@ var cho = new Moon({
       caction: 'Add Credit Card',
       // 'Add Credit Card', 'Edit Credit Card', 'Add Card to Load with'
 
+      ppaction: 'Login to PayPal',
+      // 'Login to PayPal', 'Edit PayPal', 'Login to PayPal to Load with'
+      pp: {
+        login: '',
+        pass: '',
+        currentCard: false,
+        cards: false,
+        loggedIn: false
+      },
 
       creditFromCard: '',
       currentValue: {
@@ -341,7 +375,7 @@ var cho = new Moon({
         name: '',
         cvv: '',
         primary: false,
-        type: '', // '', 'cc','zcard', 'visa', 'mastercard'
+        type: '', // '','cc','zcard','visa','mastercard', 'paypal'
         credit: ''
       }
     },
@@ -471,7 +505,23 @@ var cho = new Moon({
       this.set('payment.path', 'zcdeposit');
     },
     editPaymentValue: function() {
-      console.log(this.get('payment').currentValue.id);
+      var p = this.get('payment');
+      var dest;
+
+      switch (p.currentValue.type) {
+        case 'paypal':
+          dest = 'ppedit';
+          break;
+        case 'visa':
+        case 'mastercard':
+          dest = 'ccedit';
+        case 'zcard':
+          dest = 'zcedit';
+          break;
+      }
+
+      this.set('payment.path', dest);
+
     },
     selectCreditCard: function(id) {
       var card = this.get('payment').values.filter(function(val) {
@@ -516,6 +566,83 @@ var cho = new Moon({
 
       this.set('payment.path', 'open');
       this.set('payment.creditFromCard', '');
+    },
+    cancelPaypalLogin: function() {
+      var p = this.get('payment');
+
+      switch (p.ppaction) {
+        case 'Login to PayPal':
+          this.set('payment.pp.pass', '');
+          this.set('payment.path', 'add');
+          break;
+        case 'Login to PayPal to Load with':
+          break;
+        case 'Edit PayPal':
+          break;
+      }
+    },
+    submitPaypalLogin: function() {
+      var p = this.get('payment');
+      var cards = [{
+        id: 'NDUzMjk3MDEx',
+        num4: '1613',
+        credit: '50',
+        name: p.pp.login,
+        type: 'paypal'
+      }, {
+        id: 'LTEwMDM1NjgyMTg',
+        num4: '4140',
+        credit: '7450',
+        name: p.pp.login,
+        type: 'paypal'
+      }];
+
+
+      this.set('payment.pp.pass', '');
+      this.set('payment.pp.loggedIn', true);
+      this.set('payment.path', 'ppedit');
+
+      this.set('payment.pp.cards', cards);
+      this.set('payment.pp.currentCard', cards[0]);
+
+      p.values.push(cards[0]);
+      this.set('payment.currentValue', cards[0]);
+    },
+    submitPaypalLogout: function() {
+      var p = this.get('payment');
+      var filtered = p.values.filter(function(val) {
+        return val.type !== 'paypal';
+      });
+
+      this.set('payment.pp.loggedIn', 'false');
+      this.set('payment.pp.login', '');
+      this.set('payment.pp.currentCard', false);
+      this.set('payment.pp.cards', false);
+      this.set('payment.values', filtered);
+      if(filtered.length > 0) {
+        this.set('payment.currentValue', filtered[0]);
+        this.set('payment.path', 'open');
+      } else {
+        this.set('payment.currentValue', false)
+        this.set('payment.path', 'closed');
+      }
+    },
+    selectCurrentPPCard: function(id) {
+      var p = this.get('payment');
+      if(p.pp.currentCard.id !== id) {
+        var selected = p.pp.cards.filter(function(val) {
+          return val.id === id;
+        })[0];
+
+        var filtered = p.values.filter(function(val) {
+          return val.type !== 'paypal';
+        });
+        filtered.push(selected);
+
+        this.set('payment.pp.currentCard', selected);
+        this.set('payment.values', filtered);
+        this.set('payment.currentValue', selected);
+      }
     },
 
 
@@ -625,7 +752,6 @@ var cho = new Moon({
       var value = this.get('shipping').values.filter(function(val) {
         return val.id === id
       })[0];
-      console.log(value);
       this.set('shipping.currentValue', value);
     },
 
@@ -767,6 +893,20 @@ var cho = new Moon({
         return p.values.length > 0 && p.path === 'closed'
       }
     },
+    showZcardAdder: {
+      get: function() {
+        return this.get('payment').values.filter(function(val) {
+          return val.type === 'zcard';
+        }).length <= 0;
+      }
+    },
+    showPaypalAdder: {
+      get: function() {
+        return this.get('payment').values.filter(function(val) {
+          return val.type === 'paypal';
+        }).length <= 0;
+      }
+    },
     editableCardNumberValid: {
       get: function() {
         var card = this.get('payment').editableCard;
@@ -808,6 +948,14 @@ var cho = new Moon({
         return this.get('payment').values.filter(function(val) {
           return val.type === 'visa' || val.type === 'mastercard';
         });
+      }
+    },
+    showPaymentPPSubmit: {
+      get: function() {
+        var p = this.get('payment');
+        return isEmail(p.pp.login) > 0 &&
+          p.pp.pass.length > 2
+        ;
       }
     },
 
