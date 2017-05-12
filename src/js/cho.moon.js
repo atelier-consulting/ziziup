@@ -31,8 +31,16 @@ function fromMoney(amount) {
     case 1:
       str += amt + '00';
       break;
-    default:
+    case 2:
+      if (arr[1].length < 2) {
+        arr[1] = arr[1] + '0';
+      } else {
+        arr[1] = arr[1].slice(0, 2);
+      }
       str += arr.join('');
+      break;
+    default:
+      console.error('fromMoney: too many dots.')
       break;
   }
 
@@ -285,7 +293,7 @@ var cho = new Moon({
 
     payment: {
 
-      path: 'pplogin',
+      path: 'closed',
       // 'closed', 'open', 'add',
       // 'zcedit', 'zcdeposit', 'zccard', 'zcpp',
       // 'ccedit',
@@ -299,7 +307,8 @@ var cho = new Moon({
       // 'Add Credit Card', 'Edit Credit Card', 'Add Card to Load with'
 
       ppaction: 'Login to PayPal',
-      // 'Login to PayPal', 'Edit PayPal', 'Login to PayPal to Load with'
+      // 'Login to PayPal', 'Login to PayPal to Load with'
+      // 'Edit PayPal', 'Edit PayPal to Load with'
       pp: {
         login: '',
         pass: '',
@@ -309,47 +318,51 @@ var cho = new Moon({
       },
 
       creditFromCard: '',
-      currentValue: {
-        id: 'fe6ac9',
-        num1: '1212',
-        num2: '1212',
-        num3: '1231',
-        num4: '2312',
-        expM: '02',
-        expY: '19',
-        name: 'ZIZIUP Elite Card',
-        cvv: '1234',
-        primary: false,
-        type: 'zcard',
-        credit: '2000'
-      },
-      values: [{
-        id: 'fe6ac9',
-        num1: '1212',
-        num2: '1212',
-        num3: '1231',
-        num4: '2312',
-        expM: '02',
-        expY: '19',
-        name: 'ZIZIUP Elite Card',
-        cvv: '1234',
-        primary: false,
-        type: 'zcard',
-        credit: '2000'
-      },{
-        id: 'sd81udas',
-        num1: '8787',
-        num2: '9898',
-        num3: '4646',
-        num4: '1010',
-        expM: '11',
-        expY: '20',
-        name: 'Roland Omene',
-        cvv: '123',
-        primary: false,
-        type: 'visa',
-        credit: ''
-      }],
+      creditFromPaypal: '',
+
+      currentValue: false,
+      // currentValue: {
+      //   id: 'fe6ac9',
+      //   num1: '1212',
+      //   num2: '1212',
+      //   num3: '1231',
+      //   num4: '2312',
+      //   expM: '02',
+      //   expY: '19',
+      //   name: 'ZIZIUP Elite Card',
+      //   cvv: '1234',
+      //   primary: false,
+      //   type: 'zcard',
+      //   credit: '2000.00'
+      // },
+      values: [],
+      // values: [{
+      //   id: 'fe6ac9',
+      //   num1: '1212',
+      //   num2: '1212',
+      //   num3: '1231',
+      //   num4: '2312',
+      //   expM: '02',
+      //   expY: '19',
+      //   name: 'ZIZIUP Elite Card',
+      //   cvv: '1234',
+      //   primary: false,
+      //   type: 'zcard',
+      //   credit: '2000.00'
+      // },{
+      //   id: 'sd81udas',
+      //   num1: '8787',
+      //   num2: '9898',
+      //   num3: '4646',
+      //   num4: '1010',
+      //   expM: '11',
+      //   expY: '20',
+      //   name: 'Roland Omene',
+      //   cvv: '123',
+      //   primary: false,
+      //   type: 'visa',
+      //   credit: ''
+      // }],
       editableCard: {
         id: '',
         num1: '',
@@ -447,6 +460,7 @@ var cho = new Moon({
         p.editableCard.type = 'zcard';
         // TODO: Determine card name here (elite, gold, platinum)
         p.editableCard.name = 'ZIZIUP Elite Card';
+        p.editableCard.credit = '0.00';
         p.values.push(p.editableCard);
       }
 
@@ -472,20 +486,19 @@ var cho = new Moon({
           type = 'visa';
         }
         p.editableCard.type = type;
-
-        switch (p.caction) {
-          case 'Add Credit Card':
-          case 'Edit Credit Card':
-            dest = 'open';
-            this.set('payment.currentValue', p.editableCard);
-            break;
-          case 'Add Card to Load with':
-            dest = 'zccard';
-            this.set('payment.selectedCreditCard', p.editableCard);
-            break;
-        }
-
         p.values.push(p.editableCard);
+      }
+
+      switch (p.caction) {
+        case 'Add Credit Card':
+        case 'Edit Credit Card':
+          dest = 'open';
+          this.set('payment.currentValue', p.editableCard);
+          break;
+        case 'Add Card to Load with':
+          dest = 'zccard';
+          this.set('payment.selectedCreditCard', p.editableCard);
+          break;
       }
 
       this.set('payment.path', dest);
@@ -514,14 +527,18 @@ var cho = new Moon({
           break;
         case 'visa':
         case 'mastercard':
+          this.set('payment.editableCard', p.currentValue);
+          this.set('payment.caction', 'Edit Credit Card');
           dest = 'ccedit';
+          break;
         case 'zcard':
+          this.set('payment.zaction', 'Edit');
+          this.set('payment.editableCard', p.currentValue);
           dest = 'zcedit';
           break;
       }
 
       this.set('payment.path', dest);
-
     },
     selectCreditCard: function(id) {
       var card = this.get('payment').values.filter(function(val) {
@@ -534,8 +551,9 @@ var cho = new Moon({
       this.set('payment.path', 'ccedit');
     },
     cancelEditingCreditCard: function() {
+      var p = this.get('payment');
       var dest;
-      switch(this.get('payment').caction) {
+      switch(p.caction) {
         case 'Add Credit Card':
           dest = 'add';
           break;
@@ -544,6 +562,8 @@ var cho = new Moon({
           break;
         case 'Edit Credit Card':
           dest = 'open';
+          this.set('payment.editableCard', p.emptyCard);
+          this.set('payment.caction', 'Add Credit Card');
           break;
       }
 
@@ -567,32 +587,70 @@ var cho = new Moon({
       this.set('payment.path', 'open');
       this.set('payment.creditFromCard', '');
     },
-    cancelPaypalLogin: function() {
+    addCreditFromPaypal: function() {
       var p = this.get('payment');
 
-      switch (p.ppaction) {
-        case 'Login to PayPal':
-          this.set('payment.pp.pass', '');
-          this.set('payment.path', 'add');
-          break;
-        case 'Login to PayPal to Load with':
-          break;
-        case 'Edit PayPal':
-          break;
+      var amt = fromMoney(p.creditFromPaypal);
+      var ppCredit = fromMoney(p.pp.currentCard.credit);
+      if (amt <= ppCredit) {
+        var zCard = p.values.filter(function(val) {
+          return val.type === 'zcard';
+        })[0];
+
+        var updatedZcredit = toMoney(fromMoney(zCard.credit) + fromMoney(p.creditFromPaypal));
+        Moon.util.extend(zCard, {credit: updatedZcredit});
+
+        var updatedPcredit = toMoney(fromMoney(p.pp.currentCard.credit) - fromMoney(p.creditFromPaypal));
+        Moon.util.extend(p.pp.currentCard, {credit: updatedPcredit});
+
+        alert('Loaded $' + toMoney(amt) + ' to ZIZIUP Card with PayPal ' + p.pp.login);
+
+        this.set('payment.path', 'open');
+        this.set('payment.ppaction', 'Edit PayPal');
+      } else {
+        alert('Insufficient funds.');
       }
+
+      this.set('payment.creditFromPaypal', '');
+
+    },
+    cancelLoadingZcard: function() {
+      this.set('payment.selectedCreditCard', false);
+      if (!this.get('payment').pp.loggedIn) {
+        this.set('payment.pp.login', '');
+      }
+      this.set('payment.pp.pass', '');
+      this.set('payment.path', 'open');
+    },
+    cancelPaypalLogin: function() {
+      var p = this.get('payment');
+      var dest;
+
+      if (p.path === 'zcpp') {
+        dest = 'open';
+      } else {
+        dest = 'add';
+      }
+
+      this.set('payment.pp.login', '');
+      this.set('payment.pp.pass', '');
+      this.set('payment.path', dest);
     },
     submitPaypalLogin: function() {
       var p = this.get('payment');
+      var dest;
+
+      // Assuming PayPal API responded with cards like this
       var cards = [{
         id: 'NDUzMjk3MDEx',
         num4: '1613',
-        credit: '50',
+        credit: '52.50',
         name: p.pp.login,
         type: 'paypal'
       }, {
         id: 'LTEwMDM1NjgyMTg',
         num4: '4140',
-        credit: '7450',
+        credit: '7450.00',
         name: p.pp.login,
         type: 'paypal'
       }];
@@ -600,13 +658,24 @@ var cho = new Moon({
 
       this.set('payment.pp.pass', '');
       this.set('payment.pp.loggedIn', true);
-      this.set('payment.path', 'ppedit');
 
       this.set('payment.pp.cards', cards);
       this.set('payment.pp.currentCard', cards[0]);
 
       p.values.push(cards[0]);
-      this.set('payment.currentValue', cards[0]);
+
+      if (p.path === 'zcpp') {
+        this.set('payment.ppaction', 'Edit PayPal to Load with');
+      } else {
+        this.set('payment.ppaction', 'Edit PayPal');
+        this.set('payment.currentValue', cards[0]);
+      }
+
+      this.set('payment.path', 'ppedit');
+    },
+    editPaypalSettings: function() {
+      this.set('payment.ppaction', 'Edit PayPal to Load with');
+      this.set('payment.path', 'ppedit');
     },
     submitPaypalLogout: function() {
       var p = this.get('payment');
@@ -614,7 +683,7 @@ var cho = new Moon({
         return val.type !== 'paypal';
       });
 
-      this.set('payment.pp.loggedIn', 'false');
+      this.set('payment.pp.loggedIn', false);
       this.set('payment.pp.login', '');
       this.set('payment.pp.currentCard', false);
       this.set('payment.pp.cards', false);
@@ -641,8 +710,24 @@ var cho = new Moon({
 
         this.set('payment.pp.currentCard', selected);
         this.set('payment.values', filtered);
-        this.set('payment.currentValue', selected);
+        if (p.ppaction !== 'Edit PayPal to Load with') {
+          this.set('payment.currentValue', selected);
+        }
       }
+    },
+    savePaypalSettings: function() {
+      var p = this.get('payment');
+      var dest;
+      switch (p.ppaction) {
+        case 'Edit PayPal':
+          dest = 'open';
+          break;
+        case 'Edit PayPal to Load with':
+          dest = 'zcpp'
+          break;
+      }
+
+      this.set('payment.path', dest);
     },
 
 
@@ -918,11 +1003,25 @@ var cho = new Moon({
         ;
       }
     },
-    showPaymentActivate: {
+    showPaymentZCSubmit: {
       get: function() {
-        var card = this.get('payment').editableCard;
+        var p = this.get('payment');
+        var card = p.editableCard;
         var numberIsValid = this.get('editableCardNumberValid');
-        return numberIsValid && card.cvv.length > 2;
+
+        if (p.zaction === 'Activate') {
+          if (numberIsValid && card.cvv.length > 2) {
+            return 'activate-enabled';
+          } else {
+            return 'activate-disabled';
+          }
+        } else {
+          if (numberIsValid && card.cvv.length > 2) {
+            return 'save-enabled';
+          } else {
+            return 'save-disabled';
+          }
+        }
       }
     },
     showPaymentCCSubmit: {

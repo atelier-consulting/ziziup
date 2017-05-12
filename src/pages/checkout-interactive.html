@@ -789,11 +789,11 @@
               class="cho__button cho__button--submit"
               m-if="{{showPaymentCCSubmit}}"
               m-on:click="submitCreditCard"
-            >Save card</div>
+            >Save</div>
             <div
               class="cho__button cho__button--submit cho__button--disabled"
               m-if="{{showPaymentCCSubmit}} === false"
-            >Save card</div>
+            >Save</div>
           </div>
         </div> <!-- Edit Credit Card screen -->
 
@@ -851,7 +851,7 @@
           class="cho__screen"
           m-if="{{payment.path}} === 'ppedit'"
         >
-          <div class="cho__header">Edit PayPal settings</div>
+          <div class="cho__header">{{payment.ppaction}}</div>
           <div class="cho__bar">
             {{payment.pp.login}}
           </div>
@@ -863,8 +863,8 @@
               m-on:click="selectCurrentPPCard({{card.id}})"
             >
               <div class="cho-info">
-                <div class="cho-info__title">
-                  Card x{{card.num4}}, $&thinsp;{{card.credit}}
+                <div class="cho-info__line">
+                  <strong>Card x{{card.num4}}</strong>, ${{card.credit}}
                 </div>
               </div>
               <div class="cho__radio">
@@ -885,7 +885,7 @@
             >Log out</div>
             <div
               class="cho__button cho__button--submit"
-              m-on:click="navigate('payment', 'open')"
+              m-on:click="savePaypalSettings"
             >Save</div>
           </div>
         </div>
@@ -948,13 +948,22 @@
             >Cancel</div>
             <div
               class="cho__button cho__button--submit"
-              m-if="{{showPaymentActivate}}"
+              m-if="{{showPaymentZCSubmit}} === 'activate-enabled'"
               m-on:click="submitZcard"
             >Activate</div>
             <div
               class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{showPaymentActivate}} === false"
+              m-if="{{showPaymentZCSubmit}} === 'activate-disabled'"
             >Activate</div>
+            <div
+              class="cho__button cho__button--submit"
+              m-if="{{showPaymentZCSubmit}} === 'save-enabled'"
+              m-on:click="submitZcard"
+            >Save</div>
+            <div
+              class="cho__button cho__button--submit cho__button--disabled"
+              m-if="{{showPaymentZCSubmit}} === 'save-disabled'"
+            >save</div>
           </div>
         </div> <!-- Activate/edit Z-Card screen -->
 
@@ -1019,7 +1028,7 @@
           <div class="cho__footer">
             <div
               class="cho__button"
-              m-on:click="navigate('payment', 'open')"
+              m-on:click="cancelLoadingZcard"
             >Cancel</div>
           </div>
         </div> <!-- Load Zcard with deposit -->
@@ -1094,7 +1103,7 @@
           <div class="cho__footer">
             <div
               class="cho__button cho__button--cancel"
-              m-on:click="navigate('payment', 'open')"
+              m-on:click="cancelLoadingZcard"
             >Cancel</div>
             <div
               class="cho__button cho__button--submit cho__button--disabled"
@@ -1133,7 +1142,103 @@
               Paypal<span class="hide__until--phablet"> account</span>
             </div>
           </div>
+          <!-- Already logged into PayPal -->
+          <div
+            class="cho__screen"
+            m-if="{{payment.pp.loggedIn}}"
+          >
+            <div class="columns columns__from--phablet golden-reverse__from--phablet">
+              <div class="cho__pad">
+                <strong>PayPal account</strong><br>
+                {{payment.pp.login}}<br>
+                Card x{{payment.pp.currentCard.num4}}, ${{payment.pp.currentCard.credit}}
+                <ul class="list list--iconized">
+                  <li class="list__item">
+                    <a
+                      href="javascript:;"
+                      class="cho__action"
+                      m-on:click="editPaypalSettings"
+                    >
+                      <i class="icon icon--tiny icon--pencil"></i>
+                      Edit
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="cho__pad">
+                <label for="cho-add-credit-from-paypal" class="form__label">
+                  Enter amount in USD
+                </label>
+                <input
+                  type="number"
+                  class="form__input"
+                  id="cho-add-credit-from-paypal"
+                  m-model="payment.creditFromPaypal"
+                />
+                <small>Your card will be credited within 24 hours</small>
+              </div>
+            </div>
+            <div class="cho__footer">
+              <div
+                class="cho__button cho__button--cancel"
+                m-on:click="cancelLoadingZcard"
+              >Cancel</div>
+              <div
+                class="cho__button cho__button--submit cho__button--disabled"
+                m-if="!{{payment.creditFromPaypal}}"
+              >Add Credit</div>
+              <div
+                class="cho__button cho__button--submit"
+                m-if="{{payment.creditFromPaypal}}"
+                m-on:click="addCreditFromPaypal"
+              >Add Credit</div>
+            </div>
+          </div>
+          <!-- Login form -->
+          <div
+            class="cho__screen"
+            m-if="!{{payment.pp.loggedIn}}"
+          >
+            <div class="cho__pad">
+              <div class="form__row">
+                <div class="form__cell">
+                  <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
+                  <input
+                    type="email"
+                    class="form__input"
+                    id="cho-paypal-login-pass"
+                    m-model="payment.pp.login"
+                  />
+                </div>
+                <div class="form__cell">
+                  <label for="cho-paypal-login-pass" class="form__label">Password</label>
+                  <input
+                    type="password"
+                    class="form__input"
+                    m-model="payment.pp.pass"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="cho__footer">
+              <div
+                class="cho__button cho__button--cancel"
+                m-on:click="cancelPaypalLogin"
+              >Cancel</div>
+              <div
+                class="cho__button cho__button--submit"
+                m-on:click="submitPaypalLogin"
+                m-if="{{showPaymentPPSubmit}}"
+              >Log in</div>
+              <div
+                class="cho__button cho__button--submit cho__button--disabled"
+                m-if="!{{showPaymentPPSubmit}}"
+              >Log in</div>
+            </div>
+          </div>
         </div> <!-- Load Zcard with paypal -->
+
 
      </div> <!-- Content -->
 
