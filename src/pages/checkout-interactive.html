@@ -19,1286 +19,1347 @@
     }
   </style>
 
+
   <div id="checkout" class="cho" m-mask>
 
-    <!-- CART -->
-    <div id="checkout-cart" class="cho__module">
-      <!-- Summary -->
-      <div class="cho__summary">
-        <div class="cho__title">Cart</div>
-        <div class="cho__value">
-          <div class="cho__icon">
-            <strong>$&thinsp;{{cartTotal}}</strong>
-          </div>
-          <div>
-            {{cart.values.length}} item<span
-              m-if="{{cart.values.length}} !== 1"
-            >s</span>
-          </div>
-        </div>
-        <div class="cho__toggle cho__action"
-          m-if="{{cart.path}} === 'closed'"
-          m-on:click="navigate('cart', 'open')"
-        >
-          Change
-        </div>
-        <div class="cho__toggle"
-          m-if="{{cart.path}} === 'open'"
-          m-on:click="navigate('cart', 'closed')"
-        >
-          Close
-        </div>
-      </div> <!-- Summary -->
+    <div class="cho__heading">
+      <h1 class="cho__logo">Checkout</h1>
+      <a href="#" class="cho__close">
+        <span class="hide__until--phablet">Close </span>
+        <em>&times;</em>
+      </a>
+    </div>
 
-      <!-- Content -->
-      <div class="cho__content" m-if="{{cart.path}} === 'open'">
-
-        <!-- List -->
-        <div
-          class="cho__list"
-          m-if="{{cart.values.length}}"
-        >
-          <!-- Product -->
-          <div
-            class="cho__product"
-            m-for="value in {{cart.values}}"
-          >
-            <cho-picture
-              picture="{{value.picture}}"
-              title="{{value.title}}"
-            ></cho-picture>
-            <cho-details
-              m-literal:value="{{value}}"
-            ></cho-details>
-            <!-- Counter -->
-            <div
-              class="cho__counter"
-              m-if="{{cart.action}} === 'View'"
-             >
-              <a
-                class="cho__increment"
-                href="javascript:;"
-                m-on:click="increment({{value.id}})"
-              >
-                <i class="icon icon--plus"></i>
-              </a>
-              <div class="cho__quantity">{{value.quantity}}</div>
-              <div
-                class="cho__decrement cho__decrement--disabled"
-                m-if="{{value.quantity}} === 1"
-              >
-                <i class="icon icon--minus"></i>
-              </div>
-              <div
-                class="cho__decrement"
-                m-if="{{value.quantity}} !== 1"
-                m-on:click="decrement({{value.id}})"
-              >
-                <i class="icon icon--minus"></i>
-              </div>
-            </div>
-            <!-- Deleter -->
-            <div
-              class="cho__deleter"
-              m-if="{{cart.action}} === 'Edit'"
-              m-on:click="deleteCartItem({{value.id}})"
-            >
-              <i class="icon icon--times"></i>
-            </div>
+    <div class="columns columns__from--desktop columns--sidebar-first columns__reverse-from--desktop">
+      <aside class="cho-sidebar">
+        <div class="cho__module">
+          <h2 class="cho-sidebar__header">Order summary</h2>
+          <table class="cho-sidebar__table">
+            <tr>
+              <td>
+                Cart ({{cart.values.length}} item<span
+                  m-if="{{cart.values.length}} !== 1"
+                >s</span>)
+              </td>
+              <td>$&thinsp;{{cartTotal}}</td>
+            </tr>
+            <tr>
+              <td>Shipping</td>
+              <td>$&thinsp;{{shippingTotal}}</td>
+            </tr>
+            <tr>
+              <td>ZIZIUP fees</td>
+              <td>$&thinsp;{{feesZizi}}</td>
+            </tr>
+            <tr>
+              <td>Duties, VAT, fees</td>
+              <td>$&thinsp;{{feesVat}}</td>
+            </tr>
+            <tr>
+              <td>Charity</td>
+              <td>$&thinsp;{{donation.currentValue}}</td>
+            </tr>
+          </table>
+          <table class="cho-sidebar__table cho-sidebar__table--total">
+            <tr>
+              <td>Total:</td>
+              <td>$&thinsp;{{grandTotal}}</td>
+            </tr>
+          </table>
+          <div class="cho-sidebar__footer">
+            <a
+              href="javascript:;"
+              class="button button--rounded button--accent"
+              m-if="{{showConfirmAndPay}}"
+            >Confirm and pay</a>
+            <a
+              href="javascript:;"
+              class="button button--rounded button--accent button--disabled"
+              m-if="!{{showConfirmAndPay}}"
+            >Confirm and pay</a>
           </div>
         </div>
+      </aside>
 
-        <!-- Footer -->
-        <div
-          class="cho__footer"
-          m-if="{{cart.values.length}}"
-        >
-          <div
-            class="cho__button cho__button--submit"
-            m-if="{{cart.action}} === 'View'"
-            m-on:click="editCart"
-          >
-            <i class="icon icon--tiny icon--pencil"></i>
-            Edit Cart
-          </div>
-          <div
-            class="cho__button cho__button--submit"
-            m-if="{{cart.action}} === 'Edit'"
-            m-on:click="doneEditingCart"
-          >Done</div>
-        </div>
-
-        <!-- Empty cart -->
-        <div class="cho__nothing" m-if="!{{cart.values.length}}">
-          Cart is empty<br>
-          <a href="#" class="cho__action">Shop something</a>
-        </div>
-
-      </div> <!-- Content -->
-
-    </div> <!-- CART -->
-
-    <!-- SHIPPING -->
-    <div id="checkout-shipping" class="cho__module">
-      <!-- Summary -->
-      <div class="cho__summary">
-        <div class="cho__title">Shipping</div>
-        <div class="cho__value" m-if="{{showShippingValue}}">
-          <div class="cho-info">
-            <div class="cho-info__line">
-              <strong m-if="{{shipping.currentValue.title}}">
-                {{shipping.currentValue.title}},
-              </strong>
-              <strong m-if="{{shipping.currentValue.fullName}}">
-                {{shipping.currentValue.fullName}},
-              </strong>
-              <span m-if="{{shipping.currentValue.city}}">{{shipping.currentValue.city}}, </span>
-              <span m-if="{{shipping.currentValue.country}}">{{shipping.currentValue.country}}</span><span m-if="{{shipping.currentValue.zip}}">, {{shipping.currentValue.zip}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="cho__toggle cho__action"
-          m-if="{{showShippingAdd}}"
-          m-on:click="navigate('shipping', 'pickup')"
-        >
-          Add shipping address
-        </div>
-        <div class="cho__toggle cho__action"
-          m-if="{{showShippingChange}}"
-          m-on:click="navigate('shipping', 'open')"
-        >
-          Change
-        </div>
-        <div class="cho__toggle"
-          m-if="{{showShippingClose}}"
-          m-on:click="navigate('shipping', 'closed')"
-        >
-          Close
-        </div>
-      </div> <!-- Summary -->
-
-      <!-- Content -->
-      <div class="cho__content" m-if="{{shipping.path}} !== 'closed'">
-
-        <!-- Pick up tab -->
-        <div class="cho__screen" m-if="{{shipping.path}} === 'pickup'">
-          <div class="cho__header">{{shipping.action}} shipping address</div>
-          <div class="tabbar">
-            <div class="tabbar__tab tabbar__tab--active">Pick up point</div>
-            <div class="tabbar__tab" m-on:click="navigate('shipping', 'address')">
-              Address
-            </div>
-          </div>
-          <!-- Bar -->
-          <div class="cho__bar">
-            <div class="cho__status">
-              <span
-                class="hide__until--phablet"
-                m-if="{{shipping.currentLocation}}"
-              >Available pick up points near </span>
-              <span
-                class="hide__from--phablet"
-                m-if="{{shipping.currentLocation}}"
-              >Near </span>
-              <strong>{{yieldShippingLocation}}</strong>
-            </div>
-            <div
-              class="cho__action"
-              m-on:click="navigate('shipping', 'location')"
-            >
-              Change<span class="hide__until--phablet"> location</span>
-            </div>
-          </div>
-          <!-- List -->
-          <div class="cho__list" m-if="{{shippingFilteredPoints}}">
-            <div
-              class="cho__choice"
-              m-for="point in {{shippingFilteredPoints}}"
-              m-on:click="selectShippingPoint({{point.id}})"
-            >
+      <main>
+        <!-- CART -->
+        <div id="checkout-cart" class="cho__module">
+          <!-- Summary -->
+          <div class="cho__summary">
+            <div class="cho__title">Cart</div>
+            <div class="cho__value">
               <div class="cho__icon">
-                <i class="icon icon--cho icon--cho-pickup"></i>
+                <strong>$&thinsp;{{cartTotal}}</strong>
               </div>
-              <cho-address m-literal:value="{{point}}"></cho-address>
-              <div class="cho__radio">
-                <i class="icon icon--small icon--radio-on"
-                  m-if="{{point.id}} === {{shipping.currentPoint.id}}"
-                ></i>
-                <i class="icon icon--small icon--radio-off"
-                  m-if="{{point.id}} !== {{shipping.currentPoint.id}}"
-                ></i>
+              <div>
+                {{cart.values.length}} item<span
+                  m-if="{{cart.values.length}} !== 1"
+                >s</span>
               </div>
             </div>
-          </div>
-          <!-- Nothing found -->
-          <div class="cho__nothing" m-if="!{{shippingFilteredPoints}}">
-            No points found near selected location.
-          </div>
-          <!-- Footer -->
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="unselectShippingPoint"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{shipping.currentPoint.id}}"
-              m-on:click="submitShippingPoint({{shipping.currentPoint.id}})"
-            >Select Address</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="!{{shipping.currentPoint.id}}"
-            >Select Address</div>
-          </div>
-        </div> <!-- Pick up tab -->
+            <div class="cho__toggle"
+              m-if="{{cart.path}} === 'closed'"
+              m-on:click="navigate('cart', 'open')"
+            >Change</div>
+            <div class="cho__toggle"
+              m-if="{{cart.path}} === 'open'"
+              m-on:click="navigate('cart', 'closed')"
+            >Close</div>
+          </div> <!-- Summary -->
 
-        <!-- Address tab -->
-        <div class="cho__screen" m-if="{{shipping.path}} === 'address'">
-          <div class="cho__header">{{shipping.action}} shipping address</div>
-          <div
-            class="tabbar"
-            m-if="{{shipping.action}} === 'Add'"
-          >
-            <div class="tabbar__tab" m-on:click="navigate('shipping', 'pickup')">
-              Pick up point
-            </div>
-            <div class="tabbar__tab tabbar__tab--active">Address</div>
-          </div>
-          <!-- Address form -->
-          <div class="cho__pad">
-            <!-- Country and city -->
-            <div class="form__row">
-              <div class="form__cell">
-                <label
-                  class="form__label"
-                  for="cho-shipping-address-country"
-                >Country</label>
-                <select
-                  name="cho-shipping-address-country"
-                  id="cho-shipping-address-country"
-                  class="form__select"
-                  m-model="shipping.editableAddress.country"
+          <!-- Content -->
+          <div class="cho__content" m-if="{{cart.path}} === 'open'">
+
+            <!-- List -->
+            <div
+              class="cho__list"
+              m-if="{{cart.values.length}}"
+            >
+              <!-- Product -->
+              <div
+                class="cho__product"
+                m-for="value in {{cart.values}}"
+              >
+                <cho-picture
+                  picture="{{value.picture}}"
+                  title="{{value.title}}"
+                ></cho-picture>
+                <cho-details
+                  m-literal:value="{{value}}"
+                ></cho-details>
+                <!-- Counter -->
+                <div
+                  class="cho__counter"
+                  m-if="{{cart.action}} === 'View'"
+                 >
+                  <a
+                    class="cho__increment"
+                    href="javascript:;"
+                    m-on:click="increment({{value.id}})"
+                  >
+                    <i class="icon icon--plus"></i>
+                  </a>
+                  <div class="cho__quantity">{{value.quantity}}</div>
+                  <div
+                    class="cho__decrement cho__decrement--disabled"
+                    m-if="{{value.quantity}} === 1"
+                  >
+                    <i class="icon icon--minus"></i>
+                  </div>
+                  <div
+                    class="cho__decrement"
+                    m-if="{{value.quantity}} !== 1"
+                    m-on:click="decrement({{value.id}})"
+                  >
+                    <i class="icon icon--minus"></i>
+                  </div>
+                </div>
+                <!-- Deleter -->
+                <div
+                  class="cho__deleter"
+                  m-if="{{cart.action}} === 'Edit'"
+                  m-on:click="deleteCartItem({{value.id}})"
                 >
-                  <option value="">Select country</option>
-                  <option
-                    m-for="country in {{allCountries}}"
-                    value="{{country}}"
-                  >{{country}}</option>
-                </select>
-              </div>
-              <div class="form__cell">
-                <label
-                  for="cho-shipping-address-city"
-                  class="form__label"
-                >City</label>
-                <input
-                  type="text"
-                  class="form__input"
-                  id="cho-shipping-address-city"
-                  m-model="shipping.editableAddress.city"
-                />
+                  <i class="icon icon--times"></i>
+                </div>
               </div>
             </div>
-            <!-- Name -->
-            <div class="form__row">
-              <div class="form__cell">
-                <label
-                  for="cho-shipping-address-fullname"
-                  class="form__label"
-                >Full Name</label>
-                <input
-                  id="cho-shipping-address-fullname"
-                  class="form__input"
-                  type="text"
-                  m-model="shipping.editableAddress.fullName"
-                />
+
+            <!-- Footer -->
+            <div
+              class="cho__footer"
+              m-if="{{cart.values.length}}"
+            >
+              <div
+                class="cho__button cho__button--submit"
+                m-if="{{cart.action}} === 'View'"
+                m-on:click="editCart"
+              >
+                <i class="icon icon--tiny icon--pencil"></i>
+                Edit Cart
+              </div>
+              <div
+                class="cho__button cho__button--submit"
+                m-if="{{cart.action}} === 'Edit'"
+                m-on:click="doneEditingCart"
+              >Done</div>
+            </div>
+
+            <!-- Empty cart -->
+            <div class="cho__nothing" m-if="!{{cart.values.length}}">
+              Cart is empty<br>
+              <a href="#" class="cho__action">Shop something</a>
+            </div>
+
+          </div> <!-- Content -->
+
+        </div> <!-- CART -->
+
+        <!-- SHIPPING -->
+        <div id="checkout-shipping" class="cho__module">
+          <!-- Summary -->
+          <div class="cho__summary">
+            <div class="cho__title">Shipping</div>
+            <div class="cho__value" m-if="{{showShippingValue}}">
+              <div class="cho-info">
+                <div class="cho-info__line">
+                  <strong m-if="{{shipping.currentValue.title}}">
+                    {{shipping.currentValue.title}},
+                  </strong>
+                  <strong m-if="{{shipping.currentValue.fullName}}">
+                    {{shipping.currentValue.fullName}},
+                  </strong>
+                  <span m-if="{{shipping.currentValue.city}}">{{shipping.currentValue.city}}, </span>
+                  <span m-if="{{shipping.currentValue.country}}">{{shipping.currentValue.country}}</span><span m-if="{{shipping.currentValue.zip}}">, {{shipping.currentValue.zip}}</span>
+                </div>
               </div>
             </div>
-            <!-- Address -->
-            <div class="form__row">
-              <div class="form__cell">
-                <label
-                  for="cho-shipping-address-line1"
-                  class="form__label"
-                >Address</label>
-                <input
-                  type="text"
-                  class="form__input"
-                  id="cho-shipping-address-line1"
-                  m-model="shipping.editableAddress.line1"
-                />
-              </div>
+            <div class="cho__toggle cho__action"
+              m-if="{{showShippingAdd}}"
+              m-on:click="navigate('shipping', 'pickup')"
+            >
+              Add shipping address
             </div>
-            <div class="form__row">
-              <div class="form__cell">
-                <input
-                  type="text"
-                  class="form__input"
-                  id="cho-shipping-address-line2"
-                  m-model="shipping.editableAddress.line2"
-                />
+            <div class="cho__toggle"
+              m-if="{{showShippingChange}}"
+              m-on:click="navigate('shipping', 'open')"
+            >Change</div>
+            <div class="cho__toggle"
+              m-if="{{showShippingClose}}"
+              m-on:click="navigate('shipping', 'closed')"
+            >Close</div>
+          </div> <!-- Summary -->
+
+          <!-- Content -->
+          <div class="cho__content" m-if="{{shipping.path}} !== 'closed'">
+
+            <!-- Pick up tab -->
+            <div class="cho__screen" m-if="{{shipping.path}} === 'pickup'">
+              <div class="cho__header">{{shipping.action}} shipping address</div>
+              <div class="tabbar">
+                <div class="tabbar__tab tabbar__tab--active">Pick up point</div>
+                <div class="tabbar__tab" m-on:click="navigate('shipping', 'address')">
+                  Address
+                </div>
               </div>
-            </div>
-            <!-- Phone, ZIP and Primary checkbox -->
-            <div class="form__row">
-              <div class="form__cell form__cell--phone">
-                <label
-                  for="landing-input-phone"
-                  class="form__label"
-                >Phone</label>
-                <select
-                  id="landing-select-code"
-                  class="form__select"
-                  m-model="shipping.editableAddress.code"
+              <!-- Bar -->
+              <div class="cho__bar">
+                <div class="cho__status">
+                  <span
+                    class="hide__until--phablet"
+                    m-if="{{shipping.currentLocation}}"
+                  >Available pick up points near </span>
+                  <span
+                    class="hide__from--phablet"
+                    m-if="{{shipping.currentLocation}}"
+                  >Near </span>
+                  <strong>{{yieldShippingLocation}}</strong>
+                </div>
+                <div
+                  class="cho__action"
+                  m-on:click="navigate('shipping', 'location')"
                 >
-                  <option value=""></option>
-                  <option
-                    m-for="code in {{allCodes}}"
-                    value="{{code}}"
-                  >{{code}}</option>
-                </select>
-                <input
-                  type="text"
-                  id="landing-input-phone"
-                  class="form__input"
-                  m-model="shipping.editableAddress.phone"
-                />
+                  Change<span class="hide__until--phablet"> location</span>
+                </div>
               </div>
-              <div class="form__cell">
-                <div class="columns columns__from--phablet">
-                  <div class="form__cell form__cell--flat">
+              <!-- List -->
+              <div class="cho__list" m-if="{{shippingFilteredPoints}}">
+                <div
+                  class="cho__choice"
+                  m-for="point in {{shippingFilteredPoints}}"
+                  m-on:click="selectShippingPoint({{point.id}})"
+                >
+                  <div class="cho__icon">
+                    <i class="icon icon--cho icon--cho-pickup"></i>
+                  </div>
+                  <cho-address m-literal:value="{{point}}"></cho-address>
+                  <div class="cho__radio">
+                    <i class="icon icon--small icon--radio-on"
+                      m-if="{{point.id}} === {{shipping.currentPoint.id}}"
+                    ></i>
+                    <i class="icon icon--small icon--radio-off"
+                      m-if="{{point.id}} !== {{shipping.currentPoint.id}}"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <!-- Nothing found -->
+              <div class="cho__nothing" m-if="!{{shippingFilteredPoints}}">
+                No points found near selected location.
+              </div>
+              <!-- Footer -->
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="unselectShippingPoint"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{shipping.currentPoint.id}}"
+                  m-on:click="submitShippingPoint({{shipping.currentPoint.id}})"
+                >Select Address</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="!{{shipping.currentPoint.id}}"
+                >Select Address</div>
+              </div>
+            </div> <!-- Pick up tab -->
+
+            <!-- Address tab -->
+            <div class="cho__screen" m-if="{{shipping.path}} === 'address'">
+              <div class="cho__header">{{shipping.action}} shipping address</div>
+              <div
+                class="tabbar"
+                m-if="{{shipping.action}} === 'Add'"
+              >
+                <div class="tabbar__tab" m-on:click="navigate('shipping', 'pickup')">
+                  Pick up point
+                </div>
+                <div class="tabbar__tab tabbar__tab--active">Address</div>
+              </div>
+              <!-- Address form -->
+              <div class="cho__pad">
+                <!-- Country and city -->
+                <div class="form__row">
+                  <div class="form__cell">
                     <label
-                      for="cho-shipping-address-zip"
                       class="form__label"
-                    >ZIP</label>
+                      for="cho-shipping-address-country"
+                    >Country</label>
+                    <select
+                      name="cho-shipping-address-country"
+                      id="cho-shipping-address-country"
+                      class="form__select"
+                      m-model="shipping.editableAddress.country"
+                    >
+                      <option value="">Select country</option>
+                      <option
+                        m-for="country in {{allCountries}}"
+                        value="{{country}}"
+                      >{{country}}</option>
+                    </select>
+                  </div>
+                  <div class="form__cell">
+                    <label
+                      for="cho-shipping-address-city"
+                      class="form__label"
+                    >City</label>
                     <input
                       type="text"
                       class="form__input"
-                      id="cho-shipping-address-zip"
-                      m-model="shipping.editableAddress.zip"
+                      id="cho-shipping-address-city"
+                      m-model="shipping.editableAddress.city"
                     />
                   </div>
-                  <div class="form__cell form__cell--flat">
+                </div>
+                <!-- Name -->
+                <div class="form__row">
+                  <div class="form__cell">
                     <label
-                      for="cho-shipping-address-primary"
+                      for="cho-shipping-address-fullname"
                       class="form__label"
-                      >Make Primary</label>
-                      <input
-                        class="form__switch"
-                        type="checkbox"
-                        id="cho-shipping-address-primary"
-                        m-model="shipping.editableAddress.isPrimary"
-                      />
-                      <label for="cho-shipping-address-primary"></label>
+                    >Full Name</label>
+                    <input
+                      id="cho-shipping-address-fullname"
+                      class="form__input"
+                      type="text"
+                      m-model="shipping.editableAddress.fullName"
+                    />
+                  </div>
+                </div>
+                <!-- Address -->
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label
+                      for="cho-shipping-address-line1"
+                      class="form__label"
+                    >Address</label>
+                    <input
+                      type="text"
+                      class="form__input"
+                      id="cho-shipping-address-line1"
+                      m-model="shipping.editableAddress.line1"
+                    />
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__cell">
+                    <input
+                      type="text"
+                      class="form__input"
+                      id="cho-shipping-address-line2"
+                      m-model="shipping.editableAddress.line2"
+                    />
+                  </div>
+                </div>
+                <!-- Phone, ZIP and Primary checkbox -->
+                <div class="form__row">
+                  <div class="form__cell form__cell--phone">
+                    <label
+                      for="landing-input-phone"
+                      class="form__label"
+                    >Phone</label>
+                    <select
+                      id="landing-select-code"
+                      class="form__select"
+                      m-model="shipping.editableAddress.code"
+                    >
+                      <option value=""></option>
+                      <option
+                        m-for="code in {{allCodes}}"
+                        value="{{code}}"
+                      >{{code}}</option>
+                    </select>
+                    <input
+                      type="text"
+                      id="landing-input-phone"
+                      class="form__input"
+                      m-model="shipping.editableAddress.phone"
+                    />
+                  </div>
+                  <div class="form__cell">
+                    <div class="columns columns__from--phablet">
+                      <div class="form__cell form__cell--flat">
+                        <label
+                          for="cho-shipping-address-zip"
+                          class="form__label"
+                        >ZIP</label>
+                        <input
+                          type="text"
+                          class="form__input"
+                          id="cho-shipping-address-zip"
+                          m-model="shipping.editableAddress.zip"
+                        />
+                      </div>
+                      <div class="form__cell form__cell--flat">
+                        <label
+                          for="cho-shipping-address-primary"
+                          class="form__label"
+                          >Make Primary</label>
+                          <input
+                            class="form__switch"
+                            type="checkbox"
+                            id="cho-shipping-address-primary"
+                            m-model="shipping.editableAddress.isPrimary"
+                          />
+                          <label for="cho-shipping-address-primary"></label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Footer -->
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelAddingShippingAddress"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--cancel"
-              m-if="{{shipping.editableAddress.id}}"
-              m-on:click="deleteShippingAddress"
-            >Delete</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{showShippingAddressSubmit}}"
-              m-on:click="submitShippingAddress"
-            >Save Address</div>
-            <div
-              m-if="{{showShippingAddressSubmit}} === false"
-              class="cho__button cho__button--submit cho__button--disabled"
-            >Save Address</div>
-          </div>
-        </div> <!-- Address tab -->
-
-        <!-- Main choice list -->
-        <div class="cho__screen" m-if="{{shipping.path}} === 'open'">
-          <div class="cho__list" m-if="{{shipping.values.length}}">
-            <div
-              class="cho__choice"
-              m-for="value in {{shipping.values}}"
-              m-on:click="selectShippingValue({{value.id}})"
-            >
-              <div
-                class="cho__icon"
-              >
-                <i class="icon icon--cho icon--cho-{{value.type}}"></i>
+              <!-- Footer -->
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelAddingShippingAddress"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-if="{{shipping.editableAddress.id}}"
+                  m-on:click="deleteShippingAddress"
+                >Delete</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{showShippingAddressSubmit}}"
+                  m-on:click="submitShippingAddress"
+                >Save Address</div>
+                <div
+                  m-if="{{showShippingAddressSubmit}} === false"
+                  class="cho__button cho__button--submit cho__button--disabled"
+                >Save Address</div>
               </div>
-              <cho-address m-literal:value="{{value}}"></cho-address>
-              <div
-                class="cho__radio"
-              >
-                <i class="icon icon--small icon--radio-on"
-                  m-if="{{value.id}} === {{shipping.currentValue.id}}"
-                ></i>
-                <i class="icon icon--small icon--radio-off"
-                  m-if="{{value.id}} !== {{shipping.currentValue.id}}"
-                ></i>
-              </div>
-            </div>
-          </div>
-          <!-- Footer -->
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-if="{{shipping.currentValue.type}} === 'pickup'"
-              m-on:click="removeShippingValue"
-            >
-              Remove Selected
-            </div>
-            <div
-              class="cho__button cho__button--cancel"
-              m-if="{{shipping.currentValue.type}} === 'address'"
-              m-on:click="editShippingValue"
-            >
-              Edit Selected
-            </div>
-            <div
-              class="cho__button cho__button--submit"
-              m-on:click="navigate('shipping', 'pickup')"
-            >Add Another Address</div>
-          </div>
-        </div> <!-- Main choice list -->
+            </div> <!-- Address tab -->
 
-        <!-- Location -->
-        <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
-          <div class="cho__header">Select your location</div>
-          <div class="cho__pad">
-            <!-- Location form -->
-            <div class="form__row">
-              <div class="form__cell">
-                <label for="cho-shipping-location-country" class="form__label">Country</label>
-                <select
-                  name="cho-shipping-location-country"
-                  id="cho-shipping-location-country"
-                  class="form__select"
-                  m-model="shipping.editableLocation.country"
+            <!-- Main choice list -->
+            <div class="cho__screen" m-if="{{shipping.path}} === 'open'">
+              <div class="cho__list" m-if="{{shipping.values.length}}">
+                <div
+                  class="cho__choice"
+                  m-for="value in {{shipping.values}}"
+                  m-on:click="selectShippingValue({{value.id}})"
                 >
-                  <option value="">Select country</option>
-                  <option
-                    m-for="country in {{shippingCountries}}"
-                    value="{{country}}"
-                  >{{country}}</option>
-                </select>
-              </div>
-              <div class="form__cell">
-                <label for="cho-shipping-location-city" class="form__label">City</label>
-                <select
-                  class="form__select"
-                  disabled="disabled"
-                  m-if="{{shipping.editableLocation.country}} === ''"
-                >
-                  <option value="-1">Please select country first</option>
-                </select>
-                <select
-                  name="cho-shipping-location-city"
-                  id="cho-shipping-location-city"
-                  class="form__select"
-                  m-if="{{shipping.editableLocation.country}} !== ''"
-                  m-model="shipping.editableLocation.city"
-                >
-                  <option value="">Select city</option>
-                  <option
-                    m-for="city in {{shippingCities}}"
-                    value="{{city}}"
-                  >{{city}}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <!-- Footer -->
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelChangingShippingLocation"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{showShippingLocationSubmit}} === false"
-            >Find Pick Up Addresses</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{showShippingLocationSubmit}}"
-              m-on:click="submitShippingLocation"
-            >Find Pick Up Addresses</div>
-          </div>
-        </div> <!-- Location -->
-
-      </div> <!-- Content -->
-    </div> <!-- SHIPPING -->
-
-
-    <!-- PAYMENT -->
-    <div id="checkout-payment" class="cho__module">
-
-      <!-- Summary -->
-      <div class="cho__summary">
-        <div class="cho__title">Payment</div>
-        <div class="cho__value" m-if="{{showPaymentValue}}">
-          <cho-payment-details m-literal:value="{{payment.currentValue}}" display="inline"></cho-payment-details>
-        </div>
-        <div
-          class="cho__toggle cho__action"
-          m-if="{{showPaymentAdd}}"
-          m-on:click="navigate('payment', 'add')"
-        >
-          Add payment method
-        </div>
-        <div
-          class="cho__toggle"
-          m-if="{{payment.path}} === 'open'"
-          m-on:click="navigate('payment', 'closed')"
-        >
-          Close
-        </div>
-        <div
-          class="cho__toggle cho__action"
-          m-if="{{showPaymentChange}}"
-          m-on:click="navigate('payment', 'open')"
-        >
-          Change
-        </div>
-      </div> <!-- Summary -->
-
-     <!-- Content -->
-     <div class="cho__content">
-
-       <!-- Open screen -->
-       <div
-         class="cho__screen"
-         m-if="{{payment.path}} === 'open'"
-        >
-        <div class="cho__list">
-          <div
-            class="cho__choice"
-            m-for="value in {{payment.values}}"
-            m-on:click="selectPaymentValue({{value.id}})"
-          >
-            <cho-method method="{{value.type}}"></cho-method>
-            <cho-payment-details m-literal:value="{{value}}" display="block"></cho-payment-details>
-            <div class="cho__radio">
-              <i class="icon icon--small icon--radio-on"
-                m-if="{{value.id}} === {{payment.currentValue.id}}"
-              ></i>
-              <i class="icon icon--small icon--radio-off"
-                m-if="{{value.id}} !== {{payment.currentValue.id}}"
-              ></i>
-            </div>
-          </div>
-        </div>
-        <!-- Footer -->
-        <div class="cho__footer">
-          <div
-            class="cho__button cho__button--cancel"
-            m-on:click="editPaymentValue"
-          >Edit</div>
-          <div
-            class="cho__button cho__button--cancel"
-            m-on:click="navigate('payment', 'add')"
-            m-if="{{payment.currentValue.type}} === 'zcard'"
-          >Add method</div>
-          <div
-            class="cho__button cho__button--submit"
-            m-if="{{payment.currentValue.type}} === 'zcard'"
-            m-on:click="loadCurrentZcard"
-          >Load Card</div>
-          <div
-            class="cho__button cho__button--submit"
-            m-if="{{payment.currentValue.type}} !== 'zcard'"
-            m-on:click="navigate('payment', 'add')"
-          >Add Method</div>
-        </div>
-       </div>
-
-        <!-- Add method screen -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'add'"
-        >
-          <div class="cho__header">Add payment method</div>
-          <!-- ZIZIUP Card -->
-          <div
-            class="cho__choice"
-            m-if="{{showZcardAdder}}"
-            m-on:click="changeSelectedMethod('zcedit')"
-          >
-            <div class="cho__method">
-              <img src="../img/payment-zcard.png" alt="Z-Card">
-            </div>
-            <div class="cho-info">
-              <div class="cho-info__title">ZIZIUP Card</div>
-            </div>
-            <div class="cho__radio">
-              <i class="icon icon--small icon--radio-on"
-                m-if="{{payment.selectedMethod}} === 'zcedit'"
-              ></i>
-              <i class="icon icon--small icon--radio-off"
-                m-if="{{payment.selectedMethod}} !== 'zcedit'"
-              ></i>
-            </div>
-          </div>
-          <!-- Credit Card -->
-          <div
-            class="cho__choice"
-            m-on:click="changeSelectedMethod('ccedit')"
-          >
-            <div class="cho__method">
-              <img src="../img/payment-cc.png" alt="Credit Card">
-            </div>
-            <div class="cho-info">
-              <div class="cho-info__title">Credit Card</div>
-            </div>
-            <div class="cho__radio">
-              <i class="icon icon--small icon--radio-on"
-                m-if="{{payment.selectedMethod}} === 'ccedit'"
-              ></i>
-              <i class="icon icon--small icon--radio-off"
-                m-if="{{payment.selectedMethod}} !== 'ccedit'"
-              ></i>
-            </div>
-          </div>
-          <!-- PayPal -->
-          <div
-            class="cho__choice"
-            m-if="{{showPaypalAdder}}"
-            m-on:click="changeSelectedMethod('pplogin')"
-          >
-            <div class="cho__method">
-              <img src="../img/payment-paypal.png" alt="PayPal">
-            </div>
-            <div class="cho-info">
-              <div class="cho-info__title">PayPal</div>
-            </div>
-            <div class="cho__radio">
-              <i class="icon icon--small icon--radio-on"
-                m-if="{{payment.selectedMethod}} === 'pplogin'"
-              ></i>
-              <i class="icon icon--small icon--radio-off"
-                m-if="{{payment.selectedMethod}} !== 'pplogin'"
-              ></i>
-            </div>
-          </div>
-          <!-- Footer -->
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="unselectPaymentMethod"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{payment.selectedMethod}} !== ''"
-              m-on:click="navigate('payment', {{payment.selectedMethod}})"
-            >Add method</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{payment.selectedMethod}} === ''"
-            >Add method</div>
-          </div>
-        </div> <!-- Add method screen -->
-
-        <!-- Edit Credit Card screen -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'ccedit'"
-        >
-          <div class="cho__header">
-            {{payment.caction}}
-          </div>
-
-          <div class="cho__pad">
-            <div class="form__row">
-              <div class="form__cell form__cell--card-number">
-                <label class="form__label">Card Number</label>
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num1"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num2"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num3"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num4"
-                />
-              </div>
-              <div class="form__cell form__cell--card-expires">
-                <label class="form__label">Expires</label>
-                <select
-                  class="form__select"
-                  m-model="payment.editableCard.expM"
-                >
-                  <option
-                    m-for="month in {{months}}"
-                    value="{{month}}"
-                  >{{month}}</option>
-                </select>
-                <select
-                  class="form__select"
-                  m-model="payment.editableCard.expY"
-                >
-                  <option
-                    m-for="year in {{years}}"
-                    value="{{year}}"
-                  >{{year}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__cell">
-                <label class="form__label">Name on card</label>
-                <input
-                  class="form__input"
-                  type="text"
-                  m-model="payment.editableCard.name"
-                />
-              </div>
-              <div class="form__cell form__cell--card-cvv">
-                <label class="form__label" for="cho-edit-card-cvv">CVV</label>
-                <input
-                  class="form__input"
-                  type="number"
-                  id="cho-edit-card-cvv"
-                  m-model="payment.editableCard.cvv"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelEditingCreditCard"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{showPaymentCCSubmit}}"
-              m-on:click="submitCreditCard"
-            >Save</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{showPaymentCCSubmit}} === false"
-            >Save</div>
-          </div>
-        </div> <!-- Edit Credit Card screen -->
-
-
-        <!-- PayPal login screen -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'pplogin'"
-        >
-          <div class="cho__header">{{payment.ppaction}}</div>
-
-          <div class="cho__pad">
-            <div class="form__row">
-              <div class="form__cell">
-                <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
-                <input
-                  type="email"
-                  class="form__input"
-                  id="cho-paypal-login-pass"
-                  m-model="payment.pp.login"
-                />
-              </div>
-              <div class="form__cell">
-                <label for="cho-paypal-login-pass" class="form__label">Password</label>
-                <input
-                  type="password"
-                  class="form__input"
-                  m-model="payment.pp.pass"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelPaypalLogin"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-on:click="submitPaypalLogin"
-              m-if="{{showPaymentPPSubmit}}"
-            >Log in</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="!{{showPaymentPPSubmit}}"
-            >Log in</div>
-          </div>
-        </div> <!-- PayPal login screen -->
-
-
-
-        <!-- Edit PayPal screen -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'ppedit'"
-        >
-          <div class="cho__header">{{payment.ppaction}}</div>
-          <div class="cho__bar">
-            {{payment.pp.login}}
-          </div>
-
-          <div class="cho__list">
-            <div
-              class="cho__choice cho__choice--padded"
-              m-for="card in {{payment.pp.cards}}"
-              m-on:click="selectCurrentPPCard({{card.id}})"
-            >
-              <div class="cho-info">
-                <div class="cho-info__line">
-                  <strong>Card x{{card.num4}}</strong>, ${{card.credit}}
+                  <div
+                    class="cho__icon"
+                  >
+                    <i class="icon icon--cho icon--cho-{{value.type}}"></i>
+                  </div>
+                  <cho-address m-literal:value="{{value}}"></cho-address>
+                  <div
+                    class="cho__radio"
+                  >
+                    <i class="icon icon--small icon--radio-on"
+                      m-if="{{value.id}} === {{shipping.currentValue.id}}"
+                    ></i>
+                    <i class="icon icon--small icon--radio-off"
+                      m-if="{{value.id}} !== {{shipping.currentValue.id}}"
+                    ></i>
+                  </div>
                 </div>
               </div>
-              <div class="cho__radio">
-                <i class="icon icon--small icon--radio-on"
-                  m-if="{{card.id}} === {{payment.pp.currentCard.id}}"
-                ></i>
-                <i class="icon icon--small icon--radio-off"
-                  m-if="{{card.id}} !== {{payment.pp.currentCard.id}}"
-                ></i>
+              <!-- Footer -->
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-if="{{shipping.currentValue.type}} === 'pickup'"
+                  m-on:click="removeShippingValue"
+                >
+                  Remove Selected
+                </div>
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-if="{{shipping.currentValue.type}} === 'address'"
+                  m-on:click="editShippingValue"
+                >
+                  Edit Selected
+                </div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-on:click="navigate('shipping', 'pickup')"
+                >Add Another Address</div>
               </div>
-            </div>
-          </div>
+            </div> <!-- Main choice list -->
 
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="submitPaypalLogout"
-            >Log out</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-on:click="savePaypalSettings"
-            >Save</div>
-          </div>
-        </div>
-
-
-        <!-- Activate/edit Z-Card screen -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'zcedit'"
-        >
-          <div class="cho__header">
-            {{payment.zaction}} ZIZIUP Card
-          </div>
-          <div class="cho__pad">
-            <div class="form__row">
-              <div class="form__cell form__cell--card-number">
-                <label class="form__label">Enter ZIZIUP Card Number</label>
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num1"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num2"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num3"
-                />
-                <input class="form__input" type="number"
-                  maxlength="4" pattern="\d{4}"
-                  m-on:input="limitCardLength"
-                  m-model="payment.editableCard.num4"
-                />
+            <!-- Location -->
+            <div class="cho__screen" m-if="{{shipping.path}} === 'location'">
+              <div class="cho__header">Select your location</div>
+              <div class="cho__pad">
+                <!-- Location form -->
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label for="cho-shipping-location-country" class="form__label">Country</label>
+                    <select
+                      name="cho-shipping-location-country"
+                      id="cho-shipping-location-country"
+                      class="form__select"
+                      m-model="shipping.editableLocation.country"
+                    >
+                      <option value="">Select country</option>
+                      <option
+                        m-for="country in {{shippingCountries}}"
+                        value="{{country}}"
+                      >{{country}}</option>
+                    </select>
+                  </div>
+                  <div class="form__cell">
+                    <label for="cho-shipping-location-city" class="form__label">City</label>
+                    <select
+                      class="form__select"
+                      disabled="disabled"
+                      m-if="{{shipping.editableLocation.country}} === ''"
+                    >
+                      <option value="-1">Please select country first</option>
+                    </select>
+                    <select
+                      name="cho-shipping-location-city"
+                      id="cho-shipping-location-city"
+                      class="form__select"
+                      m-if="{{shipping.editableLocation.country}} !== ''"
+                      m-model="shipping.editableLocation.city"
+                    >
+                      <option value="">Select city</option>
+                      <option
+                        m-for="city in {{shippingCities}}"
+                        value="{{city}}"
+                      >{{city}}</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div class="form__cell form__cell--card-cvv">
-                <label class="form__label">PIN</label>
-                <input class="form__input" type="text"
-                  maxlength="4" pattern="\d{4}"
-                  m-model="payment.editableCard.cvv"
-                />
+              <!-- Footer -->
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelChangingShippingLocation"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="{{showShippingLocationSubmit}} === false"
+                >Find Pick Up Addresses</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{showShippingLocationSubmit}}"
+                  m-on:click="submitShippingLocation"
+                >Find Pick Up Addresses</div>
               </div>
-              <div class="form__cell">
-                <label class="form__label form__label--inline" for="cho-payment-zcard-edit">Primary</label>
-                <input class="form__switch" type="checkbox"
-                  id="cho-payment-zcard-edit" checked="checked"
-                  m-model="payment.editableCard.primary"
-                />
-                <label for="cho-payment-zcard-edit"></label>
-              </div>
-            </div>
-          </div>
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelEditingZcard"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{showPaymentZCSubmit}} === 'activate-enabled'"
-              m-on:click="submitZcard"
-            >Activate</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{showPaymentZCSubmit}} === 'activate-disabled'"
-            >Activate</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{showPaymentZCSubmit}} === 'save-enabled'"
-              m-on:click="submitZcard"
-            >Save</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="{{showPaymentZCSubmit}} === 'save-disabled'"
-            >save</div>
-          </div>
-        </div> <!-- Activate/edit Z-Card screen -->
+            </div> <!-- Location -->
+
+          </div> <!-- Content -->
+        </div> <!-- SHIPPING -->
 
 
-        <!-- Load Zcard with deposit -->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'zcdeposit'"
-        >
-          <div class="cho__header">Load ZIZIUP Card with</div>
-          <div class="tabbar">
-            <div class="tabbar__tab tabbar__tab--active">
-              <span class="hide__until--phablet">Bank </span>deposit
+        <!-- PAYMENT -->
+        <div id="checkout-payment" class="cho__module">
+
+          <!-- Summary -->
+          <div class="cho__summary">
+            <div class="cho__title">Payment</div>
+            <div class="cho__value" m-if="{{showPaymentValue}}">
+              <cho-payment-details m-literal:value="{{payment.currentValue}}" display="inline"></cho-payment-details>
             </div>
             <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zccard')"
+              class="cho__toggle cho__action"
+              m-if="{{showPaymentAdd}}"
+              m-on:click="navigate('payment', 'add')"
             >
-              <span class="hide__until--phablet">Credit </span>card
+              Add payment method
             </div>
             <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zcpp')"
+              class="cho__toggle"
+              m-if="{{payment.path}} === 'open'"
+              m-on:click="navigate('payment', 'closed')"
+            >Close</div>
+            <div
+              class="cho__toggle"
+              m-if="{{showPaymentChange}}"
             >
-              Paypal<span class="hide__until--phablet"> account</span>
+              <span
+                class="cho__action"
+                m-if="{{shouldLoadZcard}}"
+                m-on:click="navigate('payment', 'zcdeposit')"
+              >Load <span class="hide__until--phablet">ZIZIUP Card</span>&thinsp;</span>
+              <span
+                class="cho__action"
+                m-if="{{shouldEditPaypal}}"
+                m-on:click="navigate('payment', 'ppedit')"
+              >Edit PayPal settings</span>
+              <span m-on:click="navigate('payment', 'open')">&thinsp; Change</span>
             </div>
-          </div>
-          <div class="cho__pad">
-            <ol class="list list--decorated">
-              <li class="list__item">
-                <strong>Choose banking Partner</strong>
-                <a href="#">See list</a>
-                <p>Go to local UBA bank and deposit either CFA or USD into our account.</p>
-              </li>
-              <li class="list__item">
-                <strong>Completing Deposit</strong>
-                <ul class="list list--dotted">
+          </div> <!-- Summary -->
+
+         <!-- Content -->
+         <div class="cho__content">
+
+           <!-- Open screen -->
+           <div
+             class="cho__screen"
+             m-if="{{payment.path}} === 'open'"
+            >
+            <div class="cho__list">
+              <div
+                class="cho__choice"
+                m-for="value in {{payment.values}}"
+                m-on:click="selectPaymentValue({{value.id}})"
+              >
+                <cho-method method="{{value.type}}"></cho-method>
+                <cho-payment-details m-literal:value="{{value}}" display="block"></cho-payment-details>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{value.id}} === {{payment.currentValue.id}}"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{value.id}} !== {{payment.currentValue.id}}"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="cho__footer">
+              <div
+                class="cho__button cho__button--cancel"
+                m-on:click="editPaymentValue"
+              >Edit</div>
+              <div
+                class="cho__button cho__button--cancel"
+                m-on:click="navigate('payment', 'add')"
+                m-if="{{payment.currentValue.type}} === 'zcard'"
+              >Add method</div>
+              <div
+                class="cho__button cho__button--submit"
+                m-if="{{payment.currentValue.type}} === 'zcard'"
+                m-on:click="navigate('payment', 'zcdeposit')"
+              >Load Card</div>
+              <div
+                class="cho__button cho__button--submit"
+                m-if="{{payment.currentValue.type}} !== 'zcard'"
+                m-on:click="navigate('payment', 'add')"
+              >Add Method</div>
+            </div>
+           </div>
+
+            <!-- Add method screen -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'add'"
+            >
+              <div class="cho__header">Add payment method</div>
+              <!-- ZIZIUP Card -->
+              <div
+                class="cho__choice"
+                m-if="{{showZcardAdder}}"
+                m-on:click="changeSelectedMethod('zcedit')"
+              >
+                <div class="cho__method">
+                  <img src="../img/payment-zcard.png" alt="Z-Card">
+                </div>
+                <div class="cho-info">
+                  <div class="cho-info__title">ZIZIUP Card</div>
+                </div>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{payment.selectedMethod}} === 'zcedit'"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{payment.selectedMethod}} !== 'zcedit'"
+                  ></i>
+                </div>
+              </div>
+              <!-- Credit Card -->
+              <div
+                class="cho__choice"
+                m-on:click="changeSelectedMethod('ccedit')"
+              >
+                <div class="cho__method">
+                  <img src="../img/payment-cc.png" alt="Credit Card">
+                </div>
+                <div class="cho-info">
+                  <div class="cho-info__title">Credit Card</div>
+                </div>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{payment.selectedMethod}} === 'ccedit'"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{payment.selectedMethod}} !== 'ccedit'"
+                  ></i>
+                </div>
+              </div>
+              <!-- PayPal -->
+              <div
+                class="cho__choice"
+                m-if="{{showPaypalAdder}}"
+                m-on:click="changeSelectedMethod('pplogin')"
+              >
+                <div class="cho__method">
+                  <img src="../img/payment-paypal.png" alt="PayPal">
+                </div>
+                <div class="cho-info">
+                  <div class="cho-info__title">PayPal</div>
+                </div>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{payment.selectedMethod}} === 'pplogin'"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{payment.selectedMethod}} !== 'pplogin'"
+                  ></i>
+                </div>
+              </div>
+              <!-- Footer -->
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="unselectPaymentMethod"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{payment.selectedMethod}} !== ''"
+                  m-on:click="navigate('payment', {{payment.selectedMethod}})"
+                >Add method</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="{{payment.selectedMethod}} === ''"
+                >Add method</div>
+              </div>
+            </div> <!-- Add method screen -->
+
+            <!-- Edit Credit Card screen -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'ccedit'"
+            >
+              <div class="cho__header">
+                {{payment.caction}}
+              </div>
+
+              <div class="cho__pad">
+                <div class="form__row">
+                  <div class="form__cell form__cell--card-number">
+                    <label class="form__label">Card Number</label>
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num1"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num2"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num3"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num4"
+                    />
+                  </div>
+                  <div class="form__cell form__cell--card-expires">
+                    <label class="form__label">Expires</label>
+                    <select
+                      class="form__select"
+                      m-model="payment.editableCard.expM"
+                    >
+                      <option
+                        m-for="month in {{months}}"
+                        value="{{month}}"
+                      >{{month}}</option>
+                    </select>
+                    <select
+                      class="form__select"
+                      m-model="payment.editableCard.expY"
+                    >
+                      <option
+                        m-for="year in {{years}}"
+                        value="{{year}}"
+                      >{{year}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label class="form__label">Name on card</label>
+                    <input
+                      class="form__input"
+                      type="text"
+                      m-model="payment.editableCard.name"
+                    />
+                  </div>
+                  <div class="form__cell form__cell--card-cvv">
+                    <label class="form__label" for="cho-edit-card-cvv">CVV</label>
+                    <input
+                      class="form__input"
+                      type="number"
+                      id="cho-edit-card-cvv"
+                      m-model="payment.editableCard.cvv"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelEditingCreditCard"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{showPaymentCCSubmit}}"
+                  m-on:click="submitCreditCard"
+                >Save</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="{{showPaymentCCSubmit}} === false"
+                >Save</div>
+              </div>
+            </div> <!-- Edit Credit Card screen -->
+
+
+            <!-- PayPal login screen -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'pplogin'"
+            >
+              <div class="cho__header">{{payment.ppaction}}</div>
+
+              <div class="cho__pad">
+                <div class="form__row">
+                  <div class="form__cell">
+                    <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
+                    <input
+                      type="email"
+                      class="form__input"
+                      id="cho-paypal-login-pass"
+                      m-model="payment.pp.login"
+                    />
+                  </div>
+                  <div class="form__cell">
+                    <label for="cho-paypal-login-pass" class="form__label">Password</label>
+                    <input
+                      type="password"
+                      class="form__input"
+                      m-model="payment.pp.pass"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelPaypalLogin"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-on:click="submitPaypalLogin"
+                  m-if="{{showPaymentPPSubmit}}"
+                >Log in</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="!{{showPaymentPPSubmit}}"
+                >Log in</div>
+              </div>
+            </div> <!-- PayPal login screen -->
+
+
+
+            <!-- Edit PayPal screen -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'ppedit'"
+            >
+              <div class="cho__header">{{payment.ppaction}}</div>
+              <div class="cho__bar">
+                {{payment.pp.login}}
+              </div>
+
+              <div class="cho__list">
+                <div
+                  class="cho__choice cho__choice--padded"
+                  m-for="card in {{payment.pp.cards}}"
+                  m-on:click="selectCurrentPPCard({{card.id}})"
+                >
+                  <div class="cho-info">
+                    <div class="cho-info__line">
+                      <strong>Card x{{card.num4}}</strong>, ${{card.credit}}
+                    </div>
+                  </div>
+                  <div class="cho__radio">
+                    <i class="icon icon--small icon--radio-on"
+                      m-if="{{card.id}} === {{payment.pp.currentCard.id}}"
+                    ></i>
+                    <i class="icon icon--small icon--radio-off"
+                      m-if="{{card.id}} !== {{payment.pp.currentCard.id}}"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="submitPaypalLogout"
+                >Log out</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-on:click="savePaypalSettings"
+                >Save</div>
+              </div>
+            </div>
+
+
+            <!-- Activate/edit Z-Card screen -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'zcedit'"
+            >
+              <div class="cho__header">
+                {{payment.zaction}} ZIZIUP Card
+              </div>
+              <div class="cho__pad">
+                <div class="form__row">
+                  <div class="form__cell form__cell--card-number">
+                    <label class="form__label">Enter ZIZIUP Card Number</label>
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num1"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num2"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num3"
+                    />
+                    <input class="form__input" type="number"
+                      maxlength="4" pattern="\d{4}"
+                      m-on:input="limitCardLength"
+                      m-model="payment.editableCard.num4"
+                    />
+                  </div>
+                  <div class="form__cell form__cell--card-cvv">
+                    <label class="form__label">PIN</label>
+                    <input class="form__input" type="text"
+                      maxlength="4" pattern="\d{4}"
+                      m-model="payment.editableCard.cvv"
+                    />
+                  </div>
+                  <div class="form__cell">
+                    <label class="form__label form__label--inline" for="cho-payment-zcard-edit">Primary</label>
+                    <input class="form__switch" type="checkbox"
+                      id="cho-payment-zcard-edit" checked="checked"
+                      m-model="payment.editableCard.primary"
+                    />
+                    <label for="cho-payment-zcard-edit"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelEditingZcard"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{showPaymentZCSubmit}} === 'activate-enabled'"
+                  m-on:click="submitZcard"
+                >Activate</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="{{showPaymentZCSubmit}} === 'activate-disabled'"
+                >Activate</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{showPaymentZCSubmit}} === 'save-enabled'"
+                  m-on:click="submitZcard"
+                >Save</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="{{showPaymentZCSubmit}} === 'save-disabled'"
+                >save</div>
+              </div>
+            </div> <!-- Activate/edit Z-Card screen -->
+
+
+            <!-- Load Zcard with deposit -->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'zcdeposit'"
+            >
+              <div class="cho__header">Load ZIZIUP Card with</div>
+              <div class="tabbar">
+                <div class="tabbar__tab tabbar__tab--active">
+                  <span class="hide__until--phablet">Bank </span>deposit
+                </div>
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zccard')"
+                >
+                  <span class="hide__until--phablet">Credit </span>card
+                </div>
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zcpp')"
+                >
+                  Paypal<span class="hide__until--phablet"> account</span>
+                </div>
+              </div>
+              <div class="cho__pad">
+                <ol class="list list--decorated">
                   <li class="list__item">
-                    Company name: ZIZIUP Limited.
+                    <strong>Choose banking Partner</strong>
+                    <a href="#">See list</a>
+                    <p>Go to local UBA bank and deposit either CFA or USD into our account.</p>
                   </li>
                   <li class="list__item">
-                    Account numbers
-                    <ul class="list list--dashed">
-                      <li class="list__item">UBA USD: 12345678</li>
-                      <li class="list__item">UBA CFA: 12345678</li>
+                    <strong>Completing Deposit</strong>
+                    <ul class="list list--dotted">
+                      <li class="list__item">
+                        Company name: ZIZIUP Limited.
+                      </li>
+                      <li class="list__item">
+                        Account numbers
+                        <ul class="list list--dashed">
+                          <li class="list__item">UBA USD: 12345678</li>
+                          <li class="list__item">UBA CFA: 12345678</li>
+                        </ul>
+                      </li>
+                      <li class="list__item">
+                        Write your web card account number infront of your name. See example image below.
+                      </li>
                     </ul>
                   </li>
                   <li class="list__item">
-                    Write your web card account number infront of your name. See example image below.
+                    <strong>Account Credited</strong>
+                    <p>We will credit your account within 24 hours from the moment money was deposited.</p>
+                    <img src="../img/comp-payment-sample.png" alt="Payment Sample">
+                    <a href="#">Download Sample</a><br />
+                    <a href="#">Download Instructions</a>
                   </li>
-                </ul>
-              </li>
-              <li class="list__item">
-                <strong>Account Credited</strong>
-                <p>We will credit your account within 24 hours from the moment money was deposited.</p>
-                <img src="../img/comp-payment-sample.png" alt="Payment Sample">
-                <a href="#">Download Sample</a><br />
-                <a href="#">Download Instructions</a>
-              </li>
-            </ol>
-          </div>
-          <div class="cho__footer">
-            <div
-              class="cho__button"
-              m-on:click="cancelLoadingZcard"
-            >Cancel</div>
-          </div>
-        </div> <!-- Load Zcard with deposit -->
+                </ol>
+              </div>
+              <div class="cho__footer">
+                <div
+                  class="cho__button"
+                  m-on:click="cancelLoadingZcard"
+                >Cancel</div>
+              </div>
+            </div> <!-- Load Zcard with deposit -->
 
 
-        <!-- Load Zcard with credit card-->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'zccard'"
-        >
-          <div class="cho__header">Load ZIZIUP Card with</div>
-          <div class="tabbar">
+            <!-- Load Zcard with credit card-->
             <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zcdeposit')"
+              class="cho__screen"
+              m-if="{{payment.path}} === 'zccard'"
             >
-              <span class="hide__until--phablet">Bank </span>deposit
-            </div>
-            <div class="tabbar__tab tabbar__tab--active">
-              <span class="hide__until--phablet">Credit </span>card
-            </div>
-            <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zcpp')"
-            >
-              Paypal<span class="hide__until--phablet"> account</span>
-            </div>
-          </div>
-          <div class="columns columns__from--phablet golden-reverse__from--phablet">
-            <div class="cho__pad">
-              <ul class="list list--iconized">
-                <li
-                  class="list__item"
-                  m-for="card in {{creditCards}}"
-                  m-on:click="selectCreditCard({{card.id}})"
+              <div class="cho__header">Load ZIZIUP Card with</div>
+              <div class="tabbar">
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zcdeposit')"
                 >
-                  <i
-                    class="icon icon--smaller icon--radio-off"
-                    m-if="{{payment.selectedCreditCard.id}} !== {{card.id}}"
-                  ></i>
-                  <i
-                    class="icon icon--smaller icon--radio-on"
-                    m-if="{{payment.selectedCreditCard.id}} === {{card.id}}"
-                  ></i>
-                  <strong class="cho__upper">{{card.type}}...{{card.num4}}</strong>
-                </li>
-                <li class="list__item">
-                  <i class="icon icon--smaller icon--plus-alt"></i>
-                  <a
-                    href="javascript:;"
-                    m-on:click="addCardToLoadFrom"
-                  >Add Card</a>
-                </li>
-              </ul>
-            </div>
-            <div
-              class="cho__pad"
-              m-if="{{payment.selectedCreditCard}}"
-            >
-              <label for="cho-add-credit-from-card" class="form__label">
-                Enter amount in USD
-              </label>
-              <input
-                type="number"
-                class="form__input"
-                id="cho-add-credit-from-card"
-                m-model="payment.creditFromCard"
-              />
-              <small>Your card will be credited within 24 hours</small>
-            </div>
-          </div>
-          <div class="cho__footer">
-            <div
-              class="cho__button cho__button--cancel"
-              m-on:click="cancelLoadingZcard"
-            >Cancel</div>
-            <div
-              class="cho__button cho__button--submit cho__button--disabled"
-              m-if="!{{payment.creditFromCard}}"
-            >Add Credit</div>
-            <div
-              class="cho__button cho__button--submit"
-              m-if="{{payment.creditFromCard}}"
-              m-on:click="addCreditFromCard"
-            >Add Credit</div>
-          </div>
-        </div> <!-- Load Zcard with credit card -->
-
-
-
-        <!-- Load Zcard with paypal-->
-        <div
-          class="cho__screen"
-          m-if="{{payment.path}} === 'zcpp'"
-        >
-          <div class="cho__header">Load ZIZIUP Card with</div>
-          <div class="tabbar">
-            <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zcdeposit')"
-            >
-              <span class="hide__until--phablet">Bank </span>deposit
-            </div>
-            <div
-              class="tabbar__tab"
-              m-on:click="navigate('payment', 'zccard')"
-            >
-              <span class="hide__until--phablet">Credit </span>card
-            </div>
-            <div class="tabbar__tab tabbar__tab--active">
-              Paypal<span class="hide__until--phablet"> account</span>
-            </div>
-          </div>
-          <!-- Already logged into PayPal -->
-          <div
-            class="cho__screen"
-            m-if="{{payment.pp.loggedIn}}"
-          >
-            <div class="columns columns__from--phablet golden-reverse__from--phablet">
-              <div class="cho__pad">
-                <strong>PayPal account</strong><br>
-                {{payment.pp.login}}<br>
-                Card x{{payment.pp.currentCard.num4}}, ${{payment.pp.currentCard.credit}}
-                <ul class="list list--iconized">
-                  <li class="list__item">
-                    <a
-                      href="javascript:;"
-                      class="cho__action"
-                      m-on:click="editPaypalSettings"
+                  <span class="hide__until--phablet">Bank </span>deposit
+                </div>
+                <div class="tabbar__tab tabbar__tab--active">
+                  <span class="hide__until--phablet">Credit </span>card
+                </div>
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zcpp')"
+                >
+                  Paypal<span class="hide__until--phablet"> account</span>
+                </div>
+              </div>
+              <div class="columns columns__from--phablet golden-reverse__from--phablet">
+                <div class="cho__pad">
+                  <ul class="list list--iconized">
+                    <li
+                      class="list__item"
+                      m-for="card in {{creditCards}}"
+                      m-on:click="selectPaypalCreditCard({{card.id}})"
                     >
-                      <i class="icon icon--tiny icon--pencil"></i>
-                      Edit
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="cho__pad">
-                <label for="cho-add-credit-from-paypal" class="form__label">
-                  Enter amount in USD
-                </label>
-                <input
-                  type="number"
-                  class="form__input"
-                  id="cho-add-credit-from-paypal"
-                  m-model="payment.creditFromPaypal"
-                />
-                <small>Your card will be credited within 24 hours</small>
-              </div>
-            </div>
-            <div class="cho__footer">
-              <div
-                class="cho__button cho__button--cancel"
-                m-on:click="cancelLoadingZcard"
-              >Cancel</div>
-              <div
-                class="cho__button cho__button--submit cho__button--disabled"
-                m-if="!{{payment.creditFromPaypal}}"
-              >Add Credit</div>
-              <div
-                class="cho__button cho__button--submit"
-                m-if="{{payment.creditFromPaypal}}"
-                m-on:click="addCreditFromPaypal"
-              >Add Credit</div>
-            </div>
-          </div>
-          <!-- Login form -->
-          <div
-            class="cho__screen"
-            m-if="!{{payment.pp.loggedIn}}"
-          >
-            <div class="cho__pad">
-              <div class="form__row">
-                <div class="form__cell">
-                  <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
-                  <input
-                    type="email"
-                    class="form__input"
-                    id="cho-paypal-login-pass"
-                    m-model="payment.pp.login"
-                  />
+                      <i
+                        class="icon icon--smaller icon--radio-off"
+                        m-if="{{payment.selectedCreditCard.id}} !== {{card.id}}"
+                      ></i>
+                      <i
+                        class="icon icon--smaller icon--radio-on"
+                        m-if="{{payment.selectedCreditCard.id}} === {{card.id}}"
+                      ></i>
+                      <strong class="cho__upper">{{card.type}}...{{card.num4}}</strong>
+                    </li>
+                    <li class="list__item">
+                      <i class="icon icon--smaller icon--plus-alt"></i>
+                      <a
+                        href="javascript:;"
+                        m-on:click="addCardToLoadWith"
+                      >Add Card</a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="form__cell">
-                  <label for="cho-paypal-login-pass" class="form__label">Password</label>
+                <div
+                  class="cho__pad"
+                  m-if="{{payment.selectedCreditCard}}"
+                >
+                  <label for="cho-add-credit-from-card" class="form__label">
+                    Enter amount in USD
+                  </label>
                   <input
-                    type="password"
+                    type="number"
                     class="form__input"
-                    m-model="payment.pp.pass"
+                    id="cho-add-credit-from-card"
+                    m-model="payment.creditFromCard"
                   />
+                  <small>Your card will be credited within 24 hours</small>
                 </div>
               </div>
-            </div>
+              <div class="cho__footer">
+                <div
+                  class="cho__button cho__button--cancel"
+                  m-on:click="cancelLoadingZcard"
+                >Cancel</div>
+                <div
+                  class="cho__button cho__button--submit cho__button--disabled"
+                  m-if="!{{payment.creditFromCard}}"
+                >Add Credit</div>
+                <div
+                  class="cho__button cho__button--submit"
+                  m-if="{{payment.creditFromCard}}"
+                  m-on:click="addCreditFromCard"
+                >Add Credit</div>
+              </div>
+            </div> <!-- Load Zcard with credit card -->
 
-            <div class="cho__footer">
+
+
+            <!-- Load Zcard with paypal-->
+            <div
+              class="cho__screen"
+              m-if="{{payment.path}} === 'zcpp'"
+            >
+              <div class="cho__header">Load ZIZIUP Card with</div>
+              <div class="tabbar">
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zcdeposit')"
+                >
+                  <span class="hide__until--phablet">Bank </span>deposit
+                </div>
+                <div
+                  class="tabbar__tab"
+                  m-on:click="navigate('payment', 'zccard')"
+                >
+                  <span class="hide__until--phablet">Credit </span>card
+                </div>
+                <div class="tabbar__tab tabbar__tab--active">
+                  Paypal<span class="hide__until--phablet"> account</span>
+                </div>
+              </div>
+              <!-- Already logged into PayPal -->
               <div
-                class="cho__button cho__button--cancel"
-                m-on:click="cancelPaypalLogin"
-              >Cancel</div>
+                class="cho__screen"
+                m-if="{{payment.pp.loggedIn}}"
+              >
+                <div class="columns columns__from--phablet golden-reverse__from--phablet">
+                  <div class="cho__pad">
+                    <strong>PayPal account</strong><br>
+                    {{payment.pp.login}}<br>
+                    Card x{{payment.pp.currentCard.num4}}, ${{payment.pp.currentCard.credit}}
+                    <ul class="list list--iconized">
+                      <li class="list__item">
+                        <a
+                          href="javascript:;"
+                          class="cho__action"
+                          m-on:click="editPaypalSettings"
+                        >
+                          <i class="icon icon--tiny icon--pencil"></i>
+                          Edit
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="cho__pad">
+                    <label for="cho-add-credit-from-paypal" class="form__label">
+                      Enter amount in USD
+                    </label>
+                    <input
+                      type="number"
+                      class="form__input"
+                      id="cho-add-credit-from-paypal"
+                      m-model="payment.creditFromPaypal"
+                    />
+                    <small>Your card will be credited within 24 hours</small>
+                  </div>
+                </div>
+                <div class="cho__footer">
+                  <div
+                    class="cho__button cho__button--cancel"
+                    m-on:click="cancelLoadingZcard"
+                  >Cancel</div>
+                  <div
+                    class="cho__button cho__button--submit cho__button--disabled"
+                    m-if="!{{payment.creditFromPaypal}}"
+                  >Add Credit</div>
+                  <div
+                    class="cho__button cho__button--submit"
+                    m-if="{{payment.creditFromPaypal}}"
+                    m-on:click="addCreditFromPaypal"
+                  >Add Credit</div>
+                </div>
+              </div>
+              <!-- Login form -->
               <div
-                class="cho__button cho__button--submit"
-                m-on:click="submitPaypalLogin"
-                m-if="{{showPaymentPPSubmit}}"
-              >Log in</div>
+                class="cho__screen"
+                m-if="!{{payment.pp.loggedIn}}"
+              >
+                <div class="cho__pad">
+                  <div class="form__row">
+                    <div class="form__cell">
+                      <label for="cho-paypal-login-email" class="form__label">PayPal login (email)</label>
+                      <input
+                        type="email"
+                        class="form__input"
+                        id="cho-paypal-login-pass"
+                        m-model="payment.pp.login"
+                      />
+                    </div>
+                    <div class="form__cell">
+                      <label for="cho-paypal-login-pass" class="form__label">Password</label>
+                      <input
+                        type="password"
+                        class="form__input"
+                        m-model="payment.pp.pass"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cho__footer">
+                  <div
+                    class="cho__button cho__button--cancel"
+                    m-on:click="cancelPaypalLogin"
+                  >Cancel</div>
+                  <div
+                    class="cho__button cho__button--submit"
+                    m-on:click="submitPaypalLogin"
+                    m-if="{{showPaymentPPSubmit}}"
+                  >Log in</div>
+                  <div
+                    class="cho__button cho__button--submit cho__button--disabled"
+                    m-if="!{{showPaymentPPSubmit}}"
+                  >Log in</div>
+                </div>
+              </div>
+            </div> <!-- Load Zcard with paypal -->
+
+
+         </div> <!-- Content -->
+
+
+        </div> <!-- PAYMENT -->
+
+
+
+        <!-- DONATION -->
+        <div id="checkout-donation" class="cho__module">
+          <!-- Summary -->
+          <div class="cho__summary">
+            <div class="cho__title">Donation</div>
+            <div
+              class="cho__value"
+              m-if="{{donation.path}} !=='open'"
+            >
+              <div class="cho__icon">
+                <strong>$&thinsp;{{donation.currentValue}}</strong>
+              </div>
+              <a href="#" class="cho__popout">Learn more</a>
+            </div>
+            <div class="cho__toggle"
+              m-if="{{donation.path}} === 'closed'"
+              m-on:click="navigate('donation', 'open')"
+            >Change</div>
+            <div class="cho__toggle"
+              m-if="{{donation.path}} === 'open'"
+              m-on:click="navigate('donation', 'closed')"
+            >Close</div>
+          </div>
+
+          <!-- Content -->
+          <div class="cho__content" m-if="{{donation.path}} !== 'closed'">
+            <div class="cho__list">
               <div
-                class="cho__button cho__button--submit cho__button--disabled"
-                m-if="!{{showPaymentPPSubmit}}"
-              >Log in</div>
+                class="cho__choice cho__choice--padded"
+                m-for="value in {{donation.values}}"
+                m-on:click="selectDonationValue({{value}})"
+              >
+                <div class="cho-info">
+                  <div class="cho-info__title">$&thinsp;{{value}}</div>
+                </div>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{value}} === {{donation.currentValue}}"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{value}} !== {{donation.currentValue}}"
+                  ></i>
+                </div>
+              </div>
             </div>
-          </div>
-        </div> <!-- Load Zcard with paypal -->
+          </div> <!-- Content -->
+
+        </div> <!-- DONATION -->
+
+      </main>
+    </div>
 
 
-     </div> <!-- Content -->
-
-
-    </div> <!-- PAYMENT -->
-
-
-
-    <!-- DONATION -->
-    <div id="checkout-donation" class="cho__module">
-      <!-- Summary -->
-      <div class="cho__summary">
-        <div class="cho__title">Donation</div>
-        <div
-          class="cho__value"
-          m-if="{{donation.path}} !=='open'"
-        >
-          <div class="cho__icon">
-            <strong>$&thinsp;{{donation.currentValue}}</strong>
-          </div>
-          <a href="#" class="cho__action">Learn more</a>
-        </div>
-        <div class="cho__toggle cho__action"
-          m-if="{{donation.path}} === 'closed'"
-          m-on:click="navigate('donation', 'open')"
-        >
-          Change
-        </div>
-        <div class="cho__toggle"
-          m-if="{{donation.path}} === 'open'"
-          m-on:click="navigate('donation', 'closed')"
-        >
-          Close
-        </div>
-      </div>
-
-      <!-- Content -->
-      <div class="cho__content" m-if="{{donation.path}} !== 'closed'">
-        <div class="cho__list">
-          <div
-            class="cho__choice cho__choice--padded"
-            m-for="value in {{donation.values}}"
-            m-on:click="selectDonationValue({{value}})"
-          >
-            <div class="cho-info">
-              <div class="cho-info__title">$&thinsp;{{value}}</div>
-            </div>
-            <div class="cho__radio">
-              <i class="icon icon--small icon--radio-on"
-                m-if="{{value}} === {{donation.currentValue}}"
-              ></i>
-              <i class="icon icon--small icon--radio-off"
-                m-if="{{value}} !== {{donation.currentValue}}"
-              ></i>
-            </div>
-          </div>
-        </div>
-      </div> <!-- Content -->
-
-    </div> <!-- DONATION -->
 
 
   </div> <!-- .cho -->
@@ -1323,7 +1384,7 @@
         <li m-if="{{value.params.size}}">Size: {{value.params.size}}</li>
         <li m-if="{{value.params.color}}">Color: {{value.params.color}}</li>
       </ul>
-      <div class="cho-info__price">${{value.price}}</div>
+      <div class="cho-info__price">$ {{value.price}}</div>
     </div>
   </script>
 

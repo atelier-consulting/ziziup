@@ -45,6 +45,14 @@
     height: 2.5rem;
     line-height: 2.3125rem;
     padding: 0 1.875rem;
+
+    &.button--disabled {
+      background-image: none;
+      background-color: $color-brand-disabled;
+      border-color: $color-brand-disabled;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
   }
 
   &--cta {
