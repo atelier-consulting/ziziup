@@ -425,9 +425,23 @@ var cho = new Moon({
     },
 
     donation: {
-      path: 'closed', // 'closed', 'open'
+      path: 'closed', // 'closed', 'open', 'list'
       currentValue: '0.00',
-      values: ['0.00', '1.00', '2.50', '5.00', '10.00']
+      values: ['0.00', '1.00', '2.50', '5.00', '10.00'],
+      currentCharity: {
+        id: 1,
+        title: 'The Red Cross'
+      },
+      charities: [{
+        id: 1,
+        title: 'The Red Cross'
+      },{
+        id: 2,
+        title: 'Bill & Melinda Gates Foundation'
+      },{
+        id: 3,
+        title: 'The Salvation Army'
+      }]
     }
   },
 
@@ -1109,6 +1123,20 @@ var cho = new Moon({
      */
     selectDonationValue: function(val) {
       this.set('donation.currentValue', val);
+    },
+
+    /**
+     * Selects specific charity as current
+     * @param  {integer|any} id Charity ID
+     * @return {void}
+     */
+    selectCurrentCharity: function(id) {
+      var d = this.get('donation');
+      var selected = d.charities.filter(function(charity) {
+        return charity.id === id;
+      })[0];
+
+      this.set('donation.currentCharity', selected);
     }
   },
 

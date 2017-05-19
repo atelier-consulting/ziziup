@@ -1314,25 +1314,27 @@
             <div class="cho__title">Donation</div>
             <div
               class="cho__value"
-              m-if="{{donation.path}} !=='open'"
+              m-if="{{donation.path}} === 'closed'"
             >
               <div class="cho__icon">
                 <strong>$&thinsp;{{donation.currentValue}}</strong>
               </div>
-              <a href="#" class="cho__popout">Learn more</a>
+              <div m-if="{{donation.currentValue}} !== '0.00'">
+                to <strong>{{donation.currentCharity.title}}</strong>
+              </div>
             </div>
             <div class="cho__toggle"
               m-if="{{donation.path}} === 'closed'"
               m-on:click="navigate('donation', 'open')"
             >Change</div>
             <div class="cho__toggle"
-              m-if="{{donation.path}} === 'open'"
+              m-if="{{donation.path}} !== 'closed'"
               m-on:click="navigate('donation', 'closed')"
             >Close</div>
           </div>
 
-          <!-- Content -->
-          <div class="cho__content" m-if="{{donation.path}} !== 'closed'">
+          <!-- Donation amount -->
+          <div class="cho__screen" m-if="{{donation.path}} === 'open'">
             <div class="cho__list">
               <div
                 class="cho__choice cho__choice--padded"
@@ -1352,15 +1354,50 @@
                 </div>
               </div>
             </div>
-          </div> <!-- Content -->
+            <div class="cho__footer">
+              <div class="cho__button" m-on:click="navigate('donation','list')">
+                Select charity
+              </div>
+            </div>
+          </div> <!-- Donation amount -->
+
+          <!-- Charity choice -->
+          <div class="cho__screen" m-if="{{donation.path}} === 'list'">
+            <div class="cho__list">
+              <div
+                class="cho__choice cho__choice--padded"
+                m-for="charity in {{donation.charities}}"
+                m-on:click="selectCurrentCharity({{charity.id}})"
+              >
+                <div class="cho-info">
+                  <div class="cho-info__title">{{charity.title}}</div>
+                </div>
+                <div class="cho__radio">
+                  <i class="icon icon--small icon--radio-on"
+                    m-if="{{charity.id}} === {{donation.currentCharity.id}}"
+                  ></i>
+                  <i class="icon icon--small icon--radio-off"
+                    m-if="{{charity.id}} !== {{donation.currentCharity.id}}"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div class="cho__footer">
+              <div
+                class="cho__button cho__button--cancel"
+                m-on:click="navigate('donation','open')"
+              >Change amount</div>
+              <div
+                class="cho__button cho__button--submit"
+                m-on:click="navigate('donation','closed')"
+              >Save and close</div>
+            </div>
+          </div> <!-- Charity choice -->
 
         </div> <!-- DONATION -->
 
       </main>
     </div>
-
-
-
 
   </div> <!-- .cho -->
 
