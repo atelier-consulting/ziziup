@@ -41,7 +41,15 @@
                   m-if="{{cart.values.length}} !== 1"
                 >s</span>)
               </td>
-              <td>$&thinsp;{{cartTotal}}</td>
+              <td>
+                <span
+                  class="cho__dimmed"
+                  m-if="{{coupon.currentValue}}"
+                >
+                  <span m-if="{{coupon.currentValue.type}} === 'amount'">$</span>{{coupon.currentValue.discount}}<span m-if="{{coupon.currentValue.type}} === 'percent'">%</span> off
+                </span>&thinsp;
+                $&thinsp;{{cartTotal}}
+              </td>
             </tr>
             <tr>
               <td>Shipping</td>
@@ -1305,7 +1313,46 @@
 
         </div> <!-- PAYMENT -->
 
-
+        <!-- COUPON -->
+        <div class="cho__module" id="checkout-coupon">
+          <div class="cho__summary">
+            <div class="cho__title">Coupon</div>
+            <div class="cho__value" m-if="{{coupon.path}} === 'apply'">
+              <input
+                class="cho__code"
+                type="text"
+                m-model="coupon.currentCode"
+              />
+              <div
+                class="cho__apply"
+                m-if="{{coupon.currentCode}} !== ''"
+                m-on:click="applyCouponCode"
+              >Apply</div>
+              <div
+                class="cho__apply cho__apply--disabled"
+                m-if="{{coupon.currentCode}} === ''"
+              >Apply</div>
+            </div>
+            <div class="cho__value" m-if="{{coupon.path}} === 'confirmed'">
+              <div class="cho__icon">
+                <strong>{{coupon.currentValue.code}}</strong>
+              </div>
+              <div>
+                <span m-if="{{coupon.currentValue.type}} === 'amount'">$&thinsp;</span>{{coupon.currentValue.discount}}<span m-if="{{coupon.currentValue.type}} === 'percent'">%</span>
+                &thinsp;off
+              </div>
+            </div>
+            <div class="cho__value" m-if="{{coupon.path}} === 'invalid'">
+              <div class="cho__icon">
+                <strong>Invalid code</strong>
+              </div>
+              <div
+                class="cho__action"
+                m-on:click="navigate('coupon', 'apply')"
+              >Retry</div>
+            </div>
+          </div>
+        </div> <!-- COUPON -->
 
         <!-- DONATION -->
         <div id="checkout-donation" class="cho__module">

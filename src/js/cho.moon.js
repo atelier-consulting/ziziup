@@ -93,7 +93,7 @@ function toMoney(amount) {
  */
 function percentage(percents, ofValue) {
   var result = ( ofValue / 100 ) * percents;
-  return  result.toFixed();
+  return result.toFixed();
 }
 
 Moon.config.silent = true;
@@ -422,6 +422,23 @@ var cho = new Moon({
         type: '', // '','cc','zcard','visa','mastercard', 'paypal'
         credit: ''
       }
+    },
+
+    coupon: {
+      path: 'apply', // 'apply', 'confirmed', 'invalid'
+      currentCode: '',
+      currentValue: false,
+      coupons: [{
+        id: 1,
+        code: 'FREE10USD',
+        type: 'amount',
+        discount: '10.00'
+      },{
+        id: 1,
+        code: 'TWO.FIVE',
+        type: 'percent',
+        discount: '2.5'
+      }]
     },
 
     donation: {
@@ -1137,6 +1154,29 @@ var cho = new Moon({
       })[0];
 
       this.set('donation.currentCharity', selected);
+    },
+
+
+    //
+    // COUPON
+    //
+
+    applyCouponCode: function() {
+      var c = this.get('coupon');
+
+      if (c.currentCode.length > 0) {
+        var applicable = c.coupons.filter(function(coupon) {
+          return coupon.code.toLowerCase() === c.currentCode.toLowerCase();
+        });
+
+        if (applicable.length > 0) {
+          this.set('coupon.currentValue', applicable[0]);
+          this.set('coupon.path', 'confirmed');
+        } else {
+          this.set('coupon.currentCode', '');
+          this.set('coupon.path', 'invalid');
+        }
+      }
     }
   },
 
@@ -1151,6 +1191,17 @@ var cho = new Moon({
         var total = this.get('cart').values.reduce(function(memo, val) {
           return memo + (fromMoney(val.price) * val.quantity);
         }, 0);
+        var coupon = this.get('coupon').currentValue;
+        if (coupon) {
+          switch (coupon.type) {
+            case 'amount':
+              total = total - fromMoney(coupon.discount);
+              break;
+            case 'percent':
+              total = total - percentage(parseFloat(coupon.discount), total);
+              break;
+          }
+        }
         return toMoney(total);
       }
     },
