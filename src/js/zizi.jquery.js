@@ -315,7 +315,10 @@
       selectorOptGroup: '.dropdown__optgroup',
       classNameOpen: 'dropdown--open',
       classNameSelected: 'dropdown__option--selected',
-      type: 'normal',
+      classNameExpandable: 'dropdown__option--expandable',
+      classNameExpanded: 'dropdown__option--expanded',
+      classNameCollapsed: 'dropdown__option--collapsed',
+      type: 'default',
       modifierValue: 'value',
       modifierCity: 'city',
       modifierCountry: 'country',
@@ -356,7 +359,8 @@
 
     var select = function(e) {
       var $target = $(e.target);
-      if (!$target.hasClass(cfg.classNameSelected)) {
+      if (!$target.hasClass(cfg.classNameSelected) &&
+          !$target.hasClass(cfg.classNameExpandable)) {
         switch(cfg.type) {
           case 'location':
             $root
@@ -368,6 +372,7 @@
               .text(cfg.separatorValue + $target.data('country'))
             ;
             break;
+
           case 'language':
             $root
               .find(cfg.selectorValue)
@@ -382,18 +387,26 @@
 
             break;
 
+          case 'filter':
+            alert('Filtering by category ' + $target.text());
+            break;
+
           default:
-          console.log('here');
             $root
               .find(cfg.selectorValue)
               .text($target.data('value'))
             ;
             break;
         }
+
+        $options.removeClass(cfg.classNameSelected);
+        $target.addClass(cfg.classNameSelected);
+        close();
       }
-      $options.removeClass(cfg.classNameSelected);
-      $target.addClass(cfg.classNameSelected);
-      close();
+
+      if ($target.hasClass(cfg.classNameExpandable)) {
+        $target.toggleClass(cfg.classNameExpanded+' '+cfg.classNameCollapsed);
+      }
     }
 
     var matcher = function() {
