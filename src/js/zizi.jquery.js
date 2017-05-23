@@ -443,4 +443,67 @@
       $searchBar.addClass(cfg.classNameNotSearchable);
     }
   }
+
+  $.fn.ziziCategories = function(options) {
+    var defaults = {
+      selectorDropdown: '.dropdown--category',
+      selectorHeader: 'h1',
+      selectorIcon: '.icon--caret-white',
+      selectorExpander: '.banner__expander'
+    }
+    var cfg = $.extend(defaults, options);
+
+    var init = function() {
+      var $root = $(this);
+
+      var $expander = $root.find(cfg.selectorExpander);
+      if (!$expander.length) return;
+
+      var $header = $root.find(cfg.selectorHeader);
+      var $dropdown = $root.find(cfg.selectorDropdown);
+      var $icon = $root.find(cfg.selectorIcon);
+
+      var toggleExpander = function() {
+        $expander.toggle();
+        $icon.toggleClass('icon--rotated');
+      }
+
+      var positionExpander = function() {
+        $expander.css('top', $header.position().top + $header.height());
+      }
+
+      positionExpander();
+      $(window).resize(positionExpander);
+
+      $dropdown.on('click', toggleExpander);
+      $header.on('click', toggleExpander);
+    }
+
+    this.each(init);
+  }
+
+  $.fn.ziziLikeStores = function() {
+    var init = function() {
+      var $root = $(this);
+      if (!$root.is('.plate.store')) return;
+
+      var $like = $root.find('.plate__like');
+
+      var handleLikeClick = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var wasLiked = $root.is('.store--liked');
+        var store = $root.attr('rel');
+
+        $root.toggleClass('store--liked');
+        
+        // API call here
+        console.log(store + ' is ' + (wasLiked ? 'not ' : '') + 'liked now');
+      }
+
+      $like.on('click', handleLikeClick)
+    }
+
+    this.each(init);
+  }
 }(jQuery));
