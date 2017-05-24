@@ -56,6 +56,7 @@
 
   &--category {
     height: 3.5rem;
+    position: relative;
 
     @include from(tablet) {
       height: 8rem;
@@ -115,6 +116,7 @@
       @include from(tablet) {
         height: auto;
         margin-top: 1.25rem;
+        justify-content: flex-start;
       }
 
       @include from(desktop) {
@@ -126,6 +128,7 @@
         display: block;
         margin: 0;
         max-width: none;
+        cursor: pointer;
       }
 
       & > .dropdown {
@@ -222,6 +225,24 @@
 
     &:not(:last-child) {
       padding-right: 2.25rem;
+    }
+  }
+
+  &__expander {
+    width: 100%;
+    position: absolute;
+    z-index: 8;
+    display: none;
+
+    & > .container {
+      display: block;
+    }
+
+    & .plates {
+      background: $color-background-default;
+      color: $color-text-default;
+      box-shadow: 0 10px 15px $color-shadow-auth;
+      padding-bottom: 0;
     }
   }
 

@@ -162,7 +162,7 @@ $plate-gutter-default: 1.25rem;
   }
 
   &__like {
-    display: block;
+    display: none;
     position: absolute;
     top: .375rem;
     left: .625rem;
@@ -170,6 +170,24 @@ $plate-gutter-default: 1.25rem;
     height: 2rem;
     border-radius: 1rem;
     background: $color-background-like;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($color-background-like, 12);
+    }
+
+    .store:hover & {
+      display: block;
+    }
+
+    .store--liked & {
+      display: block;
+      background: $color-brand-primary;
+
+      &:hover {
+        background: lighten($color-brand-primary, 12);
+      }
+    }
   }
 
   //
@@ -1119,7 +1137,7 @@ $plate-gutter-default: 1.25rem;
   &.location {
     box-shadow: 0 2px 4px $color-shadow-default;
     background-color: $color-background-default;
-    
+
     @extend %clearfix;
 
     height: $plate-height-small;

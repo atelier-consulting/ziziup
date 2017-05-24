@@ -315,7 +315,10 @@
       selectorOptGroup: '.dropdown__optgroup',
       classNameOpen: 'dropdown--open',
       classNameSelected: 'dropdown__option--selected',
-      type: 'normal',
+      classNameExpandable: 'dropdown__option--expandable',
+      classNameExpanded: 'dropdown__option--expanded',
+      classNameCollapsed: 'dropdown__option--collapsed',
+      type: 'default',
       modifierValue: 'value',
       modifierCity: 'city',
       modifierCountry: 'country',
@@ -356,7 +359,8 @@
 
     var select = function(e) {
       var $target = $(e.target);
-      if (!$target.hasClass(cfg.classNameSelected)) {
+      if (!$target.hasClass(cfg.classNameSelected) &&
+          !$target.hasClass(cfg.classNameExpandable)) {
         switch(cfg.type) {
           case 'location':
             $root
@@ -368,6 +372,7 @@
               .text(cfg.separatorValue + $target.data('country'))
             ;
             break;
+
           case 'language':
             $root
               .find(cfg.selectorValue)
@@ -382,18 +387,26 @@
 
             break;
 
+          case 'filter':
+            alert('Filtering by category ' + $target.text());
+            break;
+
           default:
-          console.log('here');
             $root
               .find(cfg.selectorValue)
               .text($target.data('value'))
             ;
             break;
         }
+
+        $options.removeClass(cfg.classNameSelected);
+        $target.addClass(cfg.classNameSelected);
+        close();
       }
-      $options.removeClass(cfg.classNameSelected);
-      $target.addClass(cfg.classNameSelected);
-      close();
+
+      if ($target.hasClass(cfg.classNameExpandable)) {
+        $target.toggleClass(cfg.classNameExpanded+' '+cfg.classNameCollapsed);
+      }
     }
 
     var matcher = function() {
@@ -429,5 +442,68 @@
     } else {
       $searchBar.addClass(cfg.classNameNotSearchable);
     }
+  }
+
+  $.fn.ziziCategories = function(options) {
+    var defaults = {
+      selectorDropdown: '.dropdown--category',
+      selectorHeader: 'h1',
+      selectorIcon: '.icon--caret-white',
+      selectorExpander: '.banner__expander'
+    }
+    var cfg = $.extend(defaults, options);
+
+    var init = function() {
+      var $root = $(this);
+
+      var $expander = $root.find(cfg.selectorExpander);
+      if (!$expander.length) return;
+
+      var $header = $root.find(cfg.selectorHeader);
+      var $dropdown = $root.find(cfg.selectorDropdown);
+      var $icon = $root.find(cfg.selectorIcon);
+
+      var toggleExpander = function() {
+        $expander.toggle();
+        $icon.toggleClass('icon--rotated');
+      }
+
+      var positionExpander = function() {
+        $expander.css('top', $header.position().top + $header.height());
+      }
+
+      positionExpander();
+      $(window).resize(positionExpander);
+
+      $dropdown.on('click', toggleExpander);
+      $header.on('click', toggleExpander);
+    }
+
+    this.each(init);
+  }
+
+  $.fn.ziziLikeStores = function() {
+    var init = function() {
+      var $root = $(this);
+      if (!$root.is('.plate.store')) return;
+
+      var $like = $root.find('.plate__like');
+
+      var handleLikeClick = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var wasLiked = $root.is('.store--liked');
+        var store = $root.attr('rel');
+
+        $root.toggleClass('store--liked');
+        
+        // API call here
+        console.log(store + ' is ' + (wasLiked ? 'not ' : '') + 'liked now');
+      }
+
+      $like.on('click', handleLikeClick)
+    }
+
+    this.each(init);
   }
 }(jQuery));

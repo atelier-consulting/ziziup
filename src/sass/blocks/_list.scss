@@ -24,22 +24,28 @@
 
   &--expandable {
     & > .list__item {
-      padding-left: $icon-size-small;
-      background-image: url("../img/icon-expand.png");
-      background-repeat: no-repeat;
-      background-position: top left;
-      background-size: $icon-size-small;
+      & > .list__link {
+        padding-left: $icon-size-small;
+        background-image: url("../img/icon-expand.png");
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: $icon-size-small;
+      }
 
       & > .list {
-        margin: $spacer-size-big 0 0 $spacer-size-default;
+        margin: $spacer-size-big 0 0 2 * $spacer-size-default;
         display: none;
       }
 
       &--expanded {
-        background-image: url("../img/icon-collapse.png");
+
+        & > .list__link {
+          background-image: url("../img/icon-collapse.png");
+        }
 
         & > .list {
           display: block;
+
         }
       }
     }

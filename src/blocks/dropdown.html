@@ -161,25 +161,51 @@
             <li
               class="dropdown__option dropdown__option--sort dropdown__option--selected"
               data-value="Recent first"
-            >
-              Recent first
-            </li>
+            >Recent first</li>
             <li
               class="dropdown__option dropdown__option--sort"
               data-value="Alphabetically"
-            >
-              Alphabetically
-            </li>
+            >Alphabetically</li>
             <li
               class="dropdown__option dropdown__option--sort"
               data-value="By popularity"
-            >
-              By popularity
-            </li>
+            >By popularity</li>
           </ul>
         </div>
       </div>
 
+    </div>
+
+    <h2 class="example__subheader">Filtering dropown</h2>
+    <div class="example__demo" style="height: 320px;">
+      <div class="dropdown" id="dropdown-filter">
+        <div class="dropdown__button dropdown__button--uppercase">
+          <i class="icon icon--tiny icon--filters"></i>
+          <div class="dropdown__value">Filter </div>
+          <div class="dropdown__value hide__until--phablet">by category</div>
+          <i class="icon icon--small icon--caret-alt"></i>
+        </div>
+        <div class="dropdown__scrollpane">
+          <ul class="dropdown__options">
+            <li>
+              <div class="dropdown__option dropdown__option--expandable dropdown__option--collapsed">Clothes</div>
+              <ul class="dropdown__options dropdown__options--expandable">
+                <li class="dropdown__option">Men&rsquo;s Fashion</li>
+                <li class="dropdown__option">Women&rsquo;s Fashion</li>
+                <li class="dropdown__option">Kid&rsquo;s Fashion</li>
+              </ul>
+            </li>
+            <li>
+              <div class="dropdown__option dropdown__option--expandable dropdown__option--collapsed">Tech</div>
+              <ul class="dropdown__options dropdown__options--expandable">
+                <li class="dropdown__option">Electronics</li>
+                <li class="dropdown__option">Cars&nbsp;&amp;&nbsp;Parts</li>
+                <li class="dropdown__option">Other Tech</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <footer class="example__footer">
@@ -203,6 +229,10 @@
 
       $('#dropdown-sort').ziziDropdown();
       $('#dropdown-sort-inverted').ziziDropdown();
+
+      $('#dropdown-filter').ziziDropdown({
+        type: 'filter'
+      });
 
     });
   </script>

@@ -108,6 +108,9 @@
 
     &--card-number {
       @extend %clearfix;
+      @include from(phablet) {
+        min-width: 22rem;
+      }
 
       & > input {
         display: block;
@@ -231,6 +234,12 @@
         margin-left: .5rem;
       }
     }
+
+    &--flat {
+      @include from(phablet) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__label {
@@ -330,6 +339,12 @@
 
     &:focus {
       border-bottom-color: $color-brand-primary;
+    }
+
+    &[disabled] {
+      color: $color-text-lightest;
+      background-image: none;
+      opacity: .5;
     }
   }
 

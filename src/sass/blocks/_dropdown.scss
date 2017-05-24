@@ -177,8 +177,26 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 180px;
     overflow: scroll;
+    max-height: 220px;
+
+    &--search {
+      max-height: 180px;
+    }
+
+    &--expandable {
+      background-color: $color-border-lightest;
+
+      & > .dropdown__option {
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: $font-size-tiny;
+        font-weight: $font-weight-bold;
+        color: $color-text-light;
+        letter-spacing: $letter-spacing-tiny;
+        border-bottom: 1px solid $color-border-lighter;
+      }
+    }
   }
 
   &__optgroup {
@@ -235,6 +253,52 @@
 
     &--hidden {
       display: none;
+    }
+
+    &--expandable {
+      height: 3.25rem;
+      line-height: 3.25rem;
+      font-size: $font-size-small;
+      letter-spacing: $letter-spacing-default;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      position: relative;
+      border-bottom: 1px solid $color-border-lighter;
+
+      &:after {
+        display: block;
+        content: " ";
+        position: absolute;
+        z-index: 99999999;
+        right: 1rem;
+        top: calc(1.625rem - #{$icon-size-tiny / 2});
+        width: $icon-size-tiny;
+        height: $icon-size-tiny;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: $icon-size-tiny $icon-size-tiny;
+        background-image: url("../img/icon-caret-full.png");
+      }
+
+      &:hover {
+        background-color: $color-background-default;
+      }
+    }
+
+    &--collapsed {
+      & + .dropdown__options {
+        display: none;
+      }
+    }
+
+    &--expanded {
+      & + .dropdown__options {
+        display: block;
+      }
+
+      &:after {
+        transform: rotate(180deg);
+      }
     }
   }
 
