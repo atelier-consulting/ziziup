@@ -242,13 +242,22 @@
 
     var $clickables = this;
 
+
+
     $clickables.on('click', function(e) {
+      var $toggleInClickable;
+      var $el = $(this);
+
       $(this).closest(cfg.selectorClosest).toggleClass(cfg.classNameToToggle);
-      if(cfg.selectorToggleInClickable && cfg.classNameToToggleInClickable) {
-        $(this)
-          .find(cfg.selectorToggleInClickable)
-          .toggleClass(cfg.classNameToToggleInClickable)
-        ;
+
+      if(cfg.selectorToggleInClickable) {
+        $toggleInClickable = $el.find(cfg.selectorToggleInClickable);
+      } else {
+        $toggleInClickable = $el;
+      }
+
+      if(cfg.classNameToToggleInClickable) {
+        $toggleInClickable.toggleClass(cfg.classNameToToggleInClickable);
       }
     });
   }
@@ -496,7 +505,7 @@
         var store = $root.attr('rel');
 
         $root.toggleClass('store--liked');
-        
+
         // API call here
         console.log(store + ' is ' + (wasLiked ? 'not ' : '') + 'liked now');
       }

@@ -526,6 +526,11 @@
       $('.auth__popup').ziziTabs();
       $('.spoiler').ziziSpoilers();
       $('.footer').ziziLists();
+      $('.menu .icon--toggle').ziziToggleClosest({
+        selectorClosest: '.menu',
+        classNameToToggle: 'menu--open',
+        classNameToToggleInClickable: 'icon--toggle icon--cross-alt'
+      });
     });
   </script>
 

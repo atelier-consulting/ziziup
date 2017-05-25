@@ -751,6 +751,11 @@
       $('.auth__popup').ziziTabs();
       $('.sale__footer > .icon').ziziSale();
       $('.footer').ziziLists();
+      $('.menu .icon--toggle').ziziToggleClosest({
+        selectorClosest: '.menu',
+        classNameToToggle: 'menu--open',
+        classNameToToggleInClickable: 'icon--toggle icon--cross-alt'
+      });
     });
   </script>
 </body>

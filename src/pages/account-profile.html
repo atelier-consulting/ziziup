@@ -650,6 +650,11 @@
       $('.footer').ziziLists();
       $('.account__title').ziziToggleSelf();
       $('.account__link--expandable > a').ziziToggleClosest();
+      $('.menu .icon--toggle').ziziToggleClosest({
+        selectorClosest: '.menu',
+        classNameToToggle: 'menu--open',
+        classNameToToggleInClickable: 'icon--toggle icon--cross-alt'
+      });
     });
   </script>
 </body>

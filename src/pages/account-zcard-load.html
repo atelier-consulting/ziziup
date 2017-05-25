@@ -583,6 +583,11 @@
         classNameActiveTab: 'account__tab--active',
         classNameActiveContent: 'account__tabcontent--active'
       });
+      $('.menu .icon--toggle').ziziToggleClosest({
+        selectorClosest: '.menu',
+        classNameToToggle: 'menu--open',
+        classNameToToggleInClickable: 'icon--toggle icon--cross-alt'
+      });
     });
   </script>
 
