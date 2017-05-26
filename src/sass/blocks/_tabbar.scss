@@ -5,13 +5,43 @@
   border-bottom: 1px solid $color-border-lightest;
 
   &--main {
+    flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: none;
 
     .tabbar__tab {
-      flex: initial;
-      letter-spacing: 0.0625rem;
+      flex-grow: 1;
+      flex-basis: 50%;
+      height: 66px;
+      line-height: 66px;
+      letter-spacing: 0.05rem;
       color: $color-text-default;
+
+      &--active,
+      &:hover {
+        border-bottom-color: transparent;
+        color: $color-brand-primary;
+      }
+
+      @include from(phablet) {
+        flex-basis: 33.33%;
+      }
+
+      @include from(tablet) {
+        flex-basis: 20%;
+      }
+
+      @include from(desktop) {
+        flex-basis: auto;
+
+        &--active,
+        &:hover {
+          border-bottom-color: $color-brand-primary;
+          color: $color-text-default;
+        }
+
+      }
+
     }
   }
 

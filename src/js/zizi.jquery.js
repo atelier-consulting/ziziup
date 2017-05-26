@@ -242,13 +242,22 @@
 
     var $clickables = this;
 
+
+
     $clickables.on('click', function(e) {
+      var $toggleInClickable;
+      var $el = $(this);
+
       $(this).closest(cfg.selectorClosest).toggleClass(cfg.classNameToToggle);
-      if(cfg.selectorToggleInClickable && cfg.classNameToToggleInClickable) {
-        $(this)
-          .find(cfg.selectorToggleInClickable)
-          .toggleClass(cfg.classNameToToggleInClickable)
-        ;
+
+      if(cfg.selectorToggleInClickable) {
+        $toggleInClickable = $el.find(cfg.selectorToggleInClickable);
+      } else {
+        $toggleInClickable = $el;
+      }
+
+      if(cfg.classNameToToggleInClickable) {
+        $toggleInClickable.toggleClass(cfg.classNameToToggleInClickable);
       }
     });
   }
@@ -496,7 +505,7 @@
         var store = $root.attr('rel');
 
         $root.toggleClass('store--liked');
-        
+
         // API call here
         console.log(store + ' is ' + (wasLiked ? 'not ' : '') + 'liked now');
       }
@@ -505,5 +514,31 @@
     }
 
     this.each(init);
+  }
+
+  $.fn.ziziSearch = function() {
+    var $root = this;
+    if (!$root.is('#main-search')) {
+      console.warning('ziziSearch: invalid element');
+      return;
+    }
+
+    var keyListener = function(e) {
+      var $input = $(e.target);
+      if (e.which === 13) {
+        // Enter key preses, API call here
+        alert('Searching by term "' + $input.val() + '"');
+        $input.val("");
+        return;
+      }
+      if (e.which === 27) {
+        // Esc key pressed, close
+        $root.closest('.menu').removeClass('menu--search');
+        $input.val("");
+        return;
+      }
+    }
+
+    $root.on('keydown', keyListener);
   }
 }(jQuery));
