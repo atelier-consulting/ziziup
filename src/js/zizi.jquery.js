@@ -515,4 +515,30 @@
 
     this.each(init);
   }
+
+  $.fn.ziziSearch = function() {
+    var $root = this;
+    if (!$root.is('#main-search')) {
+      console.warning('ziziSearch: invalid element');
+      return;
+    }
+
+    var keyListener = function(e) {
+      var $input = $(e.target);
+      if (e.which === 13) {
+        // Enter key preses, API call here
+        alert('Searching by term "' + $input.val() + '"');
+        $input.val("");
+        return;
+      }
+      if (e.which === 27) {
+        // Esc key pressed, close
+        $root.closest('.menu').removeClass('menu--search');
+        $input.val("");
+        return;
+      }
+    }
+
+    $root.on('keydown', keyListener);
+  }
 }(jQuery));

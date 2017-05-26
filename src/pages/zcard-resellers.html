@@ -297,8 +297,16 @@
           <a href="#" class="button button--icon">
             <i class="icon icon--bag"></i>
           </a>
-          <a href="#" class="button button--icon hide__until--big">
+          <a href="javascript:;" class="button button--icon hide__until--big js-toggle-search">
             <i class="icon icon--search"></i>
+          </a>
+        </div>
+      </div>
+      <div class="menu__search">
+        <div class="container">
+          <input id="main-search" type="text" class="form__input" placeholder="Type your search request here and press Enter" />
+          <a href="javascript:;" class="js-toggle-search">
+            <i class="icon icon--cross"></i>
           </a>
         </div>
       </div>
@@ -631,6 +639,11 @@
         selectorClosest: '.menu',
         classNameToToggle: 'menu--open',
         classNameToToggleInClickable: 'icon--toggle icon--cross-alt'
+      });
+      $('#main-search').ziziSearch();
+      $('.menu .js-toggle-search').ziziToggleClosest({
+        selectorClosest: '.menu',
+        classNameToToggle: 'menu--search'
       });
     });
   </script>
