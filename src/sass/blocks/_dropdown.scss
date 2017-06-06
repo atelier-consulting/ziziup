@@ -141,6 +141,13 @@
       right: 0;
     }
 
+    &--banner {
+      left: auto;
+      right: 0;
+      width: 246px;
+      top: 38px;
+    }
+
     .dropdown--open > & {
       display: block;
     }
@@ -207,6 +214,7 @@
     font-size: $font-size-default;
     font-weight: $font-weight-bold;
     cursor: default;
+    color: $color-text-default;
   }
 
   &__option {
@@ -215,6 +223,7 @@
     margin: 0;
     padding: 0 $spacer-size-default;
     cursor: pointer;
+    color: $color-text-default;
 
     &:hover {
       background-color: $color-border-lightest;

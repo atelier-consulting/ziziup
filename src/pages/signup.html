@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="cleartype" content="on">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>ZIZIUP</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
+  <link rel="stylesheet" href="../%CSSPATH%">
+</head>
+<body class="white">
+  <div class="auth__container">
+    <div class="auth__heading">
+      <div class="auth__logo">Login</div>
+      <a href="/pages/login.html" class="auth__close">Log in</a>
+    </div>
+
+    <div>
+      <form class="auth__form">
+        <div class="auth__row">
+          <input class="form__input" type="text" placeholder="Name">
+        </div>
+        <div class="auth__row">
+          <input class="form__input" type="email" placeholder="Email address">
+        </div>
+        <div class="auth__row">
+          <input class="form__input" type="tel" placeholder="Phone number">
+        </div>
+        <div class="auth__row">
+          <input class="form__input" type="password" placeholder="Password">
+        </div>
+        <div class="auth__row auth__row--relaxed">
+          <div class="auth__col">Gender</div>
+          <div class="auth__col">
+            <label class="form__radio" for="auth-signup-gender-male">
+              <input id="auth-signup-gender-male" type="radio" name="auth-signup-gender" >
+              Male
+            </label>
+          </div>
+          <div class="auth__col">
+            <label class="form__radio" for="auth-signup-gender-female">
+              <input id="auth-signup-gender-female" type="radio" name="auth-signup-gender">
+              Female
+            </label>
+          </div>
+        </div>
+
+        <div class="auth__row auth__row--bordered">
+          <label class="auth__label" for="auth-signup-country">Country</label>
+          <select id="auth-signup-country" class="form__select">
+            <option value="ua">Ukraine</option>
+          </select>
+        </div>
+
+        <div class="auth__row auth__row--bordered">
+          <label class="auth__label" for="auth-signup-city">City</label>
+          <select id="auth-signup-city" class="form__select">
+            <option value="001">Kyiv</option>
+          </select>
+        </div>
+
+        <div class="auth__row auth__row--relaxed">
+          <input class="button button--rounded button--accent" type="submit" value="Register">
+        </div>
+        <p style="text-align: center;">
+          By clicking "Register" I agree to ZIZIUP's<br>
+          <a class="form__link" href="#">Terms of service</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

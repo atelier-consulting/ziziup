@@ -5,6 +5,56 @@
     position: relative;
   }
 
+  &__container {
+    margin: 0 auto;
+    max-width: 30rem;
+    padding: 0 1rem;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    padding: .25rem 0;
+
+    @include from(phablet) {
+      padding-top: .75rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__logo {
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url("../img/logo.svg");
+    background-size: 98px 27px;
+    color: $color-text-default;
+
+    height: 3.5rem;
+    line-height: 3.375rem;
+    font-size: $font-size-accent;
+    font-weight: $font-weight-base;
+    text-transform: none;
+    letter-spacing: normal;
+
+    padding-left: 6.625rem;
+
+    @include from(phablet) {
+      font-size: $font-size-big;
+      background-size: 138px 38px;
+      padding-left: 9rem;
+    }
+
+    @include from(desktop) {
+      background-size: 185px 51px;
+      height: 5.5rem;
+      line-height: 5.5rem;
+      font-size: $font-size-larger;
+      padding-left: 12rem;
+    }
+  }
+
   &__popup {
     display: none;
     position: absolute;
@@ -32,6 +82,13 @@
     @include from(big) {
       right: -7rem;
     }
+  }
+
+  &__close {
+    color: $color-brand-primary;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: $letter-spacing-default;
   }
 
   &--open {
