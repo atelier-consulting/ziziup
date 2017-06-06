@@ -337,7 +337,10 @@
       selectorSearchBar: '.dropdown__searchbar',
       classNameNotSearchable: 'dropdown__searchbar--hidden',
       classNameNotMatched: 'dropdown__option--hidden',
-      selectorFlag: '.icon--flag'
+      selectorFlag: '.icon--flag',
+      rotateCaret: false,
+      selectorCaret: '[class*=" icon--caret"]',
+      classNameCaretRotated: 'icon--rotated'
     }
     var cfg = $.extend(defaults, options);
 
@@ -347,11 +350,17 @@
     var $optgroups = $root.find(cfg.selectorOptGroup);
     var $searchBar = $root.find(cfg.selectorSearchBar);
     var $searchInput = $searchBar.find('input');
+    if (cfg.rotateCaret) {
+      var $caret = $root.find(cfg.selectorCaret);
+    }
 
     var close = function(e) {
       if(!e || !$(e.target).closest(cfg.selectorPane).length) {
         $searchInput.val("").trigger('keyup').blur();
         $root.removeClass(cfg.classNameOpen);
+        if (cfg.rotateCaret) {
+          $caret.removeClass(cfg.classNameCaretRotated);
+        }
         $('body').off('click', close);
       }
     }
@@ -363,6 +372,9 @@
         setTimeout(function(){
           $('body').on('click', close);
         }, 100);
+        if (cfg.rotateCaret) {
+          $caret.addClass(cfg.classNameCaretRotated);
+        }
       }
     }
 
@@ -380,6 +392,8 @@
               .find(cfg.selectorValue+cfg.separatorSelector+cfg.modifierCountry)
               .text(cfg.separatorValue + $target.data('country'))
             ;
+            // API call here
+            // console.log($target.data('city'), $target.data('country'));
             break;
 
           case 'language':
@@ -393,7 +407,8 @@
                 return (className.match (/(^|\s)icon--flag-\S+/g) || []).join(' ');
               })
               .addClass('icon--flag-' + $target.data('value'));
-
+            // API call here
+            // console.log($target.data('value'));
             break;
 
           case 'filter':

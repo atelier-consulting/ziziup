@@ -269,11 +269,50 @@
             <h1>Affiliate program</h1>
           </div>
           <div class="banner__module hide__until--desktop">
-            <div class="dropdown">
-              <div class="dropdown__label dropdown__label--large">Yaounde, Cameroon</div>
+            <div class="dropdown" id="affiliate-location-dropdown">
+              <div class="dropdown__label dropdown__label--large">
+                <span class="dropdown__part--city">Yaounde</span><span class="dropdown__part--country">, Cameroon</span>
+              </div>
               <div class="dropdown__button dropdown__button--rounded dropdown__button--bordered dropdown__button--careted">
                 <span class="dropdown__value">Change location</span>
                 <i class="icon icon--caret-white"></i>
+              </div>
+              <div class="dropdown__scrollpane dropdown__scrollpane--banner">
+                <ul class="dropdown__options">
+                  <li class="dropdown__optgroup">Cameroon</li>
+                  <li
+                    class="dropdown__option dropdown__option--selected"
+                    data-country="Cameroon"
+                    data-city="Yaounde"
+                  >Yaounde</li>
+                  <li
+                    class="dropdown__option"
+                    data-country="Cameroon"
+                    data-city="Bamenda"
+                  >Bamenda</li>
+                  <li class="dropdown__optgroup">Nigeria</li>
+                  <li
+                    class="dropdown__option"
+                    data-country="Nigeria"
+                    data-city="Lagos"
+                  >Lagos</li>
+                  <li
+                    class="dropdown__option"
+                    data-country="Nigeria"
+                    data-city="Abuja"
+                  >Abuja</li>
+                  <li class="dropdown__optgroup">Ghana</li>
+                  <li
+                    class="dropdown__option"
+                    data-country="Ghana"
+                    data-city="Accra"
+                  >Accra</li>
+                  <li
+                    class="dropdown__option"
+                    data-country="Ghana"
+                    data-city="Tamale"
+                  >Tamale</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -631,6 +670,11 @@
       $('.menu .js-toggle-search').ziziToggleClosest({
         selectorClosest: '.menu',
         classNameToToggle: 'menu--search'
+      });
+      $('#affiliate-location-dropdown').ziziDropdown({
+        type: 'location',
+        selectorValue: '.dropdown__part',
+        rotateCaret: true
       });
     });
   </script>
