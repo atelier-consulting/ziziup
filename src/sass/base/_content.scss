@@ -1,4 +1,6 @@
 .content {
+  // **Uncomment to turn on fixed header**
+  //
   // margin-top: 3.125rem;
   //
   // @include from(tablet) {
@@ -9,8 +11,6 @@
   //   margin-top: 9.625rem;
   // }
 
-  // Content layout variations
-  // for general usage
   &__layout {
 
     &--inline {

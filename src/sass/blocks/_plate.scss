@@ -547,7 +547,6 @@ $plate-gutter-default: 1.25rem;
           &.popular--#{$name} {
             @each $viewport, $size in get($config, size, popular-white-quarter) {
               @include from($viewport) {
-                // background-image:    url("../img/category-#{$name}.jpg");
                 background-size:     $size;
                 background-position: get($config, position, popular-white-quarter, $viewport);
               }
@@ -717,7 +716,6 @@ $plate-gutter-default: 1.25rem;
     .sale {
       &__header {
         height: 3.75rem;
-        // border-bottom: 1px solid $color-border-lighter;
         box-shadow: inset 0 -1px 0 0 $color-border-lighter;
         display: flex;
         position: relative;
@@ -1055,7 +1053,6 @@ $plate-gutter-default: 1.25rem;
         text-transform: uppercase;
         letter-spacing: $letter-spacing-default;
         line-height: 1.75rem;
-        // padding-top: $spacer-size-tiny;
         margin: .3125rem 0 0;
         color: $color-text-lighter;
 
@@ -1063,7 +1060,6 @@ $plate-gutter-default: 1.25rem;
           display: inline-block;
           max-height: 90%;
           vertical-align: text-bottom;
-          // margin-right: $spacer-size-small;
         }
       }
 
@@ -1251,7 +1247,6 @@ $plate-gutter-default: 1.25rem;
         color: $color-text-white;
         font-size: $font-size-oversize;
       }
-
     }
   }
 }

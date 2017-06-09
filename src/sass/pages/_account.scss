@@ -13,13 +13,14 @@ $account-gutter-big: 1.25rem;
   flex-direction: column;
   max-width: 100vw;
 
+  // **Uncomment until line 26 to turn on fixed header**
   // padding-top: 3.125rem;
 
   @include from(tablet) {
     flex-direction: row;
     // padding-top: 6.875rem;
   }
-  
+
   // @include from(big) {
   //   padding-top: 9.625rem;
   // }
@@ -424,11 +425,6 @@ $account-gutter-big: 1.25rem;
           height: auto;
         }
       }
-
-
-      //& h4 {
-        //text-align: center;
-      //}
     }
   }
 
@@ -602,7 +598,6 @@ $account-gutter-big: 1.25rem;
     &--active {
       display: block;
     }
-
   }
 
   &__static {
@@ -617,7 +612,6 @@ $account-gutter-big: 1.25rem;
         padding-bottom: 0;
       }
     }
-
   }
 
   &__orders {

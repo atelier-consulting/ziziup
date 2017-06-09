@@ -29,13 +29,15 @@ var path = {
   prod: {
     html: 'prod',
     css: 'prod/css',
-    img: 'prod/img'
+    img: 'prod/img',
+    all: 'prod/**'
   },
   demo: {
     html: 'demo',
     css:  'demo/css',
     img: 'demo/img',
-    js: 'demo/js'
+    js: 'demo/js',
+    all: 'demo/**'
   }
 };
 
@@ -49,8 +51,7 @@ gulp.task('serve', ['html', 'sass', 'img', 'js'], function(){
   gulp.watch(path.src.js, ['js']);
 });
 
-gulp.task('build', function(){
-  del([path.prod.html]);
+gulp.task('build', ['clean-prod'], function(){
 
   gulp.src(path.src.scssPROD)
     .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
@@ -64,8 +65,7 @@ gulp.task('build', function(){
     ;
 });
 
-gulp.task('demo', function(){
-  del([path.demo.html]);
+gulp.task('demo', ['clean-demo'], function(){
 
   gulp.src(path.src.scssDEMO)
     .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
@@ -133,3 +133,11 @@ gulp.task('js', function(){
 });
 
 gulp.task('default', ['serve']);
+
+gulp.task('clean-demo', function(){
+  del([path.demo.all]);
+});
+
+gulp.task('clean-prod', function(){
+  del([path.prod.all]);
+});

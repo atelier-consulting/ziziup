@@ -393,7 +393,6 @@
   }
 
   // Devices
-
   &--android {
     background-image: url("../img/icon-android.png");
   }
@@ -438,10 +437,6 @@
 
   // Cho
   &--cho {
-    // background-size: $icon-size-large $icon-size-large;
-    // width: $icon-size-large;
-    // height: $icon-size-large;
-
     background-size: $icon-size-huge $icon-size-huge;
     width: $icon-size-huge;
     height: $icon-size-huge;
