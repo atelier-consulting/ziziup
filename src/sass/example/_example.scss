@@ -3,6 +3,7 @@ $example-color-bg:     white;
 $example-color-number: rgba(0,0,0,.15);
 $example-color-dimmed: rgba(0,0,0,.4);
 $example-color-code: #fdf6e3;
+$example-color-accent: crimson;
 
 .example {
 
@@ -40,6 +41,16 @@ $example-color-code: #fdf6e3;
     li > ul {
       padding-left: $spacer-width-checkbox;
     }
+  }
+
+  &__accent {
+    font-size: $font-size-tiny;
+    font-weight: $font-weight-black;
+    color: $example-color-accent;
+    display: inline-block;
+    padding-left: .125rem;
+    position: relative;
+    top: -2px;
   }
 
   &__container {
