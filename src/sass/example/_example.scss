@@ -168,4 +168,21 @@ $example-color-accent: crimson;
     vertical-align: middle;
     margin-right: .15rem;
   }
+
+  &__image {
+    text-decoration: none;
+    display: block;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+
+    &:hover {
+      border-color: cornflowerblue;
+    }
+
+    & > img {
+      display: block;
+      border-radius: 3px;
+      max-width: 100%;
+    }
+  }
 }

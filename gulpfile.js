@@ -17,7 +17,8 @@ var path = {
     scss: 'src/sass/**/*.scss',
     scssPROD: 'src/sass/prod.scss',
     scssDEMO: 'src/sass/demo.scss',
-    img: 'src/img/*.*',
+    imgALL: 'src/img/*.*',
+    imgDEMO: 'src/img/*-demo.*',
     js: 'src/js/*.js'
   },
   dev: {
@@ -41,32 +42,26 @@ var path = {
   }
 };
 
-gulp.task('serve', ['html', 'sass', 'img', 'js'], function(){
+gulp.task('serve', ['html', 'sass', 'imgDev', 'js'], function(){
   sync.init({
     server: './dev'
   });
   gulp.watch(path.src.html, ['html']);
   gulp.watch(path.src.scss, ['sass']);
-  gulp.watch(path.src.img, ['img']);
+  gulp.watch(path.src.img, ['imgAll']);
   gulp.watch(path.src.js, ['js']);
 });
 
-gulp.task('build', ['clean-prod'], function(){
-
+gulp.task('build', ['clean-prod', 'imgProd'], function(){
   gulp.src(path.src.scssPROD)
-    .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
+    .pipe(sass({errLogToConsole: true, outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(mini({keepSpecialComments: 0}))
     .pipe(rename('styles-v' + VERSION +'.min.css'))
     .pipe(gulp.dest(path.prod.css))
     ;
-
-  gulp.src(path.src.img)
-    .pipe(gulp.dest(path.prod.img))
-    ;
 });
 
-gulp.task('demo', ['clean-demo'], function(){
-
+gulp.task('demo', ['clean-demo', 'imgDemo'], function(){
   gulp.src(path.src.scssDEMO)
     .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(
@@ -81,10 +76,6 @@ gulp.task('demo', ['clean-demo'], function(){
     .pipe(mini({keepSpecialComments: 0}))
     .pipe(rename('styles-v' + VERSION +'.min.css'))
     .pipe(gulp.dest(path.demo.css))
-    ;
-
-  gulp.src(path.src.img)
-    .pipe(gulp.dest(path.demo.img))
     ;
 
   gulp.src(path.src.html)
@@ -117,10 +108,25 @@ gulp.task('html', function(){
     ;
 });
 
-gulp.task('img', function(){
-  return gulp.src(path.src.img)
+gulp.task('imgDev', function(){
+  return gulp.src(path.src.imgALL)
     .pipe(newer(path.dev.img))
     .pipe(gulp.dest(path.dev.img))
+    .pipe(sync.stream())
+    ;
+});
+
+gulp.task('imgDemo', function(){
+  return gulp.src(path.src.imgALL)
+    .pipe(newer(path.demo.img))
+    .pipe(gulp.dest(path.demo.img))
+    .pipe(sync.stream())
+    ;
+});
+
+gulp.task('imgProd', function(){
+  return gulp.src([path.src.imgALL, '!' + path.src.imgDEMO])
+    .pipe(gulp.dest(path.prod.img))
     .pipe(sync.stream())
     ;
 });
