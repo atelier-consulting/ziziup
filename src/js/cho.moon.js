@@ -192,8 +192,8 @@ var cho = new Moon({
 
       window.callback = function(data) {
         var location = {
-          city: data.city,
-          country: data.country_name
+          city: data.city || '',
+          country: data.country_name || ''
         };
         self.set('shipping.currentLocation', location);
         self.set('geoData', data);
