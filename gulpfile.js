@@ -31,14 +31,14 @@ var path = {
     html: 'prod',
     css: 'prod/css',
     img: 'prod/img',
-    all: 'prod/**'
+    all: 'prod/**/*'
   },
   demo: {
     html: 'demo',
     css:  'demo/css',
     img: 'demo/img',
     js: 'demo/js',
-    all: 'demo/**'
+    all: 'demo/**/*'
   }
 };
 

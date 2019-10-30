@@ -1,19 +1,22 @@
 {
-  "name": "ziziup-slicing",
-  "version": "3.0.2",
+  "name": "ziziup",
+  "version": "3.1.0",
   "description": "HTML and CSS for ZIZIUP",
   "main": "src/index.html",
   "scripts": {
     "dev": "gulp",
     "build": "gulp build",
     "demo": "gulp demo",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "deploy:demo": "gulp demo && node deploy"
   },
   "author": "Serge Tymoshenko <sergiy.tymoshenko@icloud.com>",
   "license": "Proprietary",
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "del": "^2.2.2",
+    "dotenv": "^8.2.0",
+    "ftp-deploy": "^2.3.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cssmin": "^0.1.7",
