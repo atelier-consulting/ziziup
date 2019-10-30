@@ -1,6 +1,6 @@
 {
   "name": "ziziup",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "HTML and CSS for ZIZIUP",
   "main": "src/index.html",
   "scripts": {

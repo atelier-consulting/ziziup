@@ -1,7 +1,7 @@
 ziziup-slicing
 ===
 
-HTML and CSS for ZIZIUP
+HTML and CSS for ZIZIUP. [Demo](http://ziziup.atelier.consulting)
 
 ## Initial setup
 1. Install Node.js and `npm`.
