@@ -1,7 +1,7 @@
 ziziup-slicing
 ===
 
-HTML and CSS for ZIZIUP. [Demo](http://ziziup.atelier.consulting)
+HTML and CSS for ZIZIUP. [Showcase](http://atelier.consulting/clients/ziziup/dev/)
 
 ## Initial setup
 1. Install Node.js and `npm`.
@@ -20,8 +20,8 @@ This places completely independent demo version into `demo` folder. Due to
 relative nature of paths used, demo build works only when served from web
 server, not from file system.
 
-### Deploy demo: `npm run deploy:demo`
-Deploys demo version to [ziziup.atelier.consulting](http://ziziup.atelier.consulting).
+### Deploy demo: `npm run deploy`
+Deploys showcase to [atelier.consulting/clients/ziziup/dev/](http://atelier.consulting/clients/ziziup/dev/).
 Requires proper `.env` file.
 
 ### Production: `npm run build`

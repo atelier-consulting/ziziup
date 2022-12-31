@@ -2,16 +2,15 @@
   "name": "ziziup",
   "version": "3.1.2",
   "description": "HTML and CSS for ZIZIUP",
-  "main": "src/index.html",
   "scripts": {
     "dev": "gulp",
     "build": "gulp build",
     "demo": "gulp demo",
     "clean": "gulp clean",
-    "deploy:demo": "gulp demo && node deploy"
+    "deploy": "gulp demo && node deploy"
   },
-  "author": "Serge Tymoshenko <sergiy.tymoshenko@icloud.com>",
-  "license": "Proprietary",
+  "author": "Serge Tymoshenko <serge@tymo.name>",
+  "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "del": "^2.2.2",
